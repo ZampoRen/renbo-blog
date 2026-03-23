@@ -1,0 +1,27 @@
+baseURL = 'https://ZampoRen.github.io/'
+languageCode = 'zh-cn'
+title = '任博的博客'
+theme = 'PaperMod'
+
+[params]
+  env = "production"
+  description = "任博的个人技术博客"
+  author = "任博"
+  defaultTheme = "auto"
+  ShowCodeCopyButtons = true
+  ShowReadingTime = true
+  ShowToc = true
+  ShowPostNavLinks = true
+
+[params.social]
+  github = "ZampoRen"
+
+[menu]
+  [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "归档"
+    url = "/posts/"
+    weight = 2
