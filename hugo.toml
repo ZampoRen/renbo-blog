@@ -1,4 +1,4 @@
-baseURL = 'https://ZampoRen.github.io/'
+baseURL = 'https://blog.cpdd.fyi/'
 languageCode = 'zh-cn'
 title = '任博的博客'
 theme = 'PaperMod'
