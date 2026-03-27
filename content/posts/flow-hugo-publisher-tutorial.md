@@ -1,101 +1,88 @@
-+++
-date = '2026-03-23T18:38:00+08:00'
-draft = false
-title = '使用 flow-hugo-publisher 技能搭建个人博客'
-tags = ['OpenClaw', 'Hugo', '技能教程', '自动化']
-description = '5 分钟上手，用 OpenClaw 技能自动化你的 Hugo 博客发布流程。'
-+++
+---
+title: "我写了个 OpenClaw 技能，5 分钟自动搭建 Hugo 博客"
+date: 2026-03-27T18:25:00+08:00
+draft: false
+author: "任博"
+description: "不用记命令、不用配置 GitHub Actions，一句话让 AI 帮你搭建并部署 Hugo 博客。这个开源技能，推荐给你。"
+tags: ["OpenClaw", "Hugo", "自动化", "技能教程", "GitHub Pages"]
+categories: ["开发工具"]
+featured: false
+toc: true
+weight: 3
+---
 
-> 本文介绍如何使用我开发的 OpenClaw 技能 `flow-hugo-publisher` 快速搭建个人博客，从安装到部署全流程自动化。
+> 搭博客最烦的不是写，是配置。
 
-**技能地址：** https://clawhub.ai/ZampoRen/flow-hugo-publisher
+上周有个朋友问我："想用 Hugo 写博客，但光看教程就劝退了，有没有更简单的办法？"
+
+我说有啊，用我写的那个技能，**一句话就能搭好**。
+
+他不信。我在 OpenClaw 里说了一句"帮我搭建一个 Hugo 博客"，5 分钟后，博客上线了，地址发给了他。
+
+他沉默了三秒，说："我之前的时间都喂狗了？"
+
+<!--more-->
 
 ---
 
-## 一、技能介绍
+## 一、这个技能是啥？
 
-`flow-hugo-publisher` 是一个 OpenClaw 技能，用于自动化 Hugo 博客的发布流程。
+`flow-hugo-publisher` 是我给 OpenClaw 写的一个技能，用来**自动化 Hugo 博客的整个发布流程**。
 
-### 核心功能
+### 它能做什么
 
-- ✅ 环境检测（Hugo/Git）
-- ✅ 初始化博客项目
-- ✅ 管理主题（PaperMod、Akanke 等）
-- ✅ 本地预览
-- ✅ Git 提交推送
-- ✅ GitHub Actions 自动部署
-- ✅ 状态持久化
+```
+┌─────────────────────────────────────────────────────────┐
+│              flow-hugo-publisher 能力地图                 │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  环境检测  →  自动安装 Hugo/Git                          │
+│      ↓                                                  │
+│  项目初始化 → 选主题、建仓库、配 GitHub Actions          │
+│      ↓                                                  │
+│  文章发布  →  本地预览 → Git 提交 → 自动部署             │
+│      ↓                                                  │
+│  状态管理  →  记住你的工作目录和发布历史                  │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
 
-### 适用人群
+### 和手动搭建对比
 
+| 步骤 | 手动搭建 | 用技能 |
+|------|----------|--------|
+| 安装 Hugo | 查教程 → 装 Homebrew → 安装 | 自动检测，缺失自动装 |
+| 选主题 | 逛主题市场 → 纠结半天 | 5 个内置主题，一句话选 |
+| 配 GitHub Actions | 复制 YAML → 改参数 → 试错 | 自动生成，无需配置 |
+| 部署 | 手动 push → 等 Actions → 查错误 | 全自动，推送即发布 |
+| 耗时 | 1-2 小时 | 5 分钟 |
+
+**适合谁用**：
 - 想用 Hugo 写博客但不想折腾部署
-- 想要自动化发布流程
-- OpenClaw 用户
+- 已经是 OpenClaw 用户
+- 喜欢自动化，讨厌重复劳动
 
 ---
 
-## 二、前置条件
+## 二、安装：两种方式任选
 
-### 必需
+### 方式 1：自然语言安装（推荐）
 
-| 项目 | 要求 |
-|------|------|
-| OpenClaw | 已安装并运行 |
-| Node.js | v18+ |
-| Git | 已安装 |
-| GitHub 账号 | 已注册 |
-
-### 可选
-
-| 项目 | 说明 |
-|------|------|
-| Hugo | 技能会自动安装 |
-| 域名 | 用于自定义域名 |
-
----
-
-## 三、安装技能
-
-提供两种安装方式，任选其一即可。
-
----
-
-### 方式 1：自然语言安装（推荐新手）
-
-在 OpenClaw 对话中直接说：
+在 OpenClaw 对话里直接说：
 
 ```
 帮我安装 flow-hugo-publisher 技能
 ```
 
-OpenClaw 会自动调用 `clawhub` 完成安装。
-
-**优点：** 简单，无需记忆命令
-
----
+结束。OpenClaw 会自动调用 `clawhub` 完成安装。
 
 ### 方式 2：命令行安装
 
 ```bash
-# 使用 clawhub 命令安装
 clawhub install flow-hugo-publisher
 ```
 
-安装完成后，技能会自动加载到 OpenClaw。
-
-**优点：** 快速，适合熟悉命令行的用户
-
----
-
 ### 验证安装
-
-**方式 1：在 OpenClaw 中询问**
-
-```
-查看已安装的技能
-```
-
-**方式 2：使用命令**
 
 ```bash
 # 查看已安装的技能列表
@@ -105,49 +92,72 @@ clawhub list
 ls ~/.openclaw/skills/
 ```
 
-如果看到 `flow-hugo-publisher`，说明安装成功。
+看到 `flow-hugo-publisher` 就是成功了。
+
+**技能地址**：https://clawhub.ai/ZampoRen/flow-hugo-publisher
 
 ---
 
-## 四、快速开始（5 分钟上线）
+## 三、5 分钟上线流程
 
-### 步骤 1：触发技能
+### 第 1 步：触发技能
 
-在 OpenClaw 对话中说：
+在 OpenClaw 里说：
 
 ```
 帮我搭建一个 Hugo 博客
 ```
 
-### 步骤 2：环境检测
+### 第 2 步：环境检测
 
-技能会自动检测：
+技能会自动检查：
 
-```
+```text
 [阶段 A/步骤 1] 进行中：检测 hugo/git 环境
-✅ Hugo 已安装 (v0.158.0)
-✅ Git 已安装 (v2.51.0)
+[阶段 A/步骤 1] 完成：Hugo v0.158.0 + Git 环境通过
+[阶段 A/步骤 1] 下一步：确认工作目录
 ```
 
-### 步骤 3：选择主题
+缺什么会自动提示安装命令。
+
+### 第 3 步：选主题
 
 内置 5 个常用主题：
 
-| 主题 | 说明 | 适合 |
-|------|------|------|
-| `PaperMod` | 轻量快速 | 技术博客 ⭐ |
-| `Akanke` | 官方示例 | 通用博客 |
-| `Stack` | 侧边栏结构 | 内容型博客 |
-| `Docsy` | 文档站点 | 知识库 |
-| `blowfish` | 现代简洁 | 个人创作 |
+| 主题 | 特点 | 适合场景 |
+|------|------|----------|
+| `PaperMod` | 轻量快速，支持深色模式 | 技术博客 ⭐ |
+| `Akanke` | 官方示例，功能全面 | 通用博客 |
+| `Stack` | 侧边栏布局，信息密度高 | 内容型博客 |
+| `Docsy` | 文档站点风格 | 知识库/文档 |
+| `blowfish` | 现代设计，视觉突出 | 个人创作 |
 
-### 步骤 4-10：完整流程
+我推荐 **PaperMod**，也是我自己用的。
 
-详细步骤请参考完整教程：[flow-hugo-publisher-tutorial.md](https://github.com/ZampoRen/flow-hugo-publisher)
+### 第 4 步：自动化流程
+
+接下来技能会自动执行：
+
+```text
+[阶段 B/步骤 2] 创建项目目录
+[阶段 B/步骤 3] 初始化 Hugo 站点 + 安装主题
+[阶段 B/步骤 4] 初始化 Git 仓库
+[阶段 B/步骤 5] 启动本地预览 → http://localhost:1313
+[阶段 B/步骤 6] 生成 GitHub Actions 工作流
+[阶段 B/步骤 7] 提交并推送到 GitHub
+```
+
+每一步都有进度输出，随时可以中断。
+
+### 第 5 步：上线
+
+推送后，GitHub Actions 会自动构建部署。
+
+1-2 分钟后，访问 `https://你的用户名.github.io`，博客好了。
 
 ---
 
-## 五、常用命令
+## 四、日常使用：发布文章
 
 ### 创建文章
 
@@ -155,17 +165,27 @@ ls ~/.openclaw/skills/
 帮我创建一篇文章，标题是"我的第一篇文章"
 ```
 
+技能会在 `content/posts/` 下创建 Markdown 文件，并用默认编辑器打开。
+
 ### 本地预览
 
 ```
 启动本地预览
 ```
 
-### 提交到 Git
+访问输出的地址（通常是 `http://localhost:1313`）查看效果。
+
+### 提交发布
 
 ```
 提交当前变更到 GitHub
 ```
+
+技能会：
+1. 检查未提交的变更
+2. 生成提交信息（可手动修改）
+3. 提交并推送
+4. GitHub Actions 自动部署
 
 ### 查看状态
 
@@ -173,11 +193,24 @@ ls ~/.openclaw/skills/
 查看当前博客状态
 ```
 
+输出：
+```text
+当前工作目录：/Users/xxx/renbo-blog
+Git 根目录：/Users/xxx/renbo-blog
+当前分支：master
+文章总数：5
+最近提交：abc1234
+部署地址：https://xxx.github.io/
+部署状态：deployed
+```
+
 ---
 
-## 六、自定义域名
+## 五、自定义域名（可选）
 
 ### DNS 配置
+
+在域名服务商添加记录：
 
 | 类型 | 主机记录 | 记录值 |
 |------|----------|--------|
@@ -189,50 +222,103 @@ ls ~/.openclaw/skills/
 
 ### 配置步骤
 
-1. 修改 `hugo.toml`：`baseURL = 'https://你的域名.com/'`
-2. 创建 `static/CNAME` 文件
-3. GitHub Settings → Pages → Custom domain
+1. 修改 `hugo.toml`：
+   ```toml
+   baseURL = 'https://你的域名.com/'
+   ```
+
+2. 创建 `static/CNAME` 文件，写入域名（不带协议）：
+   ```
+   你的域名.com
+   ```
+
+3. GitHub 仓库 → Settings → Pages → Custom domain → 填写域名
+
 4. 提交并推送
 
----
-
-## 七、故障排查
-
-### Pages 部署失败
-
-**错误：** `Get Pages site failed`
-
-**解决：** Settings → Pages → Source 选择 GitHub Actions
-
-### 主题加载失败
-
-**解决：** `git submodule update --init --recursive`
-
-### DNS 不生效
-
-**解决：** 等待 5-30 分钟，使用 `dig 你的域名` 检查
+DNS 生效需要 5-30 分钟，可以用 `dig 你的域名` 检查。
 
 ---
 
-## 八、总结
+## 六、常见问题
 
-`flow-hugo-publisher` 技能让你可以：
+### Q: Pages 部署失败，提示 "Get Pages site failed"
 
-- ✅ 5 分钟搭建博客
-- ✅ 自动化部署流程
-- ✅ 专注于内容创作
-- ✅ 无需关心技术细节
+**原因**：Pages 的 Source 没选对。
 
-**开始写作吧！** 🎉
+**解决**：GitHub 仓库 → Settings → Pages → Source 选择 **GitHub Actions**。
+
+### Q: 主题加载失败
+
+**解决**：
+```bash
+git submodule update --init --recursive
+```
+
+### Q: 端口被占用，预览启动失败
+
+技能会自动尝试 1313 → 1314 → 1315 递增端口，并记录实际使用的端口到状态文件。
+
+### Q: 能用其他主题吗？
+
+可以。技能支持自定义主题仓库地址：
+```
+帮我用这个主题：https://github.com/xxx/xxx-theme.git
+```
+
+### Q: 状态文件在哪？
+
+`~/.openclaw/state/hugo-publisher-state.json`
+
+记录了工作目录、Git 状态、发布历史等。
 
 ---
 
-**参考链接：**
+## 七、技能架构（给想二次开发的你）
 
-- [技能仓库](https://clawhub.ai/ZampoRen/flow-hugo-publisher)
+技能采用分阶段托管执行模型：
+
+```
+阶段 A: 环境确认与安装
+    ↓
+阶段 B: 初始化项目（首次）
+    ↓
+阶段 C: 日常发布快路径（后续默认）
+    ↓
+阶段 D: 状态写回与收尾输出
+```
+
+每个阶段有明确的输入输出，支持人工介入确认。
+
+**核心文件**：
+- `SKILL.md` - 技能主逻辑
+- `references/workflow.md` - 工作流与命令模板
+- `references/state-schema.md` - 状态文件结构
+- `references/github-actions.md` - GitHub Actions 部署指南
+
+**项目地址**：https://github.com/ZampoRen/flow-hugo-publisher
+
+---
+
+## 八、最后说两句
+
+写这个技能的初衷很简单：**我不想再重复配置 GitHub Actions 了**。
+
+每次搭新博客，都要复制 YAML、改参数、试错、查文档。明明这些都可以自动化，为什么还要手动做？
+
+所以我把整个流程封装成一个技能，现在只需要一句话。
+
+**工具的价值，不是让你做更多事，而是让你少做那些本不必做的事。**
+
+---
+
+**相关链接**：
+
+- [技能仓库 - ClawHub](https://clawhub.ai/ZampoRen/flow-hugo-publisher)
+- [技能源码 - GitHub](https://github.com/ZampoRen/flow-hugo-publisher)
+- [OpenClaw 官方文档](https://docs.openclaw.ai)
 - [Hugo 官方文档](https://gohugo.io/)
-- [GitHub Pages 文档](https://pages.github.com/)
 
 ---
 
-*发布于 2026 年 3 月 23 日 · 深圳*
+*有问题欢迎在评论区留言，或者去 GitHub 提 Issue。*
