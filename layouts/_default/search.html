@@ -1,0 +1,101 @@
+{{- define "main" -}}
+<article class="page search-page">
+  <div class="search-box">
+    <h1>🔍 搜索文章</h1>
+    <input type="search" id="search" placeholder="输入关键词搜索..." autofocus>
+  </div>
+  
+  <div id="search-results"></div>
+  
+  <div id="search-not-found" style="display: none;">
+    <p>没有找到相关文章，试试其他关键词？</p>
+  </div>
+</article>
+
+<script>
+// Simple search implementation
+const fuseOptions = {
+  keys: ['title', 'description', 'content', 'tags'],
+  threshold: 0.3,
+  includeContent: true
+};
+
+let fuse;
+
+async function loadSearchIndex() {
+  try {
+    const response = await fetch('/index.json');
+    const data = await response.json();
+    fuse = new Fuse(data, fuseOptions);
+  } catch (e) {
+    console.error('Failed to load search index:', e);
+  }
+}
+
+function search(query) {
+  if (!fuse) return;
+  
+  const results = fuse.search(query);
+  const container = document.getElementById('search-results');
+  const notFound = document.getElementById('search-not-found');
+  
+  if (results.length === 0) {
+    container.innerHTML = '';
+    notFound.style.display = 'block';
+    return;
+  }
+  
+  notFound.style.display = 'none';
+  container.innerHTML = results.map(r => `
+    <article class="search-result">
+      <h2><a href="${r.item.permalink}">${r.item.title}</a></h2>
+      <p>${r.item.description || r.item.summary || ''}</p>
+      <small>${r.item.date || ''}</small>
+    </article>
+  `).join('');
+}
+
+document.getElementById('search').addEventListener('input', e => {
+  const query = e.target.value.trim();
+  if (query.length > 1) {
+    search(query);
+  }
+});
+
+loadSearchIndex();
+</script>
+
+<style>
+.search-page {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-box {
+  margin-bottom: 2rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.search-result {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.search-result h2 {
+  margin-bottom: 0.5rem;
+}
+
+.search-result p {
+  color: var(--text-color);
+  opacity: 0.8;
+}
+</style>
+{{- end -}}

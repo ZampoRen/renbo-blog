@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <rect width="400" height="200" fill="#f1f5f9"/>
+  <text x="200" y="105" text-anchor="middle" fill="#64748b" font-size="16" font-family="system-ui">封面图</text>
+</svg>

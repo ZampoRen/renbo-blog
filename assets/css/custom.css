@@ -1,0 +1,96 @@
+/* 自定义样式 - 任博的博客 */
+
+:root {
+  --primary-color: #2563eb;
+  --accent-color: #3b82f6;
+  --bg-light: #f8fafc;
+  --bg-dark: #0f172a;
+}
+
+/* 首页卡片样式 */
+.home-post-item {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-post-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 代码块优化 */
+pre {
+  border-radius: 8px;
+  padding: 1rem;
+  font-size: 0.875rem;
+}
+
+/* 社交链接样式 */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* 公众号提示 */
+.wechat-note {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.wechat-note h3 {
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+/* 文章内链接优化 */
+.article-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.article-content a:hover {
+  border-bottom-color: var(--primary-color);
+}
+
+/* 标签样式优化 */
+.tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--bg-light);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  margin: 0.25rem;
+  transition: background 0.2s;
+}
+
+.tag:hover {
+  background: var(--primary-color);
+  color: white;
+}
+
+/* 深色模式适配 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #60a5fa;
+    --accent-color: #93c5fd;
+  }
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .social-links {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .wechat-note {
+    padding: 1rem;
+  }
+}
