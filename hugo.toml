@@ -13,6 +13,10 @@ defaultContentLanguage = 'zh-cn'
   author = "任博"
   defaultTheme = "auto"
   
+  # 头像
+  avatar = "/images/avatar.jpg"
+  gravatar = ""
+  
   # 首页信息
   [params.homeInfoParams]
     Title = "任博的博客"

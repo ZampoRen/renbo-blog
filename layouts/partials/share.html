@@ -2,20 +2,25 @@
 {{- $title := .Title -}}
 
 <div class="social-share">
-  <p>如果这篇文章对你有帮助，欢迎关注我的公众号获取更多技术分享 👇</p>
-  
-  <div class="wechat-note">
-    <h3>📱 关注公众号</h3>
-    <p>公众号：任博的技术圈</p>
-    <p style="font-size: 0.875rem; opacity: 0.9;">专注后端开发、数据库、技术选型</p>
+  <div class="wechat-promo">
+    <div class="wechat-qr">
+      <img src="/images/wechat-qr.jpg" alt="公众号二维码" width="150" height="150">
+    </div>
+    <div class="wechat-info">
+      <h3>📱 关注公众号</h3>
+      <p class="wechat-name">任博的技术圈</p>
+      <p class="wechat-desc">专注后端开发、数据库、技术选型</p>
+      <p class="wechat-tip">扫码关注，获取更多技术分享</p>
+    </div>
   </div>
   
-  <div class="share-buttons" style="margin-top: 1.5rem; text-align: center;">
-    <a href="https://twitter.com/intent/tweet?url={{ $url }}&text={{ $title }}" target="_blank" rel="noopener" style="margin-right: 0.5rem;">
-      分享到 X
+  <div class="share-buttons">
+    <span>分享到：</span>
+    <a href="https://twitter.com/intent/tweet?url={{ $url }}&text={{ $title }}" target="_blank" rel="noopener" class="share-btn">
+      X
     </a>
-    <a href="https://service.weibo.com/share/share.php?url={{ $url }}&title={{ $title }}" target="_blank" rel="noopener">
-      分享到微博
+    <a href="https://service.weibo.com/share/share.php?url={{ $url }}&title={{ $title }}" target="_blank" rel="noopener" class="share-btn">
+      微博
     </a>
   </div>
 </div>
@@ -27,7 +32,61 @@
   border-top: 1px solid var(--border);
 }
 
-.share-buttons a {
+.wechat-promo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.wechat-qr img {
+  border-radius: 8px;
+  background: white;
+  padding: 8px;
+}
+
+.wechat-info {
+  color: white;
+}
+
+.wechat-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.wechat-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.wechat-desc {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin: 0.25rem 0;
+}
+
+.wechat-tip {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+.share-buttons {
+  text-align: center;
+}
+
+.share-buttons span {
+  margin-right: 0.5rem;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.share-btn {
   display: inline-block;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -35,10 +94,32 @@
   color: white;
   text-decoration: none;
   font-size: 0.875rem;
+  margin: 0 0.25rem;
   transition: opacity 0.2s;
 }
 
-.share-buttons a:hover {
+.share-btn:hover {
   opacity: 0.9;
+  color: white;
+}
+
+/* 移动端适配 */
+@media (max-width: 600px) {
+  .wechat-promo {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .wechat-qr img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* 深色模式 */
+@media (prefers-color-scheme: dark) {
+  .wechat-qr img {
+    background: #1e293b;
+  }
 }
 </style>
