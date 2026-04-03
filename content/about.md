@@ -36,10 +36,14 @@ description: "了解更多关于我的信息"
 
 如果你想和我交流讨论，可以通过以下方式联系我：
 
-- **邮箱**: [your-email@example.com](mailto:your-email@example.com)
-- **GitHub**: [github.com/yourusername](https://github.com/yourusername)
-- **微信**: 可私信交流
-- **微博**: [@yourusername](https://weibo.com/yourusername)
+- **邮箱**: [zampo3380@gmail.com](mailto:zampo3380@gmail.com)
+- **GitHub**: [github.com/ZampoRen](https://github.com/ZampoRen)
+
+## 📱 微信公众号
+
+扫码关注「**任博的技术圈**」，获取最新文章推送和技术分享：
+
+![微信公众号二维码](/images/wechat-qr.jpg)
 
 ## 🙏 致谢
 
