@@ -808,7 +808,7 @@
       const currentTheme = body.getAttribute('data-theme');
       
       if (currentTheme === 'dark') {
-        body.removeAttribute('data-theme');
+        body.setAttribute('data-theme', 'light');
         icon.textContent = '🌙';
         localStorage.setItem('theme', 'light');
       } else {
@@ -823,6 +823,9 @@
     if (savedTheme === 'dark') {
       document.body.setAttribute('data-theme', 'dark');
       document.getElementById('theme-icon').textContent = '☀️';
+    } else {
+      document.body.setAttribute('data-theme', 'light');
+      document.getElementById('theme-icon').textContent = '🌙';
     }
     
     // Active menu item
