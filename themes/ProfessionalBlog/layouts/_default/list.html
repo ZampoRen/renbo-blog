@@ -197,7 +197,7 @@
 /* 列表页面专用样式 */
 .list-main {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: var(--shell-bg);
     padding: 2rem 0;
 }
 
@@ -213,7 +213,7 @@
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 2rem;
-    color: #1e293b;
+    color: var(--text-color);
     text-align: center;
     position: relative;
 }
@@ -233,13 +233,13 @@
 /* 标签云样式 */
 .tags-cloud-section,
 .tags-list-section {
-    background: white;
+    background: var(--surface-bg);
     padding: 3rem;
     border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--surface-shadow);
     margin-bottom: 3rem;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--surface-border);
 }
 
 .tags-cloud {
@@ -255,10 +255,10 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    background: var(--surface-muted);
     border-radius: 50px;
     text-decoration: none;
-    color: #334155;
+    color: var(--text-color);
     font-size: var(--tag-size);
     font-weight: 600;
     transition: all 0.4s ease;
@@ -331,14 +331,14 @@
     margin-top: 2rem;
     text-align: center;
     padding: 1.5rem;
-    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    background: var(--surface-muted);
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
 }
 
 .stats-text {
     margin: 0;
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 1rem;
     line-height: 1.5;
 }
@@ -356,11 +356,17 @@
 }
 
 .tag-card {
-    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    background: var(--surface-bg);
     border-radius: 16px;
     overflow: hidden;
     transition: all 0.4s ease;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--surface-border);
+}
+
+body[data-theme="dark"] .tag-card,
+body[data-theme="dark"] .tags-cloud-section,
+body[data-theme="dark"] .tags-list-section {
+    box-shadow: var(--surface-shadow);
 }
 
 .tag-card:hover {

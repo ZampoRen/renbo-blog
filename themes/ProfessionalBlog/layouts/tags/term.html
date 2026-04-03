@@ -4,7 +4,7 @@
 /* 现代化标签页面样式 */
 .tag-detail-main {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: var(--shell-bg);
     padding: 1rem 0 3rem 0;
 }
 
@@ -16,12 +16,12 @@
 
 /* 紧凑的页面头部 */
 .tag-header {
-    background: white;
+    background: var(--surface-bg);
     border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--surface-shadow);
     margin-bottom: 2rem;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--surface-border);
 }
 
 /* 面包屑导航 */
@@ -31,17 +31,17 @@
     gap: 0.5rem;
     padding: 1rem 1.5rem;
     font-size: 0.9rem;
-    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-    border-bottom: 1px solid #e2e8f0;
+    background: var(--surface-muted);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .breadcrumb-item {
-    color: #64748b;
+    color: var(--text-muted);
     text-decoration: none;
     padding: 0.3rem 0.6rem;
     border-radius: 6px;
     transition: all 0.2s ease;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(148, 163, 184, 0.08);
 }
 
 .breadcrumb-item:hover {
@@ -96,13 +96,13 @@
 .tag-title {
     font-size: 2rem;
     font-weight: 800;
-    color: #1e293b;
+    color: var(--text-color);
     margin: 0 0 0.5rem 0;
     line-height: 1.2;
 }
 
 .tag-description {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 1rem;
     margin: 0;
     line-height: 1.5;
@@ -147,11 +147,11 @@
 
 /* 文章区域 */
 .articles-section {
-    background: white;
+    background: var(--surface-bg);
     border-radius: 16px;
     padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: var(--surface-shadow);
+    border: 1px solid var(--surface-border);
 }
 
 .articles-header {
@@ -160,18 +160,18 @@
     align-items: center;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid #f1f5f9;
+    border-bottom: 2px solid var(--border-color);
 }
 
 .articles-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-color);
     margin: 0;
 }
 
 .articles-count {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 0.9rem;
     background: rgba(102, 126, 234, 0.1);
     padding: 0.4rem 1rem;
@@ -187,9 +187,9 @@
 }
 
 .article-card {
-    background: #ffffff;
+    background: var(--surface-bg);
     border-radius: 12px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     animation: slideUp 0.6s ease-out forwards;

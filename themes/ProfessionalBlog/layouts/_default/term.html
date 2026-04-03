@@ -185,7 +185,7 @@
 /* 标签子页面专用样式 */
 .tag-detail-main {
     min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+    background: var(--shell-bg);
     position: relative;
 }
 
@@ -210,9 +210,9 @@
 
 /* 页面头部区域样式 */
 .tag-hero {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.18);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--surface-border);
     padding: 3rem 0;
     margin-bottom: 2rem;
     position: relative;
@@ -225,7 +225,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+    background: linear-gradient(135deg, rgba(148,163,184,0.08) 0%, rgba(148,163,184,0.02) 100%);
     pointer-events: none;
 }
 
@@ -244,17 +244,17 @@
 }
 
 .breadcrumb-item {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-muted);
     text-decoration: none;
     padding: 0.4rem 0.8rem;
     border-radius: 8px;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(15, 23, 42, 0.28);
 }
 
 .breadcrumb-item:hover {
-    color: white;
-    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+    background: rgba(59, 130, 246, 0.14);
     transform: translateY(-1px);
 }
 
