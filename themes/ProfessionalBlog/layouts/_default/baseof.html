@@ -203,6 +203,10 @@
       background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(255, 255, 255, 0.05) 100%);
       animation: shimmer 3s ease-in-out infinite;
     }
+
+    [data-theme="dark"] .header::after {
+      background: linear-gradient(45deg, rgba(148, 163, 184, 0.08) 0%, transparent 50%, rgba(96, 165, 250, 0.05) 100%);
+    }
     
     @keyframes headerFloat {
       0%, 100% { transform: translateX(0px) translateY(0px); }

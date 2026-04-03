@@ -520,13 +520,13 @@
 .result-title {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-color);
     margin-bottom: 0.75rem;
     line-height: 1.3;
 }
 
 .result-description {
-    color: #64748b;
+    color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 1rem;
 }
@@ -538,24 +538,25 @@
 }
 
 .result-tag {
-    background: #e2e8f0;
-    color: #475569;
+    background: var(--surface-bg);
+    color: var(--text-muted);
     padding: 0.2rem 0.5rem;
     border-radius: 8px;
     font-size: 0.75rem;
 }
 
 .recent-articles {
-    background: white;
+    background: var(--surface-bg);
     padding: 2.5rem;
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--surface-shadow);
+    border: 1px solid var(--surface-border);
 }
 
 .recent-title {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-color);
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -567,11 +568,11 @@
 }
 
 .recent-article {
-    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    background: var(--surface-muted);
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border-color);
 }
 
 .recent-article:hover {
@@ -596,7 +597,7 @@
 }
 
 .recent-date {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 0.8rem;
     font-weight: 500;
 }
@@ -613,13 +614,13 @@
 .recent-article-title {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-color);
     margin-bottom: 0.75rem;
     line-height: 1.3;
 }
 
 .recent-description {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.5;
     margin-bottom: 1rem;
@@ -632,8 +633,8 @@
 }
 
 .recent-tag {
-    background: #e2e8f0;
-    color: #475569;
+    background: var(--surface-bg);
+    color: var(--text-muted);
     padding: 0.15rem 0.4rem;
     border-radius: 6px;
     font-size: 0.7rem;
