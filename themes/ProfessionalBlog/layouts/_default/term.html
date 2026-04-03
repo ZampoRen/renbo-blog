@@ -542,7 +542,7 @@
 .article-title {
     font-size: 1.4rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-color);
     margin: 0 0 1rem 0;
     line-height: 1.4;
     transition: color 0.3s ease;
@@ -553,7 +553,7 @@
 }
 
 .article-summary {
-    color: #64748b;
+    color: var(--text-muted);
     line-height: 1.6;
     font-size: 0.95rem;
     margin: 0;
@@ -564,7 +564,7 @@
     justify-content: space-between;
     align-items: center;
     padding-top: 1.5rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--border-color);
 }
 
 .article-tags {
@@ -575,8 +575,8 @@
 }
 
 .article-tag {
-    background: #e2e8f0;
-    color: #64748b;
+    background: var(--surface-muted);
+    color: var(--text-muted);
     padding: 0.2rem 0.6rem;
     border-radius: 8px;
     font-size: 0.7rem;
@@ -647,13 +647,13 @@
 .empty-title {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #334155;
+    color: var(--text-color);
     margin-bottom: 1rem;
 }
 
 .empty-description {
     font-size: 1.1rem;
-    color: #64748b;
+    color: var(--text-muted);
     margin-bottom: 2rem;
     line-height: 1.5;
 }
@@ -679,13 +679,13 @@
 
 /* 相关标签推荐样式 */
 .related-section {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--surface-bg);
     backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 3rem;
     margin-bottom: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--surface-border);
+    box-shadow: var(--surface-shadow);
 }
 
 .section-header {
@@ -696,12 +696,12 @@
 .section-title {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-color);
     margin-bottom: 0.5rem;
 }
 
 .section-subtitle {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 1rem;
     margin: 0;
 }
@@ -713,12 +713,12 @@
 }
 
 .related-tag-card {
-    background: linear-gradient(135deg, #f8fafc, #ffffff);
+    background: var(--surface-muted);
     border-radius: 16px;
     padding: 1.5rem;
     text-decoration: none;
     color: inherit;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--border-color);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -756,7 +756,7 @@
 .tag-name {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--text-color);
     transition: color 0.3s ease;
 }
 
@@ -780,7 +780,7 @@
 }
 
 .latest-post {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 0.85rem;
     margin: 0;
     flex: 1;
@@ -799,12 +799,12 @@
 
 /* 导航操作区样式 */
 .action-section {
-    background: rgba(255, 255, 255, 0.95);
+    background: var(--surface-bg);
     backdrop-filter: blur(20px);
     border-radius: 20px;
     padding: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--surface-border);
+    box-shadow: var(--surface-shadow);
 }
 
 .action-container {
@@ -857,7 +857,7 @@
     background: rgba(100, 116, 139, 0.1);
     border: 1px solid rgba(100, 116, 139, 0.2);
     border-radius: 12px;
-    color: #64748b;
+    color: var(--text-muted);
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.75rem;
