@@ -1,494 +1,607 @@
 {{ define "main" }}
 <main class="tags-list-main">
     <div class="container">
-        <!-- 页面标题区域 -->
         <div class="page-header">
-            <h1 class="page-title">🌪️ 标签云宇宙</h1>
+            <p class="page-kicker">Tag Globe</p>
+            <h1 class="page-title">标签地球</h1>
+            <p class="page-subtitle">像看一颗慢慢自转的知识星球。标签越常出现，字越大，越靠近球体前景越明亮。</p>
             <div class="page-stats">
                 <span class="stat-item">🏷️ {{ len .Site.Taxonomies.tags }} 个标签</span>
                 <span class="stat-item">📝 {{ len (where .Site.RegularPages "Type" "posts") }} 篇文章</span>
             </div>
         </div>
-        
-        <!-- D3词云展示区域 -->
-        <section class="word-cloud-section">
-            <!-- D3词云容器 -->
-            <div class="word-cloud-container">
-                <svg id="word-cloud-svg" width="100%" height="600"></svg>
-                <div class="cloud-loading">
-                    <div class="loading-spinner"></div>
-                    <p>正在生成标签云...</p>
+
+        <section class="tag-globe-section">
+            <div class="tag-globe-copy">
+                <h2>这不是普通标签云。</h2>
+                <p>它更像一颗由主题构成的地球。标签沿球面分布，前景更亮，后景更淡，文章越多的标签会占据更大的视觉权重。</p>
+                <ul class="tag-globe-meta">
+                    <li>默认缓慢自转</li>
+                    <li>鼠标拖动可换视角</li>
+                    <li>标签大小跟文章数量联动</li>
+                </ul>
+            </div>
+
+            <div class="tag-globe-panel">
+                <div class="tag-globe-stage" id="tagGlobeStage">
+                    <div class="tag-globe-aurora"></div>
+                    <div class="tag-globe-atmosphere"></div>
+                    <canvas class="tag-globe-canvas" id="tagGlobeCanvas" width="860" height="860"></canvas>
+                    <div class="tag-globe-labels" id="tagGlobeLabels"></div>
+                    <div class="tag-globe-hint">拖动地球</div>
                 </div>
             </div>
-            
-            <!-- 标签数据 (隐藏，供JS使用) -->
+
             <script type="application/json" id="tags-data">
             [
                 {{ $sortedTags := slice }}
                 {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
                 {{ $count := len $taxonomy }}
-                {{ $sortedTags = $sortedTags | append (dict "name" $name "count" $count "url" (printf "/tags/%s" ($name | urlize)) "taxonomy" $taxonomy) }}
+                {{ $sortedTags = $sortedTags | append (dict "name" $name "count" $count "url" (printf "/tags/%s" ($name | urlize))) }}
                 {{ end }}
                 {{ $sortedTags = sort $sortedTags "count" "desc" }}
                 {{ range $index, $tag := $sortedTags }}
                 {
                     "text": "{{ $tag.name }}",
-                    "size": {{ $tag.count }},
-                    "url": "{{ $tag.url }}",
-                    "category": "{{ if ge $tag.count 10 }}super-hot{{ else if ge $tag.count 5 }}hot{{ else if ge $tag.count 3 }}warm{{ else }}normal{{ end }}"
+                    "count": {{ $tag.count }},
+                    "url": "{{ $tag.url }}"
                 }{{ if ne $index (sub (len $sortedTags) 1) }},{{ end }}
                 {{ end }}
             ]
             </script>
         </section>
     </div>
-    
-    <!-- 页面底部间距 -->
-    <div class="page-bottom-spacing"></div>
 </main>
 
 <style>
-/* D3标签云页面样式 */
 .tags-list-main {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    padding: 1rem 0 3rem 0;
-    position: relative;
+    background:
+        radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 22%),
+        radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.08), transparent 20%),
+        linear-gradient(180deg, #04111f 0%, #081a2e 48%, #0b2035 100%);
+    padding: 1rem 0 3rem;
 }
 
-/* 页面标题区域 */
+.tags-list-main .container {
+    max-width: 1320px !important;
+    padding: 0 1.5rem !important;
+}
+
 .page-header {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
     text-align: center;
-    margin-bottom: 3rem;
+}
+
+.page-kicker {
+    display: inline-flex;
+    padding: 0.38rem 0.82rem;
+    border-radius: 999px;
+    background: rgba(125, 211, 252, 0.1);
+    color: #7dd3fc;
+    border: 1px solid rgba(125, 211, 252, 0.18);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.95rem;
 }
 
 .page-title {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
-    color: #1e293b;
+    font-size: clamp(2.8rem, 7vw, 5.3rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+    color: #eff6ff;
     margin-bottom: 1rem;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.page-subtitle {
+    color: #a8bfd7;
+    font-size: 1.08rem;
+    line-height: 1.8;
+    margin: 0 auto 1.35rem;
 }
 
 .page-stats {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 0.8rem;
     flex-wrap: wrap;
 }
 
 .stat-item {
-    background: rgba(102, 126, 234, 0.1);
-    padding: 0.75rem 1.5rem;
-    border-radius: 30px;
-    color: #667eea;
+    padding: 0.72rem 1.1rem;
+    border-radius: 999px;
+    background: rgba(10, 27, 46, 0.72);
+    color: #dbeafe;
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
     font-weight: 600;
-    border: 1px solid rgba(102, 126, 234, 0.2);
 }
 
-.word-cloud-section {
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 24px;
-    padding: 3rem;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+.tag-globe-section {
+    display: grid;
+    grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: center;
+    background: linear-gradient(180deg, rgba(7, 20, 35, 0.68), rgba(7, 20, 35, 0.46));
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 32px;
+    padding: 2rem;
+    box-shadow: 0 40px 80px rgba(2, 8, 23, 0.35);
+    backdrop-filter: blur(12px);
 }
 
-.word-cloud-container {
+.tag-globe-copy h2 {
+    color: #f8fbff;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+}
+
+.tag-globe-copy p {
+    color: #b8c9da;
+    line-height: 1.85;
+    margin-bottom: 1.1rem;
+}
+
+.tag-globe-meta {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.tag-globe-meta li {
+    color: #d9e8f6;
+    font-weight: 600;
+    padding-left: 1rem;
     position: relative;
-    margin: 3rem 0;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.tag-globe-meta li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.58rem;
+    width: 0.42rem;
+    height: 0.42rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #38bdf8, #60a5fa);
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
+}
+
+.tag-globe-panel {
+    min-width: 0;
+}
+
+.tag-globe-stage {
+    position: relative;
+    min-height: 760px;
+    border-radius: 28px;
     overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.12), transparent 26%),
+        radial-gradient(circle at 50% 88%, rgba(15, 23, 42, 0.4), transparent 28%),
+        linear-gradient(180deg, #06111d 0%, #0a1525 100%);
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    cursor: grab;
 }
 
-#word-cloud-svg {
-    display: block;
-    margin: 0 auto;
+.tag-globe-stage.is-dragging {
+    cursor: grabbing;
 }
 
-.cloud-loading {
+.tag-globe-aurora {
+    position: absolute;
+    inset: 8% 10%;
+    background:
+        radial-gradient(circle at 50% 45%, rgba(56, 189, 248, 0.16), transparent 26%),
+        radial-gradient(circle at 50% 35%, rgba(59, 130, 246, 0.12), transparent 35%);
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+.tag-globe-atmosphere {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 470px;
+    height: 470px;
     transform: translate(-50%, -50%);
-    text-align: center;
-    color: #667eea;
-}
-
-.loading-spinner {
-    width: 40px;
-    height: 40px;
-    border: 4px solid #e2e8f0;
-    border-top: 4px solid #667eea;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin: 0 auto 1rem;
+    box-shadow:
+        0 0 0 1px rgba(125, 211, 252, 0.1),
+        0 0 60px rgba(56, 189, 248, 0.14),
+        inset 0 0 80px rgba(255,255,255,0.04);
+    pointer-events: none;
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.tag-globe-canvas,
+.tag-globe-labels {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.word-cloud-text {
-    font-family: 'Inter', sans-serif;
+.tag-globe-labels {
+    pointer-events: none;
+}
+
+.tag-globe-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.38rem;
+    white-space: nowrap;
+    text-decoration: none;
     font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.02em;
+    color: #eff6ff;
+    text-shadow: 0 2px 16px rgba(15, 23, 42, 0.8);
+    pointer-events: auto;
+    transform: translate(-50%, -50%);
+    transition: transform 0.16s ease, opacity 0.16s ease;
 }
 
-.word-cloud-text:hover {
-    filter: brightness(1.2) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
-    transform: scale(1.1);
+.tag-globe-label:hover {
+    transform: translate(-50%, -50%) scale(1.08) !important;
 }
 
-.page-bottom-spacing {
-    height: 2rem;
+.tag-globe-label-count {
+    display: inline-flex;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background: rgba(125, 211, 252, 0.12);
+    color: #bfdbfe;
+    border: 1px solid rgba(125, 211, 252, 0.14);
+    font-size: 0.72em;
+    font-weight: 800;
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .page-header { margin-bottom: 2rem; }
-    .page-title { font-size: 2.5rem; }
-    .page-stats { 
-        flex-direction: column;
-        gap: 1rem;
-        align-items: center;
+.tag-globe-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 1.2rem;
+    transform: translateX(-50%);
+    padding: 0.48rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(7, 20, 35, 0.72);
+    color: #bfd4ea;
+    border: 1px solid rgba(148, 163, 184, 0.14);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+    .tag-globe-section {
+        grid-template-columns: 1fr;
     }
-    .stat-item {
-        padding: 0.5rem 1rem;
-        font-size: 0.9rem;
+
+    .tag-globe-stage {
+        min-height: 660px;
     }
-    .word-cloud-section { padding: 2rem 1.5rem; }
-    .word-cloud-container { height: 400px; }
+}
+
+@media (max-width: 640px) {
+    .tags-list-main .container {
+        padding: 0 1rem !important;
+    }
+
+    .tag-globe-section {
+        padding: 1.25rem;
+        border-radius: 24px;
+    }
+
+    .tag-globe-stage {
+        min-height: 520px;
+    }
 }
 </style>
 
-<!-- 引入D3.js和d3-cloud -->
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3-cloud@1.2.5/build/d3.layout.cloud.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <script>
-// 全局变量
-let tagsData = [];
-let cloudWords = [];
-let fallbackWords = [];
-let currentColorScheme = 'heat';
-let animationPaused = false;
-let svg, g;
-let layoutAttempts = 0;
-const maxLayoutAttempts = 3;
+document.addEventListener('DOMContentLoaded', function () {
+    const dataEl = document.getElementById('tags-data');
+    const stage = document.getElementById('tagGlobeStage');
+    const canvas = document.getElementById('tagGlobeCanvas');
+    const labelsLayer = document.getElementById('tagGlobeLabels');
+    if (!dataEl || !stage || !canvas || !labelsLayer) return;
 
-// 颜色方案
-const colorSchemes = {
-    heat: { super: '#ef4444', hot: '#f59e0b', warm: '#06b6d4', normal: '#10b981' },
-    rainbow: { super: '#ec4899', hot: '#8b5cf6', warm: '#06b6d4', normal: '#10b981' },
-    ocean: { super: '#1e40af', hot: '#0ea5e9', warm: '#06b6d4', normal: '#0891b2' },
-    galaxy: { super: '#7c3aed', hot: '#a855f7', warm: '#c084fc', normal: '#e879f9' }
-};
-
-// 初始化
-document.addEventListener('DOMContentLoaded', function() {
+    let tags = [];
     try {
-        const tagsScript = document.getElementById('tags-data');
-        if (!tagsScript) {
-            console.error('标签数据元素未找到');
-            showError('标签数据加载失败');
-            return;
-        }
-        
-        const content = tagsScript.textContent.trim();
-        if (!content) {
-            console.error('标签数据为空');
-            showError('没有标签数据');
-            return;
-        }
-        
-        try {
-            tagsData = JSON.parse(content);
-        } catch (e) {
-            console.error('JSON解析错误:', e);
-            showError('标签数据格式错误');
-            return;
-        }
-        
-        if (!Array.isArray(tagsData) || tagsData.length === 0) {
-            console.error('标签数据无效或为空');
-            showError('没有可用的标签');
-            return;
-        }
-        
-        initializeSVG();
-        generateWordCloud();
-        
+        tags = JSON.parse(dataEl.textContent.trim());
     } catch (error) {
-        console.error('初始化错误:', error);
-        showError('标签云初始化失败');
-    }
-});
-
-function showError(message) {
-    const loading = document.querySelector('.cloud-loading');
-    if (loading) {
-        loading.innerHTML = `
-            <div style="color: #ef4444; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 1rem;">⚠️</div>
-                <div>${message}</div>
-                <button onclick="location.reload()" style="margin-top: 1rem; padding: 0.5rem 1rem; background: #667eea; color: white; border: none; border-radius: 6px; cursor: pointer;">
-                    重新加载
-                </button>
-            </div>
-        `;
-    }
-}
-
-function initializeSVG() {
-    const container = document.querySelector('.word-cloud-container');
-    const width = container.offsetWidth;
-    const height = 600;
-    
-    svg = d3.select('#word-cloud-svg')
-        .attr('width', width)
-        .attr('height', height);
-    
-    g = svg.append('g')
-        .attr('transform', `translate(${width/2},${height/2})`);
-}
-
-function generateWordCloud() {
-    const loading = document.querySelector('.cloud-loading');
-    loading.style.display = 'block';
-    
-    g.selectAll('*').remove();
-    layoutAttempts = 0;
-    cloudWords = [];
-    fallbackWords = [];
-    
-    const maxSize = Math.max(...tagsData.map(d => d.size));
-    const minSize = Math.min(...tagsData.map(d => d.size));
-    const sizeDiff = maxSize - minSize || 1;
-    
-    const processedWords = tagsData.map(d => {
-        let normalizedSize = (d.size - minSize) / sizeDiff;
-        let fontSize = 14 + Math.sqrt(normalizedSize) * 22;
-        
-        return {
-            text: d.text,
-            size: fontSize,
-            url: d.url,
-            category: d.category,
-            count: d.size,
-            originalData: d
-        };
-    });
-    
-    attemptLayout(processedWords);
-}
-
-function attemptLayout(words) {
-    layoutAttempts++;
-    
-    const containerWidth = parseInt(svg.attr('width'));
-    const containerHeight = parseInt(svg.attr('height'));
-    const padding = Math.max(3, 8 - layoutAttempts * 2);
-    
-    try {
-        if (typeof d3.layout === 'undefined' || typeof d3.layout.cloud === 'undefined') {
-            console.error('d3-cloud库未加载');
-            showFallbackTags();
-            return;
-        }
-        
-        const layout = d3.layout.cloud()
-            .size([containerWidth, containerHeight])
-            .words(words)
-            .padding(padding)
-            .rotate(() => layoutAttempts === 1 ? 0 : (Math.random() - 0.5) * 30)
-            .font('Inter, sans-serif')
-            .fontSize(d => Math.max(10, d.size))
-            .spiral('rectangular')
-            .on('end', handleLayoutEnd)
-            .on('error', function(error) {
-                console.error('D3布局错误:', error);
-                showFallbackTags();
-            });
-        
-        layout.start();
-    } catch (error) {
-        console.error('布局初始化错误:', error);
-        showFallbackTags();
-    }
-}
-
-function handleLayoutEnd(words) {
-    const placedWords = words.filter(d => d.x !== undefined && d.y !== undefined);
-    const unplacedWords = tagsData.filter(original => 
-        !placedWords.some(placed => placed.text === original.text)
-    );
-    
-    if (unplacedWords.length > 0 && layoutAttempts < maxLayoutAttempts) {
-        const remainingWords = unplacedWords.map(d => {
-            const sizeFactor = 1 - (layoutAttempts * 0.2);
-            let normalizedSize = (d.size - Math.min(...tagsData.map(t => t.size))) / 
-                (Math.max(...tagsData.map(t => t.size)) - Math.min(...tagsData.map(t => t.size)) || 1);
-            let fontSize = (12 + Math.sqrt(normalizedSize) * 20) * sizeFactor;
-            
-            return {
-                text: d.text,
-                size: Math.max(10, fontSize),
-                url: d.url,
-                category: d.category,
-                count: d.size,
-                originalData: d
-            };
-        });
-        
-        setTimeout(() => attemptLayout(remainingWords), 100);
+        console.error('标签数据解析失败', error);
         return;
     }
-    
-    cloudWords = placedWords;
-    fallbackWords = unplacedWords;
-    
-    drawWords(placedWords);
-    drawFallbackTags(unplacedWords);
-}
+    if (!tags.length) return;
 
-function drawWords(words) {
-    const loading = document.querySelector('.cloud-loading');
-    loading.style.display = 'none';
-    
-    const colors = colorSchemes[currentColorScheme];
-    
-    const text = g.selectAll('text')
-        .data(words)
-        .enter().append('text')
-        .style('font-size', d => d.size + 'px')
-        .style('font-family', 'Inter')
-        .style('font-weight', '700')
-        .style('fill', d => colors[d.category.replace('-', '')])
-        .attr('text-anchor', 'middle')
-        .attr('transform', d => `translate(${d.x},${d.y})rotate(${d.rotate})`)
-        .text(d => d.text)
-        .attr('class', 'word-cloud-text')
-        .style('cursor', 'pointer')
-        .style('opacity', 0)
-        .on('click', function(event, d) {
-            window.location.href = d.url;
-        })
-        .on('mouseover', function(event, d) {
-            d3.select(this)
-                .transition()
-                .duration(200)
-                .style('filter', 'brightness(1.2) drop-shadow(0 4px 8px rgba(0,0,0,0.3))')
-                .attr('transform', d => `translate(${d.x},${d.y})rotate(${d.rotate})scale(1.1)`);
-        })
-        .on('mouseout', function(event, d) {
-            d3.select(this)
-                .transition()
-                .duration(200)
-                .style('filter', 'none')
-                .attr('transform', d => `translate(${d.x},${d.y})rotate(${d.rotate})scale(1)`);
+    const ctx = canvas.getContext('2d');
+    const dpr = window.devicePixelRatio || 1;
+    const maxCount = Math.max(...tags.map(t => t.count));
+    const minCount = Math.min(...tags.map(t => t.count));
+    const countRange = Math.max(1, maxCount - minCount);
+
+    const state = {
+        width: 0,
+        height: 0,
+        cx: 0,
+        cy: 0,
+        radius: 0,
+        rotationX: -0.22,
+        rotationY: 0,
+        velocityX: 0.0008,
+        velocityY: 0.0024,
+        autoRotate: true,
+        dragging: false,
+        moved: false,
+        pointerX: 0,
+        pointerY: 0,
+        lastMoveAt: 0
+    };
+
+    const nodes = tags.map((tag, index) => {
+        const anchor = document.createElement('a');
+        anchor.className = 'tag-globe-label';
+        anchor.href = tag.url;
+        anchor.innerHTML = `<span class="tag-globe-label-text">${tag.text}</span><span class="tag-globe-label-count">${tag.count}</span>`;
+        anchor.addEventListener('mouseenter', () => {
+            state.autoRotate = false;
         });
-    
-    text.transition()
-        .duration(1000)
-        .delay((d, i) => i * 50)
-        .style('opacity', 1)
-        .attr('transform', d => `translate(${d.x},${d.y})rotate(${d.rotate})`);
-    
-    if (!animationPaused) {
-        startFloatingAnimation();
-    }
-}
+        anchor.addEventListener('mouseleave', () => {
+            if (!state.dragging) state.autoRotate = true;
+        });
+        anchor.addEventListener('pointerdown', event => {
+            event.stopPropagation();
+            state.autoRotate = false;
+            state.dragging = false;
+            state.moved = false;
+        });
+        anchor.addEventListener('pointerup', event => {
+            event.stopPropagation();
+        });
+        anchor.addEventListener('click', event => {
+            event.preventDefault();
+            event.stopPropagation();
+            window.location.assign(tag.url);
+        });
+        labelsLayer.appendChild(anchor);
 
-function showFallbackTags() {
-    const loading = document.querySelector('.cloud-loading');
-    if (loading) {
-        loading.style.display = 'none';
-    }
-    
-    const container = document.querySelector('.word-cloud-container');
-    if (!container) return;
-    
-    let fallbackHtml = '<div class="fallback-tags" style="padding: 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; align-items: center;">';
-    
-    tagsData.forEach(tag => {
-        const size = Math.max(12, 14 + tag.size * 2);
-        const color = getColorForCategory(tag.category);
-        fallbackHtml += `
-            <a href="${tag.url}" 
-               style="font-size: ${size}px; 
-                      color: ${color}; 
-                      text-decoration: none; 
-                      padding: 0.25rem 0.5rem; 
-                      border-radius: 4px; 
-                      transition: all 0.3s ease; 
-                      font-weight: 600;"
-               onmouseover="this.style.transform='scale(1.1)'"
-               onmouseout="this.style.transform='scale(1)'">
-                ${tag.text}
-            </a>
-        `;
+        const ratio = (tag.count - minCount) / countRange;
+        const phi = Math.acos(1 - 2 * ((index + 0.5) / tags.length));
+        const theta = Math.PI * (3 - Math.sqrt(5)) * index;
+
+        return {
+            tag,
+            ratio,
+            anchor,
+            base: {
+                x: Math.cos(theta) * Math.sin(phi),
+                y: Math.cos(phi),
+                z: Math.sin(theta) * Math.sin(phi)
+            },
+            projected: { x: 0, y: 0, z: 0 }
+        };
     });
-    
-    fallbackHtml += '</div>';
-    container.innerHTML = fallbackHtml;
-}
 
-function getColorForCategory(category) {
-    const colors = colorSchemes[currentColorScheme];
-    return colors[category.replace('-', '')] || '#667eea';
-}
+    function resize() {
+        const rect = stage.getBoundingClientRect();
+        state.width = rect.width;
+        state.height = rect.height;
+        state.cx = rect.width / 2;
+        state.cy = rect.height / 2;
+        state.radius = Math.min(rect.width, rect.height) * (window.innerWidth < 640 ? 0.28 : 0.31);
 
-function drawFallbackTags(unplacedTags) {
-    // 保留原有功能，但添加降级处理
-    if (unplacedTags.length === 0) return;
-    
-    console.log('未在词云中显示的标签:', unplacedTags.map(t => t.text));
-    
-    // 如果有大量标签未显示，可以显示为列表形式
-    if (unplacedTags.length > 5) {
-        console.log('考虑使用备用标签列表显示');
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
-}
 
-function startFloatingAnimation() {
-    if (animationPaused) return;
-    
-    g.selectAll('.word-cloud-text')
-        .transition()
-        .duration(3000)
-        .ease(d3.easeSinInOut)
-        .attr('transform', function(d) {
-            const offsetX = (Math.random() - 0.5) * 10;
-            const offsetY = (Math.random() - 0.5) * 10;
-            return `translate(${d.x + offsetX},${d.y + offsetY})rotate(${d.rotate})`;
-        })
-        .on('end', startFloatingAnimation);
-}
+    function rotatePoint(point, rotX, rotY) {
+        const cosY = Math.cos(rotY);
+        const sinY = Math.sin(rotY);
+        const x1 = point.x * cosY - point.z * sinY;
+        const z1 = point.x * sinY + point.z * cosY;
 
-// 响应式处理
-let resizeTimeout;
-window.addEventListener('resize', function() {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        const container = document.querySelector('.word-cloud-container');
-        const width = container.offsetWidth;
-        const height = 600;
-        
-        svg.attr('width', width).attr('height', height);
-        g.attr('transform', `translate(${width/2},${height/2})`);
-        
-        setTimeout(() => {
-            layoutAttempts = 0;
-            generateWordCloud();
-        }, 100);
-    }, 300);
+        const cosX = Math.cos(rotX);
+        const sinX = Math.sin(rotX);
+        const y2 = point.y * cosX - z1 * sinX;
+        const z2 = point.y * sinX + z1 * cosX;
+
+        return { x: x1, y: y2, z: z2 };
+    }
+
+    function drawGlobeGrid() {
+        ctx.clearRect(0, 0, state.width, state.height);
+
+        const sphereGradient = ctx.createRadialGradient(
+            state.cx - state.radius * 0.25,
+            state.cy - state.radius * 0.3,
+            state.radius * 0.08,
+            state.cx,
+            state.cy,
+            state.radius
+        );
+        sphereGradient.addColorStop(0, 'rgba(190, 242, 255, 0.18)');
+        sphereGradient.addColorStop(0.28, 'rgba(37, 99, 235, 0.16)');
+        sphereGradient.addColorStop(0.62, 'rgba(9, 29, 53, 0.42)');
+        sphereGradient.addColorStop(1, 'rgba(2, 10, 24, 0.88)');
+
+        ctx.beginPath();
+        ctx.arc(state.cx, state.cy, state.radius, 0, Math.PI * 2);
+        ctx.fillStyle = sphereGradient;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(state.cx, state.cy, state.radius + 10, 0, Math.PI * 2);
+        ctx.strokeStyle = 'rgba(125, 211, 252, 0.16)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(state.cx, state.cy, state.radius, 0, Math.PI * 2);
+        ctx.clip();
+
+        const latitudes = 7;
+        const longitudes = 9;
+
+        ctx.strokeStyle = 'rgba(148, 163, 184, 0.16)';
+        ctx.lineWidth = 1;
+
+        for (let i = 1; i <= latitudes; i++) {
+            const lat = -Math.PI / 2 + (Math.PI / (latitudes + 1)) * i;
+            ctx.beginPath();
+            let started = false;
+            for (let j = 0; j <= 180; j++) {
+                const lon = (j / 180) * Math.PI * 2;
+                const p = rotatePoint({
+                    x: Math.cos(lat) * Math.cos(lon),
+                    y: Math.sin(lat),
+                    z: Math.cos(lat) * Math.sin(lon)
+                }, state.rotationX, state.rotationY);
+
+                const perspective = 1.8 / (1.8 - p.z);
+                const x = state.cx + p.x * state.radius * perspective;
+                const y = state.cy + p.y * state.radius * perspective;
+
+                if (!started) {
+                    ctx.moveTo(x, y);
+                    started = true;
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+        }
+
+        for (let i = 0; i < longitudes; i++) {
+            const baseLon = (Math.PI * 2 / longitudes) * i;
+            ctx.beginPath();
+            let started = false;
+            for (let j = -90; j <= 90; j++) {
+                const lat = (j / 90) * (Math.PI / 2);
+                const p = rotatePoint({
+                    x: Math.cos(lat) * Math.cos(baseLon),
+                    y: Math.sin(lat),
+                    z: Math.cos(lat) * Math.sin(baseLon)
+                }, state.rotationX, state.rotationY);
+
+                const perspective = 1.8 / (1.8 - p.z);
+                const x = state.cx + p.x * state.radius * perspective;
+                const y = state.cy + p.y * state.radius * perspective;
+
+                if (!started) {
+                    ctx.moveTo(x, y);
+                    started = true;
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+        }
+
+        ctx.restore();
+    }
+
+    function renderLabels() {
+        const sortedNodes = [];
+
+        nodes.forEach(node => {
+            const p = rotatePoint(node.base, state.rotationX, state.rotationY);
+            node.projected = p;
+
+            const perspective = 1.9 / (1.9 - p.z);
+            const x = state.cx + p.x * state.radius * perspective;
+            const y = state.cy + p.y * state.radius * perspective;
+            const depth = (p.z + 1) / 2;
+            const scale = 0.62 + depth * 0.48 + node.ratio * 0.22;
+            const fontSize = 0.86 + node.ratio * 0.92;
+            const opacity = 0.18 + depth * 0.92;
+            const hueLight = 80 + depth * 15;
+            const blur = Math.max(0, (0.42 - depth) * 6);
+
+            node.anchor.style.left = `${x}px`;
+            node.anchor.style.top = `${y}px`;
+            node.anchor.style.opacity = opacity.toFixed(3);
+            node.anchor.style.fontSize = `${fontSize}rem`;
+            node.anchor.style.filter = `blur(${blur.toFixed(2)}px)`;
+            node.anchor.style.transform = `translate(-50%, -50%) scale(${scale.toFixed(3)})`;
+            node.anchor.style.color = `hsl(205 85% ${hueLight.toFixed(1)}%)`;
+            node.anchor.style.zIndex = `${Math.round(depth * 1000)}`;
+
+            sortedNodes.push(node);
+        });
+
+        sortedNodes.sort((a, b) => a.projected.z - b.projected.z);
+        sortedNodes.forEach(node => labelsLayer.appendChild(node.anchor));
+    }
+
+    function animate() {
+        if (!state.dragging && state.autoRotate) {
+            state.rotationX += state.velocityX;
+            state.rotationY += state.velocityY;
+
+            if (Date.now() - state.lastMoveAt > 140) {
+                state.velocityX += (0.0008 - state.velocityX) * 0.04;
+                state.velocityY += (0.0024 - state.velocityY) * 0.04;
+            }
+        }
+
+        drawGlobeGrid();
+        renderLabels();
+        requestAnimationFrame(animate);
+    }
+
+    stage.addEventListener('pointerdown', event => {
+        if (event.target.closest('.tag-globe-label')) return;
+        state.dragging = true;
+        state.moved = false;
+        state.autoRotate = false;
+        state.pointerX = event.clientX;
+        state.pointerY = event.clientY;
+        stage.classList.add('is-dragging');
+    });
+
+    window.addEventListener('pointermove', event => {
+        if (!state.dragging) return;
+        const dx = event.clientX - state.pointerX;
+        const dy = event.clientY - state.pointerY;
+        if (Math.abs(dx) > 2 || Math.abs(dy) > 2) {
+            state.moved = true;
+        }
+        state.pointerX = event.clientX;
+        state.pointerY = event.clientY;
+        state.rotationY += dx * 0.0052;
+        state.rotationX += dy * 0.0042;
+        state.velocityY = dx * 0.00016;
+        state.velocityX = dy * 0.00012;
+        state.lastMoveAt = Date.now();
+    });
+
+    window.addEventListener('pointerup', () => {
+        const wasDragging = state.dragging;
+        state.dragging = false;
+        stage.classList.remove('is-dragging');
+        if (wasDragging) {
+            state.autoRotate = true;
+        }
+    });
+
+    window.addEventListener('resize', resize);
+
+    resize();
+    animate();
 });
 </script>
-
 {{ end }}
