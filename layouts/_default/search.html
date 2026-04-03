@@ -1,101 +1,868 @@
-{{- define "main" -}}
-<article class="page search-page">
-  <div class="search-box">
-    <h1>🔍 搜索文章</h1>
-    <input type="search" id="search" placeholder="输入关键词搜索..." autofocus>
-  </div>
-  
-  <div id="search-results"></div>
-  
-  <div id="search-not-found" style="display: none;">
-    <p>没有找到相关文章，试试其他关键词？</p>
-  </div>
-</article>
+{{ define "main" }}
+<main class="search-main">
+    <div class="search-container">
+        <!-- 搜索头部 -->
+        <header class="search-header">
+            <div class="search-header-content">
+                <div class="search-icon">🔍</div>
+                <h1 class="search-title">文章搜索</h1>
+                <p class="search-subtitle">在 {{ len (where .Site.RegularPages "Type" "posts") }} 篇文章中查找您感兴趣的内容</p>
+            </div>
+        </header>
 
-<script>
-// Simple search implementation
-const fuseOptions = {
-  keys: ['title', 'description', 'content', 'tags'],
-  threshold: 0.3,
-  includeContent: true
-};
+        <!-- 搜索表单 -->
+        <section class="search-form-section">
+            <div class="search-form-container">
+                <form class="search-form" id="searchForm">
+                    <div class="search-input-group">
+                        <input type="text" 
+                               id="searchInput" 
+                               class="search-input" 
+                               placeholder="输入关键词搜索文章..."
+                               autocomplete="off">
+                        <button type="submit" class="search-btn">
+                            <span class="search-btn-text">搜索</span>
+                            <span class="search-btn-icon">🔍</span>
+                        </button>
+                    </div>
+                    
+                    <!-- 搜索选项 -->
+                    <div class="search-options">
+                        <label class="search-option">
+                            <input type="checkbox" id="searchTitle" checked>
+                            <span class="option-text">标题</span>
+                        </label>
+                        <label class="search-option">
+                            <input type="checkbox" id="searchContent" checked>
+                            <span class="option-text">内容</span>
+                        </label>
+                        <label class="search-option">
+                            <input type="checkbox" id="searchTags">
+                            <span class="option-text">标签</span>
+                        </label>
+                        <label class="search-option">
+                            <input type="checkbox" id="searchCategories">
+                            <span class="option-text">分类</span>
+                        </label>
+                    </div>
+                    
+                    <!-- 搜索提示 -->
+                    <div class="search-tips">
+                        <p class="tip-text">
+                            💡 <strong>搜索提示：</strong>
+                            在输入框中输入关键词，然后点击“搜索”按钮或按回车键进行搜索。
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </section>
 
-let fuse;
+        <!-- 热门搜索 -->
+        <section class="popular-searches">
+            <h3 class="popular-title">🔥 热门搜索</h3>
+            <div class="popular-tags">
+                {{ if .Site.Taxonomies.tags }}
+                {{ $sortedTags := slice }}
+                {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                {{ $count := len $taxonomy }}
+                {{ $sortedTags = $sortedTags | append (dict "name" $name "count" $count) }}
+                {{ end }}
+                {{ $sortedTags = sort $sortedTags "count" "desc" }}
+                {{ range first 12 $sortedTags }}
+                <button class="popular-tag {{ if ge .count 10 }}hot-popular{{ else if ge .count 5 }}warm-popular{{ else }}cool-popular{{ end }}" 
+                        onclick="performSearch('{{ .name }}')">
+                    <span class="tag-text">{{ .name }}</span>
+                    <span class="tag-number">{{ .count }}</span>
+                </button>
+                {{ end }}
+                {{ else }}
+                <button class="popular-tag" onclick="performSearch('Hugo')">
+                    <span class="tag-text">Hugo</span>
+                </button>
+                <button class="popular-tag" onclick="performSearch('博客')">
+                    <span class="tag-text">博客</span>
+                </button>
+                <button class="popular-tag" onclick="performSearch('技术')">
+                    <span class="tag-text">技术</span>
+                </button>
+                <button class="popular-tag" onclick="performSearch('前端')">
+                    <span class="tag-text">前端</span>
+                </button>
+                {{ end }}
+            </div>
+            {{ if .Site.Taxonomies.tags }}
+            <p class="popular-note">📊 显示最热门的12个标签，点击即可快速搜索</p>
+            {{ end }}
+        </section>
 
-async function loadSearchIndex() {
-  try {
-    const response = await fetch('/index.json');
-    const data = await response.json();
-    fuse = new Fuse(data, fuseOptions);
-  } catch (e) {
-    console.error('Failed to load search index:', e);
-  }
+        <!-- 搜索结果 -->
+        <section class="search-results" id="searchResults" style="display: none;">
+            <div class="results-header">
+                <h3 class="results-title">搜索结果</h3>
+                <span class="results-count" id="resultsCount"></span>
+            </div>
+            <div class="results-container" id="resultsContainer">
+                <!-- 搜索结果将在这里显示 -->
+            </div>
+        </section>
+
+        <!-- 最近文章 -->
+        <section class="recent-articles">
+            <h3 class="recent-title">📚 最近文章</h3>
+            <div class="recent-grid">
+                {{ range first 6 .Site.RegularPages }}
+                <article class="recent-article">
+                    <a href="{{ .Permalink }}" class="recent-link">
+                        <div class="recent-header">
+                            <time class="recent-date">{{ .Date.Format "01-02" }}</time>
+                            {{ if .Params.categories }}
+                            <span class="recent-category">{{ index .Params.categories 0 }}</span>
+                            {{ end }}
+                        </div>
+                        <h4 class="recent-article-title">{{ .Title }}</h4>
+                        <p class="recent-description">
+                            {{ if .Params.description }}
+                                {{ .Params.description | truncate 80 }}
+                            {{ else }}
+                                {{ .Summary | truncate 80 }}
+                            {{ end }}
+                        </p>
+                        {{ if .Params.tags }}
+                        <div class="recent-tags">
+                            {{ range first 2 .Params.tags }}
+                            <span class="recent-tag">{{ . }}</span>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </a>
+                </article>
+                {{ end }}
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- 文章数据 (用于搜索) -->
+<script type="application/json" id="searchData">
+[
+{{ range $index, $page := .Site.RegularPages }}
+{{ if $index }},{{ end }}
+{
+    "title": "{{ $page.Title | replaceRE "\"" "\\\"" | replaceRE "\n" " " }}",
+    "url": "{{ $page.Permalink }}",
+    "content": "{{ ($page.Plain | truncate 800) | replaceRE "\"" "\\\"" | replaceRE "\n" " " | replaceRE "\r" " " }}",
+    "summary": "{{ ($page.Summary | truncate 300) | replaceRE "\"" "\\\"" | replaceRE "\n" " " }}",
+    "date": "{{ $page.Date.Format "2006-01-02" }}",
+    "dateFormatted": "{{ $page.Date.Format "2006年01月02日" }}",
+    "tags": [{{ range $tIndex, $tag := $page.Params.tags }}{{ if $tIndex }},{{ end }}"{{ $tag | replaceRE "\"" "\\\"" }}"{{ end }}],
+    "categories": [{{ range $cIndex, $cat := $page.Params.categories }}{{ if $cIndex }},{{ end }}"{{ $cat | replaceRE "\"" "\\\"" }}"{{ end }}],
+    "description": "{{ (($page.Params.description | default "") | truncate 300) | replaceRE "\"" "\\\"" | replaceRE "\n" " " }}"
 }
-
-function search(query) {
-  if (!fuse) return;
-  
-  const results = fuse.search(query);
-  const container = document.getElementById('search-results');
-  const notFound = document.getElementById('search-not-found');
-  
-  if (results.length === 0) {
-    container.innerHTML = '';
-    notFound.style.display = 'block';
-    return;
-  }
-  
-  notFound.style.display = 'none';
-  container.innerHTML = results.map(r => `
-    <article class="search-result">
-      <h2><a href="${r.item.permalink}">${r.item.title}</a></h2>
-      <p>${r.item.description || r.item.summary || ''}</p>
-      <small>${r.item.date || ''}</small>
-    </article>
-  `).join('');
-}
-
-document.getElementById('search').addEventListener('input', e => {
-  const query = e.target.value.trim();
-  if (query.length > 1) {
-    search(query);
-  }
-});
-
-loadSearchIndex();
+{{ end }}
+]
 </script>
 
 <style>
-.search-page {
-  max-width: 800px;
-  margin: 0 auto;
+/* 搜索页面专用样式 */
+.search-main {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+    padding: 2rem 0;
 }
 
-.search-box {
-  margin-bottom: 2rem;
+.search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
-.search-box input {
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid var(--border);
-  border-radius: 8px;
-  font-size: 1rem;
-  margin-top: 1rem;
+.search-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
 }
 
-.search-result {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--border);
+.search-header-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 3rem 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.search-result h2 {
-  margin-bottom: 0.5rem;
+.search-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
-.search-result p {
-  color: var(--text-color);
-  opacity: 0.8;
+.search-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.search-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.search-form-section {
+    margin-bottom: 3rem;
+}
+
+.search-form-container {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.search-input-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #f8fafc;
+}
+
+.search-input:focus {
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.search-btn {
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 120px;
+    justify-content: center;
+}
+
+.search-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+}
+
+.search-btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.search-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+.search-options {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.search-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: #64748b;
+    transition: color 0.3s ease;
+}
+
+.search-option:hover {
+    color: var(--primary-color);
+}
+
+.search-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+}
+
+.search-tips {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.tip-text {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.tip-text strong {
+    color: var(--primary-color);
+}
+
+.popular-searches {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.popular-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.popular-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.popular-tag {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    color: #475569;
+    padding: 0.5rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.popular-tag:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* 热门标签等级样式 */
+.popular-tag.hot-popular {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    border-color: #ef4444;
+    animation: popularPulse 3s ease-in-out infinite;
+}
+
+.popular-tag.hot-popular:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+.popular-tag.warm-popular {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+    border-color: #f59e0b;
+}
+
+.popular-tag.warm-popular:hover {
+    background: linear-gradient(135deg, #d97706, #b45309);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.4);
+}
+
+.popular-tag.cool-popular {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    color: white;
+    border-color: #06b6d4;
+}
+
+.popular-tag.cool-popular:hover {
+    background: linear-gradient(135deg, #0891b2, #0e7490);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+}
+
+@keyframes popularPulse {
+    0% { box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); }
+    50% { box-shadow: 0 8px 20px rgba(239, 68, 68, 0.6); }
+    100% { box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3); }
+}
+
+.tag-text {
+    font-weight: 600;
+}
+
+.tag-number {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.1rem 0.4rem;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    min-width: 1.2rem;
+    text-align: center;
+}
+
+.popular-note {
+    text-align: center;
+    margin: 1.5rem 0 0 0;
+    color: #64748b;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.search-results {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.results-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.results-count {
+    color: #64748b;
+    font-weight: 500;
+}
+
+.results-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.result-item {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.result-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.result-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.result-date {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.result-category {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.result-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.result-description {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.result-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.result-tag {
+    background: #e2e8f0;
+    color: #475569;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+}
+
+.recent-articles {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.recent-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.recent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.recent-article {
+    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+}
+
+.recent-article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.recent-link {
+    display: block;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+}
+
+.recent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.recent-date {
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.recent-category {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.recent-article-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.recent-description {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.recent-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.recent-tag {
+    background: #e2e8f0;
+    color: #475569;
+    padding: 0.15rem 0.4rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .search-title {
+        font-size: 2.5rem;
+    }
+    
+    .search-input-group {
+        flex-direction: column;
+    }
+    
+    .search-options {
+        gap: 1rem;
+    }
+    
+    .results-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .recent-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .popular-tags {
+        gap: 0.5rem;
+    }
 }
 </style>
-{{- end -}}
+
+<script>
+// 搜索功能
+document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const searchForm = document.getElementById('searchForm');
+    const searchResults = document.getElementById('searchResults');
+    const resultsContainer = document.getElementById('resultsContainer');
+    const resultsCount = document.getElementById('resultsCount');
+    
+    // 加载搜索数据
+    let searchData = [];
+    
+    // 从内嵌数据加载
+    try {
+        const dataElement = document.getElementById('searchData');
+        if (dataElement) {
+            searchData = JSON.parse(dataElement.textContent);
+            console.log('搜索数据加载成功:', searchData.length + ' 篇文章');
+        } else {
+            console.error('找不到搜索数据元素');
+        }
+    } catch (error) {
+        console.error('搜索数据解析失败:', error);
+    }
+    
+    // 搜索函数
+    function performSearch(query) {
+        if (!query.trim()) {
+            searchResults.style.display = 'none';
+            return;
+        }
+        
+        // 显示加载状态
+        setSearchLoading(true);
+        
+        // 使用 setTimeout 模拟异步搜索，提供更好的用户体验
+        setTimeout(() => {
+            if (searchData.length === 0) {
+                searchResults.style.display = 'block';
+                resultsContainer.innerHTML = `
+                    <div style="text-align: center; padding: 3rem; color: #64748b;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">⚠️</div>
+                        <h3>搜索数据不可用</h3>
+                        <p>请刷新页面后重试</p>
+                    </div>
+                `;
+                resultsCount.textContent = '数据加载失败';
+                setSearchLoading(false);
+                return;
+            }
+            
+            searchInput.value = query;
+            
+            const searchTitle = document.getElementById('searchTitle').checked;
+            const searchContent = document.getElementById('searchContent').checked;
+            const searchTags = document.getElementById('searchTags').checked;
+            const searchCategories = document.getElementById('searchCategories').checked;
+            
+            const queryLower = query.toLowerCase();
+            const results = searchData.filter(post => {
+                let match = false;
+                
+                if (searchTitle && post.title.toLowerCase().includes(queryLower)) {
+                    match = true;
+                }
+                
+                if (searchContent && (post.content.toLowerCase().includes(queryLower) || 
+                                    post.summary.toLowerCase().includes(queryLower) ||
+                                    (post.description && post.description.toLowerCase().includes(queryLower)))) {
+                    match = true;
+                }
+                
+                if (searchTags && post.tags.some(tag => tag.toLowerCase().includes(queryLower))) {
+                    match = true;
+                }
+                
+                if (searchCategories && post.categories.some(cat => cat.toLowerCase().includes(queryLower))) {
+                    match = true;
+                }
+                
+                return match;
+            });
+            
+            displayResults(results, query);
+            setSearchLoading(false);
+        }, 200);
+    }
+    
+    // 显示搜索结果
+    function displayResults(results, query) {
+        if (results.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="no-results">
+                    <div style="text-align: center; padding: 3rem; color: #64748b;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">😔</div>
+                        <h3>未找到相关内容</h3>
+                        <p>尝试使用其他关键词或检查拼写</p>
+                    </div>
+                </div>
+            `;
+        } else {
+            resultsContainer.innerHTML = results.map(post => `
+                <div class="result-item">
+                    <a href="${post.url}" class="result-link">
+                        <div class="result-header">
+                            <time class="result-date">${post.dateFormatted}</time>
+                            ${post.categories.length > 0 ? `<span class="result-category">${post.categories[0]}</span>` : ''}
+                        </div>
+                        <h4 class="result-title">${highlightText(post.title, query)}</h4>
+                        <p class="result-description">${highlightText(truncateText(post.description || post.summary, 150), query)}</p>
+                        ${post.tags.length > 0 ? `
+                            <div class="result-tags">
+                                ${post.tags.slice(0, 3).map(tag => `<span class="result-tag">${tag}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                    </a>
+                </div>
+            `).join('');
+        }
+        
+        resultsCount.textContent = `找到 ${results.length} 个结果`;
+        searchResults.style.display = 'block';
+        searchResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    // 高亮搜索关键词
+    function highlightText(text, query) {
+        if (!query.trim()) return text;
+        
+        const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+        return text.replace(regex, '<mark style="background: #fef08a; padding: 0.1rem 0.2rem; border-radius: 3px;">$1</mark>');
+    }
+    
+    // 转义正则表达式特殊字符
+    function escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+    
+    // 截断文本
+    function truncateText(text, length) {
+        if (text.length <= length) return text;
+        return text.substring(0, length) + '...';
+    }
+    
+    // 设置搜索加载状态
+    function setSearchLoading(isLoading) {
+        const searchBtn = document.querySelector('.search-btn');
+        const searchBtnText = document.querySelector('.search-btn-text');
+        const searchBtnIcon = document.querySelector('.search-btn-icon');
+        
+        if (isLoading) {
+            searchBtn.disabled = true;
+            searchBtn.style.opacity = '0.7';
+            searchBtnText.textContent = '搜索中...';
+            searchBtnIcon.textContent = '⏳';
+            
+            // 显示搜索结果区域和加载动画
+            searchResults.style.display = 'block';
+            resultsContainer.innerHTML = `
+                <div style="text-align: center; padding: 3rem; color: #64748b;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; animation: spin 1s linear infinite;">🔍</div>
+                    <h3>正在搜索...</h3>
+                    <p>请稍候</p>
+                </div>
+                <style>
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                </style>
+            `;
+            resultsCount.textContent = '搜索中...';
+        } else {
+            searchBtn.disabled = false;
+            searchBtn.style.opacity = '1';
+            searchBtnText.textContent = '搜索';
+            searchBtnIcon.textContent = '🔍';
+        }
+    }
+    
+    // 绑定事件
+    const searchBtn = document.querySelector('.search-btn');
+    
+    // 表单提交事件
+    searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        performSearch(searchInput.value);
+    });
+    
+    // 搜索按钮点击事件
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            performSearch(searchInput.value);
+        });
+    }
+    
+    // 全局搜索函数（供热门标签使用）
+    window.performSearch = performSearch;
+});
+</script>
+{{ end }}

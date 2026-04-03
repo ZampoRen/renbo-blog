@@ -2,9 +2,9 @@
 <style>
   /* 首页主容器 */
   .main {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
   
   /* Hero Section */
@@ -12,9 +12,9 @@
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
     color: white;
     text-align: center;
-    padding: 4rem 0;
-    margin: 2rem -1.5rem 4rem -1.5rem;
-    border-radius: 0 0 2rem 2rem;
+    padding: 5rem 2rem;
+    margin: 2rem -2rem 4rem -2rem;
+    border-radius: 0 0 3rem 3rem;
     position: relative;
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
@@ -75,9 +75,9 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
   }
   
-  /* Featured Posts Section */
-  .featured-section {
-    margin-bottom: 3rem;
+  /* Section 通用样式 */
+  .section {
+    margin-bottom: 4rem;
   }
   
   .section-header {
@@ -90,9 +90,9 @@
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--text-primary);
     position: relative;
   }
   
@@ -120,25 +120,48 @@
     background-color: var(--bg-secondary);
   }
   
-  /* Featured Posts Grid */
+  /* 精选文章 - 大卡片布局 */
   .featured-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.9fr);
     gap: 2rem;
-    margin-bottom: 3rem;
-    align-items: start;
+    align-items: stretch;
   }
   
   .featured-main {
-    background: var(--bg-color);
+    background: var(--bg-primary);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
+    border-radius: 1.5rem;
     overflow: hidden;
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
-    height: 1041.87px;
+    min-height: 420px;
     display: flex;
     flex-direction: column;
+    position: relative;
+    isolation: isolate;
+  }
+
+  .featured-main::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at top right, rgba(59, 130, 246, 0.2), transparent 35%),
+      linear-gradient(160deg, #f8fbff 0%, #eef4ff 42%, #ffffff 100%);
+    z-index: -1;
+  }
+
+  .featured-main::after {
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 160px;
+    height: 160px;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, rgba(99, 102, 241, 0) 70%);
+    z-index: -1;
   }
   
   .featured-main:hover {
@@ -147,109 +170,72 @@
     border-color: var(--primary-color);
   }
   
-  .featured-image {
-    width: 100%;
-    height: 200px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  .featured-main-link {
+    text-decoration: none;
+    color: inherit;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    color: white;
-    flex-shrink: 0;
+    flex-direction: column;
+    height: 100%;
   }
   
-  .featured-content {
+  .featured-main-content {
     padding: 2rem;
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(145deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
-    position: relative;
-  }
-  
-  .featured-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, transparent 0%, rgba(102, 126, 234, 0.02) 50%, rgba(118, 75, 162, 0.02) 100%);
-    pointer-events: none;
+    justify-content: flex-end;
+    gap: 1rem;
   }
   
   .featured-meta {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
-    margin-bottom: 1.25rem;
     font-size: 0.875rem;
     color: var(--text-muted);
   }
   
   .featured-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    line-height: 1.3;
+    font-size: clamp(1.9rem, 2.8vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.18;
+    overflow-wrap: anywhere;
+    margin: 0;
   }
   
-  .featured-title a {
-    color: var(--text-color);
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  
-  .featured-title a:hover {
+  .featured-main-link:hover .featured-title {
     color: var(--primary-color);
-    text-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
   }
   
   .featured-excerpt {
     color: var(--text-muted);
-    line-height: 1.4;
-    margin-bottom: 0.75rem;
+    line-height: 1.7;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    font-size: 0.95rem;
-    flex: 1;
-  }
-  
-  .featured-read-more {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.875rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-    margin-top: auto;
-  }
-  
-  .featured-read-more:hover {
-    color: var(--primary-dark);
+    font-size: 1rem;
+    margin: 0;
   }
   
   .featured-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: auto;
+    margin-top: 0.25rem;
   }
   
   .tag {
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(102, 126, 234, 0.1) 100%);
-    color: var(--text-color);
-    padding: 0.35rem 0.85rem;
+    background: rgba(255, 255, 255, 0.74);
+    color: var(--text-primary);
+    padding: 0.45rem 0.85rem;
     border-radius: 50px;
     font-size: 0.8rem;
     text-decoration: none;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
-    backdrop-filter: blur(4px);
   }
   
   .tag:hover {
@@ -260,12 +246,11 @@
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
   }
   
-  /* Featured Sidebar */
   .featured-sidebar {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    height: 100%;
+    justify-content: stretch;
   }
   
   .sidebar-post-link {
@@ -275,248 +260,195 @@
   }
   
   .sidebar-post {
-    background: var(--bg-color);
+    background: var(--bg-primary);
     border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    padding: 1rem;
+    border-radius: 1.25rem;
+    padding: 1.35rem;
     transition: all 0.3s ease;
+    min-height: 132px;
   }
   
   .sidebar-post-link:hover .sidebar-post {
-    transform: translateX(4px);
+    transform: translateY(-3px);
     box-shadow: var(--shadow-md);
-  }
-  
-  .sidebar-post h3 {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-  }
-  
-  .sidebar-post h3 a {
-    color: var(--text-color);
-    text-decoration: none;
-  }
-  
-  .sidebar-post h3 a:hover {
-    color: var(--primary-color);
+    border-color: var(--primary-color);
   }
   
   .sidebar-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
     font-size: 0.8rem;
     color: var(--text-muted);
-    margin-bottom: 0.5rem;
+  }
+  
+  .sidebar-title {
+    font-size: 1.1rem;
+    font-weight: 650;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    margin: 0 0 0.55rem 0;
+  }
+  
+  .sidebar-post-link:hover .sidebar-title {
+    color: var(--primary-color);
   }
   
   .sidebar-excerpt {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-muted);
-    line-height: 1.4;
+    line-height: 1.6;
     display: -webkit-box;
-    -webkit-line-clamp: 1;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin: 0;
   }
   
-  /* 紧凑模式样式 */
-  .compact-post {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-md);
-    margin-bottom: 0.5rem;
-    text-decoration: none;
-    color: var(--text-color);
-    transition: all 0.2s ease;
-  }
-  
-  .compact-post:hover {
-    background: var(--bg-secondary);
-    border-color: var(--primary-color);
-    transform: translateX(2px);
-  }
-  
-  .compact-post-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    color: white;
-    margin-right: 0.75rem;
-    flex-shrink: 0;
-  }
-  
-  .compact-post-content {
-    flex: 1;
-    min-width: 0;
-  }
-  
-  .compact-post-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-    line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  
-  .compact-post-meta {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-  }
-  
-  /* Recent Posts Grid */
+  /* 最新文章 - 紧凑卡片网格 */
   .posts-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 1.5rem;
-    justify-content: center;
   }
   
   .post-card {
-    background: var(--bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-sm);
-    height: 380px;
-    display: flex;
-    flex-direction: column;
+    background: linear-gradient(135deg, #f8fafc, #eef3f9) !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+    transition: all 0.4s ease !important;
+    box-shadow: var(--shadow-sm) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 240px !important;
+    height: auto !important;
+    padding: 0.35rem !important;
+    margin: 0 !important;
   }
   
   .post-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     border-color: var(--primary-color);
   }
   
-  .post-card-image {
-    width: 100%;
-    height: 160px;
-    background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.75rem;
-    color: white;
-  }
-  
-  .post-card-content {
-    padding: 1.25rem;
-    flex: 1;
+  .post-card-link {
+    text-decoration: none;
+    color: inherit;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.72);
+    padding: 1.35rem;
   }
   
   .post-card-meta {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-    font-size: 0.875rem;
-    color: var(--text-muted);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.95rem;
+    font-size: 0.9rem;
+    color: #64748b;
+  }
+  
+  .post-card-category {
+    background: linear-gradient(135deg, #4f7cff, #7457ff);
+    color: white;
+    padding: 0.24rem 0.72rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
   }
   
   .post-card-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-    line-height: 1.3;
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 0.9rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.02em !important;
+    color: #1e293b !important;
+    overflow-wrap: anywhere !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    min-height: 2.6em !important;
+    overflow: hidden !important;
   }
   
-  .post-card-title a {
-    color: var(--text-color);
-    text-decoration: none;
-  }
-  
-  .post-card-title a:hover {
+  .post-card-link:hover .post-card-title {
     color: var(--primary-color);
   }
   
   .post-card-excerpt {
-    color: var(--text-muted);
-    line-height: 1.4;
-    margin-bottom: 0.75rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    font-size: 0.85rem;
-    flex: 1;
+    color: #64748b !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.25rem !important;
+    font-size: 0.95rem !important;
+    flex: 1 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    min-height: 4.8em !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: normal !important;
   }
   
-  .read-more {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.875rem;
-    display: inline-flex;
+  .post-card-footer {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 0.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     margin-top: auto;
+    padding-top: 1.15rem;
+    border-top: 1px solid #dbe4ee;
   }
   
-  .read-more:hover {
-    color: var(--primary-dark);
+  .post-card-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    min-width: 0;
   }
   
-  /* Post Card Link */
-  .post-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+  .post-card-tag {
+    background: #e2e8f0;
+    color: #475569;
+    padding: 0.2rem 0.5rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
   }
   
-  .post-card-link:hover .post-card {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-xl);
-    border-color: var(--primary-color);
+  .read-time {
+    font-size: 0.8rem;
+    color: #64748b;
   }
   
   /* 响应式设计 */
   @media (max-width: 1024px) {
+    .main {
+      padding: 0 1.5rem;
+    }
+    
     .hero {
-      margin: 2rem -1rem 4rem -1rem;
+      margin: 2rem -1.5rem 3rem -1.5rem;
+      padding: 4rem 1.5rem;
     }
     
     .featured-grid {
       grid-template-columns: 1fr;
       gap: 1.5rem;
-      align-items: start;
     }
     
     .featured-main {
-      height: auto;
-      max-height: none;
-    }
-    
-    .featured-image {
-      height: 180px;
-    }
-    
-    .featured-content {
-      padding: 1.75rem;
-    }
-    
-    .featured-title {
-      font-size: 1.35rem;
-    }
-    
-    .featured-excerpt {
-      -webkit-line-clamp: 3;
-      font-size: 0.9rem;
-    }
-    
-    .posts-grid {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      min-height: 360px;
     }
   }
   
@@ -526,8 +458,8 @@
     }
     
     .hero {
-      margin: 2rem -1rem 3rem -1rem;
-      padding: 3rem 0;
+      margin: 2rem -1rem 2rem -1rem;
+      padding: 3rem 1rem;
     }
     
     .hero h1 {
@@ -544,30 +476,12 @@
       gap: 1rem;
     }
     
-    .featured-main {
-      height: auto;
-      max-height: none;
-    }
-    
-    .featured-image {
-      height: 160px;
-    }
-    
-    .featured-content {
-      padding: 1.5rem;
-    }
-    
-    .featured-title {
-      font-size: 1.25rem;
-    }
-    
-    .featured-excerpt {
-      -webkit-line-clamp: 2;
-      font-size: 0.85rem;
-    }
-    
     .posts-grid {
       grid-template-columns: 1fr;
+    }
+    
+    .post-card {
+      min-height: 260px;
     }
   }
   
@@ -577,38 +491,31 @@
     }
     
     .hero {
-      margin: 2rem -0.75rem 2rem -0.75rem;
-      padding: 2rem 0;
+      margin: 2rem -0.75rem 1.5rem -0.75rem;
+      padding: 2.5rem 0.75rem;
     }
     
     .hero-content {
       padding: 0 1rem;
     }
     
-    .featured-main {
-      height: auto;
-      max-height: none;
-    }
-    
-    .featured-image {
-      height: 140px;
-    }
-    
-    .featured-content {
-      padding: 1.25rem;
-    }
-    
     .featured-title {
-      font-size: 1.15rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.6rem;
     }
     
     .featured-excerpt {
-      -webkit-line-clamp: 2;
-      font-size: 0.8rem;
-      margin-bottom: 0.5rem;
+      -webkit-line-clamp: 3;
+      font-size: 0.9rem;
     }
-      }
+
+    .post-card-link {
+      padding: 1.35rem;
+    }
+
+    .post-card-title {
+      font-size: 1.15rem !important;
+    }
+  }
 </style>
 
 {{ if site.Params.homeInfoParams }}
@@ -625,7 +532,7 @@
 {{ end }}
 
 <!-- Featured Posts Section -->
-<section class="featured-section">
+<section class="section">
   <div class="section-header">
     <h2 class="section-title">精选文章</h2>
     <a href="/posts/" class="view-all">查看全部 →</a>
@@ -636,41 +543,42 @@
   <div class="featured-grid">
     <!-- Main Featured Post -->
     {{ with index $featured 0 }}
+    {{ $featuredExcerpt := .Description | default (.Summary | plainify | htmlUnescape) }}
     <article class="featured-main">
-      <div class="featured-image">📝</div>
-      <div class="featured-content">
-        <div class="featured-meta">
-          <time>{{ .Date.Format "2006年01月02日" }}</time>
-          <span>·</span>
-          <span>阅读需 {{ .ReadingTime }} 分钟</span>
-        </div>
-        <h3 class="featured-title">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </h3>
-        <p class="featured-excerpt">{{ .Summary }}</p>
-        <a href="{{ .Permalink }}" class="featured-read-more">
-          <span>阅读全文</span>
-          <span>→</span>
-        </a>
-        {{ if .Params.tags }}
-        <div class="featured-tags">
-          {{ range .Params.tags }}
-            <a href="/tags/{{ . | urlize }}" class="tag"># {{ . }}</a>
+      <a href="{{ .Permalink }}" class="featured-main-link">
+        <div class="featured-main-content">
+          <div class="featured-meta">
+            <time>{{ .Date.Format "2006年01月02日" }}</time>
+            <span>·</span>
+            <span>阅读需 {{ .ReadingTime }} 分钟</span>
+          </div>
+          <h3 class="featured-title">{{ .Title }}</h3>
+          <p class="featured-excerpt">{{ $featuredExcerpt | truncate 140 }}</p>
+          {{ if .Params.tags }}
+          <div class="featured-tags">
+            {{ range .Params.tags }}
+              <a href="/tags/{{ . | urlize }}" class="tag"># {{ . }}</a>
+            {{ end }}
+          </div>
           {{ end }}
         </div>
-        {{ end }}
-      </div>
+      </a>
     </article>
     {{ end }}
     
     <!-- Sidebar Posts -->
     <div class="featured-sidebar">
       {{ range after 1 $featured }}
+      {{ $sidebarExcerpt := .Description | default (.Summary | plainify | htmlUnescape) }}
       <a href="{{ .Permalink }}" class="sidebar-post-link">
         <article class="sidebar-post">
-          <div class="sidebar-meta">{{ .Date.Format "01月02日" }}</div>
-          <h3>{{ .Title }}</h3>
-          <p class="sidebar-excerpt">{{ truncate 80 .Summary }}</p>
+          <div class="sidebar-meta">
+            <time>{{ .Date.Format "01月02日" }}</time>
+            <span>·</span>
+            <span>{{ .ReadingTime }}分钟</span>
+          </div>
+          <h4 class="sidebar-title">{{ .Title }}</h4>
+          <p class="sidebar-excerpt">{{ $sidebarExcerpt | truncate 72 }}</p>
         </article>
       </a>
       {{ end }}
@@ -680,33 +588,36 @@
 </section>
 
 <!-- Recent Posts Section -->
-<section class="featured-section">
+<section class="section">
   <div class="section-header">
     <h2 class="section-title">最新文章</h2>
     <a href="/posts/" class="view-all">查看全部 →</a>
   </div>
   
-  {{ $recent := after 4 (first 10 (where site.RegularPages "Type" "posts")) }}
+  {{ $recent := after 4 (first 12 (where site.RegularPages "Type" "posts")) }}
   {{ if $recent }}
   <div class="posts-grid">
     {{ range $recent }}
+    {{ $cardExcerpt := .Description | default (.Summary | plainify | htmlUnescape) }}
     <a href="{{ .Permalink }}" class="post-card-link">
       <article class="post-card">
-        <div class="post-card-image">
-          {{ if .Params.icon }}{{ .Params.icon }}{{ else }}📄{{ end }}
+        <div class="post-card-meta">
+          {{ if .Params.categories }}
+          <span class="post-card-category">{{ index .Params.categories 0 }}</span>
+          {{ else if .Params.tags }}
+          <span class="post-card-category">{{ index .Params.tags 0 }}</span>
+          {{ end }}
+          <time>{{ .Date.Format "01-02" }}</time>
         </div>
-        <div class="post-card-content">
-          <div class="post-card-meta">
-            <time>{{ .Date.Format "2006年01月02日" }}</time>
-            <span>·</span>
-            <span>{{ .ReadingTime }}分钟</span>
+        <h3 class="post-card-title">{{ .Title }}</h3>
+        <p class="post-card-excerpt">{{ $cardExcerpt | truncate 110 }}</p>
+        <div class="post-card-footer">
+          <div class="post-card-tags">
+            {{ range first 2 .Params.tags }}
+            <span class="post-card-tag">{{ . }}</span>
+            {{ end }}
           </div>
-          <h3 class="post-card-title">{{ .Title }}</h3>
-          <p class="post-card-excerpt">{{ .Summary }}</p>
-          <span class="read-more">
-            <span>阅读全文</span>
-            <span>→</span>
-          </span>
+          <span class="read-time">{{ .ReadingTime }}分钟</span>
         </div>
       </article>
     </a>
@@ -718,6 +629,5 @@
   </div>
   {{ end }}
 </section>
-
 
 {{ end }}

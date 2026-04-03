@@ -45,3 +45,7 @@ defaultContentLanguage = 'zh-cn'
 
 [outputs]
   home = ["HTML", "JSON"]
+  page = ["HTML"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
