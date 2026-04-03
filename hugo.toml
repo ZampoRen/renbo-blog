@@ -1,58 +1,16 @@
 baseURL = 'https://blog.cpdd.fyi/'
 languageCode = 'zh-cn'
 title = '任博的博客'
-theme = 'PaperMod'
+theme = 'ProfessionalBlog'
 defaultContentLanguage = 'zh-cn'
 
 [build]
   writeStats = true
 
 [params]
-  env = "production"
   description = "任博的个人技术博客，专注后端开发、数据库、技术选型"
   author = "任博"
-  defaultTheme = "auto"
-  
-  # 头像
-  avatar = "/images/avatar.jpg"
-  gravatar = ""
-  
-  # 首页信息
-  [params.homeInfoParams]
-    Title = "任博的博客"
-    Content = '''
-    写了十几年代码的后端开发。
-    
-    专注：数据库内核、分布式系统、技术选型。
-    
-    踩过的坑不想让别人再踩。
-    '''
-  
-  # 功能开关
-  ShowReadingTime = true
-  ShowToc = true
-  ShowPostNavLinks = true
-  ShowCodeCopyButtons = true
-  ShowBreadCrumbs = true
-  ShowShareButtons = true
-  enableSearch = true
-  
-  # 封面
-  ShowCover = true
-  CoverPlaceholder = "/images/placeholder.svg"
-  
-  # 标签云
-  ShowTagsTaxonomy = true
-  
-  # 分页
-  paginate = 10
-  
-  # 社交链接
-  [social]
-    github = "ZampoRen"
-  
-  # 公众号
-  wechat = "任博的技术圈"
+  keywords = ['后端开发', '数据库', '分布式系统', '技术选型', 'PostgreSQL', 'MySQL']
 
 [menu]
   [[menu.main]]
@@ -60,20 +18,20 @@ defaultContentLanguage = 'zh-cn'
     url = "/"
     weight = 1
   [[menu.main]]
-    name = "归档"
+    name = "文章"
     url = "/posts/"
     weight = 2
   [[menu.main]]
-    name = "标签"
-    url = "/tags/"
-    weight = 3
-  [[menu.main]]
     name = "搜索"
     url = "/search/"
-    weight = 4
+    weight = 3
   [[menu.main]]
     name = "关于"
     url = "/about/"
+    weight = 4
+  [[menu.main]]
+    name = "标签"
+    url = "/tags/"
     weight = 5
 
 [markup]

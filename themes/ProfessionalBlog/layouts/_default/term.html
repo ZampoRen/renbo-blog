@@ -1,0 +1,1087 @@
+{{ define "main" }}
+<main class="tag-detail-main">
+    <!-- 页面头部区域 -->
+    <div class="tag-hero">
+        <div class="container">
+            <div class="hero-content">
+                <!-- 导航面包屑 -->
+                <nav class="breadcrumb">
+                    <a href="/" class="breadcrumb-item">🏠 首页</a>
+                    <span class="breadcrumb-separator">→</span>
+                    <a href="/tags/" class="breadcrumb-item">🏷️ 标签</a>
+                    <span class="breadcrumb-separator">→</span>
+                    <span class="breadcrumb-current">{{ .Title }}</span>
+                </nav>
+                
+                <!-- 标签信息 -->
+                <div class="tag-info">
+                    <div class="tag-icon-large">🏷️</div>
+                    <h1 class="hero-title">{{ .Title }}</h1>
+                    <p class="hero-description">
+                        {{ if .Content }}
+                        {{ .Content }}
+                        {{ else }}
+                        探索关于「{{ .Title }}」的精彩内容
+                        {{ end }}
+                    </p>
+                    
+                    <!-- 标签统计 -->
+                    <div class="tag-stats">
+                        <div class="stat-item">
+                            <span class="stat-icon">📝</span>
+                            <span class="stat-number">{{ len .Pages }}</span>
+                            <span class="stat-label">篇文章</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">📅</span>
+                            <span class="stat-number">{{ (index .Pages 0).Date.Format "01-02" }}</span>
+                            <span class="stat-label">最新更新</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-icon">⏱️</span>
+                            <span class="stat-number">{{ $totalWords := 0 }}{{ range .Pages }}{{ $totalWords = add $totalWords (countwords .Content) }}{{ end }}{{ div $totalWords 200 }}</span>
+                            <span class="stat-label">分钟阅读</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 主要内容区域 -->
+    <div class="container">
+
+        <!-- 文章筛选和排序 -->
+        <section class="filter-section">
+            <div class="filter-container">
+                <div class="filter-left">
+                    <h2 class="section-title">
+                        📚 相关文章 
+                        <span class="article-count-badge">{{ len .Pages }}</span>
+                    </h2>
+                </div>
+                <div class="filter-right">
+                    <div class="sort-options">
+                        <button class="sort-btn active" data-sort="date">⏰ 按时间</button>
+                        <button class="sort-btn" data-sort="title">📝 按标题</button>
+                        <button class="sort-btn" data-sort="reading">⏱️ 按阅读时长</button>
+                    </div>
+                    <div class="view-toggle">
+                        <button class="view-btn active" data-view="grid">⊞ 网格</button>
+                        <button class="view-btn" data-view="list">☰ 列表</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 文章列表展示 -->
+        <section class="articles-section">
+            {{ if .Pages }}
+            <div class="articles-container" id="articlesContainer">
+                <div class="articles-grid" id="articlesGrid">
+                    {{ range $index, $page := .Pages }}
+                    <article class="article-card" 
+                             data-date="{{ .Date.Format "2006-01-02" }}"
+                             data-title="{{ .Title }}"
+                             data-reading="{{ div (countwords .Content) 200 }}"
+                             style="animation-delay: {{ mul $index 0.1 }}s;">
+                        <a href="{{ .Permalink }}" class="article-link">
+                            <div class="article-header">
+                                <div class="article-meta">
+                                    <time class="article-date" datetime="{{ .Date.Format "2006-01-02" }}">
+                                        {{ .Date.Format "01月02日" }}
+                                    </time>
+                                    {{ if .Params.categories }}
+                                    <div class="article-categories">
+                                        {{ range first 1 .Params.categories }}
+                                        <span class="article-category">{{ . }}</span>
+                                        {{ end }}
+                                    </div>
+                                    {{ end }}
+                                </div>
+                                <div class="reading-time">
+                                    ⏱️ {{ div (countwords .Content) 200 }} 分钟
+                                </div>
+                            </div>
+                            
+                            <div class="article-content">
+                                <h3 class="article-title">{{ .Title }}</h3>
+                                <p class="article-summary">
+                                    {{ if .Params.description }}
+                                    {{ .Params.description }}
+                                    {{ else }}
+                                    {{ .Summary | truncate 150 }}
+                                    {{ end }}
+                                </p>
+                            </div>
+                            
+                            <div class="article-footer">
+                                {{ if .Params.tags }}
+                                <div class="article-tags">
+                                    {{ $currentTag := $.Title }}
+                                    {{ range .Params.tags }}
+                                    {{ if eq . $currentTag }}
+                                    <span class="article-tag current">{{ . }}</span>
+                                    {{ else }}
+                                    <span class="article-tag">{{ . }}</span>
+                                    {{ end }}
+                                    {{ end }}
+                                </div>
+                                {{ end }}
+                                <div class="article-action">
+                                    <span class="read-more">阅读全文 →</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                    {{ end }}
+                </div>
+            </div>
+            {{ else }}
+            <div class="empty-state">
+                <div class="empty-illustration">
+                    <div class="empty-icon">📝</div>
+                    <div class="empty-sparkles">✨</div>
+                </div>
+                <h3 class="empty-title">暂无相关文章</h3>
+                <p class="empty-description">「{{ .Title }}」标签下还没有发布任何文章</p>
+                <a href="/posts/" class="empty-action">浏览所有文章</a>
+            </div>
+            {{ end }}
+        </section>
+        
+        <!-- 返回按钮 -->
+        <section class="navigation-section">
+            <div class="nav-container">
+                <a href="/tags/" class="back-btn">
+                    ← 返回所有标签
+                </a>
+                <div class="related-tags">
+                    <h4>🔗 相关标签</h4>
+                    <div class="related-tags-list">
+                        {{ $currentTag := .Title }}
+                        {{ $relatedTags := slice }}
+                        {{ range $.Site.Taxonomies.tags }}
+                        {{ $tagName := .Page.Title }}
+                        {{ if ne $tagName $currentTag }}
+                        {{ $relatedTags = $relatedTags | append (dict "name" $tagName "count" (len .Pages)) }}
+                        {{ end }}
+                        {{ end }}
+                        {{ $relatedTags = sort $relatedTags "count" "desc" }}
+                        {{ range first 8 $relatedTags }}
+                        <a href="/tags/{{ .name | urlize }}/" class="related-tag">
+                            {{ .name }}
+                            <span class="tag-count">{{ .count }}</span>
+                        </a>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<style>
+/* 标签子页面专用样式 */
+.tag-detail-main {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+    position: relative;
+}
+
+.tag-detail-main::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.08)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.08)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+/* 页面头部区域样式 */
+.tag-hero {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.tag-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* 面包屑导航样式 */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.breadcrumb-item:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.breadcrumb-separator {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 300;
+}
+
+.breadcrumb-current {
+    color: white;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+}
+
+/* 标签信息样式 */
+.tag-info {
+    text-align: center;
+    color: white;
+}
+
+.tag-icon-large {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* 统计信息样式 */
+.tag-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.stat-icon {
+    font-size: 1.5rem;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+}
+
+/* 筛选和排序区域样式 */
+.filter-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.filter-left .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.article-count-badge {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.filter-right {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.sort-options, .view-toggle {
+    display: flex;
+    gap: 0.5rem;
+    background: rgba(102, 126, 234, 0.1);
+    padding: 0.3rem;
+    border-radius: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.sort-btn, .view-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sort-btn.active, .view-btn.active {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.sort-btn:hover, .view-btn:hover {
+    background: rgba(102, 126, 234, 0.1);
+    color: #667eea;
+}
+
+/* 文章容器样式 */
+.articles-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.article-card {
+    background: linear-gradient(135deg, #f8fafc, #ffffff);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 2px solid transparent;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    animation: slideUpFade 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.article-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 20px 20px 0 0;
+}
+
+.article-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+}
+
+.article-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    padding: 2rem;
+}
+
+.article-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.article-date {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(100, 116, 139, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+}
+
+.article-categories {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.article-category {
+    background: linear-gradient(45deg, #f59e0b, #d97706);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.reading-time {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    font-weight: 500;
+    background: rgba(148, 163, 184, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+}
+
+.article-content {
+    margin-bottom: 2rem;
+}
+
+.article-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 1rem 0;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.article-card:hover .article-title {
+    color: #667eea;
+}
+
+.article-summary {
+    color: #64748b;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.article-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.article-tags {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.article-tag {
+    background: #e2e8f0;
+    color: #64748b;
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.article-tag.current {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.article-action {
+    margin-left: 1rem;
+}
+
+.read-more {
+    color: #667eea;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.article-card:hover .read-more {
+    transform: translateX(4px);
+}
+
+/* 增强的空状态样式 */
+.empty-state {
+    text-align: center;
+    padding: 6rem 2rem;
+    position: relative;
+}
+
+.empty-illustration {
+    position: relative;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.empty-icon {
+    font-size: 5rem;
+    color: #94a3b8;
+    display: block;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.empty-sparkles {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 2rem;
+    animation: sparkle 3s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.empty-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 1rem;
+}
+
+.empty-description {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.empty-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.empty-action:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* 相关标签推荐样式 */
+.related-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    color: #64748b;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.related-tags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.related-tag-card {
+    background: linear-gradient(135deg, #f8fafc, #ffffff);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.related-tag-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.related-tag-card:hover::before {
+    transform: scaleX(1);
+}
+
+.related-tag-card:hover {
+    border-color: #667eea;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(102, 126, 234, 0.15);
+}
+
+.tag-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.tag-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    transition: color 0.3s ease;
+}
+
+.related-tag-card:hover .tag-name {
+    color: #667eea;
+}
+
+.tag-count-badge {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.tag-card-preview {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.latest-post {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin: 0;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 0.5rem;
+}
+
+.post-date {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* 导航操作区样式 */
+.action-section {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.action-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.back-button:hover {
+    transform: translateY(-2px) translateX(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.back-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover .back-icon {
+    transform: translateX(-3px);
+}
+
+.page-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.75rem;
+    background: rgba(100, 116, 139, 0.1);
+    border: 1px solid rgba(100, 116, 139, 0.2);
+    border-radius: 12px;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.75rem;
+    min-width: 60px;
+}
+
+.action-btn:hover {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.action-icon {
+    font-size: 1.2rem;
+}
+
+.action-text {
+    font-weight: 500;
+}
+
+/* 页面底部间距 */
+.page-bottom-spacing {
+    height: 3rem;
+}
+
+/* 动画定义 */
+@keyframes slideUpFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .tag-hero {
+        padding: 2rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .tag-stats {
+        gap: 1rem;
+    }
+    
+    .stat-item {
+        padding: 1rem 0.8rem;
+    }
+    
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .filter-right {
+        justify-content: space-between;
+    }
+    
+    .articles-section {
+        padding: 2rem 1.5rem;
+    }
+    
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .related-tags-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .action-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .page-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .tag-hero {
+        padding: 1.5rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .tag-stats {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .stat-item {
+        padding: 1rem;
+    }
+    
+    .sort-options, .view-toggle {
+        flex-direction: column;
+    }
+    
+    .article-card {
+        margin-bottom: 1rem;
+    }
+    
+    .article-link {
+        padding: 1.5rem;
+    }
+}
+</style>
+
+<script>
+// 页面交互功能
+document.addEventListener('DOMContentLoaded', function() {
+    // 排序功能
+    const sortButtons = document.querySelectorAll('.sort-btn');
+    const articlesGrid = document.getElementById('articlesGrid');
+    const articles = Array.from(document.querySelectorAll('.article-card'));
+    
+    sortButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // 更新激活状态
+            sortButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const sortType = this.dataset.sort;
+            
+            // 排序文章
+            const sortedArticles = articles.sort((a, b) => {
+                switch(sortType) {
+                    case 'date':
+                        return new Date(b.dataset.date) - new Date(a.dataset.date);
+                    case 'title':
+                        return a.dataset.title.localeCompare(b.dataset.title);
+                    case 'reading':
+                        return parseInt(b.dataset.reading) - parseInt(a.dataset.reading);
+                    default:
+                        return 0;
+                }
+            });
+            
+            // 重新排列DOM元素
+            sortedArticles.forEach((article, index) => {
+                article.style.animationDelay = `${index * 0.05}s`;
+                articlesGrid.appendChild(article);
+            });
+        });
+    });
+    
+    // 视图切换功能
+    const viewButtons = document.querySelectorAll('.view-btn');
+    const articlesContainer = document.getElementById('articlesContainer');
+    
+    viewButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            viewButtons.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const viewType = this.dataset.view;
+            
+            if (viewType === 'list') {
+                articlesGrid.style.gridTemplateColumns = '1fr';
+                articles.forEach(article => {
+                    article.style.maxWidth = 'none';
+                });
+            } else {
+                articlesGrid.style.gridTemplateColumns = 'repeat(auto-fill, minmax(350px, 1fr))';
+                articles.forEach(article => {
+                    article.style.maxWidth = '';
+                });
+            }
+        });
+    });
+    
+    // 返回顶部功能
+    const scrollToTopBtn = document.getElementById('scrollToTop');
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    // 分享功能
+    const shareButton = document.getElementById('shareButton');
+    shareButton.addEventListener('click', function() {
+        if (navigator.share) {
+            navigator.share({
+                title: document.title,
+                url: window.location.href
+            });
+        } else {
+            // 备用方案：复制到剪贴板
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                // 显示提示
+                const originalText = this.querySelector('.action-text').textContent;
+                this.querySelector('.action-text').textContent = '已复制';
+                setTimeout(() => {
+                    this.querySelector('.action-text').textContent = originalText;
+                }, 2000);
+            });
+        }
+    });
+    
+    // 滚动显示返回顶部按钮
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.style.opacity = '1';
+        } else {
+            scrollToTopBtn.style.opacity = '0.7';
+        }
+    });
+});
+</script>
+{{ end }}

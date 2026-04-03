@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Primary Meta Tags -->
+  <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
+  <meta name="title" content="{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}">
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <meta name="author" content="{{ site.Params.author }}">
+  <meta name="keywords" content="{{ delimit .Keywords ", " }}">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ site.Title }}{{ end }}">
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  {{ if .Params.image }}
+  <meta property="og:image" content="{{ .Params.image | absURL }}">
+  {{ end }}
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ .Permalink }}">
+  <meta property="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ site.Title }}{{ end }}">
+  <meta property="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+  {{ if .Params.image }}
+  <meta property="twitter:image" content="{{ .Params.image | absURL }}">
+  {{ end }}
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ .Permalink }}">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  
+  <!-- RSS -->
+  {{ with .OutputFormats.Get "rss" }}
+    <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ site.Title }}" />
+  {{ end }}
+  
+  <!-- Preload Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- 主题统一样式 -->
+  <link rel="stylesheet" href="{{ "/css/theme.css" | relURL }}">
+  
+  <!-- CSS -->
+  <style>
+    :root {
+      --primary-color: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --secondary-color: #8b5cf6;
+      --accent-color: #06b6d4;
+      --text-color: #1f2937;
+      --text-muted: #6b7280;
+      --bg-color: #ffffff;
+      --bg-secondary: #f8fafc;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+    }
+    
+    [data-theme="dark"] {
+      --text-color: #f9fafb;
+      --text-muted: #d1d5db;
+      --bg-color: #111827;
+      --bg-secondary: #1f2937;
+      --border-color: #374151;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: var(--bg-color);
+      font-size: 16px;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "kern" 1;
+      -webkit-text-size-adjust: 100%;
+    }
+    
+    /* 统一的字体优化 - 确保清晰度 */
+    * {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    
+    /* 移除可能导致模糊的变换 */
+    .no-blur * {
+      transform: none !important;
+      filter: none !important;
+      backdrop-filter: none !important;
+    }
+    
+    /* 优化文字边缘清晰度 */
+    h1, h2, h3, h4, h5, h6, p, span, a, button {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "kern" 1;
+    }
+    
+    /* 确保按钮和链接文字清晰 */
+    button, a, .btn {
+      text-shadow: none !important;
+      filter: none;
+    }
+    
+    /* 移除过度的模糊效果 */
+    .clear-text {
+      backdrop-filter: none !important;
+      filter: none !important;
+      text-shadow: none !important;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    
+    /* Header Styles - 优化的现代化设计 */
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+      border-bottom: none;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+      color: white;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><pattern id="header-pattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="1.5" fill="white" opacity="0.08"/><circle cx="15" cy="15" r="1" fill="white" opacity="0.04"/><circle cx="45" cy="45" r="1" fill="white" opacity="0.04"/></pattern></defs><rect width="100%" height="100%" fill="url(%23header-pattern)"/></svg>');
+      animation: headerFloat 25s ease-in-out infinite;
+    }
+    
+    .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%, rgba(255, 255, 255, 0.05) 100%);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    @keyframes headerFloat {
+      0%, 100% { transform: translateX(0px) translateY(0px); }
+      33% { transform: translateX(-15px) translateY(-8px); }
+      66% { transform: translateX(15px) translateY(8px); }
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.7; }
+    }
+    
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 0;
+      position: relative;
+      z-index: 1;
+      min-height: 85px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .logo {
+      font-size: 1.875rem !important;
+      font-weight: 800 !important;
+      text-decoration: none !important;
+      color: white !important;
+      letter-spacing: -0.025em !important;
+      background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 50%, #e2e8f0 100%) !important;
+      -webkit-background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      background-clip: text !important;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      position: relative !important;
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', sans-serif !important;
+    }
+    
+    .logo::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #ffffff, #e2e8f0);
+      border-radius: 2px;
+      transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+    }
+    
+    .logo:hover::after {
+      width: 100%;
+    }
+    
+    .logo:hover {
+      transform: translateY(-2px);
+    }
+    
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 0.75rem;
+      margin: 0;
+      align-items: center;
+    }
+    
+    .nav-link {
+      text-decoration: none !important;
+      color: white !important;
+      font-weight: 600 !important;
+      padding: 0.75rem 1.5rem !important;
+      border-radius: 20px !important;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      position: relative !important;
+      background: rgba(255, 255, 255, 0.12) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', sans-serif !important;
+      font-size: 0.95rem !important;
+      line-height: 1.5 !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+    }
+    
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.15) 100%);
+      border-radius: 20px;
+      opacity: 0;
+      transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 1px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: translateX(-50%);
+    }
+    
+    .nav-link:hover::before {
+      opacity: 1;
+    }
+    
+    .nav-link:hover::after {
+      width: 80%;
+    }
+    
+    .nav-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+      background: rgba(255, 255, 255, 0.18);
+    }
+    
+    .nav-link.active {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .nav-link.active::after {
+      width: 60%;
+      opacity: 0.9;
+    }
+    
+    .theme-toggle {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      padding: 0.75rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    .theme-toggle::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .theme-toggle:hover::before {
+      opacity: 1;
+    }
+    
+    .theme-toggle:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-3px) rotate(15deg);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    }
+    
+    .theme-toggle:active {
+      transform: translateY(-1px) rotate(5deg);
+      transition: all 0.1s ease;
+    }
+    
+    /* Main Content */
+    .main {
+      min-height: calc(100vh - 200px);
+      padding: 2rem 0;
+    }
+    
+    /* 统一主容器样式 - 与标签页保持一致 */
+    .page-main,
+    .article-main,
+    .search-main,
+    .list-main,
+    .tags-list-main,
+    .tag-detail-main {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: 1rem 0 3rem 0;
+      position: relative;
+    }
+    
+    /* 统一容器宽度 - 比之前更宽 */
+    .page-main .container,
+    .article-main .container,
+    .search-main .container,
+    .list-main .container,
+    .tags-list-main .container,
+    .tag-detail-main .container,
+    .main-container,
+    .list-container,
+    .search-container {
+      max-width: 1400px !important;
+      margin: 0 auto !important;
+      padding: 0 2rem !important;
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* 特殊页面背景样式覆盖 */
+    .search-main {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+    }
+    
+    .tags-list-main {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%) !important;
+    }
+    
+    /* 移除特殊背景图案，统一简洁风格 */
+    .search-main::before,
+    .tags-list-main::before,
+    .tag-detail-main::before {
+      display: none !important;
+    }
+    
+    /* 统一卡片样式 */
+    .content-card,
+    .article-content,
+    .search-form-container,
+    .tags-cloud-section,
+    .tags-list-section,
+    .articles-section,
+    .tag-header,
+    .article-header {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+    
+    /* 统一内容区域内边距 */
+    .content-padding {
+      padding: 2rem;
+    }
+    
+    /* 响应式容器宽度调整 */
+    @media (max-width: 1440px) {
+      .page-main .container,
+      .article-main .container,
+      .search-main .container,
+      .list-main .container,
+      .tags-list-main .container,
+      .tag-detail-main .container,
+      .main-container,
+      .list-container,
+      .search-container {
+        max-width: 1200px !important;
+        padding: 0 1.5rem !important;
+      }
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--border-color);
+      padding: 1.5rem 0 1rem;
+      margin-top: 2rem;
+    }
+    
+    .footer-content {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    
+    .footer-section h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.5rem;
+    }
+    
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .social-link:hover {
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+      
+      .header-content {
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 1.75rem 0;
+        min-height: 130px;
+        justify-content: center;
+      }
+      
+      .logo {
+        font-size: 1.625rem !important;
+        order: 1;
+      }
+      
+      .nav {
+        order: 2;
+        width: 100%;
+        justify-content: center;
+        gap: 1rem;
+      }
+      
+      .nav-menu {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+      }
+      
+      .nav-link {
+        padding: 0.625rem 1.125rem !important;
+        font-size: 0.875rem !important;
+        white-space: nowrap;
+        border-radius: 16px !important;
+      }
+      
+      .theme-toggle {
+        width: 46px;
+        height: 46px;
+        font-size: 1.15rem;
+        position: absolute;
+        top: 1.25rem;
+        right: 1rem;
+      }
+      
+      .container {
+        padding: 0 1rem;
+      }
+      
+      /* 统一主容器响应式调整 */
+      .page-main .container,
+      .article-main .container,
+      .search-main .container,
+      .list-main .container,
+      .tags-list-main .container,
+      .tag-detail-main .container,
+      .main-container,
+      .list-container,
+      .search-container {
+        padding: 0 1rem !important;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .social-links {
+        justify-content: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .header-content {
+        padding: 1.5rem 0;
+        min-height: 120px;
+        gap: 1rem;
+      }
+      
+      .logo {
+        font-size: 1.45rem !important;
+      }
+      
+      .nav-menu {
+        gap: 0.375rem;
+      }
+      
+      .nav-link {
+        padding: 0.5rem 0.875rem !important;
+        font-size: 0.8rem !important;
+        border-radius: 14px !important;
+      }
+      
+      .theme-toggle {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+        top: 1rem;
+        right: 0.875rem;
+      }
+      
+      /* 小屏幕主容器调整 */
+      .page-main .container,
+      .article-main .container,
+      .search-main .container,
+      .list-main .container,
+      .tags-list-main .container,
+      .tag-detail-main .container,
+      .main-container,
+      .list-container,
+      .search-container {
+        padding: 0 0.75rem !important;
+      }
+    }
+    
+    /* Utility Classes */
+    .text-center { text-align: center; }
+    .text-muted { color: var(--text-muted); }
+    .font-bold { font-weight: 700; }
+    .font-semibold { font-weight: 600; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mt-4 { margin-top: 1rem; }
+    .p-4 { padding: 1rem; }
+    
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text-color);
+      margin-bottom: 1rem;
+    }
+    
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.25rem; }
+    h5 { font-size: 1.125rem; }
+    h6 { font-size: 1rem; }
+    
+    p {
+      margin-bottom: 1rem;
+      color: var(--text-color);
+    }
+    
+    a {
+      color: var(--primary-color);
+      transition: color 0.2s ease;
+    }
+    
+    a:hover {
+      color: var(--primary-dark);
+    }
+    
+    /* Loading Animation */
+    .loading {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid var(--border-color);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="/" class="logo">{{ site.Title }}</a>
+        <nav class="nav">
+          <ul class="nav-menu">
+            {{ range site.Menus.main }}
+              <li><a href="{{ .URL }}" class="nav-link">{{ .Name }}</a></li>
+            {{ end }}
+          </ul>
+          <button class="theme-toggle" onclick="toggleTheme()" aria-label="切换主题">
+            <span id="theme-icon">🌙</span>
+          </button>
+        </nav>
+      </div>
+    </div>
+  </header>
+  
+  <main class="main">
+    <div class="container">
+      {{ block "main" . }}{{ end }}
+    </div>
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>{{ site.Title }}</h3>
+          <p class="text-muted">{{ site.Params.description }}</p>
+          <div class="social-links">
+            {{ range site.Params.socialIcons }}
+              <a href="{{ .url }}" class="social-link" target="_blank" rel="noopener noreferrer" title="{{ .name }}">
+                {{ if eq .name "github" }}📦
+                {{ else if eq .name "email" }}✉️
+                {{ else if eq .name "weibo" }}🎭
+                {{ else if eq .name "wechat" }}💬
+                {{ else }}🔗
+                {{ end }}
+              </a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; {{ now.Year }} {{ site.Title }} · {{ site.Params.author }} · 用心记录，分享美好</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Theme Toggle
+    function toggleTheme() {
+      const body = document.body;
+      const icon = document.getElementById('theme-icon');
+      const currentTheme = body.getAttribute('data-theme');
+      
+      if (currentTheme === 'dark') {
+        body.removeAttribute('data-theme');
+        icon.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        icon.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    
+    // Load saved theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.setAttribute('data-theme', 'dark');
+      document.getElementById('theme-icon').textContent = '☀️';
+    }
+    
+    // Active menu item
+    const currentPath = window.location.pathname;
+    const menuLinks = document.querySelectorAll('.nav-link');
+    menuLinks.forEach(link => {
+      if (link.getAttribute('href') === currentPath) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
