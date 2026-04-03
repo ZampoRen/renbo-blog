@@ -402,6 +402,10 @@ body[data-theme="dark"] .tags-list-section {
     background: linear-gradient(135deg, #fef2f2, #fee2e2);
 }
 
+body[data-theme="dark"] .popular-tag-card {
+    background: linear-gradient(135deg, rgba(127, 29, 29, 0.35), rgba(69, 10, 10, 0.18));
+}
+
 .popular-tag-card:hover {
     border-color: #dc2626;
     box-shadow: 0 25px 50px rgba(239, 68, 68, 0.2);
@@ -412,6 +416,10 @@ body[data-theme="dark"] .tags-list-section {
     background: linear-gradient(135deg, #fffbeb, #fef3c7);
 }
 
+body[data-theme="dark"] .active-tag-card {
+    background: linear-gradient(135deg, rgba(120, 53, 15, 0.34), rgba(69, 26, 3, 0.18));
+}
+
 .active-tag-card:hover {
     border-color: #d97706;
     box-shadow: 0 25px 50px rgba(245, 158, 11, 0.2);
@@ -419,6 +427,10 @@ body[data-theme="dark"] .tags-list-section {
 
 .normal-tag-card {
     border: 1px solid #e2e8f0;
+}
+
+body[data-theme="dark"] .normal-tag-card {
+    border-color: var(--surface-border);
 }
 
 /* 标签徽章样式 */
@@ -450,12 +462,12 @@ body[data-theme="dark"] .tags-list-section {
     margin: 0 0 0.5rem 0;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #64748b;
+    color: var(--text-muted);
 }
 
 .more-articles {
     display: block;
-    color: #94a3b8;
+    color: var(--text-muted);
     font-size: 0.8rem;
     font-style: italic;
     margin-top: 0.5rem;
@@ -464,12 +476,12 @@ body[data-theme="dark"] .tags-list-section {
 .tag-card-footer {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid var(--border-color);
 }
 
 .last-updated {
     font-size: 0.75rem;
-    color: #64748b;
+    color: var(--text-muted);
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -478,7 +490,7 @@ body[data-theme="dark"] .tags-list-section {
 .tag-card-title {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--text-color);
     margin: 0;
 }
 
@@ -498,7 +510,7 @@ body[data-theme="dark"] .tags-list-section {
 }
 
 .preview-title {
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 0.9rem;
     line-height: 1.4;
     display: block;
@@ -516,7 +528,7 @@ body[data-theme="dark"] .tags-list-section {
 
 /* 分类网格样式 */
 .categories-section {
-    background: white;
+    background: var(--surface-bg);
     padding: 3rem;
     border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
@@ -816,3 +828,5 @@ body[data-theme="dark"] .tags-list-section {
 }
 </style>
 {{ end }}
+    box-shadow: var(--surface-shadow);
+    border: 1px solid var(--surface-border);
