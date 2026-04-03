@@ -640,25 +640,62 @@
     font-size: 0.7rem;
 }
 
-body[data-theme="dark"] .search-header-content,
-body[data-theme="dark"] .search-form-container,
-body[data-theme="dark"] .popular-searches,
-body[data-theme="dark"] .search-results,
-body[data-theme="dark"] .recent-articles {
-    background: #111b2e;
-    border-color: rgba(71, 85, 105, 0.45);
-    box-shadow: 0 16px 36px rgba(2, 6, 23, 0.32);
+body[data-theme="dark"] .search-main .search-header-content,
+body[data-theme="dark"] .search-main .search-form-container,
+body[data-theme="dark"] .search-main .popular-searches,
+body[data-theme="dark"] .search-main .search-results,
+body[data-theme="dark"] .search-main .recent-articles {
+    background: #111b2e !important;
+    border-color: rgba(71, 85, 105, 0.45) !important;
+    box-shadow: 0 16px 36px rgba(2, 6, 23, 0.32) !important;
 }
 
-body[data-theme="dark"] .search-input,
-body[data-theme="dark"] .search-tips,
-body[data-theme="dark"] .popular-tag,
-body[data-theme="dark"] .result-item,
-body[data-theme="dark"] .recent-article,
-body[data-theme="dark"] .result-tag,
-body[data-theme="dark"] .recent-tag {
-    background: #0f172a;
-    border-color: rgba(71, 85, 105, 0.45);
+body[data-theme="dark"] .search-main .search-input,
+body[data-theme="dark"] .search-main .search-tips,
+body[data-theme="dark"] .search-main .popular-tag,
+body[data-theme="dark"] .search-main .result-item,
+body[data-theme="dark"] .search-main .recent-article,
+body[data-theme="dark"] .search-main .result-tag,
+body[data-theme="dark"] .search-main .recent-tag {
+    background: #0f172a !important;
+    border-color: rgba(71, 85, 105, 0.45) !important;
+}
+
+body[data-theme="dark"] .search-main .search-title,
+body[data-theme="dark"] .search-main .popular-title,
+body[data-theme="dark"] .search-main .recent-title,
+body[data-theme="dark"] .search-main .result-title,
+body[data-theme="dark"] .search-main .recent-article-title {
+    color: #f8fafc !important;
+}
+
+body[data-theme="dark"] .search-main .search-subtitle,
+body[data-theme="dark"] .search-main .search-option,
+body[data-theme="dark"] .search-main .tip-text,
+body[data-theme="dark"] .search-main .popular-note,
+body[data-theme="dark"] .search-main .results-count,
+body[data-theme="dark"] .search-main .result-date,
+body[data-theme="dark"] .search-main .result-description,
+body[data-theme="dark"] .search-main .recent-date,
+body[data-theme="dark"] .search-main .recent-description {
+    color: #cbd5e1 !important;
+}
+
+body[data-theme="dark"] .search-main .search-form-section,
+body[data-theme="dark"] .search-main .popular-searches,
+body[data-theme="dark"] .search-main .recent-articles {
+    position: relative;
+}
+
+body[data-theme="dark"] .search-main .search-form-section::before,
+body[data-theme="dark"] .search-main .popular-searches::before,
+body[data-theme="dark"] .search-main .recent-articles::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 1px 0 rgba(148, 163, 184, 0.04);
 }
 
 /* 响应式设计 */
