@@ -1,0 +1,84 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020"/>
+      <stop offset="1" stop-color="#151B2F"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 430) rotate(90) scale(280 420)">
+      <stop stop-color="#FF5D5D" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#FF5D5D" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="redisTop" x1="800" y1="220" x2="800" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF7B7B"/>
+      <stop offset="1" stop-color="#E64646"/>
+    </linearGradient>
+    <linearGradient id="redisFront" x1="800" y1="340" x2="800" y2="560" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E04444"/>
+      <stop offset="1" stop-color="#A91E2C"/>
+    </linearGradient>
+    <linearGradient id="redisSide" x1="930" y1="330" x2="1080" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8E1830"/>
+      <stop offset="1" stop-color="#661324"/>
+    </linearGradient>
+    <filter id="softShadow" x="180" y="120" width="1240" height="640" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+
+  <g opacity="0.14" stroke="#7F8AA7" stroke-width="2">
+    <path d="M180 180H460"/>
+    <path d="M1140 180H1420"/>
+    <path d="M220 720H500"/>
+    <path d="M1100 720H1380"/>
+    <path d="M200 220V640"/>
+    <path d="M1400 220V640"/>
+  </g>
+
+  <g opacity="0.24" stroke="#E85A5A" stroke-width="3" stroke-linecap="round">
+    <path d="M340 330L520 390"/>
+    <path d="M1280 320L1100 390"/>
+    <path d="M370 595L540 520"/>
+    <path d="M1260 600L1070 525"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M800 220L1060 300L800 380L540 300L800 220Z" fill="url(#redisTop)"/>
+    <path d="M540 300L800 380V610L540 520V300Z" fill="url(#redisFront)"/>
+    <path d="M1060 300L800 380V610L1060 520V300Z" fill="url(#redisSide)"/>
+
+    <ellipse cx="800" cy="428" rx="98" ry="26" fill="#F7B1B1" opacity="0.88"/>
+    <ellipse cx="800" cy="486" rx="98" ry="26" fill="#F7B1B1" opacity="0.82"/>
+    <ellipse cx="800" cy="544" rx="98" ry="26" fill="#F7B1B1" opacity="0.76"/>
+
+    <circle cx="750" cy="428" r="11" fill="#C62032"/>
+    <circle cx="805" cy="486" r="11" fill="#C62032"/>
+    <circle cx="848" cy="544" r="11" fill="#C62032"/>
+    <circle cx="840" cy="428" r="11" fill="#C62032"/>
+    <circle cx="740" cy="544" r="11" fill="#C62032"/>
+  </g>
+
+  <g opacity="0.94">
+    <circle cx="365" cy="300" r="54" fill="#1F263D" stroke="#FF6A6A" stroke-width="6"/>
+    <text x="365" y="312" text-anchor="middle" font-size="38" font-family="Arial, Helvetica, sans-serif" fill="#FF7B7B">HOT</text>
+
+    <circle cx="1240" cy="290" r="58" fill="#1F263D" stroke="#FF6A6A" stroke-width="6"/>
+    <text x="1240" y="304" text-anchor="middle" font-size="34" font-family="Arial, Helvetica, sans-serif" fill="#FF7B7B">TTL</text>
+
+    <circle cx="340" cy="620" r="56" fill="#1F263D" stroke="#FF6A6A" stroke-width="6"/>
+    <text x="340" y="632" text-anchor="middle" font-size="32" font-family="Arial, Helvetica, sans-serif" fill="#FF7B7B">BIG</text>
+
+    <circle cx="1265" cy="620" r="60" fill="#1F263D" stroke="#FF6A6A" stroke-width="6"/>
+    <text x="1265" y="634" text-anchor="middle" font-size="30" font-family="Arial, Helvetica, sans-serif" fill="#FF7B7B">OOM</text>
+  </g>
+
+  <g opacity="0.14">
+    <circle cx="800" cy="430" r="250" stroke="#FF8D8D" stroke-width="2"/>
+    <circle cx="800" cy="430" r="320" stroke="#FF8D8D" stroke-width="2"/>
+  </g>
+
+  <text x="800" y="760" text-anchor="middle" font-size="64" font-weight="700" font-family="Arial, Helvetica, sans-serif" fill="#F5F7FF">Redis Pitfalls</text>
+  <text x="800" y="812" text-anchor="middle" font-size="28" font-family="Arial, Helvetica, sans-serif" fill="#A6B0CC">Big Key · Hot Key · Cache Avalanche · Memory Pressure</text>
+</svg>
