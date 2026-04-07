@@ -1,6 +1,6 @@
 ---
 title: "PostgreSQL 入门：为什么说它能装下世间万物？"
-date: 2026-04-07T12:30:00+08:00
+date: 2026-04-07T12:16:00+08:00
 draft: false
 author: "任博"
 description: "PostgreSQL 的能力早已超越了传统关系型数据库的范围。从 JSON 支持到全文检索，从向量数据库到定时任务，从缓存表到 RESTful API——很多原本需要多个组件协作才能完成的功能，PostgreSQL 一个数据库就能搞定。"
