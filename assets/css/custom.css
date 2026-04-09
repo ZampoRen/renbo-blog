@@ -60,6 +60,11 @@ pre {
 }
 
 /* 正文配图自适应，避免原图尺寸撑破内容容器 */
+.article-content .content-wrapper figure {
+  max-width: 100%;
+  margin: 1.5rem 0;
+}
+
 .article-content .content-wrapper img {
   display: block;
   max-width: 100%;
@@ -68,6 +73,11 @@ pre {
   margin: 1.5rem auto;
   border-radius: 12px;
   box-sizing: border-box;
+}
+
+.article-content .content-wrapper p,
+.article-content .content-wrapper a {
+  max-width: 100%;
 }
 
 .article-content .content-wrapper p > img:only-child {
