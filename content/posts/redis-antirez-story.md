@@ -8,7 +8,8 @@ tags: ["Redis", "antirez", "开源", "程序员", "人物故事", "软件工程"
 categories: ["人物与技术"]
 featured: false
 toc: true
-featured_image: "/images/redis-antirez-story/cover.svg"
+featured_image: "/images/redis-antirez-story/cover.jpg"
+cover: "/Users/zampo/Documents/renbo-blog/static/images/redis-antirez-story/cover.jpg"
 ---
 
 ![antirez 在 dotScale 2015 演讲现场](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Salvatore_Sanfilippo.png/640px-Salvatore_Sanfilippo.png)
