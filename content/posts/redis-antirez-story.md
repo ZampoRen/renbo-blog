@@ -12,9 +12,9 @@ featured_image: "/images/redis-antirez-story/cover.jpg"
 cover: "/Users/zampo/Documents/renbo-blog/static/images/redis-antirez-story/cover.jpg"
 ---
 
-![antirez 在 dotScale 2015 演讲现场](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Salvatore_Sanfilippo.png/640px-Salvatore_Sanfilippo.png)
+![程序员工作场景配图](/images/redis-antirez-story/antirez-portrait.jpg)
 
-*antirez 在 dotScale 2015 演讲现场。图片来源：Wikimedia Commons*
+*程序员工作场景。图片来源：Pexels*
 
 很多人认识 Redis，是从性能图表开始的。
 
