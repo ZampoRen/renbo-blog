@@ -1,0 +1,48 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="28" fill="#0B1120"/>
+  <text x="70" y="88" fill="#F8FAFC" font-size="36" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">为什么大模型更吃 GPU，而不是 CPU</text>
+  <text x="70" y="128" fill="#94A3B8" font-size="20" font-family="Arial, PingFang SC, Microsoft YaHei">CPU 擅长复杂控制和串行调度；GPU 擅长把大量相似的小计算同时推开。AI 训练恰好属于后者。</text>
+  <rect x="80" y="190" width="470" height="420" rx="24" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <rect x="650" y="190" width="470" height="420" rx="24" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="315" y="246" fill="#F8FAFC" font-size="30" font-weight="700" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei">CPU</text>
+  <text x="885" y="246" fill="#F8FAFC" font-size="30" font-weight="700" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei">GPU</text>
+  <text x="315" y="284" fill="#93C5FD" font-size="18" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei">少量强核心，偏控制、分支判断、通用任务</text>
+  <text x="885" y="284" fill="#C4B5FD" font-size="18" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei">大量并行单元，偏矩阵运算、批量相似计算</text>
+  <g stroke="#60A5FA" stroke-width="8" stroke-linecap="round">
+    <path d="M170 360H460"/>
+    <path d="M170 430H420"/>
+    <path d="M170 500H380"/>
+  </g>
+  <g fill="#A78BFA">
+    <rect x="710" y="330" width="26" height="26" rx="6"/>
+    <rect x="748" y="330" width="26" height="26" rx="6"/>
+    <rect x="786" y="330" width="26" height="26" rx="6"/>
+    <rect x="824" y="330" width="26" height="26" rx="6"/>
+    <rect x="862" y="330" width="26" height="26" rx="6"/>
+    <rect x="900" y="330" width="26" height="26" rx="6"/>
+    <rect x="938" y="330" width="26" height="26" rx="6"/>
+    <rect x="976" y="330" width="26" height="26" rx="6"/>
+    <rect x="710" y="368" width="26" height="26" rx="6"/>
+    <rect x="748" y="368" width="26" height="26" rx="6"/>
+    <rect x="786" y="368" width="26" height="26" rx="6"/>
+    <rect x="824" y="368" width="26" height="26" rx="6"/>
+    <rect x="862" y="368" width="26" height="26" rx="6"/>
+    <rect x="900" y="368" width="26" height="26" rx="6"/>
+    <rect x="938" y="368" width="26" height="26" rx="6"/>
+    <rect x="976" y="368" width="26" height="26" rx="6"/>
+    <rect x="710" y="406" width="26" height="26" rx="6"/>
+    <rect x="748" y="406" width="26" height="26" rx="6"/>
+    <rect x="786" y="406" width="26" height="26" rx="6"/>
+    <rect x="824" y="406" width="26" height="26" rx="6"/>
+    <rect x="862" y="406" width="26" height="26" rx="6"/>
+    <rect x="900" y="406" width="26" height="26" rx="6"/>
+    <rect x="938" y="406" width="26" height="26" rx="6"/>
+    <rect x="976" y="406" width="26" height="26" rx="6"/>
+  </g>
+  <text x="315" y="560" fill="#CBD5E1" font-size="22" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei">更像一个会处理杂事的总调度员</text>
+  <text x="885" y="560" fill="#E9D5FF" font-size="22" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei">更像一整排同时开工的算术工人</text>
+  <text x="80" y="646" fill="#E2E8F0" font-size="24" font-family="Arial, PingFang SC, Microsoft YaHei">
+    <tspan x="80" dy="0">大模型训练为什么花钱：不是因为“算一下”很贵，</tspan>
+    <tspan x="80" dy="36">而是因为要把海量相似计算在巨量数据上重复成千上万次。</tspan>
+  </text>
+</svg>

@@ -1,0 +1,63 @@
+<svg width="900" height="383" viewBox="0 0 900 383" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="900" y2="383" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020"/>
+      <stop offset="0.55" stop-color="#101B3A"/>
+      <stop offset="1" stop-color="#13254D"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="120" y1="80" x2="790" y2="260" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4FD1C5"/>
+      <stop offset="0.5" stop-color="#7AA2FF"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="383" rx="24" fill="url(#bg)"/>
+  <circle cx="748" cy="92" r="120" fill="#284B9A" opacity="0.22"/>
+  <circle cx="164" cy="310" r="120" fill="#1FB7A6" opacity="0.16"/>
+  <path d="M90 248C160 214 216 202 286 204C357 206 413 236 484 233C562 229 613 171 690 162C742 156 785 169 830 193" stroke="url(#accent)" stroke-width="6" stroke-linecap="round" filter="url(#glow)"/>
+
+  <g opacity="0.9">
+    <rect x="98" y="124" width="82" height="94" rx="14" fill="#131A31" stroke="#6EE7D8" stroke-width="2"/>
+    <rect x="123" y="146" width="12" height="48" rx="6" fill="#F8FAFC" opacity="0.9"/>
+    <rect x="145" y="138" width="12" height="64" rx="6" fill="#A5B4FC" opacity="0.9"/>
+    <line x1="110" y1="218" x2="110" y2="246" stroke="#CBD5E1" stroke-width="3"/>
+    <line x1="139" y1="218" x2="139" y2="246" stroke="#CBD5E1" stroke-width="3"/>
+    <line x1="168" y1="218" x2="168" y2="246" stroke="#CBD5E1" stroke-width="3"/>
+    <text x="139" y="274" fill="#E2E8F0" font-size="18" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei">真空管</text>
+  </g>
+
+  <g opacity="0.95">
+    <rect x="265" y="137" width="98" height="72" rx="16" fill="#111827" stroke="#7AA2FF" stroke-width="2"/>
+    <circle cx="315" cy="173" r="18" fill="#1D4ED8" opacity="0.45"/>
+    <circle cx="315" cy="173" r="8" fill="#93C5FD"/>
+    <line x1="284" y1="173" x2="301" y2="173" stroke="#BFDBFE" stroke-width="4"/>
+    <line x1="329" y1="173" x2="346" y2="173" stroke="#BFDBFE" stroke-width="4"/>
+    <line x1="315" y1="191" x2="315" y2="209" stroke="#BFDBFE" stroke-width="4"/>
+    <text x="314" y="274" fill="#E2E8F0" font-size="18" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei">晶体管</text>
+  </g>
+
+  <g>
+    <rect x="444" y="122" width="128" height="102" rx="16" fill="#0F172A" stroke="#60A5FA" stroke-width="2"/>
+    <rect x="467" y="146" width="82" height="54" rx="8" fill="#1E293B" stroke="#93C5FD" stroke-width="1.5"/>
+    <path d="M458 152H444M458 172H444M458 192H444M572 152H558M572 172H558M572 192H558M482 122V108M506 122V108M530 122V108M482 224V238M506 224V238M530 224V238" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/>
+    <text x="508" y="274" fill="#E2E8F0" font-size="18" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei">芯片</text>
+  </g>
+
+  <g>
+    <rect x="645" y="129" width="152" height="86" rx="14" fill="#111827" stroke="#A78BFA" stroke-width="2"/>
+    <rect x="664" y="147" width="53" height="50" rx="8" fill="#1E293B"/>
+    <rect x="729" y="147" width="49" height="50" rx="8" fill="#1E293B"/>
+    <g fill="#C4B5FD">
+      <circle cx="680" cy="161" r="4"/><circle cx="697" cy="161" r="4"/><circle cx="680" cy="177" r="4"/><circle cx="697" cy="177" r="4"/><circle cx="680" cy="193" r="4"/><circle cx="697" cy="193" r="4"/>
+      <circle cx="744" cy="161" r="4"/><circle cx="761" cy="161" r="4"/><circle cx="744" cy="177" r="4"/><circle cx="761" cy="177" r="4"/><circle cx="744" cy="193" r="4"/><circle cx="761" cy="193" r="4"/>
+    </g>
+    <text x="721" y="274" fill="#E2E8F0" font-size="18" text-anchor="middle" font-family="Arial, PingFang SC, Microsoft YaHei">GPU / AI 算力</text>
+  </g>
+
+  <text x="72" y="62" fill="#F8FAFC" font-size="34" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">AI 拼到最后，为什么还是拼硬件</text>
+  <text x="72" y="96" fill="#CBD5E1" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">从真空管、晶体管到 GPU，决定 AI 上限的从来不只是模型</text>
+</svg>
