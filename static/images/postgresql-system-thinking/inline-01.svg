@@ -1,0 +1,21 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="28" fill="#0F172A"/>
+  <text x="60" y="82" fill="#F8FAFC" font-size="34" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">理解 PostgreSQL，真正要看的是这四个底层机制</text>
+  <rect x="84" y="150" width="238" height="220" rx="20" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <rect x="350" y="150" width="238" height="220" rx="20" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <rect x="616" y="150" width="238" height="220" rx="20" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <rect x="882" y="150" width="238" height="220" rx="20" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="203" y="204" text-anchor="middle" fill="#F8FAFC" font-size="28" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">TOAST</text>
+  <text x="469" y="204" text-anchor="middle" fill="#F8FAFC" font-size="28" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">MVCC</text>
+  <text x="735" y="204" text-anchor="middle" fill="#F8FAFC" font-size="28" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">WAL</text>
+  <text x="1001" y="204" text-anchor="middle" fill="#F8FAFC" font-size="28" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">Checkpoint</text>
+  <g fill="#CBD5E1" font-size="20" font-family="Arial, PingFang SC, Microsoft YaHei">
+    <text x="112" y="260">解决大字段</text><text x="112" y="294">怎么不把主表</text><text x="112" y="328">和数据页拖垮</text>
+    <text x="378" y="260">解决高并发</text><text x="378" y="294">读写如何尽量</text><text x="378" y="328">不互相阻塞</text>
+    <text x="644" y="260">解决崩溃后</text><text x="644" y="294">数据怎么找回来</text>
+    <text x="910" y="260">解决恢复</text><text x="910" y="294">为什么不会</text><text x="910" y="328">越来越慢</text>
+  </g>
+  <text x="60" y="470" fill="#E2E8F0" font-size="28" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">不要把它们当四个散知识点。</text>
+  <text x="60" y="516" fill="#CBD5E1" font-size="22" font-family="Arial, PingFang SC, Microsoft YaHei">它们合起来，才是 PostgreSQL 处理正确性、并发、恢复和灵活存储的一整套系统。</text>
+  <text x="60" y="610" fill="#60A5FA" font-size="22" font-family="Arial, PingFang SC, Microsoft YaHei">会写 SQL，只说明你会用接口；理解这四个机制，才说明你开始理解系统。</text>
+</svg>

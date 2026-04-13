@@ -1,0 +1,32 @@
+<svg width="900" height="383" viewBox="0 0 900 383" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="900" y2="383" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#182A46"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="164" y1="0" x2="742" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="383" rx="24" fill="url(#bg)"/>
+  <text x="58" y="70" fill="#F8FAFC" font-size="34" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">你以为自己会用 PostgreSQL</text>
+  <text x="58" y="106" fill="#CBD5E1" font-size="20" font-family="Arial, PingFang SC, Microsoft YaHei">其实你只是会写 SQL</text>
+  <rect x="62" y="146" width="208" height="160" rx="18" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="90" y="186" fill="#F8FAFC" font-size="24" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">表层理解</text>
+  <g fill="#94A3B8" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">
+    <text x="90" y="226">• CRUD</text>
+    <text x="90" y="256">• 索引</text>
+    <text x="90" y="286">• ACID 名词</text>
+  </g>
+  <path d="M305 226H470" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M448 208L488 226L448 244" fill="#A78BFA"/>
+  <rect x="504" y="130" width="330" height="192" rx="18" fill="#0F172A" stroke="#60A5FA" stroke-width="2"/>
+  <text x="532" y="172" fill="#F8FAFC" font-size="24" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">真正门槛：系统思维</text>
+  <g fill="#BFDBFE" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">
+    <text x="532" y="214">• MVCC：并发</text>
+    <text x="532" y="244">• WAL：恢复</text>
+    <text x="532" y="274">• Checkpoint：恢复效率</text>
+    <text x="532" y="304">• TOAST：大字段</text>
+  </g>
+</svg>

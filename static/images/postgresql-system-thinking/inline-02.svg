@@ -1,0 +1,21 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="28" fill="#0B1120"/>
+  <text x="60" y="84" fill="#F8FAFC" font-size="34" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">MVCC 为什么是 PostgreSQL 最该讲透的部分</text>
+  <path d="M126 344H1074" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="220" cy="344" r="70" fill="#13203C" stroke="#60A5FA" stroke-width="3"/>
+  <circle cx="600" cy="344" r="70" fill="#13203C" stroke="#A78BFA" stroke-width="3"/>
+  <circle cx="980" cy="344" r="70" fill="#13203C" stroke="#34D399" stroke-width="3"/>
+  <text x="220" y="336" text-anchor="middle" fill="#F8FAFC" font-size="24" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">row version</text>
+  <text x="220" y="370" text-anchor="middle" fill="#BFDBFE" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">更新不是覆盖</text>
+  <text x="600" y="336" text-anchor="middle" fill="#F8FAFC" font-size="24" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">snapshot</text>
+  <text x="600" y="370" text-anchor="middle" fill="#DDD6FE" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">事务看到自己的快照</text>
+  <text x="980" y="336" text-anchor="middle" fill="#F8FAFC" font-size="24" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">autovacuum</text>
+  <text x="980" y="370" text-anchor="middle" fill="#BBF7D0" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">清理 dead tuples</text>
+  <g fill="#CBD5E1" font-size="22" font-family="Arial, PingFang SC, Microsoft YaHei">
+    <text x="122" y="496">1. 一条逻辑行可以有多个物理版本</text>
+    <text x="122" y="538">2. 事务根据可见性规则决定自己能看到哪一个版本</text>
+    <text x="122" y="580">3. 读写尽量不互相卡住，但代价是旧版本会堆积</text>
+    <text x="122" y="622">4. 所以 autovacuum 不是装饰，而是 MVCC 的配套成本</text>
+  </g>
+  <text x="60" y="694" fill="#E2E8F0" font-size="24" font-family="Arial, PingFang SC, Microsoft YaHei">MVCC 不是一个名词，它是 PostgreSQL 处理并发的世界观。</text>
+</svg>
