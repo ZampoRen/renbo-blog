@@ -1,0 +1,27 @@
+<svg width="1200" height="700" viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="700" rx="28" fill="#0F172A"/>
+  <text x="64" y="82" fill="#F8FAFC" font-size="34" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">为什么一堆外部 Skill 最后反而会把系统搞乱</text>
+  <rect x="70" y="140" width="320" height="470" rx="24" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <rect x="440" y="140" width="320" height="470" rx="24" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <rect x="810" y="140" width="320" height="470" rx="24" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="230" y="194" text-anchor="middle" fill="#F8FAFC" font-size="28" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">作者私货</text>
+  <text x="600" y="194" text-anchor="middle" fill="#F8FAFC" font-size="28" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">工作流污染</text>
+  <text x="970" y="194" text-anchor="middle" fill="#F8FAFC" font-size="28" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">规则混淆</text>
+  <g fill="#CBD5E1" font-size="20" font-family="Arial, PingFang SC, Microsoft YaHei">
+    <text x="102" y="250">• 默认路径写死在作者电脑里</text>
+    <text x="102" y="290">• 依赖只在作者环境能跑通</text>
+    <text x="102" y="330">• 你以为拿到方法，其实拿到</text>
+    <text x="124" y="362">的是一套带前提的私设</text>
+
+    <text x="472" y="250">• 新规则和旧规则互相打架</text>
+    <text x="472" y="290">• 每做一个任务都切一套口径</text>
+    <text x="472" y="330">• 系统没变强，只是多了一层</text>
+    <text x="494" y="362">不可控的噪音</text>
+
+    <text x="842" y="250">• 分不清什么是长期规则</text>
+    <text x="842" y="290">• 分不清什么只是一次 workaround</text>
+    <text x="842" y="330">• 到最后，谁都不知道</text>
+    <text x="864" y="362">该按哪套做</text>
+  </g>
+  <text x="64" y="656" fill="#94A3B8" font-size="22" font-family="Arial, PingFang SC, Microsoft YaHei">结论：外部 Skill 最大的问题，往往不是没用，而是会把你的系统边界搞乱。</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg width="900" height="383" viewBox="0 0 900 383" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="900" y2="383" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1220"/>
+      <stop offset="1" stop-color="#16223E"/>
+    </linearGradient>
+    <linearGradient id="line" x1="115" y1="0" x2="764" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="383" rx="24" fill="url(#bg)"/>
+  <rect x="60" y="112" width="300" height="190" rx="18" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="90" y="150" fill="#F8FAFC" font-size="28" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">外部 Skill 仓库</text>
+  <g fill="#94A3B8" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">
+    <text x="90" y="192">• 作者环境假设</text>
+    <text x="90" y="224">• 临时技巧混进规则</text>
+    <text x="90" y="256">• 装得越多越乱</text>
+  </g>
+  <path d="M390 208H520" stroke="url(#line)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M500 190L540 208L500 226" fill="#A78BFA"/>
+  <rect x="545" y="82" width="295" height="220" rx="18" fill="#0F172A" stroke="#60A5FA" stroke-width="2"/>
+  <text x="575" y="124" fill="#F8FAFC" font-size="30" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">私有 Skill</text>
+  <g fill="#BFDBFE" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">
+    <text x="575" y="170">触发条件</text>
+    <text x="575" y="205">步骤</text>
+    <text x="575" y="240">验证</text>
+  </g>
+  <text x="575" y="274" fill="#E2E8F0" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">把做成过的事，写成自己的规则</text>
+  <text x="60" y="62" fill="#F8FAFC" font-size="34" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">说点大实话：别再靠囤 Skill 获得安全感了</text>
+  <text x="60" y="92" fill="#CBD5E1" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">真正厉害的 Agent 用户，最后都会从“到处装”转向“自己沉淀”</text>
+</svg>

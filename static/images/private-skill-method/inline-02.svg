@@ -1,0 +1,21 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="28" fill="#0B1120"/>
+  <text x="64" y="84" fill="#F8FAFC" font-size="34" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">把一次成功任务，沉淀成私有 Skill 的最小方法</text>
+  <path d="M130 340H1070" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="220" cy="340" r="68" fill="#13203C" stroke="#60A5FA" stroke-width="3"/>
+  <circle cx="600" cy="340" r="68" fill="#13203C" stroke="#A78BFA" stroke-width="3"/>
+  <circle cx="980" cy="340" r="68" fill="#13203C" stroke="#34D399" stroke-width="3"/>
+  <text x="220" y="332" text-anchor="middle" fill="#F8FAFC" font-size="26" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">触发条件</text>
+  <text x="220" y="366" text-anchor="middle" fill="#BFDBFE" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">这类任务会重复发生</text>
+  <text x="600" y="332" text-anchor="middle" fill="#F8FAFC" font-size="26" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">步骤</text>
+  <text x="600" y="366" text-anchor="middle" fill="#DDD6FE" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">把做成的过程拆清楚</text>
+  <text x="980" y="332" text-anchor="middle" fill="#F8FAFC" font-size="26" font-weight="700" font-family="Arial, PingFang SC, Microsoft YaHei">验证</text>
+  <text x="980" y="366" text-anchor="middle" fill="#BBF7D0" font-size="18" font-family="Arial, PingFang SC, Microsoft YaHei">知道怎么算真正完成</text>
+  <g fill="#CBD5E1" font-size="22" font-family="Arial, PingFang SC, Microsoft YaHei">
+    <text x="132" y="486">1. 回看最近一次真正做成的任务</text>
+    <text x="132" y="526">2. 去掉只在那次有效的临时技巧</text>
+    <text x="132" y="566">3. 留下下次还能复用的规则</text>
+    <text x="132" y="606">4. 下次再做时继续 patch，不断收敛</text>
+  </g>
+  <text x="64" y="668" fill="#E2E8F0" font-size="24" font-family="Arial, PingFang SC, Microsoft YaHei">第一条标准永远先看：这件事会不会重复发生。不会重复发生，多半不值得写成 Skill。</text>
+</svg>
