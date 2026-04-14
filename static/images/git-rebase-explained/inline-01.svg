@@ -1,0 +1,74 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8e8e8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg2)"/>
+  
+  <!-- Title -->
+  <text x="400" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="bold" fill="#333333" text-anchor="middle">rebase 是如何改写历史的</text>
+  
+  <!-- Before Rebase -->
+  <rect x="50" y="80" width="700" height="180" rx="8" fill="#ffffff" stroke="#6366f1" stroke-width="2"/>
+  <text x="400" y="115" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#6366f1" text-anchor="middle">rebase 之前</text>
+  
+  <!-- main branch -->
+  <text x="70" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666">main:</text>
+  <circle cx="150" cy="145" r="12" fill="#6366f1"/>
+  <text x="150" y="150" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">B</text>
+  <line x1="162" y1="145" x2="200" y2="145" stroke="#6366f1" stroke-width="2"/>
+  <circle cx="220" cy="145" r="12" fill="#6366f1"/>
+  <text x="220" y="150" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">G</text>
+  <text x="250" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888888">← main 前进了</text>
+  
+  <!-- feature branch -->
+  <text x="70" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666">feature:</text>
+  <circle cx="150" cy="185" r="12" fill="#22c55e"/>
+  <text x="150" y="190" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">B</text>
+  <line x1="162" y1="185" x2="200" y2="185" stroke="#22c55e" stroke-width="2"/>
+  <circle cx="220" cy="185" r="12" fill="#22c55e"/>
+  <text x="220" y="190" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">D</text>
+  <line x1="232" y1="185" x2="270" y2="185" stroke="#22c55e" stroke-width="2"/>
+  <circle cx="290" cy="185" r="12" fill="#22c55e"/>
+  <text x="290" y="190" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">E</text>
+  <line x1="302" y1="185" x2="340" y2="185" stroke="#22c55e" stroke-width="2"/>
+  <circle cx="360" cy="185" r="12" fill="#22c55e"/>
+  <text x="360" y="190" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">F</text>
+  
+  <!-- After Rebase -->
+  <rect x="50" y="280" width="700" height="180" rx="8" fill="#ffffff" stroke="#e94560" stroke-width="2"/>
+  <text x="400" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#e94560" text-anchor="middle">rebase 之后</text>
+  
+  <!-- main branch after -->
+  <text x="70" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666">main:</text>
+  <circle cx="150" cy="345" r="12" fill="#6366f1"/>
+  <text x="150" y="350" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">B</text>
+  <line x1="162" y1="345" x2="200" y2="345" stroke="#6366f1" stroke-width="2"/>
+  <circle cx="220" cy="345" r="12" fill="#6366f1"/>
+  <text x="220" y="350" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">G</text>
+  
+  <!-- feature branch after -->
+  <text x="70" y="390" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666">feature:</text>
+  <circle cx="150" cy="385" r="12" fill="#6366f1"/>
+  <text x="150" y="390" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">B</text>
+  <line x1="162" y1="385" x2="200" y2="385" stroke="#6366f1" stroke-width="2"/>
+  <circle cx="220" cy="385" r="12" fill="#6366f1"/>
+  <text x="220" y="390" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">G</text>
+  <line x1="232" y1="385" x2="270" y2="385" stroke="#e94560" stroke-width="2"/>
+  <circle cx="290" cy="385" r="12" fill="#e94560"/>
+  <text x="290" y="390" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">D'</text>
+  <line x1="302" y1="385" x2="340" y2="385" stroke="#e94560" stroke-width="2"/>
+  <circle cx="360" cy="385" r="12" fill="#e94560"/>
+  <text x="360" y="390" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">E'</text>
+  <line x1="372" y1="385" x2="410" y2="385" stroke="#e94560" stroke-width="2"/>
+  <circle cx="430" cy="385" r="12" fill="#e94560"/>
+  <text x="430" y="390" font-family="monospace" font-size="11" fill="#ffffff" text-anchor="middle">F'</text>
+  <text x="460" y="390" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#e94560">← 新的提交 hash</text>
+  
+  <!-- Bottom note -->
+  <text x="400" y="480" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888888" text-anchor="middle">D、E、F 变成了 D'、E'、F'——历史被改写了</text>
+</svg>

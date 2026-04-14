@@ -1,0 +1,46 @@
+<svg width="900" height="383" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mergeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a90a4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#357a8c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rebaseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c73e54;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bg)"/>
+  
+  <!-- Title -->
+  <text x="450" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">merge vs rebase</text>
+  <text x="450" y="80" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#a0a0a0" text-anchor="middle">工程取舍的不同选择</text>
+  
+  <!-- Left: merge -->
+  <rect x="60" y="120" width="360" height="200" rx="8" fill="url(#mergeGrad)" opacity="0.15"/>
+  <rect x="60" y="120" width="4" height="200" rx="2" fill="#4a90a4"/>
+  <text x="80" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="bold" fill="#4a90a4">merge</text>
+  <text x="80" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#c0c0c0">• additive（添加式）</text>
+  <text x="80" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#c0c0c0">• 把两条路接上</text>
+  <text x="80" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#c0c0c0">• 产生 merge commit</text>
+  <text x="80" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#c0c0c0">• 保留真实分叉与汇合</text>
+  <text x="80" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#808080" font-style="italic">适合：共享分支、公共主线</text>
+  
+  <!-- Right: rebase -->
+  <rect x="480" y="120" width="360" height="200" rx="8" fill="url(#rebaseGrad)" opacity="0.15"/>
+  <rect x="480" y="120" width="4" height="200" rx="2" fill="#e94560"/>
+  <text x="500" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="bold" fill="#e94560">rebase</text>
+  <text x="500" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#c0c0c0">• reconstructive（重构式）</text>
+  <text x="500" y="220" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#c0c0c0">• 脚印重新铺到另一条路</text>
+  <text x="500" y="250" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#c0c0c0">• 改写提交历史</text>
+  <text x="500" y="280" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#c0c0c0">• 获得线性历史</text>
+  <text x="500" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#808080" font-style="italic">适合：本地分支、PR 前整理</text>
+  
+  <!-- Bottom tagline -->
+  <text x="450" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#606060" text-anchor="middle">不是谁高级，而是场景不同</text>
+</svg>

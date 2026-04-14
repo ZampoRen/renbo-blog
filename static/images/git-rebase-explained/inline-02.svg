@@ -1,0 +1,49 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fafafa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg3)"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#333333" text-anchor="middle">什么时候用 rebase，什么时候用 merge？</text>
+  
+  <!-- Left: merge Zone -->
+  <rect x="50" y="70" width="340" height="340" rx="8" fill="#f0fff0" stroke="#22c55e" stroke-width="2"/>
+  <text x="220" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#22c55e" text-anchor="middle">→ 用 merge</text>
+  
+  <line x1="80" y1="120" x2="360" y2="120" stroke="#22c55e" stroke-width="1" opacity="0.3"/>
+  
+  <text x="80" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 共享分支</text>
+  <text x="80" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 公共主线（main/master）</text>
+  <text x="80" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 已推送且别人可能拉取的提交</text>
+  <text x="80" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 需要保留真实历史轨迹</text>
+  
+  <rect x="70" y="270" width="300" height="110" rx="4" fill="#ffffff" opacity="0.6"/>
+  <text x="220" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666" text-anchor="middle">关键词：安全、保守、</text>
+  <text x="220" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666" text-anchor="middle">additive（添加式）</text>
+  <text x="220" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888888" text-anchor="middle">把两条路接上</text>
+  
+  <!-- Right: rebase Zone -->
+  <rect x="410" y="70" width="340" height="340" rx="8" fill="#fffaf0" stroke="#f59e0b" stroke-width="2"/>
+  <text x="580" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#f59e0b" text-anchor="middle">→ 用 rebase</text>
+  
+  <line x1="440" y1="120" x2="720" y2="120" stroke="#f59e0b" stroke-width="1" opacity="0.3"/>
+  
+  <text x="440" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 本地分支整理</text>
+  <text x="440" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ PR 前整理历史</text>
+  <text x="440" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 同步最新主线（不产生 merge commit）</text>
+  <text x="440" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 未推送的提交</text>
+  
+  <rect x="430" y="270" width="300" height="110" rx="4" fill="#ffffff" opacity="0.6"/>
+  <text x="580" y="305" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666" text-anchor="middle">关键词：整洁、线性、</text>
+  <text x="580" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666" text-anchor="middle">reconstructive（重构式）</text>
+  <text x="580" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#888888" text-anchor="middle">脚印重新铺到另一条路</text>
+  
+  <!-- Bottom tagline -->
+  <text x="400" y="425" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#888888" text-anchor="middle">rebase 不是黑魔法，是工程取舍</text>
+</svg>
