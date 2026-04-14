@@ -1,0 +1,49 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fafafa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg3)"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#333333" text-anchor="middle">什么时候用 REST，什么时候用 RPC？</text>
+  
+  <!-- Left: REST Zone -->
+  <rect x="50" y="70" width="340" height="340" rx="8" fill="#e8f4f8" stroke="#4a90a4" stroke-width="2"/>
+  <text x="220" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#4a90a4" text-anchor="middle">→ 用 REST</text>
+  
+  <line x1="80" y1="120" x2="360" y2="120" stroke="#4a90a4" stroke-width="1" opacity="0.3"/>
+  
+  <text x="80" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 公共 API / 开放平台</text>
+  <text x="80" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 第三方集成</text>
+  <text x="80" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 需要人类直接调试</text>
+  <text x="80" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 松耦合系统</text>
+  <text x="80" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 不想共享 IDL</text>
+  
+  <rect x="70" y="300" width="300" height="80" rx="4" fill="#ffffff" opacity="0.6"/>
+  <text x="220" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666" text-anchor="middle">关键词：通用、易理解、</text>
+  <text x="220" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666" text-anchor="middle">curl/Postman 直接测</text>
+  
+  <!-- Right: RPC Zone -->
+  <rect x="410" y="70" width="340" height="340" rx="8" fill="#fde8ec" stroke="#e94560" stroke-width="2"/>
+  <text x="580" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#e94560" text-anchor="middle">→ 用 RPC</text>
+  
+  <line x1="440" y1="120" x2="720" y2="120" stroke="#e94560" stroke-width="1" opacity="0.3"/>
+  
+  <text x="440" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 内部微服务通信</text>
+  <text x="440" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 高频调用</text>
+  <text x="440" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 需要严格契约</text>
+  <text x="440" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 高吞吐、低延迟</text>
+  <text x="440" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#333333">✓ 需要 streaming/retry/deadline</text>
+  
+  <rect x="430" y="300" width="300" height="80" rx="4" fill="#ffffff" opacity="0.6"/>
+  <text x="580" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666" text-anchor="middle">关键词：强契约、低摩擦、</text>
+  <text x="580" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666" text-anchor="middle">编译器验证接口</text>
+  
+  <!-- Bottom tagline -->
+  <text x="400" y="430" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#888888" text-anchor="middle">REST 不是错，问题是很多团队把它用到了它并不顺手的地方</text>
+</svg>

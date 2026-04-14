@@ -1,0 +1,55 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8e8e8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bg2)"/>
+  
+  <!-- Title -->
+  <text x="400" y="45" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="bold" fill="#333333" text-anchor="middle">资源模型 vs 动作模型</text>
+  
+  <!-- Left: REST Resource Model -->
+  <rect x="50" y="80" width="340" height="380" rx="8" fill="#ffffff" stroke="#4a90a4" stroke-width="2"/>
+  <text x="220" y="115" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#4a90a4" text-anchor="middle">REST：资源模型</text>
+  
+  <text x="70" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#666666">围绕「资源」设计接口</text>
+  
+  <!-- REST examples -->
+  <rect x="70" y="175" width="300" height="55" rx="4" fill="#f0f7fa"/>
+  <text x="85" y="200" font-family="monospace" font-size="12" fill="#333333">GET    /invoices/{id}</text>
+  <text x="85" y="220" font-family="monospace" font-size="12" fill="#333333">POST   /invoices</text>
+  
+  <rect x="70" y="250" width="300" height="55" rx="4" fill="#f0f7fa"/>
+  <text x="85" y="275" font-family="monospace" font-size="12" fill="#333333">PUT    /users/{id}</text>
+  <text x="85" y="295" font-family="monospace" font-size="12" fill="#333333">DELETE /users/{id}</text>
+  
+  <text x="70" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888888">问题：动作型接口硬凹成资源</text>
+  <rect x="70" y="370" width="300" height="35" rx="4" fill="#fff0f0" stroke="#e94560" stroke-width="1"/>
+  <text x="85" y="392" font-family="monospace" font-size="11" fill="#c73e54">POST /invoices/{id}/approval  ← 别扭</text>
+  
+  <!-- Right: RPC Action Model -->
+  <rect x="410" y="80" width="340" height="380" rx="8" fill="#ffffff" stroke="#e94560" stroke-width="2"/>
+  <text x="580" y="115" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#e94560" text-anchor="middle">RPC：动作模型</text>
+  
+  <text x="430" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#666666">围绕「方法」设计接口</text>
+  
+  <!-- RPC examples -->
+  <rect x="430" y="175" width="300" height="55" rx="4" fill="#fef0f2"/>
+  <text x="445" y="200" font-family="monospace" font-size="12" fill="#333333">approveInvoice(id)</text>
+  <text x="445" y="220" font-family="monospace" font-size="12" fill="#333333">createInvoice(data)</text>
+  
+  <rect x="430" y="250" width="300" height="55" rx="4" fill="#fef0f2"/>
+  <text x="445" y="275" font-family="monospace" font-size="12" fill="#333333">updateUser(id, data)</text>
+  <text x="445" y="295" font-family="monospace" font-size="12" fill="#333333">deleteUser(id)</text>
+  
+  <text x="430" y="350" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#888888">动作型接口：自然表达</text>
+  <rect x="430" y="370" width="300" height="35" rx="4" fill="#f0fff4" stroke="#4ade80" stroke-width="1"/>
+  <text x="445" y="392" font-family="monospace" font-size="11" fill="#22c55e">calculateRiskScore(user)  ← 顺手</text>
+  
+  <!-- Bottom note -->
+  <text x="400" y="485" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#999999" text-anchor="middle">内部服务通信中，动作模型往往更接近业务语义</text>
+</svg>
