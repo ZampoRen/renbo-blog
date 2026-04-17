@@ -1,0 +1,22 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="bg2" x1="0" y1="0" x2="1200" y2="760"><stop stop-color="#0B1020"/><stop offset="1" stop-color="#101828"/></linearGradient></defs>
+<rect width="1200" height="760" rx="28" fill="url(#bg2)"/>
+<text x="90" y="108" fill="#F8FAFC" font-size="42" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">更稳的角色结构，不要再揉成一个 admin</text>
+<text x="90" y="152" fill="#94A3B8" font-size="22" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">连接、业务权限、管理动作拆开以后，边界才会清楚</text>
+<rect x="95" y="255" width="250" height="220" rx="24" fill="#0F172A" stroke="#334155"/>
+<rect x="475" y="255" width="250" height="220" rx="24" fill="#0F172A" stroke="#334155"/>
+<rect x="855" y="255" width="250" height="220" rx="24" fill="#0F172A" stroke="#334155"/>
+<path d="M345 365H475" stroke="#60A5FA" stroke-width="5" stroke-linecap="round"/>
+<path d="M725 365H855" stroke="#60A5FA" stroke-width="5" stroke-linecap="round"/>
+<text x="220" y="322" fill="#E5E7EB" font-size="36" text-anchor="middle" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">connector</text>
+<text x="220" y="374" fill="#93C5FD" font-size="24" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">只负责连接</text>
+<text x="220" y="408" fill="#93C5FD" font-size="24" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">保住连接池</text>
+<text x="600" y="322" fill="#E5E7EB" font-size="36" text-anchor="middle" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">visitor</text>
+<text x="600" y="374" fill="#93C5FD" font-size="24" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">search_path / GRANT / RLS</text>
+<text x="600" y="408" fill="#93C5FD" font-size="24" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">真正接管权限</text>
+<text x="980" y="322" fill="#E5E7EB" font-size="36" text-anchor="middle" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">admin</text>
+<text x="980" y="374" fill="#93C5FD" font-size="24" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">初始化 / 迁移 / 运维</text>
+<text x="980" y="408" fill="#93C5FD" font-size="24" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">不跑日常流量</text>
+<rect x="95" y="528" width="1010" height="112" rx="24" fill="#111827" stroke="#334155"/>
+<text x="125" y="598" fill="#CBD5E1" font-size="28" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">更稳的路径：先连接，再注入 user_id，再 SET ROLE 到 visitor，让数据库接管最后一道判断。</text>
+</svg>

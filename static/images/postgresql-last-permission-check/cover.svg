@@ -1,0 +1,24 @@
+<svg width="900" height="383" viewBox="0 0 900 383" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="900" y2="383" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#0B1020"/>
+    <stop offset="1" stop-color="#121A31"/>
+  </linearGradient>
+  <linearGradient id="path" x1="118" y1="188" x2="340" y2="188" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#2DD4BF"/>
+    <stop offset="1" stop-color="#60A5FA"/>
+  </linearGradient>
+</defs>
+<rect width="900" height="383" rx="28" fill="url(#bg)"/>
+<circle cx="132" cy="108" r="28" fill="#0F172A" stroke="#2DD4BF" stroke-width="2"/>
+<circle cx="132" cy="188" r="28" fill="#0F172A" stroke="#60A5FA" stroke-width="2"/>
+<circle cx="132" cy="268" r="28" fill="#0F172A" stroke="#A78BFA" stroke-width="2"/>
+<path d="M160 108H235L275 160" stroke="url(#path)" stroke-width="4" stroke-linecap="round"/>
+<path d="M160 188H246" stroke="url(#path)" stroke-width="4" stroke-linecap="round"/>
+<path d="M160 268H235L275 216" stroke="url(#path)" stroke-width="4" stroke-linecap="round"/>
+<circle cx="310" cy="188" r="46" fill="#111827" stroke="#F59E0B" stroke-width="3"/>
+<text x="310" y="195" fill="#FDE68A" font-size="18" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">判断</text>
+<text x="458" y="142" fill="#F8FAFC" font-size="42" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">最后一道权限判断</text>
+<text x="458" y="202" fill="#93C5FD" font-size="26" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">PostgreSQL 真正值钱的</text>
+<text x="458" y="238" fill="#93C5FD" font-size="26" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">不是放行，而是再判断一次</text>
+</svg>
