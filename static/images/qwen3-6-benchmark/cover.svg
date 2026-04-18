@@ -1,0 +1,42 @@
+<svg width="900" height="383" viewBox="0 0 900 383" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="900" height="383" fill="#0D1117"/>
+  
+  <!-- 网格线 -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1F2937" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="383" fill="url(#grid)"/>
+  
+  <!-- 左侧：Qwen3.6 -->
+  <rect x="100" y="100" width="300" height="180" rx="8" fill="#161B22" stroke="#FF7B72" stroke-width="2"/>
+  <text x="250" y="140" fill="#FF7B72" font-family="system-ui" font-size="20" font-weight="700" text-anchor="middle">Qwen3.6</text>
+  <text x="250" y="175" fill="#7EE787" font-family="monospace" font-size="16" text-anchor="middle">⚡ 速度大幅提升</text>
+  <text x="250" y="205" fill="#58A6FF" font-family="monospace" font-size="14" text-anchor="middle">✓ 工具调用可靠</text>
+  <text x="250" y="235" fill="#F0883E" font-family="monospace" font-size="14" text-anchor="middle">🚀 本地 Agent 首选</text>
+  
+  <!-- VS 标志 -->
+  <circle cx="450" cy="190" r="40" fill="#1F2937" stroke="#30363D" stroke-width="2"/>
+  <text x="450" y="200" fill="#C9D1D9" font-family="system-ui" font-size="24" font-weight="700" text-anchor="middle">VS</text>
+  
+  <!-- 右侧：Gemma4 -->
+  <rect x="500" y="100" width="300" height="180" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="2"/>
+  <text x="650" y="140" fill="#58A6FF" font-family="system-ui" font-size="20" font-weight="700" text-anchor="middle">Gemma4</text>
+  <text x="650" y="175" fill="#7EE787" font-family="monospace" font-size="16" text-anchor="middle">📊 31B 参数量</text>
+  <text x="650" y="205" fill="#D2A8FF" font-family="monospace" font-size="14" text-anchor="middle">Google 出品</text>
+  <text x="650" y="235" fill="#F0883E" font-family="monospace" font-size="14" text-anchor="middle">🔧 基准对比</text>
+  
+  <!-- 底部性能指标 -->
+  <rect x="200" y="300" width="500" height="60" rx="8" fill="#161B22" stroke="#30363D" stroke-width="1.5"/>
+  <text x="450" y="325" fill="#C9D1D9" font-family="system-ui" font-size="16" font-weight="600" text-anchor="middle">🎯 10000 tokens/秒 是什么体验</text>
+  <text x="450" y="350" fill="#8B949E" font-family="monospace" font-size="12" text-anchor="middle">24GB VRAM 是魔法数字</text>
+  
+  <!-- 装饰性 GPU 图标 -->
+  <rect x="50" y="50" width="60" height="40" rx="4" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="80" y="75" fill="#79C0FF" font-family="monospace" font-size="10" text-anchor="middle">GPU</text>
+  
+  <rect x="790" y="50" width="60" height="40" rx="4" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="820" y="75" fill="#79C0FF" font-family="monospace" font-size="10" text-anchor="middle">GPU</text>
+</svg>
