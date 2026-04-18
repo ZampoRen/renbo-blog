@@ -1,0 +1,74 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#0D1117"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="35" fill="#C9D1D9" font-family="system-ui" font-size="18" font-weight="600" text-anchor="middle">逃逸分析判断流程</text>
+  
+  <!-- 开始 -->
+  <rect x="300" y="70" width="200" height="50" rx="25" fill="#1F6FEB" fill-opacity="0.3" stroke="#58A6FF" stroke-width="2"/>
+  <text x="400" y="100" fill="#58A6FF" font-family="system-ui" font-size="14" font-weight="600" text-anchor="middle">编译器分析变量</text>
+  
+  <!-- 箭头 -->
+  <line x1="400" y1="120" x2="400" y2="145" stroke="#30363D" stroke-width="1.5"/>
+  <polygon points="400,145 394,133 406,133" fill="#30363D"/>
+  
+  <!-- 判断 1 -->
+  <rect x="250" y="145" width="300" height="60" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1.5"/>
+  <text x="400" y="170" fill="#79C0FF" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">地址是否逃逸函数？</text>
+  <text x="400" y="195" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">返回/全局存储/闭包捕获</text>
+  
+  <!-- 箭头：是 -->
+  <line x1="550" y1="175" x2="620" y2="175" stroke="#FF7B72" stroke-width="1.5"/>
+  <polygon points="620,175 608,169 608,181" fill="#FF7B72"/>
+  <text x="585" y="165" fill="#FF7B72" font-family="monospace" font-size="10" text-anchor="middle">是</text>
+  
+  <!-- 箭头：否 -->
+  <line x1="400" y1="205" x2="400" y2="245" stroke="#7EE787" stroke-width="1.5"/>
+  <polygon points="400,245 394,233 406,233" fill="#7EE787"/>
+  <text x="415" y="225" fill="#7EE787" font-family="monospace" font-size="10" text-anchor="middle">否</text>
+  
+  <!-- 堆分配结果 -->
+  <rect x="620" y="145" width="140" height="60" rx="6" fill="#FF7B72" fill-opacity="0.2" stroke="#FF7B72" stroke-width="1.5"/>
+  <text x="690" y="170" fill="#FF7B72" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">分配到堆</text>
+  <text x="690" y="195" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">GC 管理</text>
+  
+  <!-- 判断 2 -->
+  <rect x="250" y="245" width="300" height="60" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1.5"/>
+  <text x="400" y="270" fill="#79C0FF" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">大小编译期已知？</text>
+  <text x="400" y="295" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">原始类型/结构体/固定数组</text>
+  
+  <!-- 箭头：是 -->
+  <line x1="400" y1="305" x2="400" y2="345" stroke="#7EE787" stroke-width="1.5"/>
+  <polygon points="400,345 394,333 406,333" fill="#7EE787"/>
+  <text x="415" y="325" fill="#7EE787" font-family="monospace" font-size="10" text-anchor="middle">是</text>
+  
+  <!-- 箭头：否 -->
+  <line x1="550" y1="275" x2="620" y2="275" stroke="#FF7B72" stroke-width="1.5"/>
+  <polygon points="620,275 608,269 608,281" fill="#FF7B72"/>
+  <text x="585" y="265" fill="#FF7B72" font-family="monospace" font-size="10" text-anchor="middle">否</text>
+  
+  <!-- 栈分配结果 -->
+  <rect x="250" y="345" width="300" height="80" rx="6" fill="#238636" fill-opacity="0.2" stroke="#7EE787" stroke-width="1.5"/>
+  <text x="400" y="375" fill="#7EE787" font-family="system-ui" font-size="14" font-weight="600" text-anchor="middle">分配到栈</text>
+  <text x="400" y="400" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">函数返回时自动释放</text>
+  <text x="400" y="420" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">极快 · 无 GC 压力</text>
+  
+  <!-- 堆分配结果 2 -->
+  <rect x="620" y="245" width="140" height="60" rx="6" fill="#FF7B72" fill-opacity="0.2" stroke="#FF7B72" stroke-width="1.5"/>
+  <text x="690" y="270" fill="#FF7B72" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">分配到堆</text>
+  <text x="690" y="295" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">运行时确定大小</text>
+  
+  <!-- 示例代码框 -->
+  <rect x="40" y="70" width="180" height="120" rx="6" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="55" y="95" fill="#FF7B72" font-family="monospace" font-size="10">func example() *int {</text>
+  <text x="55" y="115" fill="#C9D1D9" font-family="monospace" font-size="10">    x := 42</text>
+  <text x="55" y="135" fill="#C9D1D9" font-family="monospace" font-size="10">    return &amp;x  </text>
+  <text x="55" y="155" fill="#FF7B72" font-family="monospace" font-size="10">}</text>
+  <text x="55" y="180" fill="#8B949E" font-family="monospace" font-size="9">// x 地址逃逸 → 堆</text>
+  
+  <!-- 底部说明 -->
+  <rect x="40" y="450" width="720" height="40" rx="6" fill="#0D1117" stroke="#30363D" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="400" y="470" fill="#8B949E" font-family="system-ui" font-size="11" text-anchor="middle">Go 和 Java 用逃逸分析决定栈还是堆 · C/C++ 交给程序员决定</text>
+  <text x="400" y="485" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">go build -gcflags="-m" 可查看逃逸分析结果</text>
+</svg>
