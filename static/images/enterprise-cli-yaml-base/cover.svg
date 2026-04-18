@@ -1,0 +1,46 @@
+<svg width="900" height="383" viewBox="0 0 900 383" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="900" height="383" fill="#0D1117"/>
+  
+  <!-- 网格线 -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1F2937" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="383" fill="url(#grid)"/>
+  
+  <!-- 终端窗口 -->
+  <rect x="150" y="80" width="600" height="220" rx="8" fill="#161B22" stroke="#30363D" stroke-width="2"/>
+  <rect x="150" y="80" width="600" height="32" rx="8" fill="#161B22"/>
+  <rect x="150" y="104" width="600" height="2" fill="#30363D"/>
+  
+  <!-- 窗口按钮 -->
+  <circle cx="175" cy="96" r="6" fill="#FF5F56"/>
+  <circle cx="195" cy="96" r="6" fill="#FFBD2E"/>
+  <circle cx="215" cy="96" r="6" fill="#27C93F"/>
+  
+  <!-- 命令行文字 -->
+  <text x="180" y="135" fill="#58A6FF" font-family="monospace" font-size="14">$ cli order list --keyword test</text>
+  <text x="180" y="160" fill="#8B949E" font-family="monospace" font-size="12">Loading specs...</text>
+  <text x="180" y="185" fill="#7EE787" font-family="monospace" font-size="12">✓ Found 3 orders</text>
+  <text x="180" y="210" fill="#C9D1D9" font-family="monospace" font-size="11">ID: 1001  Status: pending  Amount: ¥2,580</text>
+  <text x="180" y="230" fill="#C9D1D9" font-family="monospace" font-size="11">ID: 1002  Status: completed  Amount: ¥1,200</text>
+  <text x="180" y="250" fill="#C9D1D9" font-family="monospace" font-size="11">ID: 1003  Status: pending  Amount: ¥890</text>
+  
+  <!-- 装饰性代码块 -->
+  <rect x="520" y="280" width="230" height="80" rx="4" fill="#161B22" stroke="#30363D" stroke-width="1"/>
+  <text x="535" y="305" fill="#FF7B72" font-family="monospace" font-size="11">group:</text>
+  <text x="580" y="305" fill="#79C0FF" font-family="monospace" font-size="11">order</text>
+  <text x="535" y="325" fill="#FF7B72" font-family="monospace" font-size="11">command:</text>
+  <text x="610" y="325" fill="#79C0FF" font-family="monospace" font-size="11">list</text>
+  <text x="535" y="345" fill="#FF7B72" font-family="monospace" font-size="11">request:</text>
+  <text x="595" y="345" fill="#79C0FF" font-family="monospace" font-size="11">GET /order/list</text>
+  
+  <!-- 连接箭头 -->
+  <path d="M 480 180 L 510 180 L 510 300 L 525 300" stroke="#58A6FF" stroke-width="1.5" fill="none" stroke-dasharray="4,4"/>
+  <polygon points="525,300 515,295 515,305" fill="#58A6FF"/>
+  
+  <!-- 标题文字 -->
+  <text x="450" y="50" fill="#C9D1D9" font-family="system-ui" font-size="14" text-anchor="middle">Enterprise CLI Base</text>
+</svg>
