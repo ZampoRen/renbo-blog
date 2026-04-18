@@ -1,0 +1,92 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#0D1117"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="35" fill="#C9D1D9" font-family="system-ui" font-size="18" font-weight="600" text-anchor="middle">页表映射：虚拟页 → 物理帧</text>
+  
+  <!-- 左侧：虚拟地址空间 -->
+  <rect x="40" y="70" width="220" height="350" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="2"/>
+  <text x="150" y="100" fill="#58A6FF" font-family="system-ui" font-size="16" font-weight="600" text-anchor="middle">虚拟地址空间</text>
+  <text x="150" y="125" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">进程视角</text>
+  
+  <!-- 虚拟页 -->
+  <rect x="60" y="145" width="180" height="50" rx="4" fill="#1F6FEB" fill-opacity="0.3" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="150" y="170" fill="#79C0FF" font-family="monospace" font-size="12" text-anchor="middle">Page 0</text>
+  <text x="150" y="188" fill="#8B949E" font-family="monospace" font-size="9" text-anchor="middle">0x0000 - 0x0FFF</text>
+  
+  <rect x="60" y="205" width="180" height="50" rx="4" fill="#1F6FEB" fill-opacity="0.3" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="150" y="230" fill="#79C0FF" font-family="monospace" font-size="12" text-anchor="middle">Page 1</text>
+  <text x="150" y="248" fill="#8B949E" font-family="monospace" font-size="9" text-anchor="middle">0x1000 - 0x1FFF</text>
+  
+  <rect x="60" y="265" width="180" height="50" rx="4" fill="#1F6FEB" fill-opacity="0.3" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="150" y="290" fill="#79C0FF" font-family="monospace" font-size="12" text-anchor="middle">Page 2</text>
+  <text x="150" y="308" fill="#8B949E" font-family="monospace" font-size="9" text-anchor="middle">0x2000 - 0x2FFF</text>
+  
+  <rect x="60" y="325" width="180" height="50" rx="4" fill="#1F6FEB" fill-opacity="0.3" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="150" y="350" fill="#79C0FF" font-family="monospace" font-size="12" text-anchor="middle">Page 3</text>
+  <text x="150" y="368" fill="#8B949E" font-family="monospace" font-size="9" text-anchor="middle">0x3000 - 0x3FFF</text>
+  
+  <rect x="60" y="385" width="180" height="25" rx="4" fill="#1F6FEB" fill-opacity="0.1" stroke="#58A6FF" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="150" y="402" fill="#8B949E" font-family="monospace" font-size="9" text-anchor="middle">...</text>
+  
+  <!-- 中间：页表 -->
+  <rect x="290" y="70" width="220" height="350" rx="8" fill="#161B22" stroke="#D2A8FF" stroke-width="2"/>
+  <text x="400" y="100" fill="#D2A8FF" font-family="system-ui" font-size="16" font-weight="600" text-anchor="middle">页表 (Page Table)</text>
+  <text x="400" y="125" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">OS 维护的映射表</text>
+  
+  <!-- 页表条目 -->
+  <rect x="310" y="145" width="180" height="40" rx="4" fill="#8957E5" fill-opacity="0.2" stroke="#D2A8FF" stroke-width="1"/>
+  <text x="330" y="170" fill="#D2A8FF" font-family="monospace" font-size="10">Page 0 → Frame 2</text>
+  
+  <rect x="310" y="195" width="180" height="40" rx="4" fill="#8957E5" fill-opacity="0.2" stroke="#D2A8FF" stroke-width="1"/>
+  <text x="330" y="220" fill="#D2A8FF" font-family="monospace" font-size="10">Page 1 → SWAP</text>
+  
+  <rect x="310" y="245" width="180" height="40" rx="4" fill="#8957E5" fill-opacity="0.2" stroke="#D2A8FF" stroke-width="1"/>
+  <text x="330" y="270" fill="#D2A8FF" font-family="monospace" font-size="10">Page 2 → Frame 0</text>
+  
+  <rect x="310" y="295" width="180" height="40" rx="4" fill="#8957E5" fill-opacity="0.2" stroke="#D2A8FF" stroke-width="1"/>
+  <text x="330" y="320" fill="#D2A8FF" font-family="monospace" font-size="10">Page 3 → Frame 1</text>
+  
+  <rect x="310" y="345" width="180" height="25" rx="4" fill="#8957E5" fill-opacity="0.1" stroke="#D2A8FF" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="400" y="362" fill="#8B949E" font-family="monospace" font-size="9" text-anchor="middle">...</text>
+  
+  <text x="400" y="395" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">每页 4KB / 8KB</text>
+  
+  <!-- 右侧：物理内存 -->
+  <rect x="540" y="70" width="220" height="350" rx="8" fill="#161B22" stroke="#7EE787" stroke-width="2"/>
+  <text x="650" y="100" fill="#7EE787" font-family="system-ui" font-size="16" font-weight="600" text-anchor="middle">物理内存 (RAM)</text>
+  <text x="650" y="125" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">硬件视角</text>
+  
+  <!-- 物理帧 -->
+  <rect x="560" y="145" width="180" height="50" rx="4" fill="#238636" fill-opacity="0.3" stroke="#7EE787" stroke-width="1.5"/>
+  <text x="650" y="170" fill="#7EE787" font-family="monospace" font-size="12" text-anchor="middle">Frame 0</text>
+  <text x="650" y="188" fill="#8B949E" font-family="monospace" font-size="9" text-anchor="middle">← Page 2</text>
+  
+  <rect x="560" y="205" width="180" height="50" rx="4" fill="#238636" fill-opacity="0.3" stroke="#7EE787" stroke-width="1.5"/>
+  <text x="650" y="230" fill="#7EE787" font-family="monospace" font-size="12" text-anchor="middle">Frame 1</text>
+  <text x="650" y="248" fill="#8B949E" font-family="monospace" font-size="9" text-anchor="middle">← Page 3</text>
+  
+  <rect x="560" y="265" width="180" height="50" rx="4" fill="#238636" fill-opacity="0.3" stroke="#7EE787" stroke-width="1.5"/>
+  <text x="650" y="290" fill="#7EE787" font-family="monospace" font-size="12" text-anchor="middle">Frame 2</text>
+  <text x="650" y="308" fill="#8B949E" font-family="monospace" font-size="9" text-anchor="middle">← Page 0</text>
+  
+  <rect x="560" y="325" width="180" height="50" rx="4" fill="#238636" fill-opacity="0.1" stroke="#7EE787" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="650" y="350" fill="#7EE787" font-family="monospace" font-size="12" text-anchor="middle">Frame 3</text>
+  <text x="650" y="368" fill="#8B949E" font-family="monospace" font-size="9" text-anchor="middle">空闲</text>
+  
+  <!-- 映射连线 -->
+  <path d="M 240 170 C 260 170, 280 170, 305 170" stroke="#58A6FF" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <path d="M 240 230 C 260 230, 280 230, 305 230" stroke="#58A6FF" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <path d="M 240 290 C 260 290, 280 290, 305 290" stroke="#58A6FF" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <path d="M 240 350 C 260 350, 280 350, 305 350" stroke="#58A6FF" stroke-width="1.5" stroke-dasharray="4,4"/>
+  
+  <path d="M 490 170 C 510 170, 530 290, 555 290" stroke="#7EE787" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <path d="M 490 270 C 510 270, 530 270, 555 270" stroke="#7EE787" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <path d="M 490 320 C 510 320, 530 170, 555 170" stroke="#7EE787" stroke-width="1.5" stroke-dasharray="4,4"/>
+  
+  <!-- 底部说明 -->
+  <rect x="40" y="440" width="720" height="50" rx="6" fill="#161B22" stroke="#30363D" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="400" y="465" fill="#8B949E" font-family="system-ui" font-size="12" text-anchor="middle">关键：虚拟地址空间是连续的，但物理帧可以是分散的</text>
+  <text x="400" y="485" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">页表负责跟踪每个虚拟页存储在哪里（RAM 或 Swap）</text>
+</svg>

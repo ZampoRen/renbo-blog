@@ -1,0 +1,68 @@
+<svg width="800" height="550" viewBox="0 0 800 550" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="550" fill="#0D1117"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="35" fill="#C9D1D9" font-family="system-ui" font-size="18" font-weight="600" text-anchor="middle">缺页中断（Page Fault）处理流程</text>
+  
+  <!-- 步骤 1：程序请求数据 -->
+  <rect x="300" y="70" width="200" height="50" rx="25" fill="#1F6FEB" fill-opacity="0.3" stroke="#58A6FF" stroke-width="2"/>
+  <text x="400" y="95" fill="#58A6FF" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">1. 程序请求数据</text>
+  <text x="400" y="115" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">访问虚拟地址</text>
+  
+  <!-- 箭头 -->
+  <line x1="400" y1="120" x2="400" y2="145" stroke="#30363D" stroke-width="2"/>
+  <polygon points="400,145 394,133 406,133" fill="#30363D"/>
+  
+  <!-- 步骤 2：查页表 -->
+  <rect x="300" y="145" width="200" height="50" rx="25" fill="#8957E5" fill-opacity="0.3" stroke="#D2A8FF" stroke-width="2"/>
+  <text x="400" y="170" fill="#D2A8FF" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">2. 查页表</text>
+  <text x="400" y="190" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">虚拟页在 RAM 中吗？</text>
+  
+  <!-- 箭头 -->
+  <line x1="400" y1="195" x2="400" y2="220" stroke="#30363D" stroke-width="2"/>
+  <polygon points="400,220 394,208 406,208" fill="#30363D"/>
+  
+  <!-- 判断：是否在 RAM 中 -->
+  <rect x="250" y="220" width="300" height="60" rx="8" fill="#161B22" stroke="#30363D" stroke-width="2"/>
+  <text x="400" y="250" fill="#C9D1D9" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">页面在物理 RAM 中？</text>
+  
+  <!-- 箭头：是 -->
+  <line x1="550" y1="250" x2="620" y2="250" stroke="#7EE787" stroke-width="2"/>
+  <polygon points="620,250 608,244 608,256" fill="#7EE787"/>
+  <text x="585" y="240" fill="#7EE787" font-family="monospace" font-size="11" text-anchor="middle">是</text>
+  
+  <!-- 箭头：否 -->
+  <line x1="400" y1="280" x2="400" y2="320" stroke="#FF7B72" stroke-width="2"/>
+  <polygon points="400,320 394,308 406,308" fill="#FF7B72"/>
+  <text x="415" y="300" fill="#FF7B72" font-family="monospace" font-size="11" text-anchor="middle">否（缺页中断）</text>
+  
+  <!-- 右侧：直接访问 -->
+  <rect x="620" y="225" width="140" height="50" rx="6" fill="#238636" fill-opacity="0.2" stroke="#7EE787" stroke-width="1.5"/>
+  <text x="690" y="250" fill="#7EE787" font-family="system-ui" font-size="12" font-weight="600" text-anchor="middle">直接访问</text>
+  <text x="690" y="270" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">快速路径</text>
+  
+  <!-- 步骤 3：触发缺页中断 -->
+  <rect x="250" y="320" width="300" height="50" rx="8" fill="#FF7B72" fill-opacity="0.2" stroke="#FF7B72" stroke-width="2"/>
+  <text x="400" y="350" fill="#FF7B72" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">3. 触发缺页中断</text>
+  
+  <!-- 箭头 -->
+  <line x1="400" y1="370" x2="400" y2="395" stroke="#30363D" stroke-width="2"/>
+  <polygon points="400,395 394,383 406,383" fill="#30363D"/>
+  
+  <!-- 步骤 4：OS 从磁盘读取 -->
+  <rect x="250" y="395" width="300" height="50" rx="8" fill="#D29922" fill-opacity="0.2" stroke="#F0883E" stroke-width="2"/>
+  <text x="400" y="425" fill="#F0883E" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">4. OS 从交换空间读取页面</text>
+  
+  <!-- 箭头 -->
+  <line x1="400" y1="445" x2="400" y2="470" stroke="#30363D" stroke-width="2"/>
+  <polygon points="400,470 394,458 406,458" fill="#30363D"/>
+  
+  <!-- 步骤 5：更新页表 -->
+  <rect x="250" y="470" width="300" height="50" rx="8" fill="#8957E5" fill-opacity="0.2" stroke="#D2A8FF" stroke-width="2"/>
+  <text x="400" y="500" fill="#D2A8FF" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">5. 更新页表映射</text>
+  
+  <!-- 底部说明 -->
+  <rect x="40" y="520" width="720" height="25" rx="4" fill="#161B22" stroke="#30363D" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="400" y="537" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">缺页中断是正常现象，但频繁缺页会导致系统抖动（Thrashing）</text>
+</svg>
