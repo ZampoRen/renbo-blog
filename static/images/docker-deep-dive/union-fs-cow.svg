@@ -1,0 +1,61 @@
+<svg width="800" height="550" viewBox="0 0 800 550" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="550" fill="#0D1117"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="35" fill="#C9D1D9" font-family="system-ui" font-size="18" font-weight="600" text-anchor="middle">Union File System + Copy-on-Write</text>
+  
+  <!-- 左侧：镜像分层 -->
+  <rect x="40" y="70" width="340" height="450" rx="8" fill="#161B22" stroke="#8957E5" stroke-width="2"/>
+  <text x="210" y="100" fill="#D2A8FF" font-family="system-ui" font-size="16" font-weight="600" text-anchor="middle">镜像分层（只读）</text>
+  
+  <!-- Base 层 -->
+  <rect x="60" y="120" width="300" height="60" rx="4" fill="#D29922" fill-opacity="0.3" stroke="#F0883E" stroke-width="1.5"/>
+  <text x="210" y="150" fill="#F0883E" font-family="system-ui" font-size="12" font-weight="600" text-anchor="middle">Base Layer (Ubuntu/Alpine)</text>
+  <text x="210" y="170" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">FROM ubuntu:24.04</text>
+  
+  <!-- Dependencies 层 -->
+  <rect x="60" y="190" width="300" height="60" rx="4" fill="#238636" fill-opacity="0.3" stroke="#7EE787" stroke-width="1.5"/>
+  <text x="210" y="220" fill="#7EE787" font-family="system-ui" font-size="12" font-weight="600" text-anchor="middle">Dependencies Layer</text>
+  <text x="210" y="240" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">RUN apt-get install ...</text>
+  
+  <!-- App 层 -->
+  <rect x="60" y="260" width="300" height="60" rx="4" fill="#1F6FEB" fill-opacity="0.3" stroke="#58A6FF" stroke-width="1.5"/>
+  <text x="210" y="290" fill="#58A6FF" font-family="system-ui" font-size="12" font-weight="600" text-anchor="middle">Application Layer</text>
+  <text x="210" y="310" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">COPY . /app</text>
+  
+  <!-- Container 层 -->
+  <rect x="60" y="330" width="300" height="60" rx="4" fill="#FF7B72" fill-opacity="0.3" stroke="#FF7B72" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="210" y="360" fill="#FF7B72" font-family="system-ui" font-size="12" font-weight="600" text-anchor="middle">Container Layer (可写)</text>
+  <text x="210" y="380" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">运行时创建</text>
+  
+  <!-- 右侧：Copy-on-Write 流程 -->
+  <rect x="420" y="70" width="340" height="450" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="2"/>
+  <text x="590" y="100" fill="#58A6FF" font-family="system-ui" font-size="16" font-weight="600" text-anchor="middle">Copy-on-Write 流程</text>
+  
+  <!-- 读取流程 -->
+  <rect x="440" y="130" width="300" height="100" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="590" y="160" fill="#79C0FF" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">读取文件</text>
+  <text x="590" y="185" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">1. 查容器可写层</text>
+  <text x="590" y="205" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">2. 没有则从只读层取</text>
+  <text x="590" y="225" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">3. 原始文件不变</text>
+  
+  <!-- 写入流程 -->
+  <rect x="440" y="250" width="300" height="120" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="590" y="280" fill="#FF7B72" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">写入文件</text>
+  <text x="590" y="305" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">1. 从只读层复制到可写层</text>
+  <text x="590" y="325" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">2. 在可写层修改</text>
+  <text x="590" y="345" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">3. 原始文件保持不变</text>
+  <text x="590" y="365" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">4. 其他容器继续共享</text>
+  
+  <!-- 好处 -->
+  <rect x="440" y="390" width="300" height="100" rx="6" fill="#238636" fill-opacity="0.2" stroke="#7EE787" stroke-width="1"/>
+  <text x="590" y="420" fill="#7EE787" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">好处</text>
+  <text x="590" y="445" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">✓ 节省存储（共享层）</text>
+  <text x="590" y="465" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">✓ 秒级启动（不复制整个文件系统）</text>
+  <text x="590" y="485" fill="#8B949E" font-family="monospace" font-size="10" text-anchor="middle">✓ 镜像共享（多镜像共用基础层）</text>
+  
+  <!-- 连接箭头 -->
+  <path d="M 380 250 L 410 250" stroke="#30363D" stroke-width="2" stroke-dasharray="4,4"/>
+  <polygon points="410,250 400,245 400,255" fill="#30363D"/>
+</svg>

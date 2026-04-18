@@ -1,0 +1,54 @@
+<svg width="800" height="500" viewBox="0 0 800 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="500" fill="#0D1117"/>
+  
+  <!-- 标题 -->
+  <text x="400" y="35" fill="#C9D1D9" font-family="system-ui" font-size="18" font-weight="600" text-anchor="middle">Namespaces + Cgroups：Docker 隔离核心</text>
+  
+  <!-- 左侧：Namespaces -->
+  <rect x="40" y="70" width="340" height="400" rx="8" fill="#161B22" stroke="#58A6FF" stroke-width="2"/>
+  <text x="210" y="100" fill="#58A6FF" font-family="system-ui" font-size="16" font-weight="600" text-anchor="middle">Namespaces（能看见什么）</text>
+  
+  <!-- PID Namespace -->
+  <rect x="60" y="120" width="300" height="70" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="210" y="145" fill="#79C0FF" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">PID Namespace</text>
+  <text x="210" y="170" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">容器内进程认为自己是 PID 1</text>
+  
+  <!-- Net Namespace -->
+  <rect x="60" y="200" width="300" height="70" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="210" y="225" fill="#79C0FF" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">Net Namespace</text>
+  <text x="210" y="250" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">独立 IP、路由表、防火墙规则</text>
+  
+  <!-- Mnt Namespace -->
+  <rect x="60" y="280" width="300" height="70" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="210" y="305" fill="#79C0FF" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">Mnt Namespace</text>
+  <text x="210" y="330" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">隔离挂载点，看不到宿主机 /etc/shadow</text>
+  
+  <!-- UTS Namespace -->
+  <rect x="60" y="360" width="300" height="70" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="210" y="385" fill="#79C0FF" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">UTS Namespace</text>
+  <text x="210" y="410" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">独立主机名和域名</text>
+  
+  <!-- 右侧：Cgroups -->
+  <rect x="420" y="70" width="340" height="400" rx="8" fill="#161B22" stroke="#7EE787" stroke-width="2"/>
+  <text x="590" y="100" fill="#7EE787" font-family="system-ui" font-size="16" font-weight="600" text-anchor="middle">Cgroups（能用多少）</text>
+  
+  <!-- CPU Limit -->
+  <rect x="440" y="120" width="300" height="80" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="590" y="150" fill="#7EE787" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">CPU 限制</text>
+  <text x="590" y="180" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">docker run --cpus=0.5</text>
+  
+  <!-- Memory Limit -->
+  <rect x="440" y="220" width="300" height="80" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="590" y="250" fill="#7EE787" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">内存限制</text>
+  <text x="590" y="280" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">docker run -m 512m</text>
+  
+  <!-- IO Limit -->
+  <rect x="440" y="320" width="300" height="80" rx="6" fill="#1F2937" stroke="#30363D" stroke-width="1"/>
+  <text x="590" y="350" fill="#7EE787" font-family="system-ui" font-size="13" font-weight="600" text-anchor="middle">IO 限制</text>
+  <text x="590" y="380" fill="#8B949E" font-family="monospace" font-size="11" text-anchor="middle">--device-read-bps / --device-write-bps</text>
+  
+  <!-- 底部说明 -->
+  <rect x="40" y="480" width="720" height="15" rx="4" fill="#0D1117" stroke="#30363D" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="400" y="492" fill="#8B949E" font-family="system-ui" font-size="10" text-anchor="middle">Namespaces 隔离资源视图 · Cgroups 限制资源使用</text>
+</svg>
