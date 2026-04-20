@@ -2,7 +2,7 @@
 title: "写出 Redis 的人，为什么宁愿当个糟糕的艺术家？"
 date: 2026-04-10T15:44:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "Redis 改变了无数系统架构，但它的作者 antirez 在 2020 年却选择离开。比技术更值得写的，是一个创作者如何在艺术表达与工程维护之间做出取舍。"
 tags: ["Redis", "antirez", "开源", "程序员", "人物故事", "软件工程"]
 categories: ["人物与技术"]
@@ -12,7 +12,7 @@ featured_image: "/images/redis-antirez-story/cover.jpg"
 cover: "/Users/zampo/Documents/renbo-blog/static/images/redis-antirez-story/cover.jpg"
 ---
 
-![程序员工作场景配图](/images/redis-antirez-story/antirez-portrait.jpg)
+![程序员工作场景配图](/Users/zampo/Documents/renbo-blog/static/images/redis-antirez-story/antirez-portrait.jpg)
 
 *程序员工作场景。图片来源：Pexels*
 

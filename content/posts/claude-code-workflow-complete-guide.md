@@ -2,7 +2,7 @@
 title: "我把 Claude Code 改造成了自动化工程系统，不再陪它聊天了"
 date: 2026-04-07T15:00:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "同样的 AI 工具，有人用来聊天摸鱼，有人却能搭建自动化工程系统。差别不在于模型能力，而在于工作流。"
 tags: ["AI 工程化", "Claude Code", "自动化", "工作流", "开发者工具"]
 categories: ["技术实战"]

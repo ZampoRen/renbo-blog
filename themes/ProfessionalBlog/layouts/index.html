@@ -251,17 +251,22 @@
   
   .featured-tags {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.25rem;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    margin-top: 0.15rem;
+    overflow: hidden;
   }
   
   .tag {
     background: rgba(255, 255, 255, 0.74);
     color: var(--text-primary);
-    padding: 0.45rem 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    padding: 0.25rem 0.6rem;
     border-radius: 50px;
-    font-size: 0.8rem;
+    font-size: 0.72rem;
+    line-height: 1;
     text-decoration: none;
     border: 1px solid var(--border-color);
     transition: all 0.3s ease;
@@ -640,8 +645,11 @@
           <p class="featured-excerpt">{{ $featuredExcerpt | truncate 140 }}</p>
           {{ if .Params.tags }}
           <div class="featured-tags">
-            {{ range .Params.tags }}
+            {{ range first 4 .Params.tags }}
               <a href="/tags/{{ . | urlize }}" class="tag"># {{ . }}</a>
+            {{ end }}
+            {{ if gt (len .Params.tags) 4 }}
+              <span class="tag">+{{ sub (len .Params.tags) 4 }}</span>
             {{ end }}
           </div>
           {{ end }}

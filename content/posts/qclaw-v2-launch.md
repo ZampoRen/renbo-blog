@@ -2,7 +2,7 @@
 title: "别一上来就折腾大平台了，QClaw v2 更适合你先把 AI 用起来"
 date: 2026-04-11T09:35:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "很多老板不是不想用 AI，而是怕买回去只是演示玩具。QClaw v2 真正有价值的地方，不是概念多新，而是门槛够低：装起来不重、入口够熟、今天就能让团队开始试。"
 tags: ["QClaw", "AI Agent", "自动化", "腾讯", "企业效率", "AI 工具"]
 categories: ["AI 工具"]

@@ -1,6 +1,6 @@
 ---
 title: MCP 被抛弃的背后：不是技术输了，是 Token 和效率扛不住了
-author: 任博
+author: Zampo
 description: MCP 曾被誉为 Agent 的万能接口标准，但越来越多的顶级开发者转向 CLI。这不是技术先进与否的问题，而是工程权衡的不同选择。
 tags: ["AI", "Agent", "CLI", "MCP", "工程权衡"]
 categories: ["技术思考"]

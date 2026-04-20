@@ -2,13 +2,12 @@
 title: "谷歌提出的 5 种 Skill 设计模式，第 4 种 90% 的人都没用过"
 date: 2026-03-27T18:04:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "深入解析谷歌提出的 5 种 Agent Skill 设计模式，从 Tool Wrapper 到 Pipeline，帮你从'会用格式'进阶到'设计得好'。"
 tags: ["AI", "Agent", "Skill", "设计模式", "谷歌", "ADK"]
 categories: ["技术前沿"]
 featured: true
 toc: true
-weight: 1
 ---
 
 > 格式只是皮囊，内容设计才是灵魂

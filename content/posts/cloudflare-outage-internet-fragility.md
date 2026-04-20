@@ -1,6 +1,6 @@
 ---
 title: Cloudflare 故障 5 小时：互联网的根基，比你想的还要脆弱
-author: 任博
+author: Zampo
 description: Cloudflare 是全球最大的 CDN 之一，但当它出现故障时，影响范围极广。这不是技术问题，而是系统设计的必然结果。
 tags: ["Cloudflare", "互联网", "基础设施", "单点故障", "系统设计"]
 categories: ["技术思考"]

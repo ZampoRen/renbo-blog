@@ -2,7 +2,7 @@
 title: "Gemma 4 刚发布，我连夜把它装进了 OpenClaw"
 date: 2026-04-03T10:20:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "别再等别人写教程了。Gemma 4 发布后，最稳的一条本地路线就是：hf 下载 GGUF，Ollama 导入，再接进 OpenClaw。本文把这条链路一步一步走通。"
 tags: ["Gemma 4", "OpenClaw", "Ollama", "Hugging Face", "本地部署", "AI"]
 categories: ["技术实战"]

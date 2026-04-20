@@ -2,7 +2,7 @@
 title: "我写了个 OpenClaw 技能，5 分钟自动搭建 Hugo 博客"
 date: 2026-03-27T18:25:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "不用记命令、不用配置 GitHub Actions，一句话让 AI 帮你搭建并部署 Hugo 博客。这个开源技能，推荐给你。"
 tags: ["OpenClaw", "Hugo", "自动化", "技能教程", "GitHub Pages"]
 categories: ["开发工具"]

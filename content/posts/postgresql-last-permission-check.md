@@ -4,14 +4,12 @@ description: "我越来越觉得，很多系统真正失守的地方，不在浏
 date: 2026-04-17T09:33:20+08:00
 draft: false
 slug: "postgresql-last-permission-check"
-author: "任博"
+author: "Zampo"
 tags: ["PostgreSQL", "数据库安全", "后端开发", "RLS", "RBAC", "权限设计"]
 categories: ["技术"]
 featured: true
 toc: true
-cover:
-  image: "/images/postgresql-last-permission-check/cover.svg"
-  alt: "PostgreSQL 最后一道权限判断示意图"
+cover: "/Users/zampo/Documents/renbo-blog/static/images/postgresql-last-permission-check/cover.png"
 video_source: "https://www.youtube.com/watch?v=S_Z8Y0vMSzo"
 ---
 

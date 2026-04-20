@@ -2,7 +2,7 @@
 title: "你可以不手写 socket，但你最好真的知道它是什么"
 date: 2026-04-13T17:08:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "很多开发者天天调接口、连数据库、看 Nginx 日志，但一旦被问到 socket 到底是什么，就容易开始飘。问题不是你不会用网络，而是你一直把一条本来能连起来的知识链，记成了一堆散装术语。"
 tags: ["Socket", "TCP", "UDP", "后端", "网络编程", "Linux"]
 categories: ["技术理解"]

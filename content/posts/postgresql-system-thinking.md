@@ -2,7 +2,7 @@
 title: "你以为自己会用 PostgreSQL，其实你只是会写 SQL"
 date: 2026-04-13T17:18:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "很多开发者天天在用 PostgreSQL，但理解还停在会写 CRUD、知道 ACID、知道 JSONB 很灵活。真正拉开差距的，不是 SQL 熟不熟，而是你有没有把 TOAST、MVCC、WAL、Checkpoint 这四套机制放进同一张系统图里看明白。"
 tags: ["PostgreSQL", "数据库", "后端开发", "MVCC", "WAL", "系统设计"]
 categories: ["技术实战"]

@@ -2,7 +2,7 @@
 title: "Redis 最容易踩的 7 个坑，问题往往不在 Redis"
 date: 2026-04-04T12:10:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "Redis 本身不难，难的是很多问题都不是命令问题，而是设计问题。大 Key、缓存穿透、雪崩、热 Key、持久化、淘汰策略和集群倾斜，这 7 个坑我按线上后果重新梳理了一遍。"
 tags: ["Redis", "性能优化", "后端开发", "架构设计", "技术总结"]
 categories: ["技术实战"]

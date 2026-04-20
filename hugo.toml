@@ -1,6 +1,6 @@
 baseURL = 'https://blog.cpdd.fyi/'
 languageCode = 'zh-cn'
-title = '任博的博客'
+title = 'Zampo Blog'
 theme = 'ProfessionalBlog'
 defaultContentLanguage = 'zh-cn'
 
@@ -8,8 +8,8 @@ defaultContentLanguage = 'zh-cn'
   writeStats = true
 
 [params]
-  description = "任博的个人技术博客，专注后端开发、数据库、技术选型"
-  author = "任博"
+  description = "Zampo 的个人技术博客，专注后端开发、数据库、技术选型"
+  author = "Zampo"
   keywords = ['后端开发', '数据库', '分布式系统', '技术选型', 'PostgreSQL', 'MySQL']
 
 [menu]

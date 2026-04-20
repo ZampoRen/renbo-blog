@@ -1,0 +1,45 @@
+<svg width="800" height="450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fafafa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f0f0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg3)"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#333333" text-anchor="middle">React 心智模型总结</text>
+  
+  <!-- Core concept circle -->
+  <circle cx="400" cy="220" r="100" fill="#61dafb" opacity="0.15" stroke="#61dafb" stroke-width="2"/>
+  <text x="400" y="210" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#61dafb" text-anchor="middle">UI = 状态的函数</text>
+  <text x="400" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#666666" text-anchor="middle">(核心心智)</text>
+  
+  <!-- Surrounding concepts -->
+  <circle cx="200" cy="150" r="60" fill="#ffffff" stroke="#61dafb" stroke-width="1.5"/>
+  <text x="200" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#333333" text-anchor="middle">组件 = 函数</text>
+  <text x="200" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888888" text-anchor="middle">不是模板</text>
+  
+  <circle cx="600" cy="150" r="60" fill="#ffffff" stroke="#61dafb" stroke-width="1.5"/>
+  <text x="600" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#333333" text-anchor="middle">JSX = 语法糖</text>
+  <text x="600" y="165" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888888" text-anchor="middle">不是模板语言</text>
+  
+  <circle cx="200" cy="320" r="60" fill="#ffffff" stroke="#61dafb" stroke-width="1.5"/>
+  <text x="200" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#333333" text-anchor="middle">虚拟 DOM</text>
+  <text x="200" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888888" text-anchor="middle">实现细节</text>
+  
+  <circle cx="600" cy="320" r="60" fill="#ffffff" stroke="#61dafb" stroke-width="1.5"/>
+  <text x="600" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#333333" text-anchor="middle">effect</text>
+  <text x="600" y="330" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888888" text-anchor="middle">副作用出口</text>
+  
+  <!-- Connecting lines -->
+  <line x1="250" y1="180" x2="330" y2="210" stroke="#61dafb" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="550" y1="180" x2="470" y2="210" stroke="#61dafb" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="250" y1="290" x2="330" y2="250" stroke="#61dafb" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="550" y1="290" x2="470" y2="250" stroke="#61dafb" stroke-width="1" stroke-dasharray="4"/>
+  
+  <!-- Bottom tagline -->
+  <text x="400" y="420" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#666666" text-anchor="middle">React 最重要的不是 API，而是让 UI 可以被推理</text>
+</svg>

@@ -2,7 +2,9 @@
 title: "Rust 想进 Linux，真正卡住它的不是语法，是控制权"
 date: 2026-04-09T16:28:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
+cover: "/Users/zampo/Documents/renbo-blog/static/images/rust-linux-conflict/cover.jpg"
+source_url: "https://blog.cpdd.fyi/posts/rust-linux-conflict/"
 description: "Rust for Linux 这场冲突，表面像新语言挑战旧秩序，底下其实是两套工程哲学在抢同一件东西：谁有资格替复杂系统做决定。"
 tags: ["Rust", "Linux", "内核", "系统编程", "工程哲学"]
 categories: ["技术观点"]
@@ -26,7 +28,7 @@ Rust 想进 Linux，结果闹成了技术圈连续剧。
 
 这才是 Rust for Linux 一直吵不完的根。
 
-![夜间开发者工位，适合作为 Rust 与 Linux 冲突文章头图](/images/rust-linux-conflict/cover.jpg)
+![夜间开发者工位，适合作为 Rust 与 Linux 冲突文章头图](https://blog.cpdd.fyi/images/rust-linux-conflict/cover.jpg)
 
 <!--more-->
 
@@ -211,7 +213,7 @@ Linux 更像是在防“系统被过早定义”。
 
 而是谁都不愿意把自己手里最重要的那张牌交出去。
 
-![昏暗环境下的双屏编程场景，适合放在解释底层工程取舍的位置](/images/rust-linux-conflict/inline-01.jpg)
+![昏暗环境下的双屏编程场景，适合作为放在解释底层工程取舍的位置](https://blog.cpdd.fyi/images/rust-linux-conflict/inline-01.jpg)
 
 ## 最后收一句
 

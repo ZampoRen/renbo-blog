@@ -2,7 +2,7 @@
 title: "别被“首超 Opus 4.6”带跑：GLM-5.1 真正值得看的，不是这行分数"
 date: 2026-04-09T16:18:32+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 cover: "/Users/zampo/Documents/renbo-blog/static/images/glm51-long-horizon/cover.jpg"
 description: "GLM-5.1 最值得看的，不是“首超 Opus 4.6”这句标题，而是模型竞争正在从刷分，转向谁能把活连续干下去。看懂这件事，比转一条热搜更重要。"
 tags: ["GLM-5.1", "智谱", "Claude Opus 4.6", "Agentic Coding", "AI 模型"]

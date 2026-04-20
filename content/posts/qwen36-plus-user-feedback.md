@@ -2,11 +2,13 @@
 title: "Qwen3.6-Plus 爆火这一周，开发者先吵的不是它强不强"
 date: 2026-04-10T12:15:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "Qwen3.6-Plus 最值得看的，不是它有没有全面超过 Claude，而是阿里正在从开源模型品牌，往 hosted agent 竞争者的位置上硬拐。问题也正出在这里：宣传很猛，真实接入摩擦来得更快。"
 tags: ["Qwen", "Qwen3.6-Plus", "大模型", "AI Agent", "开发者工具", "模型选型"]
 categories: ["AI观察"]
 featured: true
+cover: "/Users/zampo/Documents/renbo-blog/static/images/qwen36-plus-user-feedback/cover.jpg"
+source_url: "https://blog.cpdd.fyi/posts/qwen36-plus-user-feedback/"
 ---
 
 大家都在问：Qwen3.6-Plus 到底有没有超过 Claude？

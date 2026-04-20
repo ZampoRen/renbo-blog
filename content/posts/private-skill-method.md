@@ -2,7 +2,7 @@
 title: "说点大实话：真正厉害的 Agent 用户，早就不靠囤 Skill 找掌控感"
 date: 2026-04-13T16:58:00+08:00
 draft: false
-author: "任博"
+author: "Zampo"
 description: "很多人把囤 Skill 当成能力建设，结果装得越多，系统越乱。外部 Skill 当然可以参考，但真正可靠的方法，永远是把自己做成过的任务沉淀成私有 Skill。"
 tags: ["Agent", "OpenClaw", "Hermes", "Skill", "方法论", "工作流"]
 categories: ["AI观察"]
