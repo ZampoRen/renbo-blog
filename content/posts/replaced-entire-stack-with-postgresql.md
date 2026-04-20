@@ -6,7 +6,7 @@ draft: false
 categories: ["技术"]
 tags: ["PostgreSQL", "架构设计", "微服务", "数据库", "工程实践"]
 slug: "replaced-entire-stack-with-postgresql"
-images: ["/images/postgresql-replaces-stack/cover.svg"]
+images: ["/images/postgresql-replaces-stack/cover.png"]
 toc: true
 ---
 
@@ -393,7 +393,7 @@ ORDER BY distance;
 | 故障排查 | 指数级复杂 | 简单 |
 | 扩展性 | 水平扩展容易 | 垂直扩展为主 |
 
-![架构对比图](/images/postgresql-replaces-stack/architecture-comparison.svg)
+![架构对比图](/images/postgresql-replaces-stack/architecture-comparison.png)
 
 ---
 
