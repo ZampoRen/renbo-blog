@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="step" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f2937"/>
+      <stop offset="100%" style="stop-color:#374151"/>
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="600" fill="url(#bg)"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#e5e7eb" font-weight="600">缺页中断处理流程</text>
+  
+  <!-- Step 1 -->
+  <rect x="250" y="70" width="300" height="60" rx="8" fill="url(#step)" stroke="#ef4444" stroke-width="2"/>
+  <text x="400" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff" font-weight="600">1. 程序请求数据</text>
+  <text x="400" y="115" text-anchor="middle" font-family="monospace" font-size="11" fill="#fca5a5">地址 0x2ABC 不在 RAM 中</text>
+  
+  <!-- Arrow -->
+  <line x1="400" y1="130" x2="400" y2="150" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Step 2 -->
+  <rect x="250" y="150" width="300" height="60" rx="8" fill="url(#step)" stroke="#f59e0b" stroke-width="2"/>
+  <text x="400" y="175" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff" font-weight="600">2. CPU 触发缺页中断</text>
+  <text x="400" y="195" text-anchor="middle" font-family="monospace" font-size="11" fill="#fcd34d">Page Fault Exception</text>
+  
+  <!-- Arrow -->
+  <line x1="400" y1="210" x2="400" y2="230" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Step 3 -->
+  <rect x="250" y="230" width="300" height="60" rx="8" fill="url(#step)" stroke="#3b82f6" stroke-width="2"/>
+  <text x="400" y="255" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff" font-weight="600">3. 操作系统接管</text>
+  <text x="400" y="275" text-anchor="middle" font-family="monospace" font-size="11" fill="#93c5fd">查找磁盘上的页面位置</text>
+  
+  <!-- Arrow -->
+  <line x1="400" y1="290" x2="400" y2="310" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Step 4 -->
+  <rect x="250" y="310" width="300" height="60" rx="8" fill="url(#step)" stroke="#10b981" stroke-width="2"/>
+  <text x="400" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff" font-weight="600">4. 从磁盘读取页面到 RAM</text>
+  <text x="400" y="355" text-anchor="middle" font-family="monospace" font-size="11" fill="#6ee7b7">Disk I/O (慢 ~100μs)</text>
+  
+  <!-- Arrow -->
+  <line x1="400" y1="370" x2="400" y2="390" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Step 5 -->
+  <rect x="250" y="390" width="300" height="60" rx="8" fill="url(#step)" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="400" y="415" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff" font-weight="600">5. 更新页表映射</text>
+  <text x="400" y="435" text-anchor="middle" font-family="monospace" font-size="11" fill="#c4b5fd">Page Table Entry 更新</text>
+  
+  <!-- Arrow -->
+  <line x1="400" y1="450" x2="400" y2="470" stroke="#6b7280" stroke-width="3" marker-end="url(#arrow)"/>
+  
+  <!-- Step 6 -->
+  <rect x="250" y="470" width="300" height="60" rx="8" fill="url(#step)" stroke="#10b981" stroke-width="2"/>
+  <text x="400" y="495" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#ffffff" font-weight="600">6. 程序继续执行</text>
+  <text x="400" y="515" text-anchor="middle" font-family="monospace" font-size="11" fill="#6ee7b7">重新执行指令 (成功)</text>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+  </defs>
+  
+  <!-- Side note -->
+  <rect x="580" y="310" width="200" height="80" rx="6" fill="#7c3aed" opacity="0.3" stroke="#a855f7" stroke-width="1"/>
+  <text x="680" y="335" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#d8b4fe" font-weight="600">性能开销</text>
+  <text x="680" y="355" text-anchor="middle" font-family="monospace" font-size="10" fill="#c4b5fd">RAM 访问：~100ns</text>
+  <text x="680" y="375" text-anchor="middle" font-family="monospace" font-size="10" fill="#c4b5fd">磁盘访问：~100μs</text>
+  <text x="680" y="395" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#a855f7">慢 1000 倍</text>
+</svg>

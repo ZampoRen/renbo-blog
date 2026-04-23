@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f2937"/>
+      <stop offset="100%" style="stop-color:#374151"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3f2c3f"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  
+  <!-- Title -->
+  <text x="600" y="80" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" fill="#e5e7eb" font-weight="600">VIRTUAL MEMORY</text>
+  <text x="600" y="115" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="48" fill="#ffffff" font-weight="700">虚拟内存</text>
+  
+  <!-- Virtual Memory Card -->
+  <rect x="100" y="180" width="280" height="200" rx="12" fill="url(#card1)" stroke="#4b5563" stroke-width="2"/>
+  <text x="240" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#ffffff" font-weight="600">虚拟内存</text>
+  <text x="240" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#9ca3af">Virtual Memory</text>
+  <rect x="140" y="270" width="200" height="15" rx="3" fill="#4b5563" opacity="0.5"/>
+  <rect x="140" y="295" width="200" height="15" rx="3" fill="#4b5563" opacity="0.5"/>
+  <rect x="140" y="320" width="200" height="15" rx="3" fill="#4b5563" opacity="0.5"/>
+  <rect x="140" y="345" width="120" height="15" rx="3" fill="#4b5563" opacity="0.5"/>
+  
+  <!-- Physical RAM Card -->
+  <rect x="460" y="180" width="280" height="200" rx="12" fill="url(#card2)" stroke="#3b82f6" stroke-width="2"/>
+  <text x="600" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#ffffff" font-weight="600">物理内存</text>
+  <text x="600" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#93c5fd">Physical RAM</text>
+  <rect x="500" y="270" width="200" height="15" rx="3" fill="#3b82f6" opacity="0.5"/>
+  <rect x="500" y="295" width="200" height="15" rx="3" fill="#3b82f6" opacity="0.5"/>
+  <rect x="500" y="320" width="200" height="15" rx="3" fill="#3b82f6" opacity="0.5"/>
+  
+  <!-- Disk/Swap Card -->
+  <rect x="820" y="180" width="280" height="200" rx="12" fill="url(#card3)" stroke="#a855f7" stroke-width="2"/>
+  <text x="960" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#ffffff" font-weight="600">磁盘交换空间</text>
+  <text x="960" y="250" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#d8b4fe">Swap Space</text>
+  <rect x="860" y="270" width="200" height="15" rx="3" fill="#a855f7" opacity="0.5"/>
+  <rect x="860" y="295" width="200" height="15" rx="3" fill="#a855f7" opacity="0.5"/>
+  <rect x="860" y="320" width="200" height="15" rx="3" fill="#a855f7" opacity="0.5"/>
+  <rect x="860" y="345" width="200" height="15" rx="3" fill="#a855f7" opacity="0.5"/>
+  <rect x="860" y="370" width="200" height="15" rx="3" fill="#a855f7" opacity="0.5"/>
+  
+  <!-- Arrows -->
+  <path d="M 390 280 L 450 280" stroke="#6b7280" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  <path d="M 450 280 L 450 350" stroke="#6b7280" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  <path d="M 750 280 L 810 280" stroke="#6b7280" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280"/>
+    </marker>
+  </defs>
+  
+  <!-- Bottom explanation -->
+  <text x="600" y="450" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#9ca3af">8GB RAM → 运行 12GB 程序</text>
+  <text x="600" y="490" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#6b7280">不是魔法，是磁盘空间来凑</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="150" cy="550" r="3" fill="#374151"/>
+  <circle cx="170" cy="550" r="3" fill="#374151"/>
+  <circle cx="190" cy="550" r="3" fill="#374151"/>
+</svg>
