@@ -5,6 +5,7 @@ date: 2026-04-25T10:00:00+08:00
 draft: false
 tags: ["AI Agent", "LangGraph", "CrewAI", "AutoGen", "OpenHands", "工作流"]
 categories: ["技术实战"]
+cover: "/images/ai-agent-workflow-guide/cover.png"
 toc: true
 ---
 
@@ -67,6 +68,8 @@ Agent 越多，调试越难，成本越高。
 ```
 
 下面逐个拆解。
+
+![四个框架对比](/images/ai-agent-workflow-guide/inline-01.png)
 
 ## 1. LangGraph：控制力最强，概念最多
 

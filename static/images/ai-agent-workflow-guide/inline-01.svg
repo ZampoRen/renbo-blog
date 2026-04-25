@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#58a6ff"/>
+      <stop offset="100%" style="stop-color:#1f6feb"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3fb950"/>
+      <stop offset="100%" style="stop-color:#238636"/>
+    </linearGradient>
+    <linearGradient id="accent3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#bc8cff"/>
+      <stop offset="100%" style="stop-color:#8957e5"/>
+    </linearGradient>
+    <linearGradient id="accent4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0883a"/>
+      <stop offset="100%" style="stop-color:#d29922"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1200" height="760" fill="url(#bg)" rx="12"/>
+
+  <!-- 标题 -->
+  <text x="600" y="60" text-anchor="middle" fill="#e6edf3" font-size="24" font-weight="700" font-family="system-ui, -apple-system, sans-serif">四个框架，一张图看清</text>
+  <line x1="450" y1="75" x2="750" y2="75" stroke="url(#accent1)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- 卡片 1: LangGraph -->
+  <g transform="translate(60, 110)">
+    <rect width="260" height="280" rx="10" fill="#1c2333" stroke="#58a6ff" stroke-width="1"/>
+    <rect x="0" y="0" width="260" height="4" rx="2" fill="url(#accent1)"/>
+    <text x="130" y="35" text-anchor="middle" fill="#58a6ff" font-size="18" font-weight="700" font-family="system-ui, -apple-system, sans-serif">LangGraph</text>
+    <text x="130" y="58" text-anchor="middle" fill="#8b949e" font-size="13" font-family="system-ui, -apple-system, sans-serif">专业编排器</text>
+    <line x1="30" y1="70" x2="230" y2="70" stroke="#30363d" stroke-width="1"/>
+    <text x="20" y="100" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">核心：有向图 + 状态机</text>
+    <text x="20" y="125" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">优势：精细控制流</text>
+    <text x="20" y="145" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">        状态持久化</text>
+    <text x="20" y="165" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">        人类在环</text>
+    <text x="20" y="195" fill="#f85149" font-size="12" font-family="system-ui, -apple-system, sans-serif">局限：概念较多</text>
+    <text x="20" y="215" fill="#f85149" font-size="12" font-family="system-ui, -apple-system, sans-serif">       TypedDict 需要适应</text>
+    <text x="20" y="245" fill="#8b949e" font-size="12" font-family="system-ui, -apple-system, sans-serif">适合：分支/循环/断点恢复</text>
+  </g>
+
+  <!-- 卡片 2: CrewAI -->
+  <g transform="translate(350, 110)">
+    <rect width="260" height="280" rx="10" fill="#1c2333" stroke="#3fb950" stroke-width="1"/>
+    <rect x="0" y="0" width="260" height="4" rx="2" fill="url(#accent2)"/>
+    <text x="130" y="35" text-anchor="middle" fill="#3fb950" font-size="18" font-weight="700" font-family="system-ui, -apple-system, sans-serif">CrewAI</text>
+    <text x="130" y="58" text-anchor="middle" fill="#8b949e" font-size="13" font-family="system-ui, -apple-system, sans-serif">快速启动器</text>
+    <line x1="30" y1="70" x2="230" y2="70" stroke="#30363d" stroke-width="1"/>
+    <text x="20" y="100" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">核心：角色 + 任务</text>
+    <text x="20" y="125" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">优势：API 简单</text>
+    <text x="20" y="145" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">        角色分工自然</text>
+    <text x="20" y="165" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">        上手最快</text>
+    <text x="20" y="195" fill="#f85149" font-size="12" font-family="system-ui, -apple-system, sans-serif">局限：复杂场景</text>
+    <text x="20" y="215" fill="#f85149" font-size="12" font-family="system-ui, -apple-system, sans-serif">       控制流不够灵活</text>
+    <text x="20" y="245" fill="#8b949e" font-size="12" font-family="system-ui, -apple-system, sans-serif">适合：快速搭建原型</text>
+  </g>
+
+  <!-- 卡片 3: AutoGen -->
+  <g transform="translate(640, 110)">
+    <rect width="260" height="280" rx="10" fill="#1c2333" stroke="#bc8cff" stroke-width="1"/>
+    <rect x="0" y="0" width="260" height="4" rx="2" fill="url(#accent3)"/>
+    <text x="130" y="35" text-anchor="middle" fill="#bc8cff" font-size="18" font-weight="700" font-family="system-ui, -apple-system, sans-serif">AutoGen/AG2</text>
+    <text x="130" y="58" text-anchor="middle" fill="#8b949e" font-size="13" font-family="system-ui, -apple-system, sans-serif">自由讨论区</text>
+    <line x1="30" y1="70" x2="230" y2="70" stroke="#30363d" stroke-width="1"/>
+    <text x="20" y="100" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">核心：对话式消息传递</text>
+    <text x="20" y="125" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">优势：交互灵活</text>
+    <text x="20" y="145" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">        适合探索性任务</text>
+    <text x="20" y="195" fill="#f85149" font-size="12" font-family="system-ui, -apple-system, sans-serif">局限：可预测性低</text>
+    <text x="20" y="215" fill="#f85149" font-size="12" font-family="system-ui, -apple-system, sans-serif">       调试困难</text>
+    <text x="20" y="245" fill="#8b949e" font-size="12" font-family="system-ui, -apple-system, sans-serif">适合：多角色讨论</text>
+  </g>
+
+  <!-- 卡片 4: OpenHands -->
+  <g transform="translate(930, 110)">
+    <rect width="210" height="280" rx="10" fill="#1c2333" stroke="#f0883a" stroke-width="1"/>
+    <rect x="0" y="0" width="210" height="4" rx="2" fill="url(#accent4)"/>
+    <text x="105" y="35" text-anchor="middle" fill="#f0883a" font-size="18" font-weight="700" font-family="system-ui, -apple-system, sans-serif">OpenHands</text>
+    <text x="105" y="58" text-anchor="middle" fill="#8b949e" font-size="13" font-family="system-ui, -apple-system, sans-serif">安全沙箱</text>
+    <line x1="25" y1="70" x2="185" y2="70" stroke="#30363d" stroke-width="1"/>
+    <text x="15" y="100" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">核心：Docker 沙箱</text>
+    <text x="15" y="125" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">优势：编码任务</text>
+    <text x="15" y="145" fill="#c9d1d9" font-size="13" font-family="system-ui, -apple-system, sans-serif">        隔离安全</text>
+    <text x="15" y="195" fill="#f85149" font-size="12" font-family="system-ui, -apple-system, sans-serif">局限：仅限编码</text>
+    <text x="15" y="215" fill="#f85149" font-size="12" font-family="system-ui, -apple-system, sans-serif">       必需 Docker</text>
+    <text x="15" y="245" fill="#8b949e" font-size="12" font-family="system-ui, -apple-system, sans-serif">适合：自动化编码</text>
+  </g>
+
+  <!-- 底部总结 -->
+  <rect x="100" y="430" width="1000" height="80" rx="10" fill="#1c2333" stroke="#30363d" stroke-width="1"/>
+  <text x="600" y="465" text-anchor="middle" fill="#e6edf3" font-size="16" font-weight="600" font-family="system-ui, -apple-system, sans-serif">能单 Agent 解决的，别拆成三个</text>
+  <text x="600" y="495" text-anchor="middle" fill="#8b949e" font-size="14" font-family="system-ui, -apple-system, sans-serif">多 Agent 不是升级，是另一种工具</text>
+
+  <!-- 决策树 -->
+  <text x="600" y="560" text-anchor="middle" fill="#e6edf3" font-size="18" font-weight="600" font-family="system-ui, -apple-system, sans-serif">怎么选？</text>
+  <line x1="520" y1="572" x2="680" y2="572" stroke="url(#accent1)" stroke-width="2" stroke-linecap="round"/>
+
+  <g transform="translate(120, 590)">
+    <rect width="230" height="100" rx="8" fill="#1c2333" stroke="#58a6ff" stroke-width="1"/>
+    <text x="115" y="35" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="600" font-family="system-ui, -apple-system, sans-serif">分支/循环/断点恢复</text>
+    <text x="115" y="65" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="system-ui, -apple-system, sans-serif">→ LangGraph</text>
+  </g>
+
+  <g transform="translate(380, 590)">
+    <rect width="230" height="100" rx="8" fill="#1c2333" stroke="#3fb950" stroke-width="1"/>
+    <text x="115" y="35" text-anchor="middle" fill="#3fb950" font-size="14" font-weight="600" font-family="system-ui, -apple-system, sans-serif">快速搭建原型</text>
+    <text x="115" y="65" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="system-ui, -apple-system, sans-serif">→ CrewAI</text>
+  </g>
+
+  <g transform="translate(640, 590)">
+    <rect width="230" height="100" rx="8" fill="#1c2333" stroke="#bc8cff" stroke-width="1"/>
+    <text x="115" y="35" text-anchor="middle" fill="#bc8cff" font-size="14" font-weight="600" font-family="system-ui, -apple-system, sans-serif">多角色讨论</text>
+    <text x="115" y="65" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="system-ui, -apple-system, sans-serif">→ AutoGen/AG2</text>
+  </g>
+
+  <g transform="translate(900, 590)">
+    <rect width="230" height="100" rx="8" fill="#1c2333" stroke="#f0883a" stroke-width="1"/>
+    <text x="115" y="35" text-anchor="middle" fill="#f0883a" font-size="14" font-weight="600" font-family="system-ui, -apple-system, sans-serif">自动化编码</text>
+    <text x="115" y="65" text-anchor="middle" fill="#e6edf3" font-size="13" font-family="system-ui, -apple-system, sans-serif">→ OpenHands</text>
+  </g>
+</svg>
