@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" width="1200" height="760">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="600" y="88" text-anchor="middle" fill="#f8fafc" font-family="system-ui,-apple-system,sans-serif" font-size="42" font-weight="700">Claude Code vs Cursor</text>
+  <text x="600" y="128" text-anchor="middle" fill="#94a3b8" font-family="system-ui,-apple-system,sans-serif" font-size="20">不是比功能，是比入口</text>
+  <g font-family="system-ui,-apple-system,sans-serif">
+    <rect x="80" y="200" width="480" height="420" rx="20" fill="#0b1120" stroke="#22d3ee" stroke-width="2"/>
+    <text x="320" y="260" text-anchor="middle" fill="#22d3ee" font-size="32" font-weight="700">Claude Code</text>
+    <text x="320" y="310" text-anchor="middle" fill="#94a3b8" font-size="20">终端入口</text>
+    <rect x="120" y="340" width="400" height="50" rx="10" fill="#111827"/>
+    <text x="320" y="372" text-anchor="middle" fill="#cbd5e1" font-size="18">命令驱动，批量操作</text>
+    <rect x="120" y="410" width="400" height="50" rx="10" fill="#111827"/>
+    <text x="320" y="442" text-anchor="middle" fill="#cbd5e1" font-size="18">天然适合 CI/CD、脚本</text>
+    <rect x="120" y="480" width="400" height="50" rx="10" fill="#111827"/>
+    <text x="320" y="512" text-anchor="middle" fill="#cbd5e1" font-size="18">多任务并行，终端工具链</text>
+    <rect x="120" y="550" width="400" height="50" rx="10" fill="#111827"/>
+    <text x="320" y="582" text-anchor="middle" fill="#cbd5e1" font-size="18">上下文需手动 /compact</text>
+    <rect x="640" y="200" width="480" height="420" rx="20" fill="#0b1120" stroke="#a78bfa" stroke-width="2"/>
+    <text x="880" y="260" text-anchor="middle" fill="#a78bfa" font-size="32" font-weight="700">Cursor</text>
+    <text x="880" y="310" text-anchor="middle" fill="#94a3b8" font-size="20">对话入口</text>
+    <rect x="680" y="340" width="400" height="50" rx="10" fill="#111827"/>
+    <text x="880" y="372" text-anchor="middle" fill="#cbd5e1" font-size="18">对话驱动，可视化交互</text>
+    <rect x="680" y="410" width="400" height="50" rx="10" fill="#111827"/>
+    <text x="880" y="442" text-anchor="middle" fill="#cbd5e1" font-size="18">边看代码边对话</text>
+    <rect x="680" y="480" width="400" height="50" rx="10" fill="#111827"/>
+    <text x="880" y="512" text-anchor="middle" fill="#cbd5e1" font-size="18">最高 1M tokens 上下文</text>
+    <rect x="680" y="550" width="400" height="50" rx="10" fill="#111827"/>
+    <text x="880" y="582" text-anchor="middle" fill="#cbd5e1" font-size="18">设计稿转代码，前端友好</text>
+    <rect x="200" y="660" width="800" height="60" rx="16" fill="#1e293b"/>
+    <text x="600" y="698" text-anchor="middle" fill="#f8fafc" font-size="24" font-weight="700">你习惯在哪干活，就该在哪接 AI</text>
+  </g>
+</svg>

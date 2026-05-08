@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <g opacity="0.15">
+    <circle cx="200" cy="190" r="120" fill="none" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="700" cy="190" r="120" fill="none" stroke="#a78bfa" stroke-width="2"/>
+    <path d="M320 190 L580 190" stroke="#475569" stroke-width="3" stroke-dasharray="8 6"/>
+  </g>
+  <rect x="80" y="100" width="240" height="180" rx="16" fill="#0b1120" stroke="#22d3ee" stroke-width="2"/>
+  <text x="200" y="150" text-anchor="middle" fill="#22d3ee" font-family="monospace" font-size="28" font-weight="700">$ claude</text>
+  <text x="200" y="190" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="16">终端入口</text>
+  <text x="200" y="220" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="14">命令驱动</text>
+  <text x="200" y="250" text-anchor="middle" fill="#64748b" font-family="monospace" font-size="14">批量操作</text>
+  <rect x="580" y="100" width="240" height="180" rx="16" fill="#0b1120" stroke="#a78bfa" stroke-width="2"/>
+  <text x="700" y="150" text-anchor="middle" fill="#a78bfa" font-family="system-ui,-apple-system,sans-serif" font-size="28" font-weight="700">Cursor</text>
+  <text x="700" y="190" text-anchor="middle" fill="#94a3b8" font-family="system-ui,-apple-system,sans-serif" font-size="16">对话入口</text>
+  <text x="700" y="220" text-anchor="middle" fill="#64748b" font-family="system-ui,-apple-system,sans-serif" font-size="14">可视化交互</text>
+  <text x="700" y="250" text-anchor="middle" fill="#64748b" font-family="system-ui,-apple-system,sans-serif" font-size="14">大上下文</text>
+  <text x="450" y="340" text-anchor="middle" fill="#f8fafc" font-family="system-ui,-apple-system,sans-serif" font-size="22" font-weight="600">不是选工具，是选入口</text>
+</svg>
