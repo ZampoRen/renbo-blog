@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 383" width="900" height="383">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d4a574"/>
+      <stop offset="100%" style="stop-color:#c9956b"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="383" fill="url(#bg)"/>
+  
+  <!-- Terminal window -->
+  <rect x="60" y="50" width="780" height="283" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+  
+  <!-- Terminal title bar -->
+  <rect x="60" y="50" width="780" height="32" rx="8" fill="#161b22"/>
+  <rect x="60" y="74" width="780" height="8" fill="#161b22"/>
+  <circle cx="82" cy="66" r="5" fill="#ff5f56"/>
+  <circle cx="100" cy="66" r="5" fill="#ffbd2e"/>
+  <circle cx="118" cy="66" r="5" fill="#27c93f"/>
+  <text x="450" y="70" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="12">claude — chore-app</text>
+  
+  <!-- Terminal content -->
+  <text x="80" y="110" fill="#7ee787" font-family="monospace" font-size="14">$ claude</text>
+  <text x="80" y="138" fill="#a5d6ff" font-family="monospace" font-size="13">  Claude Code — Plan Mode active</text>
+  <text x="80" y="166" fill="#c9d1d9" font-family="monospace" font-size="13">  I'll help you build a chore scheduling app.</text>
+  <text x="80" y="194" fill="#c9d1d9" font-family="monospace" font-size="13">  Let me clarify a few things first:</text>
+  <text x="80" y="222" fill="#c9d1d9" font-family="monospace" font-size="13">  1. Backend or frontend only?</text>
+  <text x="80" y="250" fill="#c9d1d9" font-family="monospace" font-size="13">  2. localStorage or database?</text>
+  <text x="80" y="278" fill="#c9d1d9" font-family="monospace" font-size="13">  3. Need user authentication?</text>
+  
+  <!-- Cursor blink -->
+  <rect x="80" y="295" width="8" height="16" fill="#7ee787" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0;0.8" dur="1s" repeatCount="indefinite"/>
+  </rect>
+  
+  <!-- Title overlay -->
+  <text x="450" y="365" text-anchor="middle" fill="#d4a574" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" letter-spacing="1">CLAUDE CODE 入门指南</text>
+</svg>
