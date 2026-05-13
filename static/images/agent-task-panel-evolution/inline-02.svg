@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#0b1020"/>
+  <text x="70" y="78" fill="#fff" font-family="Arial, PingFang SC" font-size="36" font-weight="800">从手搓文件流，到 Kanban-first</text>
+  <text x="72" y="118" fill="#94a3b8" font-family="Arial, PingFang SC" font-size="20">关键不是换工具，而是把“完成”改成“可审核”。</text>
+  <g font-family="Arial, PingFang SC">
+    <g transform="translate(80,190)">
+      <rect width="300" height="310" rx="26" fill="#111827" stroke="#334155"/>
+      <text x="34" y="54" fill="#fca5a5" font-size="26" font-weight="800">旧流程</text>
+      <text x="34" y="100" fill="#e5e7eb" font-size="20">TASK_BOARD.md</text>
+      <text x="34" y="138" fill="#e5e7eb" font-size="20">inbox / active / done</text>
+      <text x="34" y="206" fill="#fbbf24" font-size="20">问题</text>
+      <text x="34" y="244" fill="#cbd5e1" font-size="18">状态靠人同步</text>
+      <text x="34" y="276" fill="#cbd5e1" font-size="18">路径靠人记</text>
+    </g>
+    <path d="M415 345 H520" stroke="#38bdf8" stroke-width="5" stroke-linecap="round"/>
+    <path d="M500 325 L526 345 L500 365" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <g transform="translate(545,190)">
+      <rect width="575" height="310" rx="26" fill="#101a2d" stroke="#2563eb"/>
+      <text x="34" y="54" fill="#bfdbfe" font-size="26" font-weight="800">Kanban-first</text>
+      <g font-size="18" fill="#e5e7eb">
+        <rect x="34" y="86" width="150" height="54" rx="16" fill="#172554" stroke="#3b82f6"/>
+        <text x="109" y="120" text-anchor="middle">claim</text>
+        <rect x="214" y="86" width="150" height="54" rx="16" fill="#14532d" stroke="#22c55e"/>
+        <text x="289" y="120" text-anchor="middle">run</text>
+        <rect x="394" y="86" width="150" height="54" rx="16" fill="#451a03" stroke="#f59e0b"/>
+        <text x="469" y="120" text-anchor="middle">review</text>
+        <rect x="34" y="180" width="150" height="54" rx="16" fill="#1e1b4b" stroke="#818cf8"/>
+        <text x="109" y="214" text-anchor="middle">parent/child</text>
+        <rect x="214" y="180" width="150" height="54" rx="16" fill="#312e81" stroke="#a78bfa"/>
+        <text x="289" y="214" text-anchor="middle">handoff</text>
+        <rect x="394" y="180" width="150" height="54" rx="16" fill="#3f1d2b" stroke="#fb7185"/>
+        <text x="469" y="214" text-anchor="middle">block/unblock</text>
+      </g>
+    </g>
+  </g>
+  <rect x="80" y="560" width="1040" height="72" rx="24" fill="#0f172a" stroke="#334155"/>
+  <text x="600" y="604" text-anchor="middle" fill="#e2e8f0" font-family="Arial, PingFang SC" font-size="24" font-weight="700">Kanban 管状态；文件、预览和发布门，仍然要有人负责。</text>
+</svg>

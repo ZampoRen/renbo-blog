@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1020"/><stop offset="1" stop-color="#111827"/></linearGradient></defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="70" y="82" fill="#fff" font-family="Arial, PingFang SC" font-size="36" font-weight="800">四种 Agent 编排方案，不在同一条跑道上</text>
+  <text x="72" y="122" fill="#94a3b8" font-family="Arial, PingFang SC" font-size="20">先看场景，再选工具。不要把它们硬比输赢。</text>
+  <g font-family="Arial, PingFang SC" font-size="18">
+    <g transform="translate(70,175)">
+      <rect width="245" height="430" rx="24" fill="#111c30" stroke="#2563eb"/>
+      <text x="26" y="48" fill="#bfdbfe" font-size="26" font-weight="800">Vibe Kanban</text>
+      <text x="26" y="88" fill="#fff" font-size="20" font-weight="700">个人 Agent 工作台</text>
+      <text x="26" y="145" fill="#cbd5e1">一个人管理多个</text>
+      <text x="26" y="176" fill="#cbd5e1">编码 Agent</text>
+      <text x="26" y="248" fill="#60a5fa">强项</text>
+      <text x="26" y="282" fill="#e5e7eb">本地 workspace</text>
+      <text x="26" y="313" fill="#e5e7eb">diff review</text>
+      <text x="26" y="370" fill="#fbbf24">代价</text>
+      <text x="26" y="404" fill="#e5e7eb">更偏单人操作</text>
+    </g>
+    <g transform="translate(345,175)">
+      <rect width="245" height="430" rx="24" fill="#10251e" stroke="#22c55e"/>
+      <text x="26" y="48" fill="#bbf7d0" font-size="26" font-weight="800">Multica</text>
+      <text x="26" y="88" fill="#fff" font-size="20" font-weight="700">Agent 团队平台</text>
+      <text x="26" y="145" fill="#cbd5e1">Agent 进入 assignee</text>
+      <text x="26" y="176" fill="#cbd5e1">和 issue 流程</text>
+      <text x="26" y="248" fill="#4ade80">强项</text>
+      <text x="26" y="282" fill="#e5e7eb">多用户协作</text>
+      <text x="26" y="313" fill="#e5e7eb">团队权限模型</text>
+      <text x="26" y="370" fill="#fbbf24">代价</text>
+      <text x="26" y="404" fill="#e5e7eb">系统更重</text>
+    </g>
+    <g transform="translate(620,175)">
+      <rect width="245" height="430" rx="24" fill="#26172d" stroke="#a855f7"/>
+      <text x="26" y="48" fill="#e9d5ff" font-size="26" font-weight="800">Manus</text>
+      <text x="26" y="88" fill="#fff" font-size="20" font-weight="700">通用 Agent 执行器</text>
+      <text x="26" y="145" fill="#cbd5e1">少结构约束</text>
+      <text x="26" y="176" fill="#cbd5e1">更多自主执行</text>
+      <text x="26" y="248" fill="#c084fc">强项</text>
+      <text x="26" y="282" fill="#e5e7eb">虚拟计算机</text>
+      <text x="26" y="313" fill="#e5e7eb">端到端交付</text>
+      <text x="26" y="370" fill="#fbbf24">代价</text>
+      <text x="26" y="404" fill="#e5e7eb">外部可控性较弱</text>
+    </g>
+    <g transform="translate(895,175)">
+      <rect width="245" height="430" rx="24" fill="#2b1f10" stroke="#f59e0b"/>
+      <text x="26" y="48" fill="#fde68a" font-size="26" font-weight="800">Hermes Kanban</text>
+      <text x="26" y="88" fill="#fff" font-size="20" font-weight="700">框架内编排原语</text>
+      <text x="26" y="145" fill="#cbd5e1">profile 协作</text>
+      <text x="26" y="176" fill="#cbd5e1">状态持久化</text>
+      <text x="26" y="248" fill="#fbbf24">强项</text>
+      <text x="26" y="282" fill="#e5e7eb">依赖链</text>
+      <text x="26" y="313" fill="#e5e7eb">review-required</text>
+      <text x="26" y="370" fill="#fbbf24">代价</text>
+      <text x="26" y="404" fill="#e5e7eb">依赖 Hermes 生态</text>
+    </g>
+  </g>
+  <rect x="70" y="650" width="1070" height="58" rx="20" fill="#0f172a" stroke="#334155"/>
+  <text x="605" y="686" text-anchor="middle" fill="#e2e8f0" font-family="Arial, PingFang SC" font-size="22" font-weight="700">不是选最火的，而是选最能承接你任务边界的。</text>
+</svg>
