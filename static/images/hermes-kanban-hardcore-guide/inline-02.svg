@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="researcher writer default 的任务链 flow 图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#020617"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="0.5" stop-color="#22c55e"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="70" y="92" fill="#e5e7eb" font-size="34" font-family="Arial, 'PingFang SC', sans-serif" font-weight="800">Research → Writing → Publish gate</text>
+  <text x="70" y="132" fill="#94a3b8" font-size="19" font-family="Arial, 'PingFang SC', sans-serif">每个角色只做自己的事，交付靠 comment 和 review-required 串起来</text>
+
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <g transform="translate(72 234)">
+      <rect width="280" height="220" rx="24" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+      <text x="32" y="54" fill="#38bdf8" font-size="26" font-weight="800">researcher</text>
+      <text x="32" y="94" fill="#cbd5e1" font-size="18">收集事实和来源</text>
+      <text x="32" y="126" fill="#94a3b8" font-size="16">handoff.md</text>
+      <text x="32" y="154" fill="#94a3b8" font-size="16">sources/</text>
+      <text x="32" y="182" fill="#94a3b8" font-size="16">事实边界</text>
+    </g>
+
+    <g transform="translate(460 234)">
+      <rect width="280" height="220" rx="24" fill="#0f172a" stroke="#22c55e" stroke-width="2"/>
+      <text x="32" y="54" fill="#86efac" font-size="26" font-weight="800">writer</text>
+      <text x="32" y="94" fill="#cbd5e1" font-size="18">成稿、配图、预览</text>
+      <text x="32" y="126" fill="#94a3b8" font-size="16">content/posts/*.md</text>
+      <text x="32" y="154" fill="#94a3b8" font-size="16">static/images/</text>
+      <text x="32" y="182" fill="#94a3b8" font-size="16">hugo 通过</text>
+    </g>
+
+    <g transform="translate(848 234)">
+      <rect width="280" height="220" rx="24" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+      <text x="32" y="54" fill="#c4b5fd" font-size="26" font-weight="800">default</text>
+      <text x="32" y="94" fill="#cbd5e1" font-size="18">审核与发布门</text>
+      <text x="32" y="126" fill="#94a3b8" font-size="16">content-publishing-gate</text>
+      <text x="32" y="154" fill="#94a3b8" font-size="16">git push</text>
+      <text x="32" y="182" fill="#94a3b8" font-size="16">微信投递</text>
+    </g>
+  </g>
+
+  <g fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M360 344 C394 344, 414 344, 448 344"/>
+    <path d="M736 344 C782 344, 794 344, 836 344"/>
+    <path d="M436 330 L454 344 L436 358"/>
+    <path d="M824 330 L842 344 L824 358"/>
+  </g>
+
+  <g font-family="Menlo, Consolas, monospace" font-size="15">
+    <rect x="112" y="505" width="230" height="44" rx="12" fill="#082f49" opacity="0.75"/>
+    <text x="130" y="533" fill="#e0f2fe">block: review-required</text>
+    <rect x="496" y="505" width="230" height="44" rx="12" fill="#14532d" opacity="0.75"/>
+    <text x="514" y="533" fill="#dcfce7">comment: paths + risks</text>
+    <rect x="884" y="505" width="206" height="44" rx="12" fill="#4c1d95" opacity="0.75"/>
+    <text x="902" y="533" fill="#ede9fe">complete + metadata</text>
+  </g>
+
+  <rect x="72" y="624" width="1056" height="58" rx="16" fill="#020617" stroke="#1e293b"/>
+  <text x="106" y="660" fill="#cbd5e1" font-size="18" font-family="Arial, 'PingFang SC', sans-serif">真正的流水线不是让 Agent 自己说完成，而是让交付物、审核和下游输入都能被检查。</text>
+</svg>

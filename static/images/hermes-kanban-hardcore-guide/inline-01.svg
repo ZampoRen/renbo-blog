@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="Hermes Kanban 六列看板示意">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="72" y="92" fill="#e5e7eb" font-size="34" font-family="Arial, 'PingFang SC', sans-serif" font-weight="800">Six-column board</text>
+  <text x="72" y="132" fill="#94a3b8" font-size="19" font-family="Arial, 'PingFang SC', sans-serif">从原始想法到审核完成，每一列都是一个闸门</text>
+
+  <g transform="translate(58 190)" font-family="Arial, 'PingFang SC', sans-serif">
+    <g>
+      <rect x="0" y="0" width="170" height="390" rx="18" fill="#0f172a" stroke="#334155"/>
+      <text x="24" y="44" fill="#f8fafc" font-size="22" font-weight="700">Triage</text>
+      <text x="24" y="76" fill="#94a3b8" font-size="15">原始想法</text>
+      <rect x="24" y="118" width="122" height="58" rx="12" fill="#1e293b"/>
+      <text x="42" y="153" fill="#cbd5e1" font-size="15">Specify</text>
+    </g>
+    <g transform="translate(186 0)">
+      <rect x="0" y="0" width="170" height="390" rx="18" fill="#0f172a" stroke="#334155"/>
+      <text x="24" y="44" fill="#f8fafc" font-size="22" font-weight="700">Todo</text>
+      <text x="24" y="76" fill="#94a3b8" font-size="15">等依赖</text>
+      <rect x="24" y="118" width="122" height="58" rx="12" fill="#1e293b"/>
+      <text x="42" y="153" fill="#cbd5e1" font-size="15">parent</text>
+    </g>
+    <g transform="translate(372 0)">
+      <rect x="0" y="0" width="170" height="390" rx="18" fill="#0f172a" stroke="#38bdf8"/>
+      <text x="24" y="44" fill="#38bdf8" font-size="22" font-weight="700">Ready</text>
+      <text x="24" y="76" fill="#94a3b8" font-size="15">等派工</text>
+      <rect x="24" y="118" width="122" height="58" rx="12" fill="#075985" opacity="0.7"/>
+      <text x="42" y="153" fill="#e0f2fe" font-size="15">dispatch</text>
+    </g>
+    <g transform="translate(558 0)">
+      <rect x="0" y="0" width="170" height="390" rx="18" fill="#0f172a" stroke="#22c55e"/>
+      <text x="24" y="44" fill="#86efac" font-size="22" font-weight="700">In Progress</text>
+      <text x="24" y="76" fill="#94a3b8" font-size="15">worker 执行</text>
+      <rect x="24" y="118" width="122" height="58" rx="12" fill="#14532d" opacity="0.7"/>
+      <text x="42" y="153" fill="#dcfce7" font-size="15">heartbeat</text>
+    </g>
+    <g transform="translate(744 0)">
+      <rect x="0" y="0" width="170" height="390" rx="18" fill="#0f172a" stroke="#a78bfa"/>
+      <text x="24" y="44" fill="#c4b5fd" font-size="22" font-weight="700">Blocked</text>
+      <text x="24" y="76" fill="#94a3b8" font-size="15">等审核</text>
+      <rect x="24" y="118" width="122" height="58" rx="12" fill="#4c1d95" opacity="0.7"/>
+      <text x="36" y="153" fill="#ede9fe" font-size="15">review</text>
+    </g>
+    <g transform="translate(930 0)">
+      <rect x="0" y="0" width="170" height="390" rx="18" fill="#0f172a" stroke="#f59e0b"/>
+      <text x="24" y="44" fill="#fbbf24" font-size="22" font-weight="700">Done</text>
+      <text x="24" y="76" fill="#94a3b8" font-size="15">交付完成</text>
+      <rect x="24" y="118" width="122" height="58" rx="12" fill="#78350f" opacity="0.7"/>
+      <text x="38" y="153" fill="#fef3c7" font-size="15">summary</text>
+    </g>
+  </g>
+
+  <g fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M226 385 H244"/><path d="M412 385 H430"/><path d="M598 385 H616"/><path d="M784 385 H802"/><path d="M970 385 H988"/>
+    <path d="M238 375 L250 385 L238 395"/><path d="M424 375 L436 385 L424 395"/><path d="M610 375 L622 385 L610 395"/><path d="M796 375 L808 385 L796 395"/><path d="M982 375 L994 385 L982 395"/>
+  </g>
+
+  <rect x="72" y="642" width="1056" height="56" rx="16" fill="#020617" stroke="#1e293b"/>
+  <text x="106" y="677" fill="#cbd5e1" font-size="18" font-family="Arial, 'PingFang SC', sans-serif">最容易卡住的不是 Done，而是 Ready 和 Blocked：一个等派工，一个等人审。</text>
+</svg>
