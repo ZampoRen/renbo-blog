@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="TypeScript native port 语言选型约束示意图">
+  <rect width="900" height="520" fill="#0b1020"/>
+  <text x="54" y="64" font-family="Inter,Arial,'PingFang SC',sans-serif" font-size="32" font-weight="900" fill="#fff">为什么最后是 Go：这不是打分表，是约束筛选</text>
+  <text x="54" y="101" font-family="Inter,Arial,'PingFang SC',sans-serif" font-size="18" fill="#94a3b8">目标不是 ground-up rewrite，而是尽可能保持语义与代码结构兼容的 native port。</text>
+  <g font-family="Inter,Arial,'PingFang SC',sans-serif">
+    <rect x="70" y="150" width="220" height="250" rx="24" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+    <text x="180" y="198" text-anchor="middle" font-size="34" font-weight="900" fill="#93c5fd">Rust</text>
+    <text x="180" y="242" text-anchor="middle" font-size="18" fill="#e5e7eb">性能强</text>
+    <text x="180" y="274" text-anchor="middle" font-size="18" fill="#e5e7eb">生态成熟</text>
+    <text x="180" y="325" text-anchor="middle" font-size="19" font-weight="800" fill="#fca5a5">但会重想内存管理</text>
+    <text x="180" y="355" text-anchor="middle" font-size="17" fill="#cbd5e1">对 port 不够省心</text>
+
+    <rect x="340" y="150" width="220" height="250" rx="24" fill="#052e2b" stroke="#5eead4" stroke-width="3"/>
+    <text x="450" y="198" text-anchor="middle" font-size="34" font-weight="900" fill="#5eead4">Go</text>
+    <text x="450" y="242" text-anchor="middle" font-size="18" fill="#e5e7eb">结构相似</text>
+    <text x="450" y="274" text-anchor="middle" font-size="18" fill="#e5e7eb">有 GC</text>
+    <text x="450" y="306" text-anchor="middle" font-size="18" fill="#e5e7eb">可控 allocation</text>
+    <text x="450" y="355" text-anchor="middle" font-size="19" font-weight="900" fill="#99f6e4">最符合 port 约束</text>
+
+    <rect x="610" y="150" width="220" height="250" rx="24" fill="#2e1065" stroke="#c084fc" stroke-width="2"/>
+    <text x="720" y="198" text-anchor="middle" font-size="34" font-weight="900" fill="#d8b4fe">C#</text>
+    <text x="720" y="242" text-anchor="middle" font-size="18" fill="#e5e7eb">微软自家语言</text>
+    <text x="720" y="274" text-anchor="middle" font-size="18" fill="#e5e7eb">工具链成熟</text>
+    <text x="720" y="325" text-anchor="middle" font-size="19" font-weight="800" fill="#fca5a5">官方未按“OOP”否定</text>
+    <text x="720" y="355" text-anchor="middle" font-size="17" fill="#cbd5e1">不要过度解读</text>
+  </g>
+  <text x="450" y="462" text-anchor="middle" font-family="Inter,Arial,'PingFang SC',sans-serif" font-size="25" font-weight="900" fill="#fff">当目标是 native port，语言选型就不是信仰投票，而是约束求解。</text>
+</svg>
