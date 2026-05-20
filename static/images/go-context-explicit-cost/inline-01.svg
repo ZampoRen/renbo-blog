@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#111827"/></linearGradient></defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="600" y="88" text-anchor="middle" fill="#f8fafc" font-size="42" font-family="Arial, sans-serif" font-weight="800">显式 vs 隐式：差别不在语法，在边界</text>
+  <text x="600" y="132" text-anchor="middle" fill="#94a3b8" font-size="20" font-family="Arial, sans-serif">Go 把生命周期写进签名；其他机制更擅长传横切状态</text>
+  <g transform="translate(80 190)">
+    <rect width="480" height="430" rx="28" fill="#020617" stroke="#22d3ee" stroke-width="2"/>
+    <text x="40" y="58" fill="#e0f2fe" font-size="30" font-family="Arial" font-weight="700">Go context</text>
+    <text x="40" y="96" fill="#94a3b8" font-size="17" font-family="Arial">显式参数：func Foo(ctx, ...)</text>
+    <g font-family="Arial" font-size="20" fill="#e2e8f0">
+      <text x="52" y="160">✓ 调用点能看见生命周期</text>
+      <text x="52" y="215">✓ deadline / cancel 是核心语义</text>
+      <text x="52" y="270">✓ 工具和 review 能追踪传播</text>
+      <text x="52" y="325">× 函数签名更啰嗦</text>
+      <text x="52" y="380">× 中间层会机械转发</text>
+    </g>
+  </g>
+  <g transform="translate(640 190)">
+    <rect width="480" height="430" rx="28" fill="#020617" stroke="#a78bfa" stroke-width="2"/>
+    <text x="40" y="58" fill="#ede9fe" font-size="30" font-family="Arial" font-weight="700">隐式上下文</text>
+    <text x="40" y="96" fill="#94a3b8" font-size="17" font-family="Arial">ThreadLocal / AsyncLocalStorage / contextvars</text>
+    <g font-family="Arial" font-size="20" fill="#e2e8f0">
+      <text x="52" y="160">✓ 函数签名干净</text>
+      <text x="52" y="215">✓ request id / trace id 很顺手</text>
+      <text x="52" y="270">✓ 框架集成更透明</text>
+      <text x="52" y="325">× 依赖藏在运行时上下文里</text>
+      <text x="52" y="380">× 取消语义通常另算</text>
+    </g>
+  </g>
+  <rect x="260" y="665" width="680" height="48" rx="24" fill="#172554" stroke="#38bdf8" opacity="0.95"/>
+  <text x="600" y="696" text-anchor="middle" fill="#dbeafe" font-size="22" font-family="Arial" font-weight="700">Go 要的不是签名干净，是生命周期可见</text>
+</svg>

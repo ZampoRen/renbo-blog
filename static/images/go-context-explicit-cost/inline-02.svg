@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111827"/><stop offset="1" stop-color="#0f172a"/></linearGradient></defs>
+  <rect width="1200" height="620" fill="url(#bg)"/>
+  <text x="600" y="86" text-anchor="middle" fill="#f8fafc" font-size="40" font-family="Arial" font-weight="800">Context 接口没变，能力在旁边长出来</text>
+  <text x="600" y="128" text-anchor="middle" fill="#94a3b8" font-size="20" font-family="Arial">Go 1.7 → 1.20 → 1.21 的克制演进</text>
+  <line x1="170" y1="310" x2="1030" y2="310" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+  <g font-family="Arial">
+    <circle cx="230" cy="310" r="22" fill="#22d3ee"/>
+    <text x="230" y="255" text-anchor="middle" fill="#e0f2fe" font-size="28" font-weight="700">Go 1.7</text>
+    <rect x="110" y="350" width="240" height="112" rx="18" fill="#020617" stroke="#22d3ee"/>
+    <text x="230" y="392" text-anchor="middle" fill="#f8fafc" font-size="20" font-weight="700">进入标准库</text>
+    <text x="230" y="426" text-anchor="middle" fill="#94a3b8" font-size="16">四方法接口定型</text>
+
+    <circle cx="600" cy="310" r="22" fill="#60a5fa"/>
+    <text x="600" y="255" text-anchor="middle" fill="#dbeafe" font-size="28" font-weight="700">Go 1.20</text>
+    <rect x="480" y="350" width="240" height="112" rx="18" fill="#020617" stroke="#60a5fa"/>
+    <text x="600" y="392" text-anchor="middle" fill="#f8fafc" font-size="20" font-weight="700">取消原因</text>
+    <text x="600" y="426" text-anchor="middle" fill="#94a3b8" font-size="16">Cause / WithCancelCause</text>
+
+    <circle cx="970" cy="310" r="22" fill="#a78bfa"/>
+    <text x="970" y="255" text-anchor="middle" fill="#ede9fe" font-size="28" font-weight="700">Go 1.21</text>
+    <rect x="850" y="350" width="240" height="112" rx="18" fill="#020617" stroke="#a78bfa"/>
+    <text x="970" y="392" text-anchor="middle" fill="#f8fafc" font-size="20" font-weight="700">工程补强</text>
+    <text x="970" y="426" text-anchor="middle" fill="#94a3b8" font-size="16">AfterFunc / WithoutCancel</text>
+  </g>
+  <rect x="330" y="520" width="540" height="48" rx="24" fill="#172554" stroke="#38bdf8"/>
+  <text x="600" y="551" text-anchor="middle" fill="#dbeafe" font-size="21" font-family="Arial" font-weight="700">新增能力，没有改掉 Context 的四个方法</text>
+</svg>

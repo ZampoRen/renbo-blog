@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="383" rx="0" fill="url(#bg)"/>
+  <g opacity="0.16" stroke="#94a3b8" stroke-width="1">
+    <path d="M60 80 H380 M60 150 H380 M60 220 H380 M60 290 H380"/>
+    <path d="M110 55 V320 M190 55 V320 M270 55 V320 M350 55 V320"/>
+  </g>
+  <g transform="translate(72 76)">
+    <rect x="0" y="0" width="270" height="230" rx="24" fill="#020617" stroke="#334155"/>
+    <text x="32" y="48" fill="#e2e8f0" font-size="26" font-family="Arial, sans-serif" font-weight="700">显式 ctx</text>
+    <text x="32" y="82" fill="#94a3b8" font-size="15" font-family="Arial, sans-serif">生命周期写进签名</text>
+    <g transform="translate(34 112)" font-family="Menlo, Consolas, monospace" font-size="15">
+      <rect x="0" y="0" width="205" height="38" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="16" y="25" fill="#bae6fd">func A(ctx, ...)</text>
+      <path d="M102 44 V64" stroke="#22d3ee" stroke-width="2"/>
+      <rect x="0" y="70" width="205" height="38" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="16" y="95" fill="#bae6fd">func B(ctx, ...)</text>
+    </g>
+  </g>
+  <g transform="translate(380 178)" filter="url(#glow)">
+    <path d="M0 0 C45 -48 95 -48 140 0" fill="none" stroke="url(#cyan)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M130 -10 L145 0 L130 10" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(565 74)">
+    <text x="0" y="44" fill="#f8fafc" font-size="38" font-family="Arial, sans-serif" font-weight="800">多传一个 ctx</text>
+    <text x="0" y="88" fill="#f8fafc" font-size="38" font-family="Arial, sans-serif" font-weight="800">换来什么？</text>
+    <rect x="0" y="118" width="260" height="2" fill="url(#cyan)"/>
+    <text x="0" y="158" fill="#cbd5e1" font-size="20" font-family="Arial, sans-serif">不是更优雅</text>
+    <text x="0" y="190" fill="#cbd5e1" font-size="20" font-family="Arial, sans-serif">是生命周期更可查</text>
+    <text x="0" y="238" fill="#38bdf8" font-size="16" font-family="Arial, sans-serif">Go context · explicit cost</text>
+  </g>
+</svg>
