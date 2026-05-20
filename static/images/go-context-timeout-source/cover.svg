@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071923"/><stop offset="1" stop-color="#0b2b3b"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="900" height="383" fill="url(#bg)"/>
+<g opacity="0.22" stroke="#8ee8ff" stroke-width="1">
+  <path d="M70 310 C180 230 250 270 350 190 S560 110 820 70" fill="none"/>
+  <path d="M100 75 C210 145 320 75 455 145 S680 230 800 160" fill="none"/>
+</g>
+<g transform="translate(90 74)">
+  <circle cx="90" cy="115" r="72" fill="#79d7ef" opacity="0.95"/>
+  <ellipse cx="52" cy="52" rx="26" ry="36" fill="#79d7ef" transform="rotate(-25 52 52)"/>
+  <ellipse cx="128" cy="52" rx="26" ry="36" fill="#79d7ef" transform="rotate(25 128 52)"/>
+  <circle cx="66" cy="108" r="9" fill="#08232f"/><circle cx="114" cy="108" r="9" fill="#08232f"/>
+  <ellipse cx="90" cy="128" rx="12" ry="8" fill="#12323d"/>
+  <path d="M30 175 Q90 218 150 175" stroke="#1e5364" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <g stroke="#f6c35b" stroke-width="4" fill="none" filter="url(#glow)">
+    <path d="M210 115 H300"/><path d="M300 115 v-52 h70"/><path d="M300 115 v52 h70"/>
+  </g>
+  <circle cx="220" cy="115" r="9" fill="#f6c35b"/><circle cx="370" cy="63" r="9" fill="#f6c35b"/><circle cx="370" cy="167" r="9" fill="#f6c35b"/>
+</g>
+<g transform="translate(520 86)">
+  <text x="0" y="0" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="24" fill="#80e7ff" font-weight="700">Go context</text>
+  <text x="0" y="54" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" fill="#f8fbff" font-weight="800">cancel 不会</text>
+  <text x="0" y="105" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="38" fill="#f8fbff" font-weight="800">替你收拾现场</text>
+  <rect x="0" y="134" width="310" height="52" rx="16" fill="#102f3c" stroke="#2d6b7a"/>
+  <text x="22" y="168" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="20" fill="#d7f7ff">生命周期协议 · 协作式取消</text>
+  <text x="0" y="220" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="16" fill="#8fb2bd">WithTimeout / cancelCtx / timerCtx / valueCtx</text>
+</g>
+</svg>

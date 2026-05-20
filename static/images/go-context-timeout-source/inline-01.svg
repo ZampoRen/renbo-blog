@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#071923"/>
+<text x="80" y="90" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="36" fill="#f8fbff" font-weight="800">父节点 cancel，向下广播</text>
+<text x="80" y="132" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="20" fill="#9fc7d0">子节点通常不反向取消父节点；它只负责自己和自己的 children。</text>
+<g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif">
+  <rect x="465" y="185" width="270" height="82" rx="22" fill="#103544" stroke="#5dd6ef" stroke-width="2"/>
+  <text x="520" y="236" font-size="24" fill="#ffffff" font-weight="700">parent cancelCtx</text>
+  <path d="M600 267 V338" stroke="#f6c35b" stroke-width="4" fill="none"/>
+  <path d="M300 338 H900" stroke="#f6c35b" stroke-width="4" fill="none"/>
+  <path d="M300 338 V410" stroke="#f6c35b" stroke-width="4" fill="none"/>
+  <path d="M600 338 V410" stroke="#f6c35b" stroke-width="4" fill="none"/>
+  <path d="M900 338 V410" stroke="#f6c35b" stroke-width="4" fill="none"/>
+  <g fill="#12313e" stroke="#377f91" stroke-width="2">
+    <rect x="175" y="410" width="250" height="86" rx="20"/>
+    <rect x="475" y="410" width="250" height="86" rx="20"/>
+    <rect x="775" y="410" width="250" height="86" rx="20"/>
+  </g>
+  <g font-size="23" fill="#f8fbff" font-weight="700">
+    <text x="245" y="462">child A</text><text x="545" y="462">child B</text><text x="845" y="462">timerCtx</text>
+  </g>
+  <g font-size="18" fill="#a9cbd3">
+    <text x="212" y="535">关闭 Done</text><text x="502" y="535">递归 children</text><text x="808" y="535">Stop timer</text>
+  </g>
+  <rect x="165" y="610" width="870" height="58" rx="18" fill="#0f2b37" stroke="#284f5b"/>
+  <text x="285" y="647" font-size="22" fill="#d9f7ff">cancel 传的是信号，不是强制中断 goroutine</text>
+</g>
+</svg>

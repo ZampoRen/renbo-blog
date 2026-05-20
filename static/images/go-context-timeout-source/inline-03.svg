@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+<rect width="1200" height="720" fill="#071923"/>
+<text x="80" y="86" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="34" fill="#f8fbff" font-weight="800">pprof 先告诉你 goroutine 卡在哪</text>
+<text x="80" y="128" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="20" fill="#9fc7d0">它不是判决书。看到等待点后，还要回到创建路径、取消路径、响应路径。</text>
+<rect x="120" y="190" width="960" height="410" rx="22" fill="#0b1117" stroke="#2c5360" stroke-width="2"/>
+<circle cx="158" cy="224" r="8" fill="#ff5f57"/><circle cx="185" cy="224" r="8" fill="#ffbd2e"/><circle cx="212" cy="224" r="8" fill="#28c840"/>
+<g font-family="SFMono-Regular,Menlo,Consolas,monospace" font-size="24" fill="#d7f7ff">
+  <text x="155" y="285">$ curl -s :6060/debug/pprof/goroutine?debug=1</text>
+  <text x="155" y="335">goroutine profile: total 14</text>
+  <text x="155" y="385">10 @ ...</text>
+  <text x="155" y="435"># main.worker</text>
+  <text x="155" y="485"># examples/pprof-demo/main.go:34</text>
+  <text x="155" y="535">created by main.main</text>
+</g>
+<rect x="120" y="628" width="960" height="48" rx="16" fill="#102d39" stroke="#2d6575"/>
+<text x="302" y="660" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC','Microsoft YaHei',sans-serif" font-size="21" fill="#dff8ff">下一步：找谁创建、谁取消、谁没有响应 Done</text>
+</svg>
