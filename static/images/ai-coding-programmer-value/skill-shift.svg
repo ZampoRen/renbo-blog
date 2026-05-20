@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="600" y="86" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="38" font-weight="800" fill="#f8fafc">程序员价值从哪里迁移？</text>
+  <text x="600" y="130" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="20" fill="#94a3b8">AI 让编码执行变快，但没有替你承担判断和责任</text>
+
+  <g transform="translate(92,190)">
+    <rect x="0" y="0" width="440" height="360" rx="28" fill="#0f172a" stroke="#2c3a55" stroke-width="2"/>
+    <text x="220" y="58" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="30" font-weight="700" fill="#e2e8f0">传统重心</text>
+    <g font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="24" fill="#cbd5e1">
+      <text x="68" y="126">写代码</text>
+      <text x="68" y="188">查 API</text>
+      <text x="68" y="250">修语法错误</text>
+      <text x="68" y="312">按需求实现功能</text>
+    </g>
+    <g fill="#334155"><circle cx="42" cy="118" r="8"/><circle cx="42" cy="180" r="8"/><circle cx="42" cy="242" r="8"/><circle cx="42" cy="304" r="8"/></g>
+  </g>
+
+  <path d="M555 370 C610 330 645 330 700 370" fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M684 344 L706 371 L672 381" fill="none" stroke="#a78bfa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(668,190)">
+    <rect x="0" y="0" width="440" height="360" rx="28" fill="#111827" stroke="#4c3a75" stroke-width="2"/>
+    <text x="220" y="58" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="30" font-weight="700" fill="#f8fafc">AI 时代重心</text>
+    <g font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="24" fill="#e5e7eb">
+      <text x="68" y="126">定义问题</text>
+      <text x="68" y="188">组织上下文</text>
+      <text x="68" y="250">调度 Agent</text>
+      <text x="68" y="312">验证结果并负责</text>
+    </g>
+    <g fill="#8b5cf6"><circle cx="42" cy="118" r="8"/><circle cx="42" cy="180" r="8"/><circle cx="42" cy="242" r="8"/><circle cx="42" cy="304" r="8"/></g>
+  </g>
+
+  <rect x="235" y="610" width="730" height="54" rx="27" fill="#0f172a" stroke="#334155"/>
+  <text x="600" y="645" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="24" font-weight="700" fill="#e0f2fe">代码正在变便宜，判断正在变贵</text>
+</svg>

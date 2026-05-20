@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset="0.55" stop-color="#0d1b2e"/>
+      <stop offset="1" stop-color="#101827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6ee7f9"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="9" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="170" cy="90" r="110" fill="#1e3a8a" opacity="0.18"/>
+  <circle cx="760" cy="310" r="150" fill="#7c3aed" opacity="0.14"/>
+
+  <g opacity="0.55" stroke="#334155" stroke-width="1">
+    <path d="M80 68 H370"/><path d="M80 116 H340"/><path d="M80 164 H390"/><path d="M80 212 H320"/><path d="M80 260 H365"/>
+  </g>
+
+  <g transform="translate(72,72)">
+    <rect x="0" y="0" width="276" height="218" rx="24" fill="#0f172a" stroke="#26364f"/>
+    <circle cx="38" cy="38" r="9" fill="#ef4444" opacity="0.85"/>
+    <circle cx="68" cy="38" r="9" fill="#f59e0b" opacity="0.85"/>
+    <circle cx="98" cy="38" r="9" fill="#22c55e" opacity="0.85"/>
+    <text x="32" y="94" font-family="Menlo, Consolas, monospace" font-size="20" fill="#e5e7eb">define_problem()</text>
+    <text x="32" y="130" font-family="Menlo, Consolas, monospace" font-size="20" fill="#93c5fd">dispatch_agent()</text>
+    <text x="32" y="166" font-family="Menlo, Consolas, monospace" font-size="20" fill="#c4b5fd">verify_result()</text>
+  </g>
+
+  <g filter="url(#glow)">
+    <circle cx="420" cy="185" r="58" fill="none" stroke="url(#accent)" stroke-width="4"/>
+    <circle cx="420" cy="185" r="9" fill="#f8fafc"/>
+    <path d="M420 126 L420 82 M420 244 L420 296 M362 185 L305 185 M478 185 L546 185 M379 144 L340 105 M461 144 L502 105 M379 226 L338 267 M461 226 L506 267" stroke="url(#accent)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="420" cy="82" r="10" fill="#6ee7f9"/><circle cx="420" cy="296" r="10" fill="#a78bfa"/><circle cx="305" cy="185" r="10" fill="#6ee7f9"/><circle cx="546" cy="185" r="10" fill="#a78bfa"/>
+  </g>
+
+  <g transform="translate(555,78)">
+    <text x="0" y="0" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="28" font-weight="700" fill="#f8fafc">AI Coding 时代</text>
+    <text x="0" y="48" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="38" font-weight="800" fill="#ffffff">程序员的价值</text>
+    <text x="0" y="96" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="38" font-weight="800" fill="url(#accent)">正在被重写</text>
+    <rect x="0" y="128" width="274" height="1.5" fill="url(#accent)" opacity="0.9"/>
+    <text x="0" y="172" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="21" fill="#cbd5e1">代码变便宜，判断变贵</text>
+    <text x="0" y="207" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="21" fill="#cbd5e1">从写代码，到调度 Agent</text>
+  </g>
+</svg>
