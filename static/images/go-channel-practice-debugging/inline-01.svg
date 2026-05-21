@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7f8fa6"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e17055"/>
+    </marker>
+    <linearGradient id="alert-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c0392b"/>
+      <stop offset="100%" stop-color="#e74c3c"/>
+    </linearGradient>
+    <linearGradient id="cmd-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a5f"/>
+      <stop offset="100%" stop-color="#2d5986"/>
+    </linearGradient>
+    <linearGradient id="analysis-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6c5ce7"/>
+      <stop offset="100%" stop-color="#a29bfe"/>
+    </linearGradient>
+    <linearGradient id="fix-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00b894"/>
+      <stop offset="100%" stop-color="#00cec9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="600" fill="#1a1a2e" rx="8"/>
+
+  <!-- Title -->
+  <text x="400" y="36" text-anchor="middle" fill="#a29bfe" font-family="monospace" font-size="15" font-weight="bold" letter-spacing="2">GOROUTINE LEAK DEBUGGING FLOW</text>
+  <line x1="200" y1="48" x2="600" y2="48" stroke="#2d2d5e" stroke-width="1"/>
+
+  <!-- Step 1: Alert - top left -->
+  <rect x="30" y="70" width="200" height="70" rx="8" fill="url(#alert-grad)" opacity="0.9"/>
+  <text x="130" y="98" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">❶ goroutine 数量异常增长</text>
+  <text x="130" y="118" text-anchor="middle" fill="#ffcccc" font-family="monospace" font-size="10">alert: goroutines > 10000</text>
+  <text x="130" y="132" text-anchor="middle" fill="#ffcccc" font-family="monospace" font-size="10">memory pressure ↑</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="230" y1="105" x2="270" y2="105" stroke="#7f8fa6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2: NumGoroutine -->
+  <rect x="270" y="70" width="210" height="70" rx="8" fill="url(#cmd-grad)" opacity="0.95" stroke="#3a7bd5" stroke-width="0.5"/>
+  <text x="375" y="93" text-anchor="middle" fill="#74b9ff" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">❷ runtime.NumGoroutine()</text>
+  <text x="375" y="112" text-anchor="middle" fill="#dfe6e9" font-family="monospace" font-size="10">baseline: 100 → current: 8500</text>
+  <text x="375" y="128" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="10">采样间隔: 10s 确认趋势</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="480" y1="105" x2="530" y2="105" stroke="#7f8fa6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3: pprof -->
+  <rect x="530" y="70" width="230" height="70" rx="8" fill="url(#cmd-grad)" opacity="0.95" stroke="#3a7bd5" stroke-width="0.5"/>
+  <text x="645" y="93" text-anchor="middle" fill="#74b9ff" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">❸ pprof goroutine profile</text>
+  <text x="645" y="112" text-anchor="middle" fill="#dfe6e9" font-family="monospace" font-size="10">curl :6060/debug/pprof/goroutine</text>
+  <text x="645" y="128" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="10">?debug=1 查看堆栈</text>
+
+  <!-- Arrow down to step 4 -->
+  <line x1="645" y1="140" x2="645" y2="180" stroke="#7f8fa6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 4: go vet -->
+  <rect x="530" y="180" width="230" height="70" rx="8" fill="url(#cmd-grad)" opacity="0.95" stroke="#3a7bd5" stroke-width="0.5"/>
+  <text x="645" y="203" text-anchor="middle" fill="#74b9ff" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">❹ go vet -shadow 静态检查</text>
+  <text x="645" y="222" text-anchor="middle" fill="#dfe6e9" font-family="monospace" font-size="10">go install golang.org/x/tools/</text>
+  <text x="645" y="238" text-anchor="middle" fill="#dfe6e9" font-family="monospace" font-size="10">  cmd/go vet@latest</text>
+
+  <!-- Arrow 4→5 -->
+  <line x1="530" y1="215" x2="400" y2="215" stroke="#7f8fa6" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="400" y1="215" x2="400" y2="280" stroke="#7f8fa6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 5: Three-line analysis -->
+  <rect x="200" y="280" width="400" height="120" rx="10" fill="url(#analysis-grad)" opacity="0.85" stroke="#a29bfe" stroke-width="0.5"/>
+  <text x="400" y="305" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">❺ 三条线分析法</text>
+
+  <!-- Three sub-boxes -->
+  <rect x="220" y="318" width="110" height="44" rx="5" fill="#2d1b69" opacity="0.8"/>
+  <text x="275" y="337" text-anchor="middle" fill="#dfe6e9" font-family="monospace" font-size="10">创建路径</text>
+  <text x="275" y="353" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="9">go func() {</text>
+
+  <rect x="345" y="318" width="110" height="44" rx="5" fill="#2d1b69" opacity="0.8"/>
+  <text x="400" y="337" text-anchor="middle" fill="#dfe6e9" font-family="monospace" font-size="10">取消路径</text>
+  <text x="400" y="353" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="9">ctx.Done()</text>
+
+  <rect x="470" y="318" width="110" height="44" rx="5" fill="#2d1b69" opacity="0.8"/>
+  <text x="525" y="337" text-anchor="middle" fill="#dfe6e9" font-family="monospace" font-size="10">响应路径</text>
+  <text x="525" y="353" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="9">ch &lt;- resp</text>
+
+  <!-- Annotation: check for missing paths -->
+  <text x="400" y="390" text-anchor="middle" fill="#ffeaa7" font-family="system-ui, sans-serif" font-size="10" font-style="italic">检查每条 goroutine 是否同时具备三条路径</text>
+
+  <!-- Arrow 5→6 -->
+  <line x1="400" y1="400" x2="400" y2="430" stroke="#7f8fa6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 6: Root cause -->
+  <rect x="240" y="430" width="320" height="65" rx="8" fill="#4a1942" opacity="0.9" stroke="#e17055" stroke-width="1"/>
+  <text x="400" y="455" text-anchor="middle" fill="#fab1a0" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">❻ 定位根因</text>
+  <text x="400" y="475" text-anchor="middle" fill="#ffcccc" font-family="monospace" font-size="10">ch 写入端无消费者 → goroutine 阻塞泄漏</text>
+  <text x="400" y="489" text-anchor="middle" fill="#ffcccc" font-family="monospace" font-size="10">or: ctx cancel 未传播到子 goroutine</text>
+
+  <!-- Arrow 6→7 -->
+  <line x1="400" y1="495" x2="400" y2="520" stroke="#7f8fa6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 7: Fix + verify -->
+  <rect x="240" y="520" width="320" height="60" rx="8" fill="url(#fix-grad)" opacity="0.9"/>
+  <text x="400" y="544" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">❼ 修复 + goleak 验证</text>
+  <text x="400" y="564" text-anchor="middle" fill="#dfe6e9" font-family="monospace" font-size="10">defer cancel() / select default / buffered ch</text>
+  <text x="400" y="578" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="10">go test -run TestX -race (goleak.VerifyNone)</text>
+
+  <!-- Side annotations with callouts -->
+  <line x1="130" y1="140" x2="130" y2="185" stroke="#e74c3c" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="30" y="185" width="200" height="42" rx="5" fill="#2d1b2b" stroke="#e74c3c" stroke-width="0.5"/>
+  <text x="130" y="202" text-anchor="middle" fill="#fab1a0" font-family="system-ui, sans-serif" font-size="10">💡 常见触发场景:</text>
+  <text x="130" y="220" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="9">无限重试 / HTTP keepalive</text>
+
+  <line x1="275" y1="362" x2="160" y2="395" stroke="#e17055" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="40" y="395" width="160" height="50" rx="5" fill="#2d1b2b" stroke="#e17055" stroke-width="0.5"/>
+  <text x="120" y="412" text-anchor="middle" fill="#fab1a0" font-family="system-ui, sans-serif" font-size="10">⚠ 典型泄漏模式:</text>
+  <text x="120" y="427" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="9">ch := make(chan T)</text>
+  <text x="120" y="441" text-anchor="middle" fill="#b2bec3" font-family="monospace" font-size="9">go func() { ch &lt;- v }()</text>
+
+  <!-- Connecting curved arrow from step 3 back to step 1 (feedback loop annotation) -->
+  <path d="M 760 105 C 790 105, 790 240, 760 240" stroke="none" fill="none"/>
+</svg>

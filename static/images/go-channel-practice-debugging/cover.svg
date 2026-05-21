@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0c29"/>
+      <stop offset="50%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00d2ff"/>
+      <stop offset="100%" stop-color="#7b2ff7"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  <!-- Grid dots -->
+  <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+    <circle cx="15" cy="15" r="0.5" fill="rgba(255,255,255,0.08)"/>
+  </pattern>
+  <rect width="800" height="500" fill="url(#grid)"/>
+
+  <!-- Title area -->
+  <text x="400" y="52" text-anchor="middle" font-family="monospace, Menlo, Consolas" font-size="22" font-weight="bold" fill="url(#titleGrad)" filter="url(#glow)">Go Channel · 6 大陷阱</text>
+  <text x="400" y="75" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.45)">Common Channel Pitfalls &amp; Debugging Guide</text>
+  <line x1="200" y1="88" x2="600" y2="88" stroke="url(#titleGrad)" stroke-opacity="0.3" stroke-width="1"/>
+
+  <!-- Row 1, Card 1: Nil Channel -->
+  <g transform="translate(45, 108)" filter="url(#cardShadow)">
+    <rect width="220" height="105" rx="12" fill="url(#cardGrad)" stroke="rgba(0,210,255,0.25)" stroke-width="1"/>
+    <circle cx="42" cy="38" r="20" fill="rgba(0,210,255,0.12)" stroke="rgba(0,210,255,0.4)" stroke-width="1"/>
+    <text x="42" y="35" text-anchor="middle" font-family="monospace" font-size="16" fill="#00d2ff">⊘</text>
+    <text x="42" y="52" text-anchor="middle" font-family="monospace" font-size="8" fill="#00d2ff">nil</text>
+    <text x="72" y="35" font-family="monospace, Menlo" font-size="14" font-weight="bold" fill="#e0e0e0">① Nil Channel</text>
+    <text x="72" y="55" font-family="system-ui, sans-serif" font-size="13" fill="#ff6b6b">永久阻塞</text>
+    <text x="18" y="80" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">var ch chan int</text>
+    <text x="18" y="93" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">ch &lt;- 1 // forever block</text>
+  </g>
+
+  <!-- Row 1, Card 2: Closed Channel Panic -->
+  <g transform="translate(290, 108)" filter="url(#cardShadow)">
+    <rect width="220" height="105" rx="12" fill="url(#cardGrad)" stroke="rgba(255,107,107,0.25)" stroke-width="1"/>
+    <circle cx="42" cy="38" r="20" fill="rgba(255,107,107,0.12)" stroke="rgba(255,107,107,0.4)" stroke-width="1"/>
+    <text x="42" y="35" text-anchor="middle" font-family="monospace" font-size="15" fill="#ff6b6b">⚡</text>
+    <text x="42" y="52" text-anchor="middle" font-family="monospace" font-size="8" fill="#ff6b6b">PANIC</text>
+    <text x="72" y="35" font-family="monospace, Menlo" font-size="14" font-weight="bold" fill="#e0e0e0">② Closed Panic</text>
+    <text x="72" y="55" font-family="system-ui, sans-serif" font-size="13" fill="#ff6b6b">双重关闭</text>
+    <text x="18" y="80" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">close(ch) // first</text>
+    <text x="18" y="93" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">close(ch) // panic!</text>
+  </g>
+
+  <!-- Row 1, Card 3: Buffer Band-aid -->
+  <g transform="translate(535, 108)" filter="url(#cardShadow)">
+    <rect width="220" height="105" rx="12" fill="url(#cardGrad)" stroke="rgba(255,193,7,0.25)" stroke-width="1"/>
+    <circle cx="42" cy="38" r="20" fill="rgba(255,193,7,0.12)" stroke="rgba(255,193,7,0.4)" stroke-width="1"/>
+    <text x="42" y="35" text-anchor="middle" font-family="monospace" font-size="14" fill="#ffc107">🩹</text>
+    <text x="42" y="52" text-anchor="middle" font-family="monospace" font-size="7" fill="#ffc107">N:100</text>
+    <text x="72" y="35" font-family="monospace, Menlo" font-size="14" font-weight="bold" fill="#e0e0e0">③ Buffer 创可贴</text>
+    <text x="72" y="55" font-family="system-ui, sans-serif" font-size="13" fill="#ffc107">延迟崩溃</text>
+    <text x="18" y="80" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">make(chan T, 100)</text>
+    <text x="18" y="93" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">// hides the real bug</text>
+  </g>
+
+  <!-- Row 2, Card 4: Goroutine Leak -->
+  <g transform="translate(45, 235)" filter="url(#cardShadow)">
+    <rect width="220" height="105" rx="12" fill="url(#cardGrad)" stroke="rgba(123,47,247,0.25)" stroke-width="1"/>
+    <circle cx="42" cy="38" r="20" fill="rgba(123,47,247,0.12)" stroke="rgba(123,47,247,0.4)" stroke-width="1"/>
+    <text x="42" y="35" text-anchor="middle" font-family="monospace" font-size="13" fill="#7b2ff7">💀</text>
+    <text x="42" y="52" text-anchor="middle" font-family="monospace" font-size="7" fill="#7b2ff7">leak</text>
+    <text x="72" y="35" font-family="monospace, Menlo" font-size="14" font-weight="bold" fill="#e0e0e0">④ Goroutine 泄漏</text>
+    <text x="72" y="55" font-family="system-ui, sans-serif" font-size="13" fill="#b388ff">sender 无 receiver</text>
+    <text x="18" y="80" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">go func() {</text>
+    <text x="18" y="93" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">  ch &lt;- data // nobody reads</text>
+  </g>
+
+  <!-- Row 2, Card 5: Dead Select Case -->
+  <g transform="translate(290, 235)" filter="url(#cardShadow)">
+    <rect width="220" height="105" rx="12" fill="url(#cardGrad)" stroke="rgba(0,255,136,0.25)" stroke-width="1"/>
+    <circle cx="42" cy="38" r="20" fill="rgba(0,255,136,0.12)" stroke="rgba(0,255,136,0.4)" stroke-width="1"/>
+    <text x="42" y="35" text-anchor="middle" font-family="monospace" font-size="12" fill="#00ff88">⏻</text>
+    <text x="42" y="52" text-anchor="middle" font-family="monospace" font-size="7" fill="#00ff88">dead</text>
+    <text x="72" y="35" font-family="monospace, Menlo" font-size="14" font-weight="bold" fill="#e0e0e0">⑤ Dead Select</text>
+    <text x="72" y="55" font-family="system-ui, sans-serif" font-size="13" fill="#69f0ae">永不就绪</text>
+    <text x="18" y="80" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">select {</text>
+    <text x="18" y="93" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">  case &lt;-neverReady:</text>
+  </g>
+
+  <!-- Row 2, Card 6: Range Not Exiting -->
+  <g transform="translate(535, 235)" filter="url(#cardShadow)">
+    <rect width="220" height="105" rx="12" fill="url(#cardGrad)" stroke="rgba(255,152,0,0.25)" stroke-width="1"/>
+    <circle cx="42" cy="38" r="20" fill="rgba(255,152,0,0.12)" stroke="rgba(255,152,0,0.4)" stroke-width="1"/>
+    <text x="42" y="35" text-anchor="middle" font-family="monospace" font-size="14" fill="#ff9800">∞</text>
+    <text x="42" y="52" text-anchor="middle" font-family="monospace" font-size="7" fill="#ff9800">loop</text>
+    <text x="72" y="35" font-family="monospace, Menlo" font-size="14" font-weight="bold" fill="#e0e0e0">⑥ Range 不退出</text>
+    <text x="72" y="55" font-family="system-ui, sans-serif" font-size="13" fill="#ffab40">忘记 close</text>
+    <text x="18" y="80" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">for v := range ch {</text>
+    <text x="18" y="93" font-family="monospace, Menlo" font-size="9.5" fill="rgba(255,255,255,0.4)">  // close(ch) ???? 没写!</text>
+  </g>
+
+  <!-- Debugging Flow Section -->
+  <text x="400" y="375" text-anchor="middle" font-family="monospace, Menlo" font-size="14" font-weight="bold" fill="url(#titleGrad)" filter="url(#glow)">Debugging Flow</text>
+  <line x1="250" y1="385" x2="550" y2="385" stroke="url(#titleGrad)" stroke-opacity="0.2" stroke-width="1"/>
+
+  <!-- Flow steps -->
+  <g font-family="system-ui, sans-serif" font-size="11" text-anchor="middle">
+    <!-- Step 1 -->
+    <rect x="38" y="398" width="105" height="40" rx="8" fill="rgba(255,107,107,0.12)" stroke="rgba(255,107,107,0.35)" stroke-width="1"/>
+    <text x="90" y="415" fill="#ff6b6b" font-weight="bold" font-size="10">Goroutine Spike</text>
+    <text x="90" y="430" fill="rgba(255,255,255,0.45)" font-size="9">监控报警</text>
+
+    <!-- Arrow -->
+    <line x1="143" y1="418" x2="163" y2="418" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="none"/>
+    <polygon points="163,414 173,418 163,422" fill="rgba(255,255,255,0.3)"/>
+
+    <!-- Step 2 -->
+    <rect x="175" y="398" width="90" height="40" rx="8" fill="rgba(0,210,255,0.12)" stroke="rgba(0,210,255,0.35)" stroke-width="1"/>
+    <text x="220" y="415" fill="#00d2ff" font-weight="bold" font-size="10">pprof</text>
+    <text x="220" y="430" fill="rgba(255,255,255,0.45)" font-size="9">定位热点</text>
+
+    <!-- Arrow -->
+    <line x1="265" y1="418" x2="285" y2="418" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <polygon points="285,414 295,418 285,422" fill="rgba(255,255,255,0.3)"/>
+
+    <!-- Step 3 -->
+    <rect x="297" y="398" width="90" height="40" rx="8" fill="rgba(123,47,247,0.12)" stroke="rgba(123,47,247,0.35)" stroke-width="1"/>
+    <text x="342" y="415" fill="#b388ff" font-weight="bold" font-size="10">go vet</text>
+    <text x="342" y="430" fill="rgba(255,255,255,0.45)" font-size="9">静态检查</text>
+
+    <!-- Arrow -->
+    <line x1="387" y1="418" x2="407" y2="418" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <polygon points="407,414 417,418 407,422" fill="rgba(255,255,255,0.3)"/>
+
+    <!-- Step 4 -->
+    <rect x="419" y="398" width="90" height="40" rx="8" fill="rgba(255,193,7,0.12)" stroke="rgba(255,193,7,0.35)" stroke-width="1"/>
+    <text x="464" y="415" fill="#ffc107" font-weight="bold" font-size="10">三线分析</text>
+    <text x="464" y="430" fill="rgba(255,255,255,0.45)" font-size="9">根因定位</text>
+
+    <!-- Arrow -->
+    <line x1="509" y1="418" x2="529" y2="418" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <polygon points="529,414 539,418 529,422" fill="rgba(255,255,255,0.3)"/>
+
+    <!-- Step 5 -->
+    <rect x="541" y="398" width="90" height="40" rx="8" fill="rgba(0,255,136,0.12)" stroke="rgba(0,255,136,0.35)" stroke-width="1"/>
+    <text x="586" y="415" fill="#69f0ae" font-weight="bold" font-size="10">Fix</text>
+    <text x="586" y="430" fill="rgba(255,255,255,0.45)" font-size="9">修复验证</text>
+
+    <!-- Arrow -->
+    <line x1="631" y1="418" x2="651" y2="418" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <polygon points="651,414 661,418 651,422" fill="rgba(255,255,255,0.3)"/>
+
+    <!-- Step 6 -->
+    <rect x="663" y="398" width="105" height="40" rx="8" fill="rgba(0,210,255,0.12)" stroke="rgba(0,210,255,0.35)" stroke-width="1"/>
+    <text x="715" y="415" fill="#00d2ff" font-weight="bold" font-size="10">Verify</text>
+    <text x="715" y="430" fill="rgba(255,255,255,0.45)" font-size="9">监控回归</text>
+  </g>
+
+  <!-- Bottom decorative line -->
+  <line x1="50" y1="470" x2="750" y2="470" stroke="url(#titleGrad)" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="400" y="490" text-anchor="middle" font-family="monospace, Menlo" font-size="10" fill="rgba(255,255,255,0.2)">blog.cpdd.fyi · Go Channel Series · Article 3</text>
+</svg>

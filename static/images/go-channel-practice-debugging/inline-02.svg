@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" font-family="'PingFang SC','Noto Sans SC','Microsoft YaHei','Segoe UI',system-ui,sans-serif">
+  <defs>
+    <linearGradient id="hdrGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#16213e"/>
+      <stop offset="100%" stop-color="#1a1a40"/>
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#7b2ff7"/>
+    </linearGradient>
+    <filter id="glow" x="-5%" y="-5%" width="110%" height="110%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feFlood flood-color="#00d4ff" flood-opacity="0.3" result="color"/>
+      <feComposite in="color" in2="blur" operator="in" result="shadow"/>
+      <feMerge><feMergeNode in="shadow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="12" fill="#1a1a2e"/>
+
+  <!-- Title -->
+  <text x="400" y="34" text-anchor="middle" font-size="18" font-weight="700" fill="url(#titleGrad)" filter="url(#glow)">⚡ Go Channel 调试速查表</text>
+
+  <!-- Table outline -->
+  <rect x="16" y="48" width="768" height="436" rx="8" fill="none" stroke="#2a2a4a" stroke-width="1"/>
+
+  <!-- Header background -->
+  <rect x="16" y="48" width="768" height="38" rx="8" fill="url(#hdrGrad)"/>
+  <rect x="16" y="70" width="768" height="16" fill="url(#hdrGrad)"/>
+
+  <!-- Column dividers in header -->
+  <line x1="176" y1="48" x2="176" y2="484" stroke="#2a2a4a" stroke-width="1"/>
+  <line x1="370" y1="48" x2="370" y2="484" stroke="#2a2a4a" stroke-width="1"/>
+  <line x1="556" y1="48" x2="556" y2="484" stroke="#2a2a4a" stroke-width="1"/>
+
+  <!-- Row dividers -->
+  <line x1="16" y1="86" x2="784" y2="86" stroke="#2a2a4a" stroke-width="1"/>
+  <line x1="16" y1="156" x2="784" y2="156" stroke="#2a2a4a" stroke-width="1"/>
+  <line x1="16" y1="226" x2="784" y2="226" stroke="#2a2a4a" stroke-width="1"/>
+  <line x1="16" y1="296" x2="784" y2="296" stroke="#2a2a4a" stroke-width="1"/>
+  <line x1="16" y1="366" x2="784" y2="366" stroke="#2a2a4a" stroke-width="1"/>
+  <line x1="16" y1="416" x2="784" y2="416" stroke="#2a2a4a" stroke-width="1"/>
+
+  <!-- Alternating row backgrounds -->
+  <rect x="17" y="87" width="766" height="69" fill="#0f3460" opacity="0.15"/>
+  <rect x="17" y="227" width="766" height="69" fill="#0f3460" opacity="0.15"/>
+  <rect x="17" y="367" width="766" height="49" fill="#0f3460" opacity="0.15"/>
+
+  <!-- Header text -->
+  <text x="96" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#00d4ff">陷阱</text>
+  <text x="273" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#00d4ff">症状</text>
+  <text x="463" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#00d4ff">根因</text>
+  <text x="670" y="72" text-anchor="middle" font-size="13" font-weight="700" fill="#00d4ff">修复关键词</text>
+
+  <!-- Row 1: nil channel -->
+  <text x="96" y="116" text-anchor="middle" font-size="13" font-weight="600" fill="#ff6b6b">nil channel</text>
+  <text x="96" y="134" text-anchor="middle" font-size="11" fill="#aaa">(var 未初始化)</text>
+  <text x="273" y="126" text-anchor="middle" font-size="12" fill="#e0e0e0">永久阻塞</text>
+  <text x="463" y="121" text-anchor="middle" font-size="11" fill="#e0e0e0">var 声明后未 make()</text>
+  <text x="670" y="116" text-anchor="middle" font-size="11" fill="#ffd93d">利用 nil 禁用</text>
+  <text x="670" y="132" text-anchor="middle" font-size="11" fill="#ffd93d">select case</text>
+
+  <!-- Row 2: closed channel -->
+  <text x="96" y="186" text-anchor="middle" font-size="13" font-weight="600" fill="#ff6b6b">closed channel</text>
+  <text x="273" y="191" text-anchor="middle" font-size="12" fill="#e0e0e0">panic</text>
+  <text x="463" y="186" text-anchor="middle" font-size="11" fill="#e0e0e0">双重关闭 /</text>
+  <text x="463" y="202" text-anchor="middle" font-size="11" fill="#e0e0e0">发送到已关闭 chan</text>
+  <text x="670" y="186" text-anchor="middle" font-size="11" fill="#ffd93d">sender 负责 close;</text>
+  <text x="670" y="202" text-anchor="middle" font-size="11" fill="#ffd93d">多 sender 用 WaitGroup</text>
+
+  <!-- Row 3: buffer当创可贴 -->
+  <text x="96" y="261" text-anchor="middle" font-size="13" font-weight="600" fill="#ff6b6b">buffer 当创可贴</text>
+  <text x="96" y="279" text-anchor="middle" font-size="11" fill="#aaa">(掩盖阻塞)</text>
+  <text x="273" y="271" text-anchor="middle" font-size="12" fill="#e0e0e0">延迟崩溃</text>
+  <text x="463" y="266" text-anchor="middle" font-size="11" fill="#e0e0e0">生命周期未管理</text>
+  <text x="463" y="282" text-anchor="middle" font-size="11" fill="#e0e0e0">(问题只是推迟了)</text>
+  <text x="670" y="266" text-anchor="middle" font-size="11" fill="#ffd93d">context 取消 +</text>
+  <text x="670" y="282" text-anchor="middle" font-size="11" fill="#ffd93d">正确关闭</text>
+
+  <!-- Row 4: goroutine泄漏 -->
+  <text x="96" y="331" text-anchor="middle" font-size="13" font-weight="600" fill="#ff6b6b">goroutine 泄漏</text>
+  <text x="273" y="336" text-anchor="middle" font-size="12" fill="#e0e0e0">内存增长</text>
+  <text x="463" y="326" text-anchor="middle" font-size="11" fill="#e0e0e0">sender 无 receiver</text>
+  <text x="463" y="342" text-anchor="middle" font-size="11" fill="#e0e0e0">或反之</text>
+  <text x="670" y="326" text-anchor="middle" font-size="11" fill="#ffd93d">context + defer close +</text>
+  <text x="670" y="342" text-anchor="middle" font-size="11" fill="#ffd93d">pprof / goleak</text>
+
+  <!-- Row 5: dead select case -->
+  <text x="96" y="391" text-anchor="middle" font-size="13" font-weight="600" fill="#ff6b6b">dead select case</text>
+  <text x="96" y="409" text-anchor="middle" font-size="11" fill="#aaa">(分支永不执行)</text>
+  <text x="273" y="401" text-anchor="middle" font-size="12" fill="#e0e0e0">功能缺失</text>
+  <text x="463" y="396" text-anchor="middle" font-size="11" fill="#e0e0e0">逻辑错误 /</text>
+  <text x="463" y="412" text-anchor="middle" font-size="11" fill="#e0e0e0">channel 为 nil</text>
+  <text x="670" y="396" text-anchor="middle" font-size="11" fill="#ffd93d">审查变量赋值 +</text>
+  <text x="670" y="412" text-anchor="middle" font-size="11" fill="#ffd93d">加超时分支</text>
+
+  <!-- Row 6: range不退出 -->
+  <text x="96" y="457" text-anchor="middle" font-size="13" font-weight="600" fill="#ff6b6b">range 不退出</text>
+  <text x="273" y="462" text-anchor="middle" font-size="12" fill="#e0e0e0">永久阻塞</text>
+  <text x="463" y="457" text-anchor="middle" font-size="11" fill="#e0e0e0">忘记 close channel</text>
+  <text x="670" y="457" text-anchor="middle" font-size="11" fill="#ffd93d">defer close +</text>
+  <text x="670" y="473" text-anchor="middle" font-size="11" fill="#ffd93d">WaitGroup fan-in</text>
+
+  <!-- Footer accent line -->
+  <line x1="300" y1="492" x2="500" y2="492" stroke="url(#titleGrad)" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+</svg>
