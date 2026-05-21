@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#111827"/></linearGradient><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>
+<rect width="1200" height="860" fill="url(#bg)"/>
+<text x="70" y="78" fill="#f8fafc" font-size="34" font-family="Arial, PingFang SC, sans-serif" font-weight="800">Go GC 调优，不要从参数开始</text>
+<text x="70" y="118" fill="#94a3b8" font-size="21" font-family="Arial, PingFang SC, sans-serif">先确认问题，再决定是调 GOGC、设 GOMEMLIMIT，还是改代码</text>
+<g font-family="Arial, PingFang SC, sans-serif" font-weight="700">
+ <rect x="410" y="165" width="380" height="74" rx="18" fill="#1e293b" stroke="#38bdf8"/><text x="600" y="211" fill="#e5e7eb" font-size="24" text-anchor="middle">p99 是否和 GC 周期重合？</text>
+ <line x1="600" y1="239" x2="600" y2="285" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+ <rect x="410" y="285" width="380" height="74" rx="18" fill="#1e293b" stroke="#a78bfa"/><text x="600" y="331" fill="#e5e7eb" font-size="24" text-anchor="middle">GC 后 live heap 是否还涨？</text>
+ <line x1="410" y1="322" x2="235" y2="322" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+ <rect x="70" y="282" width="250" height="80" rx="18" fill="#3f1d1d" stroke="#ef4444"/><text x="195" y="315" fill="#fecaca" font-size="21" text-anchor="middle">先查持有关系</text><text x="195" y="344" fill="#fecaca" font-size="17" text-anchor="middle">缓存 / goroutine / 全局 map</text>
+ <line x1="600" y1="359" x2="600" y2="405" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+ <rect x="410" y="405" width="380" height="74" rx="18" fill="#1e293b" stroke="#f59e0b"/><text x="600" y="451" fill="#e5e7eb" font-size="24" text-anchor="middle">alloc_space 是否很高？</text>
+ <line x1="790" y1="442" x2="965" y2="442" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+ <rect x="880" y="402" width="250" height="80" rx="18" fill="#3f2a12" stroke="#f59e0b"/><text x="1005" y="435" fill="#fed7aa" font-size="21" text-anchor="middle">先减少分配</text><text x="1005" y="464" fill="#fed7aa" font-size="17" text-anchor="middle">buffer / slice / fmt / json</text>
+ <line x1="600" y1="479" x2="600" y2="525" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+ <rect x="410" y="525" width="380" height="74" rx="18" fill="#1e293b" stroke="#22c55e"/><text x="600" y="571" fill="#e5e7eb" font-size="24" text-anchor="middle">CPU 紧，内存宽？</text>
+ <line x1="510" y1="599" x2="340" y2="675" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+ <line x1="690" y1="599" x2="860" y2="675" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+ <rect x="95" y="675" width="390" height="86" rx="20" fill="#082f49" stroke="#38bdf8"/><text x="290" y="712" fill="#bae6fd" font-size="23" text-anchor="middle">可以小步提高 GOGC</text><text x="290" y="742" fill="#e0f2fe" font-size="18" text-anchor="middle">100 → 150 → 200，边看 RSS</text>
+ <rect x="715" y="675" width="390" height="86" rx="20" fill="#052e16" stroke="#22c55e"/><text x="910" y="712" fill="#bbf7d0" font-size="23" text-anchor="middle">先设置 GOMEMLIMIT</text><text x="910" y="742" fill="#dcfce7" font-size="18" text-anchor="middle">给容器和 Go 外内存留余量</text>
+</g>
+<rect x="260" y="790" width="680" height="46" rx="16" fill="#020617" stroke="#334155"/>
+<text x="600" y="821" fill="#e5e7eb" font-size="20" text-anchor="middle" font-family="Arial, PingFang SC, sans-serif" font-weight="700">没有回滚线的调优，最后都会变成玄学</text>
+</svg>
