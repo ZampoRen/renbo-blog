@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08111f"/><stop offset="1" stop-color="#172554"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="383" rx="0" fill="url(#bg)"/>
+  <g opacity="0.18" stroke="#60a5fa" stroke-width="1">
+    <path d="M70 300 C180 190 250 260 360 130 S570 210 690 92 S820 115 870 70" fill="none"/>
+    <path d="M60 230 C190 150 310 180 420 95 S610 120 760 42" fill="none"/>
+  </g>
+  <g transform="translate(58 58)">
+    <rect x="0" y="0" width="320" height="224" rx="24" fill="#0f172a" stroke="#334155"/>
+    <text x="28" y="44" fill="#93c5fd" font-family="PingFang SC, Arial" font-size="22" font-weight="700">goroutine profile</text>
+    <text x="28" y="82" fill="#e2e8f0" font-family="Menlo, monospace" font-size="20">total 2400</text>
+    <text x="28" y="120" fill="#f97316" font-family="Menlo, monospace" font-size="18">1780 @ main.worker</text>
+    <text x="28" y="154" fill="#cbd5e1" font-family="Menlo, monospace" font-size="18">[chan receive]</text>
+    <text x="28" y="188" fill="#94a3b8" font-family="Menlo, monospace" font-size="16">created by handler</text>
+  </g>
+  <g transform="translate(430 68)">
+    <text x="0" y="0" fill="#f8fafc" font-family="PingFang SC, Arial" font-size="46" font-weight="800">goroutine 涨了</text>
+    <text x="0" y="60" fill="#f8fafc" font-family="PingFang SC, Arial" font-size="46" font-weight="800">别先猜</text>
+    <rect x="0" y="88" width="340" height="58" rx="18" fill="#2563eb" opacity="0.95"/>
+    <text x="24" y="126" fill="#ffffff" font-family="PingFang SC, Arial" font-size="26" font-weight="700">按流程查 context 泄漏</text>
+    <g transform="translate(0 178)" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M0 0 H96" stroke="#38bdf8"/><path d="M96 0 l-12 -8 M96 0 l-12 8" stroke="#38bdf8"/>
+      <path d="M120 0 H216" stroke="#22c55e"/><path d="M216 0 l-12 -8 M216 0 l-12 8" stroke="#22c55e"/>
+      <path d="M240 0 H336" stroke="#f97316"/><path d="M336 0 l-12 -8 M336 0 l-12 8" stroke="#f97316"/>
+    </g>
+    <text x="0" y="226" fill="#cbd5e1" font-family="PingFang SC, Arial" font-size="21">采样 → 定位 → 三条线 → 修复验证</text>
+  </g>
+</svg>

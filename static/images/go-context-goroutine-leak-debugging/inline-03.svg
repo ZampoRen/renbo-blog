@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#0b1220"/>
+<text x="80" y="100" fill="#f8fafc" font-family="PingFang SC, Arial" font-size="42" font-weight="800">三条线排查法</text>
+<text x="80" y="145" fill="#94a3b8" font-family="PingFang SC, Arial" font-size="22">创建路径、取消路径、响应路径，缺一条都容易误判</text>
+<g font-family="PingFang SC, Arial">
+  <rect x="90" y="230" width="300" height="330" rx="28" fill="#111827" stroke="#38bdf8"/>
+  <text x="130" y="295" fill="#e0f2fe" font-size="32" font-weight="800">创建路径</text>
+  <text x="130" y="355" fill="#cbd5e1" font-size="22">谁调用 WithCancel</text>
+  <text x="130" y="400" fill="#cbd5e1" font-size="22">parent 是谁</text>
+  <text x="130" y="445" fill="#cbd5e1" font-size="22">生命周期归谁管</text>
+  <text x="130" y="505" fill="#60a5fa" font-size="20">先找入口</text>
+  <rect x="450" y="230" width="300" height="330" rx="28" fill="#111827" stroke="#22c55e"/>
+  <text x="490" y="295" fill="#dcfce7" font-size="32" font-weight="800">取消路径</text>
+  <text x="490" y="355" fill="#cbd5e1" font-size="22">成功路径</text>
+  <text x="490" y="400" fill="#cbd5e1" font-size="22">错误路径</text>
+  <text x="490" y="445" fill="#cbd5e1" font-size="22">提前 return</text>
+  <text x="490" y="505" fill="#86efac" font-size="20">再查 cancel</text>
+  <rect x="810" y="230" width="300" height="330" rx="28" fill="#111827" stroke="#f97316"/>
+  <text x="850" y="295" fill="#ffedd5" font-size="32" font-weight="800">响应路径</text>
+  <text x="850" y="355" fill="#cbd5e1" font-size="22">阻塞点是否 select</text>
+  <text x="850" y="400" fill="#cbd5e1" font-size="22">是否监听 Done</text>
+  <text x="850" y="445" fill="#cbd5e1" font-size="22">收到后是否 return</text>
+  <text x="850" y="505" fill="#fdba74" font-size="20">最后看退出</text>
+</g>
+<text x="300" y="650" fill="#f8fafc" font-family="PingFang SC, Arial" font-size="30" font-weight="800">cancel 发出信号，退出要靠 goroutine 自己配合</text>
+</svg>

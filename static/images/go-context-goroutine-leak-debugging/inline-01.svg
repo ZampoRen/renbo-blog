@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#0b1220"/>
+<text x="80" y="100" fill="#f8fafc" font-family="PingFang SC, Arial" font-size="42" font-weight="800">最小排查流程</text>
+<text x="80" y="145" fill="#94a3b8" font-family="PingFang SC, Arial" font-size="22">不要从猜测开始，从可验证证据开始</text>
+<g font-family="PingFang SC, Arial" font-size="24" font-weight="700">
+  <rect x="80" y="230" width="190" height="110" rx="22" fill="#1e293b" stroke="#38bdf8"/>
+  <text x="116" y="274" fill="#e0f2fe">1 采样</text><text x="116" y="312" fill="#93c5fd" font-size="18">NumGoroutine</text>
+  <rect x="330" y="230" width="190" height="110" rx="22" fill="#1e293b" stroke="#38bdf8"/>
+  <text x="366" y="274" fill="#e0f2fe">2 定位</text><text x="366" y="312" fill="#93c5fd" font-size="18">pprof stack</text>
+  <rect x="580" y="230" width="190" height="110" rx="22" fill="#1e293b" stroke="#22c55e"/>
+  <text x="616" y="274" fill="#dcfce7">3 静态查</text><text x="616" y="312" fill="#86efac" font-size="18">go vet</text>
+  <rect x="830" y="230" width="250" height="110" rx="22" fill="#1e293b" stroke="#f97316"/>
+  <text x="866" y="274" fill="#ffedd5">4 三条线</text><text x="866" y="312" fill="#fdba74" font-size="18">创建 / 取消 / 响应</text>
+</g>
+<g stroke="#64748b" stroke-width="4" fill="none" stroke-linecap="round"><path d="M285 285 H315"/><path d="M535 285 H565"/><path d="M785 285 H815"/></g>
+<rect x="250" y="470" width="700" height="110" rx="24" fill="#111827" stroke="#334155"/>
+<text x="305" y="515" fill="#f8fafc" font-family="PingFang SC, Arial" font-size="28" font-weight="800">修复后再抓一次 profile</text>
+<text x="305" y="555" fill="#cbd5e1" font-family="PingFang SC, Arial" font-size="22">同一业务栈数量下降，goroutine 趋势回落，才算真的修好</text>
+<path d="M955 350 C955 410 840 445 720 468" stroke="#f97316" stroke-width="4" fill="none" stroke-dasharray="8 10"/>
+</svg>
