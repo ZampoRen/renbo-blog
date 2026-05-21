@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset="1" stop-color="#10233f"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#56d6ff"/><stop offset="1" stop-color="#7cf2b4"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="900" height="383" fill="url(#bg)"/>
+<circle cx="160" cy="190" r="68" fill="#0d2a45" stroke="#326f9f" stroke-width="2"/>
+<circle cx="160" cy="190" r="8" fill="#7cf2b4" filter="url(#glow)"/>
+<circle cx="95" cy="118" r="18" fill="#132c4b" stroke="#56d6ff"/>
+<circle cx="255" cy="92" r="18" fill="#132c4b" stroke="#56d6ff"/>
+<circle cx="285" cy="235" r="18" fill="#132c4b" stroke="#56d6ff"/>
+<circle cx="85" cy="270" r="18" fill="#132c4b" stroke="#56d6ff"/>
+<path d="M108 127 L146 174 M240 103 L177 176 M268 228 L178 196 M103 261 L147 204" stroke="#56d6ff" stroke-width="2" opacity="0.7"/>
+<path d="M340 190 C410 120, 510 120, 580 190 S750 260, 820 190" fill="none" stroke="url(#accent)" stroke-width="4" opacity="0.9"/>
+<rect x="365" y="147" width="140" height="86" rx="18" fill="#0b1b30" stroke="#2b6f94"/>
+<rect x="610" y="147" width="140" height="86" rx="18" fill="#0b1b30" stroke="#2b6f94"/>
+<text x="435" y="181" text-anchor="middle" fill="#dff7ff" font-size="26" font-family="PingFang SC, Arial, sans-serif" font-weight="700">goroutine</text>
+<text x="680" y="181" text-anchor="middle" fill="#dff7ff" font-size="26" font-family="PingFang SC, Arial, sans-serif" font-weight="700">goroutine</text>
+<text x="555" y="135" text-anchor="middle" fill="#7cf2b4" font-size="20" font-family="PingFang SC, Arial, sans-serif">channel</text>
+<text x="345" y="70" fill="#ffffff" font-size="38" font-family="PingFang SC, Arial, sans-serif" font-weight="800">channel 不是高级锁</text>
+<text x="345" y="115" fill="#b9d8e8" font-size="25" font-family="PingFang SC, Arial, sans-serif">它是一种组织并发的语言</text>
+<text x="345" y="305" fill="#7cf2b4" font-size="22" font-family="PingFang SC, Arial, sans-serif">传东西，用 channel；护东西，用 mutex</text>
+</svg>
