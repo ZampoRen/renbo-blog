@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101827"/><stop offset="1" stop-color="#11112a"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.18" stroke="#6ee7b7" stroke-width="1"><path d="M90 120 C260 40 380 240 540 170 S850 70 1070 180" fill="none"/><path d="M120 470 C310 380 410 560 610 455 S860 330 1090 430" fill="none"/></g>
+  <g transform="translate(90 105)">
+    <circle cx="230" cy="210" r="145" fill="#182033" stroke="#334155" stroke-width="2"/>
+    <circle cx="230" cy="210" r="92" fill="#111827" stroke="#60a5fa" stroke-width="3" filter="url(#glow)"/>
+    <text x="230" y="196" text-anchor="middle" fill="#dbeafe" font-size="34" font-family="Arial, PingFang SC, sans-serif" font-weight="700">OOM</text>
+    <text x="230" y="238" text-anchor="middle" fill="#93c5fd" font-size="22" font-family="Arial, PingFang SC, sans-serif">不是根因</text>
+    <g fill="#0f172a" stroke="#475569" stroke-width="2" font-family="Arial, PingFang SC, sans-serif" font-size="20" text-anchor="middle">
+      <rect x="25" y="70" width="140" height="54" rx="18"/><text x="95" y="105" fill="#cbd5e1">heap</text>
+      <rect x="295" y="70" width="140" height="54" rx="18"/><text x="365" y="105" fill="#cbd5e1">RSS</text>
+      <rect x="25" y="298" width="140" height="54" rx="18"/><text x="95" y="333" fill="#cbd5e1">pprof</text>
+      <rect x="295" y="298" width="140" height="54" rx="18"/><text x="365" y="333" fill="#cbd5e1">limit</text>
+    </g>
+  </g>
+  <g transform="translate(610 150)" font-family="Arial, PingFang SC, sans-serif">
+    <text x="0" y="0" fill="#f8fafc" font-size="54" font-weight="800">Go 服务被 OOMKilled</text>
+    <text x="0" y="72" fill="#f8fafc" font-size="54" font-weight="800">别先怪 GC</text>
+    <rect x="0" y="118" width="420" height="4" rx="2" fill="#38bdf8"/>
+    <text x="0" y="180" fill="#cbd5e1" font-size="28">先采样，再分类，最后才调参数</text>
+    <text x="0" y="230" fill="#94a3b8" font-size="22">heap / RSS / GOMEMLIMIT / K8s limit</text>
+  </g>
+</svg>
