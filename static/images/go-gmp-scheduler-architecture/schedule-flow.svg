@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#07111f"/><stop offset="1" stop-color="#111827"/></linearGradient><marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#38bdf8"/></marker></defs>
+<rect width="1200" height="760" fill="url(#bg)"/>
+<text x="60" y="80" font-family="PingFang SC" font-size="34" fill="#f8fafc" font-weight="800">schedule 主路径：先找活，再切栈</text>
+<text x="60" y="118" font-family="PingFang SC" font-size="18" fill="#94a3b8">这是教学主线，真实 findRunnable 还会穿插 GC、trace、finalizer、timer、netpoll 等路径</text>
+<g font-family="PingFang SC" font-size="18" font-weight="700">
+<rect x="70" y="180" width="190" height="82" rx="18" fill="#0f172a" stroke="#334155" stroke-width="2"/><text x="165" y="214" text-anchor="middle" fill="#e2e8f0">G 变为 runnable</text><text x="165" y="242" text-anchor="middle" fill="#94a3b8" font-size="15">go / ready / netpoll</text>
+<rect x="330" y="180" width="190" height="82" rx="18" fill="#0f172a" stroke="#334155" stroke-width="2"/><text x="425" y="214" text-anchor="middle" fill="#e2e8f0">进入 P 队列</text><text x="425" y="242" text-anchor="middle" fill="#94a3b8" font-size="15">runnext / local runq</text>
+<rect x="590" y="180" width="190" height="82" rx="18" fill="#0f172a" stroke="#334155" stroke-width="2"/><text x="685" y="214" text-anchor="middle" fill="#e2e8f0">M 持有 P</text><text x="685" y="242" text-anchor="middle" fill="#94a3b8" font-size="15">进入 schedule</text>
+<rect x="850" y="180" width="240" height="82" rx="18" fill="#0c4a6e" stroke="#38bdf8" stroke-width="2"/><text x="970" y="214" text-anchor="middle" fill="#e0f2fe">findRunnable</text><text x="970" y="242" text-anchor="middle" fill="#bae6fd" font-size="15">local / global / steal / netpoll</text>
+<rect x="850" y="365" width="240" height="82" rx="18" fill="#1d4ed8" stroke="#60a5fa" stroke-width="2"/><text x="970" y="399" text-anchor="middle" fill="#eff6ff">execute</text><text x="970" y="427" text-anchor="middle" fill="#bfdbfe" font-size="15">_Grunnable → _Grunning</text>
+<rect x="590" y="365" width="190" height="82" rx="18" fill="#0f172a" stroke="#334155" stroke-width="2"/><text x="685" y="399" text-anchor="middle" fill="#e2e8f0">gogo</text><text x="685" y="427" text-anchor="middle" fill="#94a3b8" font-size="15">切到 G 的栈</text>
+<rect x="330" y="365" width="190" height="82" rx="18" fill="#0f172a" stroke="#334155" stroke-width="2"/><text x="425" y="399" text-anchor="middle" fill="#e2e8f0">用户函数运行</text><text x="425" y="427" text-anchor="middle" fill="#94a3b8" font-size="15">阻塞 / 返回 / 被抢占</text>
+<rect x="70" y="365" width="190" height="82" rx="18" fill="#0f172a" stroke="#334155" stroke-width="2"/><text x="165" y="399" text-anchor="middle" fill="#e2e8f0">回到调度器</text><text x="165" y="427" text-anchor="middle" fill="#94a3b8" font-size="15">M 继续找下一个 G</text>
+</g>
+<g stroke="#38bdf8" stroke-width="3" fill="none" marker-end="url(#arr)"><path d="M260 221 H325"/><path d="M520 221 H585"/><path d="M780 221 H845"/><path d="M970 262 V360"/><path d="M850 406 H785"/><path d="M590 406 H525"/><path d="M330 406 H265"/><path d="M165 365 V305 C165 288 180 285 197 285 H960 C980 285 970 300 970 360"/></g>
+<rect x="95" y="560" width="1010" height="90" rx="20" fill="#020617" stroke="#1e293b"/>
+<text x="600" y="600" text-anchor="middle" font-family="PingFang SC" font-size="24" fill="#f8fafc" font-weight="800">调度不是“开线程”，而是在 G 的栈和 M 的调度栈之间切换控制权。</text>
+<text x="600" y="632" text-anchor="middle" font-family="PingFang SC" font-size="17" fill="#94a3b8">函数返回后，死掉的是 G；M 不退出，它继续 schedule。</text>
+</svg>
