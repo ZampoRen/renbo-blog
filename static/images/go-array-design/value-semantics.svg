@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+<rect width="1200" height="760" fill="#0f172a"/>
+<text x="600" y="82" fill="#f8fafc" font-size="38" text-anchor="middle" font-family="PingFang SC, Arial" font-weight="800">数组值语义：复制换边界，指针换共享</text>
+<text x="600" y="122" fill="#94a3b8" font-size="20" text-anchor="middle" font-family="PingFang SC, Arial">同一块固定长度数据，传值和传指针承担的是两种语义</text>
+<g transform="translate(90 185)">
+<rect x="0" y="0" width="470" height="420" rx="26" fill="#111827" stroke="#38bdf8" stroke-width="2"/>
+<text x="235" y="52" fill="#e0f2fe" font-size="28" text-anchor="middle" font-family="PingFang SC, Arial" font-weight="700">传 [3]int</text>
+<text x="235" y="86" fill="#94a3b8" font-size="18" text-anchor="middle" font-family="PingFang SC, Arial">函数收到一份副本</text>
+<g transform="translate(80 135)"><text x="0" y="-18" fill="#cbd5e1" font-size="17" font-family="PingFang SC, Arial">调用方</text><rect x="0" y="0" width="70" height="58" rx="10" fill="#164e63" stroke="#67e8f9"/><rect x="80" y="0" width="70" height="58" rx="10" fill="#164e63" stroke="#67e8f9"/><rect x="160" y="0" width="70" height="58" rx="10" fill="#164e63" stroke="#67e8f9"/><text x="35" y="37" fill="#fff" font-size="20" text-anchor="middle">1</text><text x="115" y="37" fill="#fff" font-size="20" text-anchor="middle">2</text><text x="195" y="37" fill="#fff" font-size="20" text-anchor="middle">3</text></g>
+<path d="M235 225 V270" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrow)"/>
+<g transform="translate(80 290)"><text x="0" y="-18" fill="#cbd5e1" font-size="17" font-family="PingFang SC, Arial">函数内副本</text><rect x="0" y="0" width="70" height="58" rx="10" fill="#7f1d1d" stroke="#fca5a5"/><rect x="80" y="0" width="70" height="58" rx="10" fill="#164e63" stroke="#67e8f9"/><rect x="160" y="0" width="70" height="58" rx="10" fill="#164e63" stroke="#67e8f9"/><text x="35" y="37" fill="#fff" font-size="20" text-anchor="middle">99</text><text x="115" y="37" fill="#fff" font-size="20" text-anchor="middle">2</text><text x="195" y="37" fill="#fff" font-size="20" text-anchor="middle">3</text></g>
+<text x="235" y="390" fill="#e2e8f0" font-size="20" text-anchor="middle" font-family="PingFang SC, Arial">边界清楚，但有复制成本</text>
+</g>
+<g transform="translate(640 185)">
+<rect x="0" y="0" width="470" height="420" rx="26" fill="#111827" stroke="#f59e0b" stroke-width="2"/>
+<text x="235" y="52" fill="#ffedd5" font-size="28" text-anchor="middle" font-family="PingFang SC, Arial" font-weight="700">传 *[3]int</text>
+<text x="235" y="86" fill="#94a3b8" font-size="18" text-anchor="middle" font-family="PingFang SC, Arial">函数共享同一块数组</text>
+<g transform="translate(115 180)"><rect x="0" y="0" width="76" height="64" rx="10" fill="#164e63" stroke="#67e8f9"/><rect x="86" y="0" width="76" height="64" rx="10" fill="#164e63" stroke="#67e8f9"/><rect x="172" y="0" width="76" height="64" rx="10" fill="#164e63" stroke="#67e8f9"/><text x="38" y="41" fill="#fff" font-size="20" text-anchor="middle">1</text><text x="124" y="41" fill="#fff" font-size="20" text-anchor="middle">2</text><text x="210" y="41" fill="#fff" font-size="20" text-anchor="middle">3</text></g>
+<path d="M120 135 C175 125 190 145 235 180" stroke="#f59e0b" stroke-width="3" fill="none"/><path d="M350 135 C295 125 280 145 235 180" stroke="#f59e0b" stroke-width="3" fill="none"/>
+<text x="120" y="130" fill="#fed7aa" font-size="17" text-anchor="middle" font-family="PingFang SC, Arial">调用方</text><text x="350" y="130" fill="#fed7aa" font-size="17" text-anchor="middle" font-family="PingFang SC, Arial">函数</text>
+<text x="235" y="390" fill="#e2e8f0" font-size="20" text-anchor="middle" font-family="PingFang SC, Arial">省下拷贝，也共享修改风险</text>
+</g>
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 z" fill="#38bdf8"/></marker></defs>
+<rect x="300" y="650" width="600" height="54" rx="18" fill="#082f49" stroke="#38bdf8"/>
+<text x="600" y="685" fill="#e0f2fe" font-size="22" text-anchor="middle" font-family="PingFang SC, Arial">值语义的成本是复制，收益是边界</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101828"/><stop offset="1" stop-color="#0b3a4a"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="900" height="383" fill="url(#bg)"/>
+<g opacity="0.18" stroke="#7dd3fc" stroke-width="1"> <path d="M60 70 H830"/><path d="M60 145 H830"/><path d="M60 220 H830"/><path d="M60 295 H830"/><path d="M130 40 V340"/><path d="M260 40 V340"/><path d="M390 40 V340"/><path d="M520 40 V340"/><path d="M650 40 V340"/><path d="M780 40 V340"/></g>
+<g transform="translate(60 82)">
+<rect x="0" y="0" width="390" height="198" rx="26" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+<text x="28" y="46" fill="#e0f2fe" font-size="28" font-family="PingFang SC, Arial" font-weight="700">[32]byte</text>
+<text x="28" y="82" fill="#94a3b8" font-size="17" font-family="PingFang SC, Arial">长度进类型，整块都是值</text>
+<g transform="translate(28 112)">
+<rect x="0" y="0" width="38" height="38" rx="8" fill="#164e63" stroke="#67e8f9"/><rect x="48" y="0" width="38" height="38" rx="8" fill="#164e63" stroke="#67e8f9"/><rect x="96" y="0" width="38" height="38" rx="8" fill="#164e63" stroke="#67e8f9"/><text x="151" y="25" fill="#bae6fd" font-size="18" font-family="Arial">...</text><rect x="196" y="0" width="38" height="38" rx="8" fill="#164e63" stroke="#67e8f9"/><rect x="244" y="0" width="38" height="38" rx="8" fill="#164e63" stroke="#67e8f9"/><rect x="292" y="0" width="38" height="38" rx="8" fill="#164e63" stroke="#67e8f9"/>
+</g>
+<text x="28" y="176" fill="#e2e8f0" font-size="18" font-family="PingFang SC, Arial">固定形状，不靠注释约定</text>
+</g>
+<g transform="translate(510 92)">
+<text x="0" y="42" fill="#f8fafc" font-size="40" font-family="PingFang SC, Arial" font-weight="800">Go 数组为什么硬？</text>
+<text x="0" y="92" fill="#bae6fd" font-size="25" font-family="PingFang SC, Arial" font-weight="700">因为它把边界写进类型里</text>
+<rect x="0" y="125" width="300" height="54" rx="16" fill="#082f49" stroke="#38bdf8"/>
+<text x="22" y="159" fill="#e0f2fe" font-size="19" font-family="PingFang SC, Arial">值语义 · 固定长度 · 可证明</text>
+</g>
+</svg>
