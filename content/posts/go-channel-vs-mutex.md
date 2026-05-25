@@ -28,6 +28,8 @@ channel 描述关系。
 
 这句话很短，但够用。下面这五个问题，就是把它拆开，变成你下次写代码前可以直接拿走的判断流程。
 
+![channel vs mutex 决策流程](/images/go-channel-vs-mutex/decision-flow.png)
+
 ## 第一个问题：你是在传东西，还是在护东西？
 
 先别看工具，先看问题形状。

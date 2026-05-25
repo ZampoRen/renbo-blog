@@ -79,7 +79,9 @@ channel 在这种场景里的优势，不是“底层一定更快”。它的优
 
 你是多造了一套协议。
 
-## “通过通信共享内存”不是禁止共享
+![过度工程化对比：简单 cache vs channel 小型 RPC](/images/go-channel-csp-overuse/over-engineering-compare.png)
+
+## "通过通信共享内存"不是禁止共享
 
 “Do not communicate by sharing memory; instead, share memory by communicating.” 这句话很漂亮，也很容易被误读。
 
