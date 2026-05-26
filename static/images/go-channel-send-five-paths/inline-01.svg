@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F172A"/><stop offset="1" stop-color="#111827"/></linearGradient></defs>
+  <rect width="1200" height="760" rx="28" fill="url(#bg)"/>
+  <text x="600" y="82" text-anchor="middle" fill="#F8FAFC" font-family="Heiti SC, PingFang SC, sans-serif" font-size="36" font-weight="800">chansend 的五条路</text>
+  <text x="600" y="126" text-anchor="middle" fill="#94A3B8" font-family="Heiti SC, PingFang SC, sans-serif" font-size="19">同一行 ch &lt;- v，在 runtime 里可能完全不是同一种命运</text>
+  <g font-family="Heiti SC, PingFang SC, sans-serif">
+    <rect x="80" y="205" width="190" height="230" rx="22" fill="#1E293B" stroke="#F97316" stroke-width="2"/>
+    <text x="175" y="258" text-anchor="middle" fill="#FDBA74" font-size="24" font-weight="800">nil</text>
+    <text x="175" y="306" text-anchor="middle" fill="#E2E8F0" font-size="17">没有 hchan</text>
+    <text x="175" y="338" text-anchor="middle" fill="#CBD5E1" font-size="17">只能永久阻塞</text>
+    <text x="175" y="386" text-anchor="middle" fill="#94A3B8" font-size="15">nil chan send</text>
+
+    <rect x="300" y="205" width="190" height="230" rx="22" fill="#1E293B" stroke="#22C55E" stroke-width="2"/>
+    <text x="395" y="258" text-anchor="middle" fill="#86EFAC" font-size="24" font-weight="800">recvq</text>
+    <text x="395" y="306" text-anchor="middle" fill="#E2E8F0" font-size="17">有人在等</text>
+    <text x="395" y="338" text-anchor="middle" fill="#CBD5E1" font-size="17">绕过 buffer 交付</text>
+    <text x="395" y="386" text-anchor="middle" fill="#94A3B8" font-size="15">direct handoff</text>
+
+    <rect x="520" y="205" width="190" height="230" rx="22" fill="#1E293B" stroke="#38BDF8" stroke-width="2"/>
+    <text x="615" y="258" text-anchor="middle" fill="#7DD3FC" font-size="24" font-weight="800">buffer</text>
+    <text x="615" y="306" text-anchor="middle" fill="#E2E8F0" font-size="17">还有空位</text>
+    <text x="615" y="338" text-anchor="middle" fill="#CBD5E1" font-size="17">写入 sendx</text>
+    <text x="615" y="386" text-anchor="middle" fill="#94A3B8" font-size="15">qcount++</text>
+
+    <rect x="740" y="205" width="190" height="230" rx="22" fill="#1E293B" stroke="#A78BFA" stroke-width="2"/>
+    <text x="835" y="258" text-anchor="middle" fill="#DDD6FE" font-size="24" font-weight="800">default</text>
+    <text x="835" y="306" text-anchor="middle" fill="#E2E8F0" font-size="17">不愿意等</text>
+    <text x="835" y="338" text-anchor="middle" fill="#CBD5E1" font-size="17">返回 false</text>
+    <text x="835" y="386" text-anchor="middle" fill="#94A3B8" font-size="15">select 继续走</text>
+
+    <rect x="960" y="205" width="190" height="230" rx="22" fill="#1E293B" stroke="#F43F5E" stroke-width="2"/>
+    <text x="1055" y="258" text-anchor="middle" fill="#FDA4AF" font-size="24" font-weight="800">sendq</text>
+    <text x="1055" y="306" text-anchor="middle" fill="#E2E8F0" font-size="17">没人收也没空位</text>
+    <text x="1055" y="338" text-anchor="middle" fill="#CBD5E1" font-size="17">挂起当前 G</text>
+    <text x="1055" y="386" text-anchor="middle" fill="#94A3B8" font-size="15">gopark</text>
+  </g>
+  <g stroke="#475569" stroke-width="2" stroke-dasharray="8 8">
+    <path d="M275 320 H295"/><path d="M495 320 H515"/><path d="M715 320 H735"/><path d="M935 320 H955"/>
+  </g>
+  <rect x="118" y="540" width="964" height="92" rx="20" fill="#020617" stroke="#334155"/>
+  <text x="600" y="592" text-anchor="middle" fill="#F8FAFC" font-family="Heiti SC, PingFang SC, sans-serif" font-size="25" font-weight="800">排查 chan send，不要只问“buffer 多大”</text>
+  <text x="600" y="626" text-anchor="middle" fill="#94A3B8" font-family="Heiti SC, PingFang SC, sans-serif" font-size="18">先判断它走到了哪条路径</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0B1020"/><stop offset="1" stop-color="#101827"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="383" rx="0" fill="url(#bg)"/>
+  <g opacity=".22" stroke="#334155" stroke-width="1">
+    <path d="M0 310 C180 250 240 390 430 310 S720 250 900 320" fill="none"/>
+    <path d="M0 86 C160 126 260 10 420 84 S700 150 900 74" fill="none"/>
+  </g>
+  <g transform="translate(68 70)">
+    <circle cx="104" cy="120" r="48" fill="#111827" stroke="#38BDF8" stroke-width="2" filter="url(#glow)"/>
+    <text x="104" y="112" text-anchor="middle" fill="#E5E7EB" font-family="Menlo, Heiti SC, Consolas, monospace" font-size="22" font-weight="700">ch &lt;- v</text>
+    <text x="104" y="140" text-anchor="middle" fill="#94A3B8" font-family="Heiti SC, PingFang SC, sans-serif" font-size="15">send 入口</text>
+    <g stroke-width="6" stroke-linecap="round" fill="none">
+      <path d="M155 120 C230 60 285 50 358 42" stroke="#F97316"/>
+      <path d="M158 120 C238 96 290 100 362 102" stroke="#22C55E"/>
+      <path d="M160 120 C245 130 292 150 365 164" stroke="#38BDF8"/>
+      <path d="M157 120 C235 166 285 210 360 230" stroke="#A78BFA"/>
+      <path d="M150 124 C215 226 270 260 348 286" stroke="#F43F5E"/>
+    </g>
+    <g font-family="Heiti SC, PingFang SC, sans-serif" font-size="15" font-weight="700">
+      <text x="380" y="47" fill="#FDBA74">nil：永久等</text>
+      <text x="386" y="107" fill="#86EFAC">receiver：直接交付</text>
+      <text x="388" y="169" fill="#7DD3FC">buffer：写进环形队列</text>
+      <text x="382" y="235" fill="#DDD6FE">non-blocking：直接失败</text>
+      <text x="370" y="292" fill="#FDA4AF">sendq：挂起 goroutine</text>
+    </g>
+  </g>
+  <g transform="translate(560 92)">
+    <text x="0" y="0" fill="#F8FAFC" font-family="Heiti SC, PingFang SC, sans-serif" font-size="34" font-weight="800">不是一条队列</text>
+    <text x="0" y="48" fill="#F8FAFC" font-family="Heiti SC, PingFang SC, sans-serif" font-size="34" font-weight="800">而是五条路径</text>
+    <rect x="0" y="78" width="258" height="2" fill="#38BDF8" opacity=".75"/>
+  </g>
+</svg>
