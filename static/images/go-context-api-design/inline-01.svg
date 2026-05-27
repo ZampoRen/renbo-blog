@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="Context 与 CancelFunc 的权责分离">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="760" rx="0" fill="url(#bg)"/>
+  <text x="600" y="92" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="42" font-weight="800" fill="#f8fafc">Context 只负责被观察，CancelFunc 才负责发信号</text>
+  <text x="600" y="136" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="20" fill="#94a3b8">下游能知道“该停了”，但不能随手关掉整条调用链</text>
+
+  <rect x="80" y="260" width="230" height="120" rx="22" fill="#111827" stroke="#475569" stroke-width="2"/>
+  <text x="195" y="312" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="26" font-weight="700" fill="#e2e8f0">Handler</text>
+  <text x="195" y="348" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" fill="#94a3b8">创建请求生命周期</text>
+
+  <rect x="485" y="235" width="230" height="170" rx="24" fill="#0f172a" stroke="#22d3ee" stroke-width="3"/>
+  <text x="600" y="290" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="30" font-weight="800" fill="#67e8f9">Context</text>
+  <text x="600" y="330" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" fill="#cbd5e1">Done / Err / Deadline / Value</text>
+  <text x="600" y="368" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" fill="#94a3b8">传给所有下游</text>
+
+  <rect x="890" y="260" width="230" height="120" rx="22" fill="#111827" stroke="#475569" stroke-width="2"/>
+  <text x="1005" y="312" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="26" font-weight="700" fill="#e2e8f0">Repo / Helper</text>
+  <text x="1005" y="348" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="17" fill="#94a3b8">只能观察取消信号</text>
+
+  <line x1="310" y1="320" x2="475" y2="320" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+  <line x1="715" y1="320" x2="880" y2="320" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="390" y="500" width="420" height="94" rx="24" fill="#1c1917" stroke="#fb923c" stroke-width="3"/>
+  <text x="600" y="542" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="28" font-weight="800" fill="#fed7aa">CancelFunc</text>
+  <text x="600" y="578" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="18" fill="#fdba74">只留给拥有生命周期的人</text>
+  <path d="M600 500 C560 455 548 438 550 407" fill="none" stroke="#fb923c" stroke-width="3" marker-end="url(#arrow)"/>
+
+  <rect x="165" y="635" width="870" height="54" rx="27" fill="#020617" stroke="#334155"/>
+  <text x="600" y="670" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="22" font-weight="700" fill="#e2e8f0">如果 Cancel 放进 Context 接口，下游就会拿到上游的开关</text>
+</svg>
