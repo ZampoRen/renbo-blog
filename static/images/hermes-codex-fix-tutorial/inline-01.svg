@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#0b1020"/>
+  <text x="600" y="72" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="38" fill="#e5e7eb">这次故障卡在最后一帧</text>
+  <text x="600" y="118" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#94a3b8">前面的 output_item.done 已经到了，completed 帧却可能没有可迭代 output</text>
+
+  <g font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">
+    <rect x="80" y="220" width="220" height="110" rx="22" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+    <text x="190" y="265" text-anchor="middle" fill="#e5e7eb">Codex backend</text>
+    <text x="190" y="300" text-anchor="middle" fill="#94a3b8" font-size="18">stream events</text>
+
+    <rect x="410" y="220" width="260" height="110" rx="22" fill="#172554" stroke="#3b82f6" stroke-width="2"/>
+    <text x="540" y="265" text-anchor="middle" fill="#dbeafe">openai-python</text>
+    <text x="540" y="300" text-anchor="middle" fill="#93c5fd" font-size="18">parse_response()</text>
+
+    <rect x="780" y="220" width="340" height="110" rx="22" fill="#3f1d1d" stroke="#ef4444" stroke-width="2"/>
+    <text x="950" y="265" text-anchor="middle" fill="#fecaca">TypeError</text>
+    <text x="950" y="300" text-anchor="middle" fill="#fca5a5" font-size="18">NoneType object is not iterable</text>
+  </g>
+
+  <path d="M305 275 H395" stroke="#64748b" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+  <path d="M675 275 H765" stroke="#64748b" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <g font-family="Menlo, Monaco, Consolas, monospace" font-size="24">
+    <rect x="160" y="430" width="880" height="110" rx="18" fill="#020617" stroke="#334155"/>
+    <text x="200" y="482" fill="#f87171">for output in response.output:</text>
+    <text x="200" y="520" fill="#22c55e">for output in (response.output or []):</text>
+  </g>
+
+  <text x="600" y="606" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#cbd5e1">热补丁只负责止血，长期还是等上游 SDK / Hermes 合并修复</text>
+</svg>
