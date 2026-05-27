@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#101a32"/>
+      <stop offset="1" stop-color="#06141f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#41d1ff"/>
+      <stop offset="1" stop-color="#7c5cff"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="1200" rx="42" fill="url(#bg)"/>
+  <circle cx="1010" cy="150" r="210" fill="#193c5a" opacity="0.25"/>
+  <circle cx="190" cy="1030" r="260" fill="#32235d" opacity="0.24"/>
+
+  <text x="92" y="132" fill="#eef6ff" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="64" font-weight="700">goroutine 涨了，先别猜</text>
+  <text x="96" y="194" fill="#9eb2cf" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="31">把一个数字，推进成可验证的证据链</text>
+
+  <g transform="translate(92 250)">
+    <rect x="0" y="0" width="610" height="54" rx="27" fill="#15243f" stroke="#284260"/>
+    <text x="28" y="37" fill="#b4c6df" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="24">NumGoroutine → debug=1/2 → pprof top → lostcancel</text>
+  </g>
+
+  <g transform="translate(92 370)">
+    <rect x="0" y="0" width="430" height="215" rx="32" fill="#121d35" stroke="#2f466a" stroke-width="3"/>
+    <circle cx="58" cy="60" r="25" fill="url(#accent)" filter="url(#glow)"/>
+    <text x="47" y="70" fill="#07101f" font-family="Arial" font-size="30" font-weight="700">1</text>
+    <text x="45" y="134" fill="#f4f8ff" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="44" font-weight="700">采样</text>
+    <text x="45" y="180" fill="#9eb2cf" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="28">先确认趋势</text>
+  </g>
+
+  <path d="M552 478 H638" stroke="#3e638d" stroke-width="8" stroke-linecap="round"/>
+  <path d="M620 450 L660 478 L620 506" fill="none" stroke="#3e638d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(680 370)">
+    <rect x="0" y="0" width="430" height="215" rx="32" fill="#121d35" stroke="#2f466a" stroke-width="3"/>
+    <circle cx="58" cy="60" r="25" fill="url(#accent)" filter="url(#glow)"/>
+    <text x="47" y="70" fill="#07101f" font-family="Arial" font-size="30" font-weight="700">2</text>
+    <text x="45" y="134" fill="#f4f8ff" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="44" font-weight="700">pprof</text>
+    <text x="45" y="180" fill="#9eb2cf" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="28">数量变成栈</text>
+  </g>
+
+  <path d="M895 610 V655" stroke="#3e638d" stroke-width="8" stroke-linecap="round"/>
+  <path d="M867 636 L895 676 L923 636" fill="none" stroke="#3e638d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(680 705)">
+    <rect x="0" y="0" width="430" height="215" rx="32" fill="#121d35" stroke="#2f466a" stroke-width="3"/>
+    <circle cx="58" cy="60" r="25" fill="url(#accent)" filter="url(#glow)"/>
+    <text x="47" y="70" fill="#07101f" font-family="Arial" font-size="30" font-weight="700">3</text>
+    <text x="45" y="134" fill="#f4f8ff" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="44" font-weight="700">占比</text>
+    <text x="45" y="180" fill="#9eb2cf" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="28">找到主线</text>
+  </g>
+
+  <path d="M650 812 H562" stroke="#3e638d" stroke-width="8" stroke-linecap="round"/>
+  <path d="M580 784 L540 812 L580 840" fill="none" stroke="#3e638d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g transform="translate(92 705)">
+    <rect x="0" y="0" width="430" height="215" rx="32" fill="#0f2332" stroke="#2f9ad0" stroke-width="3"/>
+    <circle cx="58" cy="60" r="25" fill="url(#accent)" filter="url(#glow)"/>
+    <text x="47" y="70" fill="#07101f" font-family="Arial" font-size="30" font-weight="700">4</text>
+    <text x="45" y="134" fill="#f4f8ff" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="44" font-weight="700">go vet</text>
+    <text x="45" y="180" fill="#9eb2cf" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="28">静态闸门</text>
+  </g>
+
+  <g transform="translate(92 988)">
+    <rect x="0" y="0" width="1018" height="106" rx="32" fill="#0d2032" stroke="#243d5d" stroke-width="2"/>
+    <text x="46" y="66" fill="#eaf4ff" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="34" font-weight="700">没有采样，所有判断都只是下注。</text>
+    <text x="650" y="66" fill="#9eb2cf" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="26">先拿证据，再谈根因</text>
+  </g>
+</svg>
