@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#111827"/></linearGradient>
+    <linearGradient id="mem" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22c55e"/><stop offset="1" stop-color="#f97316"/></linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="80" y="95" fill="#f8fafc" font-size="42" font-weight="800" font-family="Arial, 'PingFang SC', sans-serif">三条线，不是一回事</text>
+  <text x="80" y="138" fill="#94a3b8" font-size="22" font-family="Arial, 'PingFang SC', sans-serif">GOGC 决定下一轮 GC 何时开始；GOMEMLIMIT 给 runtime 一个软边界；容器 limit 是外部硬约束。</text>
+  <g transform="translate(90,210)">
+    <rect x="0" y="0" width="1020" height="76" rx="20" fill="#1e293b" stroke="#334155"/>
+    <text x="30" y="48" fill="#e2e8f0" font-size="26" font-weight="700" font-family="Arial, 'PingFang SC', sans-serif">Live heap</text>
+    <rect x="210" y="22" width="250" height="32" rx="16" fill="#22c55e" opacity="0.85"/>
+    <text x="245" y="45" fill="#052e16" font-size="18" font-weight="700" font-family="Arial, 'PingFang SC', sans-serif">上一轮活下来的对象</text>
+  </g>
+  <g transform="translate(90,326)">
+    <rect x="0" y="0" width="1020" height="86" rx="22" fill="#111827" stroke="#f97316" stroke-width="3"/>
+    <text x="30" y="52" fill="#f97316" font-size="28" font-weight="800" font-family="Arial, 'PingFang SC', sans-serif">GOGC heap goal</text>
+    <rect x="395" y="26" width="340" height="34" rx="17" fill="url(#mem)" opacity="0.92"/>
+    <text x="775" y="52" fill="#fed7aa" font-size="22" font-family="Arial, 'PingFang SC', sans-serif">越高，GC 来得越晚</text>
+  </g>
+  <g transform="translate(90,456)">
+    <rect x="0" y="0" width="1020" height="86" rx="22" fill="#0f172a" stroke="#38bdf8" stroke-width="3" stroke-dasharray="10 8"/>
+    <text x="30" y="52" fill="#7dd3fc" font-size="28" font-weight="800" font-family="Arial, 'PingFang SC', sans-serif">GOMEMLIMIT</text>
+    <text x="300" y="52" fill="#cbd5e1" font-size="22" font-family="Arial, 'PingFang SC', sans-serif">runtime 能看见的内存软边界，不覆盖所有非 Go 内存</text>
+  </g>
+  <g transform="translate(90,586)">
+    <rect x="0" y="0" width="1020" height="60" rx="18" fill="#3f1d1d" stroke="#ef4444" stroke-width="3"/>
+    <text x="30" y="39" fill="#fecaca" font-size="24" font-weight="800" font-family="Arial, 'PingFang SC', sans-serif">Container limit：外部记账，撞上就是事故边缘</text>
+  </g>
+</svg>

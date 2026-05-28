@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1321"/><stop offset="1" stop-color="#172033"/></linearGradient>
+    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f97316"/><stop offset="1" stop-color="#facc15"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <g opacity="0.22"><circle cx="126" cy="90" r="2" fill="#7dd3fc"/><circle cx="230" cy="210" r="2" fill="#7dd3fc"/><circle cx="352" cy="132" r="2" fill="#7dd3fc"/><circle cx="770" cy="85" r="2" fill="#7dd3fc"/><path d="M126 90L230 210L352 132" stroke="#38bdf8" stroke-width="1" fill="none"/></g>
+  <g transform="translate(58,70)">
+    <rect x="0" y="0" width="330" height="226" rx="28" fill="#101827" stroke="#2dd4bf" stroke-opacity="0.55"/>
+    <path d="M42 164 C90 96, 140 132, 180 76 S264 92, 292 42" fill="none" stroke="url(#hot)" stroke-width="10" stroke-linecap="round" filter="url(#glow)"/>
+    <line x1="42" y1="176" x2="292" y2="176" stroke="#64748b" stroke-width="2"/>
+    <text x="42" y="205" fill="#94a3b8" font-size="18" font-family="Arial, 'PingFang SC', sans-serif">heap goal 被抬高</text>
+    <text x="42" y="44" fill="#f8fafc" font-size="24" font-weight="700" font-family="Arial, 'PingFang SC', sans-serif">GOGC=200</text>
+  </g>
+  <g transform="translate(450,78)">
+    <text x="0" y="0" fill="#e2e8f0" font-size="38" font-weight="800" font-family="Arial, 'PingFang SC', sans-serif">GOGC 调高了</text>
+    <text x="0" y="52" fill="#f97316" font-size="40" font-weight="900" font-family="Arial, 'PingFang SC', sans-serif">为什么又 OOM？</text>
+    <rect x="0" y="86" width="330" height="64" rx="16" fill="#0f172a" stroke="#475569"/>
+    <text x="24" y="126" fill="#cbd5e1" font-size="23" font-family="Arial, 'PingFang SC', sans-serif">调的是账期，不是魔法</text>
+    <text x="0" y="198" fill="#94a3b8" font-size="18" font-family="Arial, 'PingFang SC', sans-serif">CPU ↓ 只是表面，内存峰值 ↑ 才是账单</text>
+  </g>
+</svg>
