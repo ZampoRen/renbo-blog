@@ -1,6 +1,6 @@
 ---
-title: "OOMKilled 了别先调参数，第一步是看谁杀了你"
-description: "Go 服务被 OOMKilled 后，别急着改 GOGC 或 GOMEMLIMIT。先用 kubectl describe 确认事故事实，再用两次 pprof diff 拆清 inuse、alloc、objects 和 RSS 之间的账。"
+title: "OOMKilled 到底是谁动的手：Go 为什么要先看 kubectl describe 再做 pprof diff"
+description: "OOMKilled 了别急着调参数。先去 kubectl describe 确认事故现场，再抓两次 heap profile 用 diff_base 看谁在涨，最后才决定动 GOGC 还是 GOMEMLIMIT。"
 date: 2026-05-28T10:37:00+08:00
 draft: false
 author: "任博"

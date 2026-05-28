@@ -1,6 +1,6 @@
 ---
-title: "goroutine 涨了，第一步别猜，先采样"
-description: "goroutine 数上涨时，不要一上来就猜 context 泄漏。先用 NumGoroutine 确认趋势，再用 pprof 把数量变成栈，最后用 go vet 守住静态闸门。"
+title: "goroutine 为什么不能靠猜：Go 排查第一步要先用 NumGoroutine 和 pprof 采样"
+description: "goroutine 涨了，别直接怀疑 context 泄漏。先用 NumGoroutine 确认趋势，再用 pprof 把数量变成栈，最后用 go vet 抓住静态路径上的低级错误——这个顺序不能反。"
 date: 2026-05-27T18:16:00+08:00
 draft: false
 author: "任博"

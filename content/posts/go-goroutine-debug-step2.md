@@ -1,6 +1,6 @@
 ---
-title: "pprof 数据拿到了，然后呢？三条线把泄漏钉回代码里"
-description: "拿到 goroutine profile 以后，不要停在 pprof 输出里。用创建路径、取消路径、响应路径三条线，把等待点和创建点带回代码，定位 cancel 被丢弃、goroutine 不监听 Done 这两类常见泄漏。"
+title: "pprof 数据到底怎么用：Go 为什么要沿三条线把 goroutine 泄漏钉回代码"
+description: "pprof 只告诉你在哪，不告诉你为什么。按创建路径、取消路径、响应路径三条线，把每个阻塞 goroutine 的生命周期拆清楚——是谁创建的、谁来取消、有没有响应 Done。"
 date: 2026-05-27T21:00:00+08:00
 draft: false
 author: "任博"

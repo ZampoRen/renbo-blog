@@ -1,6 +1,6 @@
 ---
-title: "GOGC 调高了又 OOM：你没搞懂这笔账是谁在付"
-description: "从一次 GOGC 调高后短期变好、几天后 OOMKilled 的线上场景出发，讲清 GOGC 调的是 CPU/内存账期，GOMEMLIMIT 是软边界，STW 很短也不能直接排除 GC。"
+title: "Go 为什么调高 GOGC 会换来 OOM：GOMEMLIMIT 不是替你付账的人"
+description: "GOGC 调高后 GC 变少了、CPU 好看了，但堆峰值也高了。GOMEMLIMIT 不是另一个版本的 GOGC，它约束的是 Go runtime 管理的内存边界，不是整个 RSS。"
 date: 2026-05-28T09:20:00+08:00
 draft: false
 author: "任博"

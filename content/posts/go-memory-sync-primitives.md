@@ -1,6 +1,6 @@
 ---
-title: "channel 不只是队列，Mutex 不只是锁"
-description: "Go 内存模型下篇：从 channel、Mutex、Once、WaitGroup、atomic 到 race detector，讲清同步原语真正给你的 happens-before 保证。并发代码不是看起来交接了就安全，规范承认可见性，读取才站得住。"
+title: "同步原语到底同步了什么：Go 为什么要用 happens-before 解释 channel 和 Mutex"
+description: "channel 不只是队列，Mutex 不只是锁。每个同步原语都在建立 happens-before 关系：send 和 receive 之间有、Unlock 和 Lock 之间有、Once.Do 返回和后续调用之间有。没有这些链，可见性就不存在。"
 date: 2026-05-28T14:52:00+08:00
 draft: false
 author: "任博"

@@ -1,12 +1,12 @@
 ---
-title: "select 不是 O(1) 抽奖，case 越多，runtime 要干的活越多"
-description: "沿着 Go 1.25.4 runtime/select.go 拆开 selectgo：poll order、lock order、nil channel 剔除、阻塞注册和唤醒清理。select 的随机性不是免费午餐。"
+title: "Go 为什么不让 selectgo 做 O(1) 抽奖：case 越多，runtime 付出的账越多"
+description: "select 不是一次随机的 O(1) 选择。每个 select 背后，runtime 要剔除 nil channel、随机化 poll order、按地址排序 lock order、逐个检查、注册、等待、清理。case 越多，runtime 的活越重。"
 date: 2026-05-27T10:35:00+08:00
 draft: false
 author: "任博"
 tags: ["Go", "channel", "runtime", "源码分析", "并发编程"]
 categories: ["技术实战"]
-cover: "/images/go-channel-selectgo/cover.png"
+cover: "/images/go-channel-selectgo/cover.svg"
 toc: true
 ---
 
@@ -18,7 +18,7 @@ toc: true
 
 `select` 不是把 case 丢给调度器随便挑一个。它要先整理 case，跳过 nil channel，生成随机轮询顺序，再按 channel 地址排出加锁顺序。没有任何 case 立即可走时，它还要把当前 goroutine 同时注册到多个 channel 的等待队列里。醒来之后，还得把没选中的那些等待记录清掉。
 
-![selectgo 不是 O(1) 抽奖](/images/go-channel-selectgo/cover.png)
+![selectgo 不是 O(1) 抽奖](/images/go-channel-selectgo/cover.svg)
 
 所以别把 `select` 想成一次 O(1) 抽奖。
 
@@ -303,7 +303,7 @@ for _, casei := range lockorder {
 
 它是一场有入场、排队、叫号和清场的流程。
 
-![selectgo 的一轮选择](/images/go-channel-selectgo/inline-01.png)
+![selectgo 的一轮选择](/images/go-channel-selectgo/inline-01.svg)
 
 ## 这对写代码有什么用
 

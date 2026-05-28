@@ -1,6 +1,6 @@
 ---
-title: "GC 调优不需要神奇数字，需要一条决策路径"
-description: "知道 GOGC 和 GOMEMLIMIT 还不够。线上真正需要的是一条从确认问题、拆账、选参数到设置回滚线的 Go GC 调优路径。"
+title: "GC 调优到底先看什么：Go 为什么要从 live heap 开始，而不是先改 GOGC"
+description: "线上 GC 调优最怕先有答案再找证据。正确的顺序是：先确认 GC 是不是问题→看 live heap→看分配速率→再决定参数→最后设回滚线。没有基线的调优，只是玄学。"
 date: 2026-05-28T09:40:00+08:00
 draft: false
 author: "任博"

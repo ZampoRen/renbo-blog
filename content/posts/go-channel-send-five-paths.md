@@ -1,6 +1,6 @@
 ---
-title: "ch <- v 卡住了？runtime 里有五条路，你走的是哪一条"
-description: "goroutine dump 里看到 chan send，别只盯着 buffer。沿着 Go 1.25.4 runtime/chan.go，拆开 hchan、makechan 和 chansend 的五条路径。"
+title: "Go 为什么宁可让 chansend 卡住，也不让你误以为 ch <- v 发成功了"
+description: "ch <- v 在 Go runtime 里不是发往一个队列就完事了。chansend 有五条路径：先看有没有 receiver，再看 buffer 有没有空位，最后才决定是挂起还是直接失败。每一条路径背后都藏着一个取舍。"
 date: 2026-05-26T17:40:00+08:00
 draft: false
 author: "任博"

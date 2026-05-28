@@ -1,6 +1,6 @@
 ---
-title: "goroutine 涨了，别先加 buffer"
-description: "Go channel 阻塞排查上篇：从 runtime.NumGoroutine 到 pprof 栈，拆清 nil channel、closed channel panic 和 buffer 陷阱。buffer 只能吸收短峰值，不能替你修生命周期。"
+title: "goroutine 涨了为什么别先加 buffer：Go channel 阻塞要先分清 chan send 和 chan receive"
+description: "goroutine 涨了就加 buffer，是把问题从第 101 次发送推迟到第 1001 次。真正的根因是 nil channel、closed panic、sender/receiver 不匹配——这些加 buffer 都解决不了。"
 date: 2026-05-28T15:09:00+08:00
 draft: false
 author: "任博"

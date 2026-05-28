@@ -1,6 +1,6 @@
 ---
-title: "Go 内存泄漏分三类，修法完全不同：别把账都算给 GC"
-description: "Go 服务内存一直涨，不一定是 GC 的锅。goroutine 泄漏、无界缓存、高分配速率是三类完全不同的问题，证据、修法和 GOMEMLIMIT 的作用边界都不一样。"
+title: "Go 内存为什么不能都怪 GC：goroutine 泄漏、无界缓存和高分配速率修法完全不同"
+description: "Go 服务内存持续涨，不一定是 GC 的锅。goroutine 泄漏修生命周期，无界缓存修淘汰策略，高分配速率修代码本身——三类问题，三类修法，只有一个共同点：都不该先调 GOGC。"
 date: 2026-05-28T14:20:00+08:00
 draft: false
 author: "任博"

@@ -1,6 +1,6 @@
 ---
-title: "Context 的 Cancel 为什么不放在接口里？Go 设计者不是随便做的"
-description: "Go context 最反直觉的地方，不是到处传 ctx，而是 Context 能被取消，却没有 Cancel 方法。真正的设计取舍，是把观察权和控制权拆开，让调用链里的生命周期边界可查、可审、可维护。"
+title: "Go 为什么不把 Cancel 放进 Context 接口：观察权和控制权必须分开"
+description: "Context 能被取消，却没有自己的 Cancel 方法——这是故意的。WithCancel 返回两个东西：观察用的 Context 和控制用的 CancelFunc。子操作不能取消父操作，调用链才不会乱。"
 date: 2026-05-27T17:44:00+08:00
 draft: false
 author: "任博"

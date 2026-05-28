@@ -1,6 +1,6 @@
 ---
-title: "ready=true 不是发布：Go 内存模型真正要你保证什么"
-description: "从一个看似顺手的 ready 标志位开始，讲清 Go happens-before、data race 和 DRF-SC：并发安全不是看起来有顺序，而是规范承认它有顺序。"
+title: "Go 为什么不承认 ready=true 就是发布：happens-before 才是并发安全的证据"
+description: "普通变量的先写后读不提供跨 goroutine 的可见性。Go 内存模型的要求很硬核：写入和读取之间必须有 happens-before 证明链，否则代码跑得再好也只是碰巧。"
 date: 2026-05-28T14:40:00+08:00
 draft: false
 author: "任博"

@@ -1,6 +1,6 @@
 ---
-title: "goroutine 泄漏，不一定是忘了 cancel"
-description: "Go channel 排查下篇：从 goroutine 泄漏、dead select 到 range 不退出，拆清 sender/receiver 的退出路径。channel 不是队列，每个 goroutine 都要有收尾。"
+title: "goroutine 泄漏为什么不一定是忘了 cancel：Go channel 还要看 sender 和 receiver 谁没回家"
+description: "channel 导致的 goroutine 泄漏通常分两种方向：sender 发了没人接，或者 receiver 等了没人发。排查时要走出三条线才能锁定代码里的真实责任方。"
 date: 2026-05-28T15:20:00+08:00
 draft: false
 author: "任博"
