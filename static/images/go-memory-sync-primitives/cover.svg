@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="62%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="160" cy="190" r="118" fill="#2563eb" opacity="0.14"/>
+  <circle cx="790" cy="65" r="145" fill="#22c55e" opacity="0.10"/>
+
+  <g transform="translate(88 86)">
+    <circle cx="70" cy="92" r="54" fill="#020617" stroke="#334155" stroke-width="2"/>
+    <circle cx="70" cy="92" r="18" fill="url(#accent)" filter="url(#glow)"/>
+    <circle cx="196" cy="48" r="34" fill="#020617" stroke="#334155" stroke-width="2"/>
+    <circle cx="218" cy="156" r="34" fill="#020617" stroke="#334155" stroke-width="2"/>
+    <path d="M116 76 C142 62 156 55 166 51" fill="none" stroke="#60a5fa" stroke-width="4" opacity="0.8"/>
+    <path d="M116 111 C151 132 171 143 187 151" fill="none" stroke="#34d399" stroke-width="4" opacity="0.8"/>
+    <text x="196" y="55" text-anchor="middle" font-family="SF Mono, Menlo, monospace" font-size="18" fill="#bfdbfe">send</text>
+    <text x="218" y="163" text-anchor="middle" font-family="SF Mono, Menlo, monospace" font-size="18" fill="#bbf7d0">Lock</text>
+  </g>
+
+  <g transform="translate(380 88)">
+    <text x="0" y="0" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="42" font-weight="800" fill="#f8fafc">channel 不只是队列</text>
+    <text x="0" y="58" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="42" font-weight="800" fill="#f8fafc">Mutex 不只是锁</text>
+    <rect x="0" y="92" width="420" height="2" fill="url(#accent)" opacity="0.9"/>
+    <text x="0" y="145" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#d1fae5">它们都在传递可见性</text>
+    <text x="0" y="190" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="18" fill="#cbd5e1">Go 内存模型下篇：同步原语到底保证什么</text>
+  </g>
+</svg>

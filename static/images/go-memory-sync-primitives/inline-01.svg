@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="190" cy="120" r="150" fill="#2563eb" opacity="0.12"/>
+  <circle cx="1010" cy="650" r="190" fill="#22c55e" opacity="0.10"/>
+
+  <text x="600" y="92" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="38" font-weight="700" fill="#f8fafc">同步原语真正传递什么？</text>
+  <text x="600" y="135" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="20" fill="#cbd5e1">不只是互斥、等待和通知，它们还在建立可见性</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="245" width="260" height="165" rx="24" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <text x="210" y="294" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#f8fafc">写入方</text>
+    <text x="210" y="338" text-anchor="middle" font-family="SF Mono, Menlo, monospace" font-size="22" fill="#a7f3d0">data = payload</text>
+    <text x="210" y="374" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="18" fill="#94a3b8">先准备共享状态</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="470" y="215" width="260" height="225" rx="28" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+    <text x="600" y="265" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="28" font-weight="800" fill="#f8fafc">同步动作</text>
+    <rect x="510" y="300" width="180" height="44" rx="22" fill="url(#blue)" opacity="0.95"/>
+    <text x="600" y="330" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="19" font-weight="700" fill="#082f49">channel / Mutex</text>
+    <rect x="510" y="358" width="180" height="44" rx="22" fill="url(#green)" opacity="0.95"/>
+    <text x="600" y="388" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="19" font-weight="700" fill="#052e16">Once / atomic</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="860" y="245" width="260" height="165" rx="24" fill="#111827" stroke="#334155" stroke-width="2"/>
+    <text x="990" y="294" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#f8fafc">读取方</text>
+    <text x="990" y="338" text-anchor="middle" font-family="SF Mono, Menlo, monospace" font-size="22" fill="#bae6fd">use(data)</text>
+    <text x="990" y="374" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="18" fill="#94a3b8">看到被发布的结果</text>
+  </g>
+
+  <path d="M350 328 C400 328 420 328 460 328" fill="none" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M740 328 C790 328 810 328 850 328" fill="none" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="160" y="535" width="880" height="96" rx="26" fill="#020617" opacity="0.78" stroke="#334155"/>
+    <text x="600" y="575" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="26" font-weight="800" fill="#f8fafc">没有这个同步动作，代码只是“看起来交接了”</text>
+    <text x="600" y="612" text-anchor="middle" font-family="PingFang SC, Helvetica, Arial, sans-serif" font-size="20" fill="#cbd5e1">规范承认 happens-before，读取才有可见性证明</text>
+  </g>
+</svg>
