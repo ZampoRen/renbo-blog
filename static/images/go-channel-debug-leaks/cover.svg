@@ -1,0 +1,41 @@
+<svg width="900" height="383" viewBox="0 0 900 383" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="goroutine 泄漏，不一定是忘了 cancel">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="100%" stop-color="#111B2E"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5EEAD4"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="900" height="383" rx="28" fill="url(#bg)"/>
+  <circle cx="790" cy="72" r="110" fill="#2563EB" opacity="0.12"/>
+  <circle cx="130" cy="328" r="150" fill="#14B8A6" opacity="0.10"/>
+
+  <text x="56" y="88" fill="#94A3B8" font-size="20" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" letter-spacing="2">GO CHANNEL DEBUGGING</text>
+  <text x="56" y="160" fill="#F8FAFC" font-size="54" font-weight="700" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">goroutine 泄漏</text>
+  <text x="56" y="214" fill="#E2E8F0" font-size="34" font-weight="600" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">不一定是忘了 cancel</text>
+  <text x="56" y="258" fill="#94A3B8" font-size="20" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">更常见的是：sender 还在发，receiver 已经走了</text>
+
+  <g filter="url(#shadow)">
+    <rect x="560" y="78" width="262" height="214" rx="22" fill="#0F172A" stroke="#334155"/>
+    <rect x="584" y="102" width="214" height="42" rx="14" fill="#1E293B" stroke="#475569"/>
+    <text x="691" y="129" text-anchor="middle" fill="#E2E8F0" font-size="18" font-weight="600" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">sender 还在发</text>
+    <rect x="584" y="160" width="214" height="42" rx="14" fill="#1E293B" stroke="#475569"/>
+    <text x="691" y="187" text-anchor="middle" fill="#E2E8F0" font-size="18" font-weight="600" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">receiver 已经走</text>
+    <rect x="584" y="218" width="214" height="42" rx="14" fill="#1E293B" stroke="#475569"/>
+    <text x="691" y="245" text-anchor="middle" fill="#E2E8F0" font-size="18" font-weight="600" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">close 没人负责</text>
+  </g>
+
+  <path d="M 398 120 C 470 120, 520 120, 554 120" fill="none" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 10"/>
+  <path d="M 538 112 L 556 120 L 538 128" fill="none" stroke="#60A5FA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <g>
+    <rect x="340" y="290" width="516" height="44" rx="18" fill="#0F172A" stroke="#334155"/>
+    <text x="598" y="319" text-anchor="middle" fill="#CBD5E1" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">channel 不是队列，goroutine 也不会自己回家</text>
+  </g>
+</svg>

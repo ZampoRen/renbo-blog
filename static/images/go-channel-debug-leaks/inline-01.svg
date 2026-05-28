@@ -1,0 +1,50 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="channel 退出路径示意图">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <filter id="shadow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" rx="32" fill="url(#bg2)"/>
+  <text x="70" y="94" fill="#F8FAFC" font-size="38" font-weight="700" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">channel 退出路径</text>
+  <text x="70" y="136" fill="#94A3B8" font-size="20" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">每个 goroutine 都要有一条能走出去的路</text>
+
+  <g filter="url(#shadow2)">
+    <rect x="72" y="190" width="322" height="180" rx="26" fill="#0B1220" stroke="#334155"/>
+    <text x="233" y="236" text-anchor="middle" fill="#E2E8F0" font-size="24" font-weight="700" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">创建路径</text>
+    <text x="233" y="274" text-anchor="middle" fill="#CBD5E1" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">channel 谁 make 的</text>
+    <text x="233" y="304" text-anchor="middle" fill="#CBD5E1" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">goroutine 谁启动的</text>
+    <text x="233" y="334" text-anchor="middle" fill="#CBD5E1" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">生命周期归谁管</text>
+
+    <rect x="440" y="190" width="322" height="180" rx="26" fill="#0B1220" stroke="#334155"/>
+    <text x="601" y="236" text-anchor="middle" fill="#E2E8F0" font-size="24" font-weight="700" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">响应路径</text>
+    <text x="601" y="274" text-anchor="middle" fill="#CBD5E1" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">sender 还有没有人接</text>
+    <text x="601" y="304" text-anchor="middle" fill="#CBD5E1" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">receiver 还有没有人发</text>
+    <text x="601" y="334" text-anchor="middle" fill="#CBD5E1" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">select case 有没有活路</text>
+
+    <rect x="808" y="190" width="322" height="180" rx="26" fill="#0B1220" stroke="#334155"/>
+    <text x="969" y="236" text-anchor="middle" fill="#E2E8F0" font-size="24" font-weight="700" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">取消路径</text>
+    <text x="969" y="274" text-anchor="middle" fill="#CBD5E1" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">ctx.Done() 能不能触发</text>
+    <text x="969" y="304" text-anchor="middle" fill="#CBD5E1" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">close 谁来宣布结束</text>
+    <text x="969" y="334" text-anchor="middle" fill="#CBD5E1" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">range 会不会等到头</text>
+  </g>
+
+  <path d="M 394 280 L 430 280" stroke="url(#line)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 394 280 L 430 280" stroke="#60A5FA" stroke-width="5" stroke-linecap="round" opacity="0.25"/>
+  <path d="M 762 280 L 798 280" stroke="url(#line)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M 762 280 L 798 280" stroke="#60A5FA" stroke-width="5" stroke-linecap="round" opacity="0.25"/>
+
+  <g filter="url(#shadow2)">
+    <rect x="178" y="450" width="844" height="180" rx="28" fill="#0B1220" stroke="#334155"/>
+    <text x="600" y="508" text-anchor="middle" fill="#F8FAFC" font-size="30" font-weight="700" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">正确模式 = ctx.Done() + defer close(out) + 明确的关闭权</text>
+    <text x="600" y="556" text-anchor="middle" fill="#CBD5E1" font-size="20" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">一个 goroutine 只做三件事：等信号、处理数据、在退出时把后面的人放走</text>
+    <text x="600" y="602" text-anchor="middle" fill="#94A3B8" font-size="18" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">不靠 buffer 掩盖问题，不靠猜测找责任人</text>
+  </g>
+</svg>
