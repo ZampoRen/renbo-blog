@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="ok" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <marker id="arrowBad" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arrowOk" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <circle cx="1000" cy="120" r="210" fill="#312e81" opacity="0.25"/>
+  <circle cx="180" cy="640" r="230" fill="#0ea5e9" opacity="0.08"/>
+
+  <text x="600" y="88" text-anchor="middle" fill="#f8fafc" font-size="42" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="800">ready=true 不是发布</text>
+  <text x="600" y="132" text-anchor="middle" fill="#94a3b8" font-size="22" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">跨 goroutine 可见性，靠的是 happens-before 证明链</text>
+
+  <rect x="80" y="190" width="460" height="360" rx="28" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="310" y="235" text-anchor="middle" fill="#fecaca" font-size="26" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="700">看起来有顺序</text>
+  <text x="310" y="270" text-anchor="middle" fill="#94a3b8" font-size="17" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">但规范没有承认它有顺序</text>
+
+  <rect x="125" y="315" width="160" height="64" rx="16" fill="#1f2937" stroke="#475569"/>
+  <text x="205" y="354" text-anchor="middle" fill="#e5e7eb" font-size="20" font-family="Menlo,Consolas,monospace">data = ...</text>
+  <rect x="335" y="315" width="160" height="64" rx="16" fill="#1f2937" stroke="#475569"/>
+  <text x="415" y="354" text-anchor="middle" fill="#e5e7eb" font-size="20" font-family="Menlo,Consolas,monospace">ready = true</text>
+  <path d="M290 347 H326" stroke="#ef4444" stroke-width="3" marker-end="url(#arrowBad)"/>
+  <text x="310" y="422" text-anchor="middle" fill="#fca5a5" font-size="20" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="700">缺少同步动作</text>
+  <text x="310" y="458" text-anchor="middle" fill="#cbd5e1" font-size="18" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">ready 只是普通 bool</text>
+  <text x="310" y="488" text-anchor="middle" fill="#cbd5e1" font-size="18" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">不是可见性保证</text>
+
+  <rect x="660" y="190" width="460" height="360" rx="28" fill="#0f172a" stroke="#2563eb" stroke-width="2"/>
+  <text x="890" y="235" text-anchor="middle" fill="#bfdbfe" font-size="26" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="700">规范承认有顺序</text>
+  <text x="890" y="270" text-anchor="middle" fill="#94a3b8" font-size="17" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif">同步动作把两段代码接起来</text>
+
+  <rect x="700" y="315" width="130" height="64" rx="16" fill="#172554" stroke="#38bdf8"/>
+  <text x="765" y="354" text-anchor="middle" fill="#e0f2fe" font-size="20" font-family="Menlo,Consolas,monospace">data=...</text>
+  <rect x="865" y="315" width="130" height="64" rx="16" fill="#172554" stroke="#38bdf8"/>
+  <text x="930" y="354" text-anchor="middle" fill="#e0f2fe" font-size="19" font-family="Menlo,Consolas,monospace">close(done)</text>
+  <path d="M835 347 H858" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrowOk)"/>
+
+  <rect x="783" y="430" width="214" height="64" rx="18" fill="#064e3b" stroke="#34d399"/>
+  <text x="890" y="469" text-anchor="middle" fill="#dcfce7" font-size="20" font-family="Menlo,Consolas,monospace">&lt;-done 返回</text>
+  <path d="M930 383 C930 405 895 405 895 424" fill="none" stroke="#38bdf8" stroke-width="3" marker-end="url(#arrowOk)"/>
+
+  <text x="890" y="535" text-anchor="middle" fill="#86efac" font-size="20" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="700">链闭合了，读取才有保证</text>
+
+  <rect x="180" y="610" width="840" height="78" rx="22" fill="#020617" opacity="0.72" stroke="#334155"/>
+  <text x="600" y="658" text-anchor="middle" fill="#f8fafc" font-size="26" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="800">并发安全不是看起来有顺序，而是规范承认它有顺序。</text>
+</svg>
