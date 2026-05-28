@@ -1,5 +1,5 @@
 ---
-title: "goroutine 泄漏为什么不一定是忘了 cancel：Go channel 还要看 sender 和 receiver 谁没回家"
+title: "goroutine 泄漏不一定忘了 cancel：还要看 sender 和 receiver 谁没回家"
 description: "channel 导致的 goroutine 泄漏通常分两种方向：sender 发了没人接，或者 receiver 等了没人发。排查时要走出三条线才能锁定代码里的真实责任方。"
 date: 2026-05-28T15:20:00+08:00
 draft: false
