@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="780" viewBox="0 0 1400 780">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1120"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="780" rx="34" fill="url(#bg)"/>
+  <text x="700" y="82" text-anchor="middle" fill="#f8fafc" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="42" font-weight="900">Go 内存上涨，先分三条线</text>
+  <text x="700" y="128" text-anchor="middle" fill="#94a3b8" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="24">同样是曲线往上走，证据和修法完全不同</text>
+
+  <g transform="translate(70 205)">
+    <rect x="0" y="0" width="370" height="330" rx="28" fill="#0f172a" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="58" cy="60" r="20" fill="#38bdf8" opacity="0.18"/>
+    <text x="95" y="68" fill="#e0f2fe" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="28" font-weight="800">goroutine 泄漏</text>
+    <text x="40" y="125" fill="#cbd5e1" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="22">信号：栈数量持续涨</text>
+    <text x="40" y="168" fill="#94a3b8" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="21">卡在 chan / IO / worker loop</text>
+    <line x1="40" y1="205" x2="330" y2="205" stroke="#1f2937"/>
+    <text x="40" y="255" fill="#f8fafc" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="23" font-weight="700">修法：补退出路径</text>
+    <text x="40" y="292" fill="#94a3b8" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="20">ctx.Done / close 归属 / goleak</text>
+  </g>
+
+  <g transform="translate(515 205)">
+    <rect x="0" y="0" width="370" height="330" rx="28" fill="#0f172a" stroke="#16a34a" stroke-width="2"/>
+    <circle cx="58" cy="60" r="20" fill="#22c55e" opacity="0.18"/>
+    <text x="95" y="68" fill="#dcfce7" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="28" font-weight="800">无界缓存 / map</text>
+    <text x="40" y="125" fill="#cbd5e1" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="22">信号：inuse 持续为正</text>
+    <text x="40" y="168" fill="#94a3b8" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="21">业务回落后仍不回落</text>
+    <line x1="40" y1="205" x2="330" y2="205" stroke="#1f2937"/>
+    <text x="40" y="255" fill="#f8fafc" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="23" font-weight="700">修法：加边界</text>
+    <text x="40" y="292" fill="#94a3b8" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="20">TTL / LRU / size limit / delete</text>
+  </g>
+
+  <g transform="translate(960 205)">
+    <rect x="0" y="0" width="370" height="330" rx="28" fill="#0f172a" stroke="#d97706" stroke-width="2"/>
+    <circle cx="58" cy="60" r="20" fill="#f59e0b" opacity="0.18"/>
+    <text x="95" y="68" fill="#fef3c7" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="28" font-weight="800">高分配速率</text>
+    <text x="40" y="125" fill="#cbd5e1" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="22">信号：alloc 高，inuse 稳</text>
+    <text x="40" y="168" fill="#94a3b8" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="21">GC 忙，但未必是泄漏</text>
+    <line x1="40" y1="205" x2="330" y2="205" stroke="#1f2937"/>
+    <text x="40" y="255" fill="#f8fafc" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="23" font-weight="700">修法：少制造对象</text>
+    <text x="40" y="292" fill="#94a3b8" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="20">复用 buffer / 收敛批处理窗口</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="2" marker-end="url(#arrow)" opacity="0.7">
+    <line x1="440" y1="370" x2="505" y2="370"/>
+    <line x1="885" y1="370" x2="950" y2="370"/>
+  </g>
+
+  <rect x="250" y="610" width="900" height="78" rx="24" fill="#020617" stroke="#334155"/>
+  <text x="700" y="660" text-anchor="middle" fill="#e5e7eb" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="27" font-weight="800">先分类，再调参；分错桶，后面每一步都在浪费。</text>
+</svg>

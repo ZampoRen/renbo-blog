@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="0.55" stop-color="#101827"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="160" cy="120" r="180" fill="#1d4ed8" opacity="0.10"/>
+  <circle cx="1030" cy="530" r="230" fill="#22c55e" opacity="0.08"/>
+
+  <g opacity="0.28" stroke="#334155" stroke-width="1">
+    <path d="M0 510 C220 420 320 590 560 480 S930 350 1200 430" fill="none"/>
+    <path d="M0 170 C260 90 420 230 650 150 S940 70 1200 155" fill="none"/>
+  </g>
+
+  <g transform="translate(70 92)">
+    <rect x="0" y="0" width="410" height="420" rx="34" fill="#0f172a" stroke="#243247" stroke-width="2"/>
+    <text x="40" y="70" fill="#e5e7eb" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="42" font-weight="800">内存一直涨</text>
+    <text x="40" y="118" fill="#94a3b8" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="24">不要先把账算给 GC</text>
+
+    <g transform="translate(42 168)">
+      <rect x="0" y="0" width="326" height="54" rx="18" fill="#111827" stroke="#334155"/>
+      <circle cx="34" cy="27" r="8" fill="#38bdf8"/>
+      <text x="58" y="35" fill="#cbd5e1" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="22">goroutine 卡住</text>
+    </g>
+    <g transform="translate(42 244)">
+      <rect x="0" y="0" width="326" height="54" rx="18" fill="#111827" stroke="#334155"/>
+      <circle cx="34" cy="27" r="8" fill="#22c55e"/>
+      <text x="58" y="35" fill="#cbd5e1" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="22">map / cache 无边界</text>
+    </g>
+    <g transform="translate(42 320)">
+      <rect x="0" y="0" width="326" height="54" rx="18" fill="#111827" stroke="#334155"/>
+      <circle cx="34" cy="27" r="8" fill="#f59e0b"/>
+      <text x="58" y="35" fill="#cbd5e1" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="22">alloc 太高</text>
+    </g>
+  </g>
+
+  <g transform="translate(555 112)">
+    <text x="0" y="0" fill="#f8fafc" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="54" font-weight="900">Go 内存泄漏分三类</text>
+    <text x="0" y="70" fill="#e2e8f0" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="38" font-weight="700">修法完全不同</text>
+    <rect x="0" y="105" width="485" height="6" rx="3" fill="url(#accent)"/>
+
+    <text x="0" y="180" fill="#94a3b8" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="25">不是所有内存问题都该调 GC</text>
+    <text x="0" y="222" fill="#94a3b8" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="25">先分类，再动手</text>
+
+    <g transform="translate(0 292)">
+      <rect x="0" y="0" width="505" height="86" rx="24" fill="#0f172a" stroke="#2563eb" stroke-opacity="0.55"/>
+      <text x="30" y="53" fill="#e0f2fe" font-family="PingFang SC, Hiragino Sans GB, STHeiti, Arial" font-size="26" font-weight="700">GOMEMLIMIT 是护栏，不是止血带</text>
+    </g>
+  </g>
+</svg>
