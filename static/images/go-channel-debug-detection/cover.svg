@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#172033"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="383" rx="0" fill="url(#bg)"/>
+  <g opacity="0.28" stroke="#6ee7ff" stroke-width="1">
+    <path d="M80 290 C210 180,260 300,390 170 S650 180,800 90" fill="none"/>
+    <path d="M120 330 C260 230,360 250,480 140 S650 120,760 210" fill="none"/>
+  </g>
+  <g transform="translate(80 92)">
+    <rect x="0" y="0" width="310" height="190" rx="22" fill="#111827" stroke="#334155"/>
+    <text x="30" y="46" font-family="Menlo, Monaco, monospace" font-size="22" fill="#e5e7eb">goroutine</text>
+    <text x="30" y="84" font-family="Menlo, Monaco, monospace" font-size="34" font-weight="700" fill="#f8fafc">200 → 20000</text>
+    <rect x="30" y="112" width="245" height="12" rx="6" fill="#1f2937"/>
+    <rect x="30" y="112" width="198" height="12" rx="6" fill="#f97316" filter="url(#glow)"/>
+    <text x="30" y="154" font-family="Arial, sans-serif" font-size="20" fill="#fbbf24">别先加 buffer</text>
+  </g>
+  <g transform="translate(470 86)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#f8fafc">加 buffer</text>
+    <text x="0" y="58" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#f8fafc">不是修 bug</text>
+    <text x="0" y="106" font-family="Arial, sans-serif" font-size="24" fill="#cbd5e1">先看谁在等谁</text>
+    <g transform="translate(0 150)">
+      <rect x="0" y="0" width="112" height="44" rx="14" fill="#0f172a" stroke="#38bdf8"/>
+      <text x="24" y="29" font-family="Arial, sans-serif" font-size="18" fill="#e0f2fe">nil</text>
+      <rect x="132" y="0" width="130" height="44" rx="14" fill="#0f172a" stroke="#fb7185"/>
+      <text x="155" y="29" font-family="Arial, sans-serif" font-size="18" fill="#ffe4e6">closed</text>
+      <rect x="282" y="0" width="128" height="44" rx="14" fill="#0f172a" stroke="#f97316"/>
+      <text x="304" y="29" font-family="Arial, sans-serif" font-size="18" fill="#ffedd5">buffer</text>
+    </g>
+  </g>
+</svg>
