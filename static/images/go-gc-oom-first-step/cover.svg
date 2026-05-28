@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#1e293b" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity=".65"/>
+  <rect x="90" y="100" width="600" height="425" rx="28" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <text x="135" y="175" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="34" fill="#e5e7eb">$ kubectl describe pod</text>
+  <text x="135" y="235" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="27" fill="#93c5fd">Last State: Terminated</text>
+  <text x="135" y="282" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="27" fill="#fca5a5">Reason: OOMKilled</text>
+  <text x="135" y="329" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="27" fill="#fca5a5">Exit Code: 137</text>
+  <text x="135" y="392" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="42" font-weight="700" fill="#f8fafc">别先调参数，</text>
+  <text x="135" y="462" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="56" font-weight="800" fill="#fbbf24">先看谁杀了你</text>
+  <line x1="700" y1="315" x2="758" y2="315" stroke="#fbbf24" stroke-width="6" stroke-linecap="round"/>
+  <polygon points="760,315 735,300 735,330" fill="#fbbf24"/>
+  <rect x="760" y="90" width="330" height="450" rx="28" fill="#211827" stroke="#ef4444" stroke-width="3"/>
+  <text x="815" y="160" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="42" font-weight="800" fill="#fecaca">OOMKilled</text>
+  <text x="830" y="220" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="30" fill="#f87171">Exit 137</text>
+  <line x1="805" y1="260" x2="1045" y2="260" stroke="#ef4444" stroke-width="3"/>
+  <text x="820" y="330" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="26" fill="#e5e7eb">heap?</text>
+  <text x="820" y="380" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="26" fill="#e5e7eb">RSS?</text>
+  <text x="820" y="430" font-family="PingFang SC, Hiragino Sans GB, Arial, sans-serif" font-size="26" fill="#e5e7eb">limit?</text>
+</svg>
