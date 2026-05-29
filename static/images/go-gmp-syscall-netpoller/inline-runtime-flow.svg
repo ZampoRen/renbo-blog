@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680">
+  <rect width="1200" height="680" fill="#f7fafc"/>
+  <text x="52" y="70" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="42" font-weight="700" fill="#111827">一次“阻塞”在 Go runtime 里的分叉</text>
+  <text x="54" y="112" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="24" fill="#4b5563">不是所有等待都该让线程傻等；关键看 G、M、P 分别发生了什么。</text>
+  <g font-family="PingFang SC, Hiragino Sans GB, Arial">
+    <rect x="52" y="155" width="1096" height="130" rx="22" fill="#dbeafe" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="52" y="315" width="1096" height="130" rx="22" fill="#dcfce7" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="52" y="475" width="1096" height="130" rx="22" fill="#fef3c7" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="82" y="207" font-size="30" font-weight="700" fill="#111827">1. syscall</text>
+    <text x="82" y="367" font-size="30" font-weight="700" fill="#111827">2. netpoller</text>
+    <text x="82" y="527" font-size="30" font-weight="700" fill="#111827">3. 找活/偷活</text>
+    <text x="260" y="207" font-size="25" fill="#1f2937">G 进 _Gsyscall</text>
+    <text x="520" y="207" font-size="25" fill="#1f2937">M.oldp = P / M.p = nil</text>
+    <text x="875" y="207" font-size="25" font-weight="700" fill="#0f766e">P 可被 handoff/retake</text>
+    <text x="260" y="367" font-size="25" fill="#1f2937">G park 到 pollDesc</text>
+    <text x="545" y="367" font-size="25" fill="#1f2937">epoll / kqueue 等 fd ready</text>
+    <text x="895" y="367" font-size="25" font-weight="700" fill="#166534">返回可运行 G</text>
+    <text x="260" y="527" font-size="25" fill="#1f2937">local / global 没活</text>
+    <text x="540" y="527" font-size="25" fill="#1f2937">netpoll(0) / stealWork</text>
+    <text x="890" y="527" font-size="25" font-weight="700" fill="#92400e">P 不闲着</text>
+  </g>
+  <g stroke="#334155" stroke-width="3" fill="#334155">
+    <path d="M430 220 H500"/><path d="M500 220 l-12 -7 v14 z"/><path d="M800 220 H870"/><path d="M870 220 l-12 -7 v14 z"/>
+    <path d="M430 380 H500"/><path d="M500 380 l-12 -7 v14 z"/><path d="M800 380 H870"/><path d="M870 380 l-12 -7 v14 z"/>
+    <path d="M430 540 H500"/><path d="M500 540 l-12 -7 v14 z"/><path d="M800 540 H870"/><path d="M870 540 l-12 -7 v14 z"/>
+  </g>
+  <rect x="230" y="616" width="740" height="44" rx="18" fill="#111827"/>
+  <text x="600" y="646" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="27" font-weight="700" fill="#fff">Go 调度器最核心的能力，是把等待和执行资格拆开。</text>
+</svg>
