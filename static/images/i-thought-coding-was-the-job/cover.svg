@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383" role="img" aria-label="程序员工作中的代码、沟通与信任">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1726"/>
+      <stop offset="0.55" stop-color="#132c3a"/>
+      <stop offset="1" stop-color="#241528"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102234"/>
+      <stop offset="1" stop-color="#06101b"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="790" cy="70" r="120" fill="#f59e0b" opacity="0.08"/>
+  <circle cx="90" cy="330" r="170" fill="#22d3ee" opacity="0.07"/>
+
+  <g filter="url(#shadow)">
+    <rect x="105" y="78" width="320" height="190" rx="18" fill="url(#screen)" stroke="#2dd4bf" stroke-opacity="0.35"/>
+    <rect x="475" y="78" width="320" height="190" rx="18" fill="url(#screen)" stroke="#f59e0b" stroke-opacity="0.35"/>
+  </g>
+
+  <g font-family="Menlo, Monaco, monospace" font-size="18" fill="#8ee8d8" opacity="0.92">
+    <text x="135" y="122">func ship() {</text>
+    <text x="155" y="157">build()</text>
+    <text x="155" y="192">test()</text>
+    <text x="155" y="227">deploy()</text>
+    <text x="135" y="252">}</text>
+  </g>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', sans-serif" font-weight="600">
+    <rect x="510" y="112" width="206" height="34" rx="17" fill="#f59e0b" opacity="0.92"/>
+    <text x="532" y="135" font-size="16" fill="#231200">需求边界？</text>
+    <rect x="540" y="158" width="205" height="34" rx="17" fill="#38bdf8" opacity="0.9"/>
+    <text x="562" y="181" font-size="16" fill="#06101b">什么时候能看？</text>
+    <rect x="510" y="204" width="228" height="34" rx="17" fill="#a78bfa" opacity="0.9"/>
+    <text x="532" y="227" font-size="16" fill="#120b24">改需求怎么算？</text>
+  </g>
+
+  <rect x="170" y="292" width="560" height="26" rx="13" fill="#1f2937"/>
+  <rect x="215" y="318" width="470" height="18" rx="9" fill="#111827"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', sans-serif" text-anchor="middle">
+    <text x="450" y="47" font-size="30" font-weight="700" fill="#f8fafc">写代码只是入场券</text>
+    <text x="450" y="360" font-size="17" fill="#cbd5e1">真正的工作，藏在代码之外</text>
+  </g>
+</svg>

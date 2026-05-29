@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520" role="img" aria-label="程序员工作的冰山模型">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#e0f2fe"/>
+    </linearGradient>
+    <linearGradient id="ice" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="520" fill="url(#bg)"/>
+  <path d="M0 185 C180 155 290 215 450 184 C620 150 715 190 900 166 L900 520 L0 520 Z" fill="#0ea5e9" opacity="0.18"/>
+  <line x1="60" y1="185" x2="840" y2="185" stroke="#0284c7" stroke-width="3" stroke-dasharray="10 10" opacity="0.55"/>
+
+  <path d="M450 80 L555 185 L345 185 Z" fill="url(#ice)" opacity="0.95"/>
+  <path d="M345 185 L555 185 L705 430 L450 475 L195 430 Z" fill="#075985" opacity="0.88"/>
+  <path d="M450 80 L450 475" stroke="#e0f2fe" stroke-width="2" opacity="0.35"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', sans-serif" text-anchor="middle">
+    <text x="450" y="52" font-size="30" font-weight="700" fill="#0f172a">程序员工作的冰山</text>
+    <text x="450" y="140" font-size="24" font-weight="700" fill="#ffffff">代码实现</text>
+    <text x="450" y="225" font-size="22" font-weight="700" fill="#e0f2fe">需求理解</text>
+    <text x="450" y="275" font-size="22" font-weight="700" fill="#e0f2fe">预期管理</text>
+    <text x="450" y="325" font-size="22" font-weight="700" fill="#e0f2fe">风险解释</text>
+    <text x="450" y="375" font-size="22" font-weight="700" fill="#e0f2fe">信任建立</text>
+    <text x="450" y="455" font-size="18" fill="#e0f2fe">看得见的只是提交，撑住交付的是水面下那一大块</text>
+  </g>
+</svg>
