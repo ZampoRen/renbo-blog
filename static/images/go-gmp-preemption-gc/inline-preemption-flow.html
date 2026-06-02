@@ -1,0 +1,18 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;background:#f6f8fb;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB",sans-serif}.canvas{width:1200px;height:760px;background:linear-gradient(180deg,#f8fbff,#eef3fa);position:relative;color:#1f2937;overflow:hidden}.title{position:absolute;left:70px;top:58px}.title h1{margin:0;font-size:40px;letter-spacing:-1px}.title p{margin:12px 0 0;color:#64748b;font-size:21px}.card{position:absolute;border-radius:22px;background:#fff;border:1px solid #dbe4ef;box-shadow:0 14px 36px rgba(29,45,75,.08);padding:24px}.card h2{margin:0 0 12px;font-size:25px}.card p{margin:0;color:#64748b;font-size:18px;line-height:1.45}.badge{display:inline-block;padding:6px 12px;border-radius:999px;font-size:16px;font-weight:700;margin-bottom:12px}.b1{background:#e0f2fe;color:#0369a1}.b2{background:#dcfce7;color:#15803d}.b3{background:#fef3c7;color:#b45309}.b4{background:#ede9fe;color:#6d28d9}.arrow{position:absolute;color:#94a3b8;font-size:42px;font-weight:700}.bar{position:absolute;left:74px;right:74px;bottom:28px;border-radius:20px;background:#0f172a;color:#dbeafe;padding:16px 26px;font-size:22px}.bar span{color:#5eead4;font-weight:800}.mini{position:absolute;border-radius:16px;background:#f8fafc;border:1px solid #e2e8f0;padding:13px 16px;color:#475569;font-size:17px}.warn{color:#ef4444;font-weight:800}.ok{color:#059669;font-weight:800}
+</style></head><body><div class="canvas">
+<div class="title"><h1>一次抢占，不是一个信号就结束</h1><p>真正的路径是：发现占用 → 发起请求 → 验证 safe point → 回到调度器</p></div>
+<div class="card" style="left:70px;top:170px;width:220px;height:155px"><span class="badge b1">1 · 巡检</span><h2>sysmon retake</h2><p>同一 schedtick 超过约 10ms，发起 best-effort 抢占请求。</p></div>
+<div class="arrow" style="left:318px;top:232px">→</div>
+<div class="card" style="left:378px;top:170px;width:220px;height:155px"><span class="badge b2">2 · 标记</span><h2>preemptone</h2><p>设置 gp.preempt 和 stackguard0，同时尝试 async preempt。</p></div>
+<div class="arrow" style="left:626px;top:232px">→</div>
+<div class="card" style="left:686px;top:170px;width:220px;height:155px"><span class="badge b3">3 · 敲门</span><h2>SIGURG</h2><p>Unix-like 平台向目标 M 发送抢占信号，但不在 handler 里调度。</p></div>
+<div class="arrow" style="left:934px;top:232px">→</div>
+<div class="card" style="left:994px;top:170px;width:130px;height:155px"><span class="badge b4">4</span><h2>检查</h2><p>是否处在 async safe point？</p></div>
+<div class="mini" style="left:148px;top:416px;width:265px"><span class="ok">同步路径</span>：下次函数序言生效</div>
+<div class="mini" style="left:468px;top:416px;width:285px"><span class="ok">异步路径</span>：进入 asyncPreempt</div>
+<div class="mini" style="left:808px;top:416px;width:300px"><span class="warn">拒绝位置</span>：runtime / assembly / unsafe point</div>
+<div class="card" style="left:202px;top:510px;width:310px;height:82px"><h2>gopreempt_m</h2><p>普通抢占：G 回到 runnable，等待再次竞争运行。</p></div>
+<div class="card" style="left:688px;top:510px;width:310px;height:82px"><h2>preemptPark</h2><p>停止请求：G 进入 _Gpreempted，等待检查或扫描后恢复。</p></div>
+<div class="bar"><span>关键判断：</span>信号只是入口，safe point 才是门槛；抢占请求只是请求，调度完成才算真的让出。</div>
+</div></body></html>

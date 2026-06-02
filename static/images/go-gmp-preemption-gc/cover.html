@@ -1,0 +1,13 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;background:#0b1020;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB",sans-serif;color:#e5eefc} .canvas{width:900px;height:383px;position:relative;overflow:hidden;background:radial-gradient(circle at 22% 32%,#263b73 0,#111a34 38%,#090d1b 100%)}
+.node{position:absolute;border:1px solid rgba(116,167,255,.45);background:rgba(17,31,62,.78);border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.28)} .node span{display:block;text-align:center;font-weight:700}.small{font-size:22px;color:#a9c5ff}.big{font-size:46px;letter-spacing:-1px;color:#fff}.line{position:absolute;height:2px;background:linear-gradient(90deg,rgba(94,234,212,.2),rgba(94,234,212,.9),rgba(94,234,212,.2));transform-origin:left center}.pill{position:absolute;padding:8px 14px;border-radius:999px;background:rgba(94,234,212,.12);border:1px solid rgba(94,234,212,.32);color:#7ddcff;font-size:17px}.title{position:absolute;left:430px;top:86px;width:435px}.title h1{font-size:54px;line-height:1.08;margin:0 0 18px;font-weight:800;letter-spacing:-2px}.title p{font-size:24px;line-height:1.55;margin:0;color:#bdd1ff}.mark{color:#5eead4}.footer{position:absolute;left:432px;bottom:48px;font-size:19px;color:#91a7d8}.dot{position:absolute;width:10px;height:10px;border-radius:50%;background:#5eead4;box-shadow:0 0 20px #5eead4}
+</style></head><body><div class="canvas">
+<div class="line" style="left:134px;top:132px;width:220px;transform:rotate(28deg)"></div><div class="line" style="left:142px;top:248px;width:225px;transform:rotate(-26deg)"></div><div class="line" style="left:227px;top:191px;width:135px"></div>
+<div class="node" style="left:58px;top:78px;width:150px;height:76px"><span class="small" style="margin-top:14px">sysmon</span><span style="font-size:15px;color:#6fded1">后台巡检</span></div>
+<div class="node" style="left:56px;top:212px;width:152px;height:76px"><span class="small" style="margin-top:14px">GC</span><span style="font-size:15px;color:#6fded1">要看懂现场</span></div>
+<div class="node" style="left:246px;top:145px;width:160px;height:92px;border-color:rgba(94,234,212,.7)"><span class="big" style="margin-top:20px">P</span></div>
+<div class="pill" style="left:260px;top:266px">safe point</div><div class="pill" style="left:250px;top:92px">asyncPreempt</div>
+<div class="dot" style="left:401px;top:190px"></div>
+<div class="title"><h1>Go 不怕死循环，<br><span class="mark">靠的不是玄学</span></h1><p>抢占式调度的关键，不是“强行打断”，而是停在 GC 能看懂的位置。</p></div>
+<div class="footer">GMP 调度器 · 第三篇 · preemption & GC</div>
+</div></body></html>
