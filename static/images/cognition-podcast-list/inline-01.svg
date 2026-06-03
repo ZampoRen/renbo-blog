@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d1624"/><stop offset="1" stop-color="#111827"/></linearGradient></defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="600" y="78" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="38" font-weight="800" fill="#f6d38f">六个播客，不是清单，是六个认知角色</text>
+  <text x="600" y="122" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="21" fill="#9fb2c8">缺什么能力，就调用哪一席</text>
+  <g font-family="PingFang SC, Hiragino Sans GB, Arial">
+    <g transform="translate(80,190)"><rect width="300" height="130" rx="22" fill="#162235" stroke="#355b7a"/><text x="30" y="43" font-size="28" font-weight="800" fill="#f6d38f">Founders</text><text x="30" y="82" font-size="22" fill="#e8f0f8">历史席</text><text x="30" y="112" font-size="17" fill="#9fb2c8">把人生压成决策样本</text></g>
+    <g transform="translate(450,190)"><rect width="300" height="130" rx="22" fill="#162235" stroke="#355b7a"/><text x="30" y="43" font-size="28" font-weight="800" fill="#f6d38f">Acquired</text><text x="30" y="82" font-size="22" fill="#e8f0f8">战略席</text><text x="30" y="112" font-size="17" fill="#9fb2c8">看公司如何打关键战役</text></g>
+    <g transform="translate(820,190)"><rect width="300" height="130" rx="22" fill="#162235" stroke="#355b7a"/><text x="30" y="43" font-size="28" font-weight="800" fill="#f6d38f">All-In</text><text x="30" y="82" font-size="22" fill="#e8f0f8">反对席</text><text x="30" y="112" font-size="17" fill="#9fb2c8">在分歧里保持判断</text></g>
+    <g transform="translate(80,390)"><rect width="300" height="130" rx="22" fill="#162235" stroke="#355b7a"/><text x="30" y="43" font-size="28" font-weight="800" fill="#f6d38f">My First Million</text><text x="30" y="82" font-size="22" fill="#e8f0f8">生意席</text><text x="30" y="112" font-size="17" fill="#9fb2c8">把灵感拆成付费路径</text></g>
+    <g transform="translate(450,390)"><rect width="300" height="130" rx="22" fill="#162235" stroke="#355b7a"/><text x="30" y="43" font-size="28" font-weight="800" fill="#f6d38f">Knowledge Project</text><text x="30" y="82" font-size="22" fill="#e8f0f8">方法席</text><text x="30" y="112" font-size="17" fill="#9fb2c8">升级判断工具</text></g>
+    <g transform="translate(820,390)"><rect width="300" height="130" rx="22" fill="#162235" stroke="#355b7a"/><text x="30" y="43" font-size="28" font-weight="800" fill="#f6d38f">Diary of a CEO</text><text x="30" y="82" font-size="22" fill="#e8f0f8">人性席</text><text x="30" y="112" font-size="17" fill="#9fb2c8">看见成功背后的代价</text></g>
+  </g>
+  <rect x="248" y="610" width="704" height="62" rx="31" fill="#111f30" stroke="#365a78"/>
+  <text x="600" y="650" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="24" font-weight="700" fill="#dbe8f4">不要全听。带着问题，按角色调用。</text>
+</svg>

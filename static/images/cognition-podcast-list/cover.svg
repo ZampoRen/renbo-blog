@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101826"/><stop offset="1" stop-color="#07111f"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1f3148"/><stop offset="1" stop-color="#111d2d"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="232" cy="192" r="92" fill="none" stroke="#2b6f9f" stroke-width="2" opacity=".35"/>
+  <circle cx="232" cy="192" r="42" fill="#0d1726" stroke="#f2b35e" stroke-width="2" filter="url(#glow)"/>
+  <text x="232" y="186" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="18" font-weight="700" fill="#f6d38f">精神</text>
+  <text x="232" y="211" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="18" font-weight="700" fill="#f6d38f">董事会</text>
+  <g fill="url(#card)" stroke="#375675" stroke-width="1.5">
+    <rect x="113" y="76" width="112" height="52" rx="14"/><rect x="270" y="76" width="112" height="52" rx="14"/>
+    <rect x="86" y="244" width="112" height="52" rx="14"/><rect x="267" y="244" width="112" height="52" rx="14"/>
+    <rect x="56" y="162" width="112" height="52" rx="14"/><rect x="300" y="162" width="112" height="52" rx="14"/>
+  </g>
+  <g font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="17" font-weight="650" fill="#dbe8f4">
+    <text x="169" y="108" text-anchor="middle">历史</text><text x="326" y="108" text-anchor="middle">战略</text>
+    <text x="142" y="194" text-anchor="middle">宏观</text><text x="356" y="194" text-anchor="middle">生意</text>
+    <text x="142" y="276" text-anchor="middle">决策</text><text x="323" y="276" text-anchor="middle">人性</text>
+  </g>
+  <g stroke="#355a78" stroke-width="1.4" opacity=".7"><line x1="199" y1="128" x2="222" y2="154"/><line x1="296" y1="128" x2="254" y2="154"/><line x1="168" y1="188" x2="190" y2="188"/><line x1="300" y1="188" x2="274" y2="188"/><line x1="178" y1="244" x2="213" y2="226"/><line x1="289" y1="244" x2="251" y2="226"/></g>
+  <text x="500" y="130" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="38" font-weight="800" fill="#f6d38f">别把自己交给信息流</text>
+  <text x="502" y="178" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="25" font-weight="650" fill="#e8f0f8">给自己组一个精神董事会</text>
+  <text x="503" y="226" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="18" fill="#9fb2c8">六个播客，六种认知角色</text>
+  <rect x="503" y="260" width="286" height="38" rx="19" fill="#13263b" stroke="#315a7b"/>
+  <text x="646" y="285" text-anchor="middle" font-family="PingFang SC, Hiragino Sans GB, Arial" font-size="16" fill="#cbd9e6">历史 · 战略 · 宏观 · 生意 · 决策 · 人性</text>
+</svg>
