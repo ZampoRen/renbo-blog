@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="瓶颈点分析五因子检查表">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="600" y="92" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="40" font-weight="800" fill="#f8fafc">五个条件，才配叫瓶颈</text>
+  <text x="600" y="136" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" fill="#94a3b8">不是“也受益”，而是能卡住系统扩张的窄门</text>
+
+  <g font-family="Arial, 'PingFang SC', sans-serif" filter="url(#shadow)">
+    <rect x="88" y="220" width="184" height="210" rx="24" fill="#172554" stroke="#3b82f6" stroke-width="2"/>
+    <text x="180" y="278" text-anchor="middle" font-size="26" font-weight="800" fill="#dbeafe">确定需求</text>
+    <text x="180" y="328" text-anchor="middle" font-size="18" fill="#bfdbfe">真实订单</text>
+    <text x="180" y="360" text-anchor="middle" font-size="18" fill="#bfdbfe">资本开支</text>
+    <text x="180" y="392" text-anchor="middle" font-size="18" fill="#bfdbfe">路线图验证</text>
+
+    <rect x="300" y="220" width="184" height="210" rx="24" fill="#134e4a" stroke="#14b8a6" stroke-width="2"/>
+    <text x="392" y="278" text-anchor="middle" font-size="26" font-weight="800" fill="#ccfbf1">受限供给</text>
+    <text x="392" y="328" text-anchor="middle" font-size="18" fill="#99f6e4">扩产慢</text>
+    <text x="392" y="360" text-anchor="middle" font-size="18" fill="#99f6e4">认证长</text>
+    <text x="392" y="392" text-anchor="middle" font-size="18" fill="#99f6e4">替代难</text>
+
+    <rect x="512" y="220" width="184" height="210" rx="24" fill="#3b0764" stroke="#a855f7" stroke-width="2"/>
+    <text x="604" y="278" text-anchor="middle" font-size="26" font-weight="800" fill="#f3e8ff">低关注度</text>
+    <text x="604" y="328" text-anchor="middle" font-size="18" fill="#e9d5ff">市场没讲透</text>
+    <text x="604" y="360" text-anchor="middle" font-size="18" fill="#e9d5ff">机构覆盖少</text>
+    <text x="604" y="392" text-anchor="middle" font-size="18" fill="#e9d5ff">概念复杂</text>
+
+    <rect x="724" y="220" width="184" height="210" rx="24" fill="#7c2d12" stroke="#fb923c" stroke-width="2"/>
+    <text x="816" y="278" text-anchor="middle" font-size="26" font-weight="800" fill="#ffedd5">价值捕获</text>
+    <text x="816" y="328" text-anchor="middle" font-size="18" fill="#fed7aa">定价权</text>
+    <text x="816" y="360" text-anchor="middle" font-size="18" fill="#fed7aa">客户锁定</text>
+    <text x="816" y="392" text-anchor="middle" font-size="18" fill="#fed7aa">利润空间</text>
+
+    <rect x="936" y="220" width="184" height="210" rx="24" fill="#4c0519" stroke="#f43f5e" stroke-width="2"/>
+    <text x="1028" y="278" text-anchor="middle" font-size="26" font-weight="800" fill="#ffe4e6">催化剂</text>
+    <text x="1028" y="328" text-anchor="middle" font-size="18" fill="#fecdd3">财报放量</text>
+    <text x="1028" y="360" text-anchor="middle" font-size="18" fill="#fecdd3">客户量产</text>
+    <text x="1028" y="392" text-anchor="middle" font-size="18" fill="#fecdd3">路线切换</text>
+  </g>
+
+  <g stroke="#475569" stroke-width="3" stroke-linecap="round" opacity="0.7">
+    <path d="M272 325 H300"/>
+    <path d="M484 325 H512"/>
+    <path d="M696 325 H724"/>
+    <path d="M908 325 H936"/>
+  </g>
+
+  <rect x="170" y="540" width="860" height="84" rx="24" fill="#020617" stroke="#334155"/>
+  <text x="600" y="592" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="25" font-weight="800" fill="#f8fafc">少一个环节，结论强度就要降一档</text>
+</svg>

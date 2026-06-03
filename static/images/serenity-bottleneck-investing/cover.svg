@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383" role="img" aria-label="产业链瓶颈分析封面图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08111f"/>
+      <stop offset="0.55" stop-color="#0d1728"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="32%" cy="47%" r="52%">
+      <stop offset="0" stop-color="#38bdf8" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="900" height="383" rx="0" fill="url(#bg)"/>
+  <rect width="900" height="383" fill="url(#glow)"/>
+
+  <g opacity="0.23" stroke="#93c5fd" stroke-width="1">
+    <path d="M62 70 H390"/>
+    <path d="M62 132 H390"/>
+    <path d="M62 194 H390"/>
+    <path d="M62 256 H390"/>
+    <path d="M105 38 V312"/>
+    <path d="M188 38 V312"/>
+    <path d="M271 38 V312"/>
+    <path d="M354 38 V312"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <circle cx="108" cy="190" r="34" fill="#172554" stroke="#60a5fa" stroke-width="2"/>
+    <circle cx="221" cy="105" r="31" fill="#0f766e" stroke="#5eead4" stroke-width="2"/>
+    <circle cx="221" cy="278" r="31" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+    <circle cx="345" cy="190" r="42" fill="#7c2d12" stroke="#fb923c" stroke-width="3"/>
+    <path d="M140 181 C168 154 184 126 193 115" fill="none" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
+    <path d="M140 199 C171 228 185 257 193 267" fill="none" stroke="#60a5fa" stroke-width="4" stroke-linecap="round"/>
+    <path d="M252 105 C297 118 318 145 330 160" fill="none" stroke="#5eead4" stroke-width="4" stroke-linecap="round"/>
+    <path d="M252 278 C295 260 317 231 330 219" fill="none" stroke="#94a3b8" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="345" cy="190" r="12" fill="#fed7aa"/>
+  </g>
+
+  <text x="345" y="190" text-anchor="middle" dominant-baseline="central" font-family="Arial, 'PingFang SC', sans-serif" font-size="18" font-weight="700" fill="#fff7ed">瓶颈</text>
+  <text x="108" y="190" text-anchor="middle" dominant-baseline="central" font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#dbeafe">需求</text>
+  <text x="221" y="105" text-anchor="middle" dominant-baseline="central" font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#ccfbf1">链路</text>
+  <text x="221" y="278" text-anchor="middle" dominant-baseline="central" font-family="Arial, 'PingFang SC', sans-serif" font-size="15" fill="#e2e8f0">证据</text>
+
+  <g transform="translate(475 78)">
+    <rect x="0" y="0" width="350" height="230" rx="28" fill="#0f172a" opacity="0.82" stroke="#334155"/>
+    <text x="36" y="63" font-family="Arial, 'PingFang SC', sans-serif" font-size="30" font-weight="800" fill="#f8fafc">逆向工程产业链</text>
+    <text x="36" y="106" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" fill="#bae6fd">别问谁最热</text>
+    <text x="36" y="140" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" fill="#bae6fd">先问系统会在哪里断</text>
+    <rect x="36" y="168" width="214" height="38" rx="19" fill="#fb923c" opacity="0.95"/>
+    <text x="143" y="193" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="17" font-weight="700" fill="#111827">瓶颈点投资法</text>
+  </g>
+
+  <text x="62" y="342" font-family="Arial, 'PingFang SC', sans-serif" font-size="16" fill="#94a3b8">趋势 → 链路 → 瓶颈 → 证据 → 反证</text>
+</svg>
