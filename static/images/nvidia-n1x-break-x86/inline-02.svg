@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+  <rect width="900" height="520" fill="#07110b"/>
+  <text x="70" y="70" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" fill="#fff" font-weight="700">NVIDIA 这次真正带来的三个变量</text>
+  <text x="70" y="108" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" fill="#9ca3af">它不是只换一颗 CPU，而是在换 PC 的使用理由</text>
+  <g transform="translate(80 160)">
+    <circle cx="80" cy="80" r="72" fill="#0f172a" stroke="#8be36f" stroke-width="4"/>
+    <text x="80" y="72" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="27" fill="#8be36f" font-weight="700">CUDA</text>
+    <text x="80" y="104" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" fill="#e5e7eb">不用改工作流</text>
+  </g>
+  <g transform="translate(370 160)">
+    <circle cx="80" cy="80" r="72" fill="#0f172a" stroke="#60a5fa" stroke-width="4"/>
+    <text x="80" y="72" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="27" fill="#93c5fd" font-weight="700">统一内存</text>
+    <text x="80" y="104" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" fill="#e5e7eb">本地跑大模型</text>
+  </g>
+  <g transform="translate(660 160)">
+    <circle cx="80" cy="80" r="72" fill="#0f172a" stroke="#f59e0b" stroke-width="4"/>
+    <text x="80" y="72" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="27" fill="#fcd34d" font-weight="700">企业采购</text>
+    <text x="80" y="104" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" fill="#e5e7eb">决定大盘成败</text>
+  </g>
+  <path d="M240 240 H350" stroke="#4b5563" stroke-width="4" stroke-dasharray="8 8"/>
+  <path d="M530 240 H640" stroke="#4b5563" stroke-width="4" stroke-dasharray="8 8"/>
+  <g transform="translate(120 365)">
+    <rect width="660" height="70" rx="16" fill="#111827" stroke="#374151"/>
+    <text x="330" y="45" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="25" fill="#ffffff" font-weight="700">这场战争的胜负，不在发布会，在开发者和 IT 采购的账本里。</text>
+  </g>
+</svg>

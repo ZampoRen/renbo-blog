@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+  <rect width="900" height="520" fill="#0b1020"/>
+  <text x="70" y="70" font-family="Arial, 'PingFang SC', sans-serif" font-size="34" fill="#fff" font-weight="700">x86 的墙，靠的不是跑分</text>
+  <text x="70" y="108" font-family="Arial, 'PingFang SC', sans-serif" font-size="20" fill="#9ca3af">每一次 ARM PC 冲锋，最后都撞在软件和采购习惯上</text>
+  <g transform="translate(70 155)">
+    <rect x="0" y="0" width="190" height="210" rx="18" fill="#111827" stroke="#ef4444" stroke-width="2"/>
+    <text x="95" y="54" text-anchor="middle" font-size="26" font-family="Arial, 'PingFang SC', sans-serif" fill="#fecaca" font-weight="700">Windows RT</text>
+    <text x="95" y="98" text-anchor="middle" font-size="19" font-family="Arial, 'PingFang SC', sans-serif" fill="#e5e7eb">旧 x86 软件</text>
+    <text x="95" y="128" text-anchor="middle" font-size="19" font-family="Arial, 'PingFang SC', sans-serif" fill="#e5e7eb">直接进不来</text>
+    <text x="95" y="172" text-anchor="middle" font-size="22" font-family="Arial, 'PingFang SC', sans-serif" fill="#fca5a5">饿死</text>
+  </g>
+  <g transform="translate(330 155)">
+    <rect x="0" y="0" width="190" height="210" rx="18" fill="#111827" stroke="#f59e0b" stroke-width="2"/>
+    <text x="95" y="54" text-anchor="middle" font-size="25" font-family="Arial, 'PingFang SC', sans-serif" fill="#fde68a" font-weight="700">Surface Pro X</text>
+    <text x="95" y="98" text-anchor="middle" font-size="19" font-family="Arial, 'PingFang SC', sans-serif" fill="#e5e7eb">仿真层能跑</text>
+    <text x="95" y="128" text-anchor="middle" font-size="19" font-family="Arial, 'PingFang SC', sans-serif" fill="#e5e7eb">但跑不顺</text>
+    <text x="95" y="172" text-anchor="middle" font-size="22" font-family="Arial, 'PingFang SC', sans-serif" fill="#fcd34d">卡死</text>
+  </g>
+  <g transform="translate(590 155)">
+    <rect x="0" y="0" width="190" height="210" rx="18" fill="#111827" stroke="#60a5fa" stroke-width="2"/>
+    <text x="95" y="54" text-anchor="middle" font-size="24" font-family="Arial, 'PingFang SC', sans-serif" fill="#bfdbfe" font-weight="700">Snapdragon X</text>
+    <text x="95" y="98" text-anchor="middle" font-size="19" font-family="Arial, 'PingFang SC', sans-serif" fill="#e5e7eb">续航有了</text>
+    <text x="95" y="128" text-anchor="middle" font-size="19" font-family="Arial, 'PingFang SC', sans-serif" fill="#e5e7eb">生态还没跟上</text>
+    <text x="95" y="172" text-anchor="middle" font-size="22" font-family="Arial, 'PingFang SC', sans-serif" fill="#93c5fd">温吞</text>
+  </g>
+  <path d="M120 435 H780" stroke="#374151" stroke-width="3"/>
+  <text x="450" y="475" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="26" fill="#8be36f" font-weight="700">硬件可以换，软件习惯最难搬</text>
+</svg>

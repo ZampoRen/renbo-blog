@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07110b"/>
+      <stop offset="0.45" stop-color="#101820"/>
+      <stop offset="1" stop-color="#1b2b16"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <g opacity="0.25" stroke="#8be36f" stroke-width="1">
+    <path d="M0 300 C170 260 230 350 400 300 S690 250 900 300" fill="none"/>
+    <path d="M0 70 C180 120 290 10 460 80 S720 160 900 90" fill="none"/>
+  </g>
+  <g transform="translate(78 82)">
+    <rect x="0" y="0" width="245" height="150" rx="16" fill="#101820" stroke="#6b7280" stroke-width="2"/>
+    <text x="122" y="68" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="46" fill="#e5e7eb" font-weight="700">x86</text>
+    <text x="122" y="105" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="22" fill="#9ca3af">40 年软件墙</text>
+    <g stroke="#4b5563" stroke-width="2" opacity="0.8">
+      <path d="M20 125 H225"/><path d="M20 35 H225"/><path d="M50 10 V145"/><path d="M110 10 V145"/><path d="M170 10 V145"/>
+    </g>
+  </g>
+  <g transform="translate(390 74)" filter="url(#glow)">
+    <path d="M0 92 H225" stroke="#8be36f" stroke-width="10" stroke-linecap="round"/>
+    <path d="M215 64 L270 92 L215 120 Z" fill="#8be36f"/>
+    <text x="137" y="50" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="30" fill="#b6ff9e" font-weight="700">CUDA / AI 工作流</text>
+  </g>
+  <g transform="translate(650 92)">
+    <rect x="0" y="0" width="180" height="118" rx="18" fill="#0f172a" stroke="#8be36f" stroke-width="3"/>
+    <text x="90" y="48" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="33" fill="#8be36f" font-weight="700">RTX</text>
+    <text x="90" y="86" text-anchor="middle" font-family="Arial, 'PingFang SC', sans-serif" font-size="26" fill="#e5e7eb">Spark</text>
+  </g>
+  <text x="78" y="305" font-family="Arial, 'PingFang SC', sans-serif" font-size="38" fill="#ffffff" font-weight="700">前面倒了三家，黄仁勋还要撞这堵墙</text>
+  <text x="80" y="340" font-family="Arial, 'PingFang SC', sans-serif" font-size="22" fill="#a7f3d0">这次变的不是 ARM，而是 NVIDIA 手里的软件护城河</text>
+</svg>
