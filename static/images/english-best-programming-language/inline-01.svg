@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#111827"/></linearGradient><filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.25"/></filter></defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <text x="70" y="86" fill="#f8fafc" font-size="42" font-family="PingFang SC, Arial" font-weight="800">技术信息入口，决定问题解决半径</text>
+  <text x="72" y="130" fill="#94a3b8" font-size="22" font-family="PingFang SC, Arial">同一个报错，入口不同，你看到的世界完全不同。</text>
+  <g filter="url(#shadow)">
+    <rect x="75" y="190" width="410" height="330" rx="28" fill="#1f2937" stroke="#475569"/>
+    <text x="112" y="245" fill="#cbd5e1" font-size="28" font-family="PingFang SC, Arial" font-weight="700">只用中文搜索</text>
+    <text x="112" y="302" fill="#fca5a5" font-size="25" font-family="PingFang SC, Arial">搬运稿</text>
+    <text x="112" y="352" fill="#fca5a5" font-size="25" font-family="PingFang SC, Arial">过时教程</text>
+    <text x="112" y="402" fill="#fca5a5" font-size="25" font-family="PingFang SC, Arial">没人回复的评论区</text>
+    <text x="112" y="463" fill="#e5e7eb" font-size="24" font-family="PingFang SC, Arial" font-weight="700">结果：重复踩坑</text>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="710" y="190" width="415" height="330" rx="28" fill="#082f49" stroke="#38bdf8" stroke-opacity="0.6"/>
+    <text x="747" y="245" fill="#e0f2fe" font-size="28" font-family="PingFang SC, Arial" font-weight="700">进入英文技术网络</text>
+    <text x="747" y="302" fill="#bae6fd" font-size="25" font-family="PingFang SC, Arial">官方文档</text>
+    <text x="747" y="352" fill="#bae6fd" font-size="25" font-family="PingFang SC, Arial">GitHub issue / maintainer reply</text>
+    <text x="747" y="402" fill="#bae6fd" font-size="25" font-family="PingFang SC, Arial">Stack Overflow / forum / Discord</text>
+    <text x="747" y="463" fill="#fef3c7" font-size="24" font-family="PingFang SC, Arial" font-weight="700">结果：接近问题现场</text>
+  </g>
+  <path d="M530 355 L665 355" stroke="#f59e0b" stroke-width="10" stroke-linecap="round"/>
+  <path d="M642 322 L686 355 L642 388" fill="none" stroke="#f59e0b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="500" y="585" fill="#f8fafc" font-size="32" font-family="PingFang SC, Arial" font-weight="800">英语改变的不是口音，是半径。</text>
+</svg>
