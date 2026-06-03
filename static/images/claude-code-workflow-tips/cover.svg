@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#111827"/><stop offset="1" stop-color="#28365a"/></linearGradient></defs>
+  <rect width="900" height="383" fill="url(#g)"/>
+  <rect x="70" y="62" width="760" height="240" rx="24" fill="#0a0f19" stroke="#5f78aa" stroke-width="2"/>
+  <circle cx="103" cy="95" r="7" fill="#ff5f56"/><circle cx="129" cy="95" r="7" fill="#ffbd2e"/><circle cx="155" cy="95" r="7" fill="#27c93f"/>
+  <text x="96" y="153" fill="#b8d6ff" font-size="28" font-family="PingFang SC,Arial">$ claude --permission-mode plan</text>
+  <text x="96" y="218" fill="#ffffff" font-size="44" font-weight="700" font-family="PingFang SC,Arial">Plan  →  Execute  →  Review</text>
+  <text x="96" y="263" fill="#a9b5cc" font-size="24" font-family="PingFang SC,Arial">不是换一个编辑器，是换一种交付节奏</text>
+  <rect x="610" y="85" width="165" height="41" rx="18" fill="#244279"/><text x="630" y="112" fill="#e7f0ff" font-size="20" font-family="PingFang SC,Arial">Claude Code</text>
+  <rect x="610" y="137" width="165" height="41" rx="18" fill="#374963"/><text x="650" y="164" fill="#d2ddeb" font-size="20" font-family="PingFang SC,Arial">Cursor</text>
+</svg>

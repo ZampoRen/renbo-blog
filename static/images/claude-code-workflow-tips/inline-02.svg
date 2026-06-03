@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <rect width="1200" height="620" fill="#0f172a"/>
+  <text x="70" y="90" fill="#fff" font-size="42" font-weight="700" font-family="PingFang SC,Arial">Cursor 和 Claude Code，不该抢同一个位置</text>
+  <g font-family="PingFang SC,Arial">
+    <rect x="80" y="145" width="490" height="340" rx="30" fill="#3f5582" stroke="#91aad2" stroke-width="2"/>
+    <text x="120" y="235" fill="#fff" font-size="44" font-weight="700">Cursor</text>
+    <text x="125" y="303" fill="#e2eaf6" font-size="30">• 适合边看代码边聊</text>
+    <text x="125" y="365" fill="#e2eaf6" font-size="30">• 上下文像一张桌面</text>
+    <text x="125" y="427" fill="#e2eaf6" font-size="30">• 入口是编辑器</text>
+    <rect x="630" y="145" width="490" height="340" rx="30" fill="#215d50" stroke="#91aad2" stroke-width="2"/>
+    <text x="670" y="235" fill="#fff" font-size="44" font-weight="700">Claude Code</text>
+    <text x="675" y="303" fill="#e2eaf6" font-size="30">• 适合把任务丢进终端</text>
+    <text x="675" y="365" fill="#e2eaf6" font-size="30">• 输出必须回到测试和 diff</text>
+    <text x="675" y="427" fill="#e2eaf6" font-size="30">• 入口是命令行</text>
+    <text x="90" y="545" fill="#d2dcee" font-size="28">选择工具之前，先问自己：今天这件事，是要“边看边聊”，还是要“让终端跑出证据”？</text>
+  </g>
+</svg>
