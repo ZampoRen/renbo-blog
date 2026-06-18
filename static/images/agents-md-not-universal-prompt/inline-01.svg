@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">WHAT HOW WHERE 三层职责分离</title>
+  <desc id="desc">AGENTS.md 负责入口索引，OpenSpec 负责变更对象，Superpowers 负责执行方法</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <style>
+      .title{font:800 42px Inter,'PingFang SC','Microsoft YaHei',sans-serif;fill:#f8fafc}
+      .sub{font:400 20px Inter,'PingFang SC','Microsoft YaHei',sans-serif;fill:#94a3b8}
+      .label{font:800 32px Inter,'PingFang SC','Microsoft YaHei',sans-serif;fill:#f8fafc}
+      .small{font:400 18px Inter,'PingFang SC','Microsoft YaHei',sans-serif;fill:#cbd5e1}
+      .hint{font:700 20px Inter,'PingFang SC','Microsoft YaHei',sans-serif;fill:#e2e8f0}
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="90" y="90" class="title">三层分清，Agent 才不会到处抢方向盘</text>
+  <text x="90" y="128" class="sub">AGENTS.md 不是万能提示词，它只是把 Agent 带到正确的规则门口。</text>
+
+  <g transform="translate(90 190)">
+    <rect x="0" y="0" width="300" height="320" rx="26" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+    <circle cx="58" cy="58" r="30" fill="#312e81" stroke="#818cf8"/>
+    <text x="110" y="68" class="label">WHERE</text>
+    <text x="36" y="128" class="hint">AGENTS.md</text>
+    <text x="36" y="170" class="small">入口索引</text>
+    <text x="36" y="204" class="small">工具链事实</text>
+    <text x="36" y="238" class="small">读取顺序</text>
+    <text x="36" y="272" class="small">去哪找规则</text>
+  </g>
+
+  <g transform="translate(450 190)">
+    <rect x="0" y="0" width="300" height="320" rx="26" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="58" cy="58" r="30" fill="#451a03" stroke="#f59e0b"/>
+    <text x="110" y="68" class="label">WHAT</text>
+    <text x="36" y="128" class="hint">OpenSpec</text>
+    <text x="36" y="170" class="small">proposal</text>
+    <text x="36" y="204" class="small">spec / tasks</text>
+    <text x="36" y="238" class="small">审批门</text>
+    <text x="36" y="272" class="small">归档和演进</text>
+  </g>
+
+  <g transform="translate(810 190)">
+    <rect x="0" y="0" width="300" height="320" rx="26" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <circle cx="58" cy="58" r="30" fill="#083344" stroke="#38bdf8"/>
+    <text x="110" y="68" class="label">HOW</text>
+    <text x="36" y="128" class="hint">Superpowers</text>
+    <text x="36" y="170" class="small">TDD</text>
+    <text x="36" y="204" class="small">debugging</text>
+    <text x="36" y="238" class="small">verification</text>
+    <text x="36" y="272" class="small">code review</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="3" fill="none" stroke-linecap="round">
+    <path d="M390 350 H450"/>
+    <path d="M750 350 H810"/>
+  </g>
+  <g fill="#64748b">
+    <path d="M450 350 l-12 -7 v14 z"/>
+    <path d="M810 350 l-12 -7 v14 z"/>
+  </g>
+
+  <rect x="90" y="585" width="1020" height="82" rx="22" fill="#0f172a" stroke="#334155"/>
+  <text x="130" y="636" class="hint">规则不要堆在一起：入口负责带路，流程负责决策，方法负责执行。</text>
+</svg>

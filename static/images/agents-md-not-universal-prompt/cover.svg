@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383" role="img" aria-labelledby="title desc">
+  <title id="title">AGENTS.md 分层职责图</title>
+  <desc id="desc">OpenSpec 管 WHAT，Superpowers 管 HOW，AGENTS.md 管 WHERE 的分层结构封面图</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#111827"/>
+      <stop offset="1" stop-color="#172033"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f2937" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#0f172a" stop-opacity="0.96"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="150" cy="88" r="120" fill="#38bdf8" opacity="0.08"/>
+  <circle cx="780" cy="320" r="160" fill="#a78bfa" opacity="0.08"/>
+  <g opacity="0.28" stroke="#64748b" stroke-width="1">
+    <path d="M36 318 H864"/>
+    <path d="M36 96 H864"/>
+    <path d="M138 36 V347"/>
+    <path d="M706 36 V347"/>
+  </g>
+
+  <g transform="translate(70 62)">
+    <rect x="26" y="130" width="310" height="76" rx="18" fill="#0f172a" stroke="#38bdf8" stroke-width="2" opacity="0.88"/>
+    <rect x="48" y="102" width="310" height="76" rx="18" fill="#111827" stroke="#818cf8" stroke-width="2" opacity="0.92"/>
+    <rect x="70" y="74" width="310" height="76" rx="18" fill="url(#card)" stroke="#f59e0b" stroke-width="2" filter="url(#glow)"/>
+    <text x="100" y="122" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="34" font-weight="800" fill="#f8fafc">AGENTS.md</text>
+    <text x="100" y="148" font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif" font-size="16" fill="#fbbf24">入口索引，不是咒语大全</text>
+
+    <g fill="none" stroke-linecap="round" stroke-width="3">
+      <path d="M405 112 C462 105 478 76 525 76" stroke="#f59e0b"/>
+      <path d="M405 139 C460 142 480 158 525 158" stroke="#38bdf8"/>
+      <path d="M382 188 C458 220 478 242 525 242" stroke="#818cf8"/>
+    </g>
+    <circle cx="526" cy="76" r="5" fill="#f59e0b"/>
+    <circle cx="526" cy="158" r="5" fill="#38bdf8"/>
+    <circle cx="526" cy="242" r="5" fill="#818cf8"/>
+  </g>
+
+  <g font-family="Inter, PingFang SC, Microsoft YaHei, sans-serif">
+    <rect x="610" y="86" width="210" height="54" rx="14" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="638" y="121" font-size="22" font-weight="800" fill="#f8fafc">WHAT</text>
+    <text x="716" y="121" font-size="16" fill="#fbbf24">OpenSpec</text>
+
+    <rect x="610" y="168" width="210" height="54" rx="14" fill="#1e293b" stroke="#38bdf8"/>
+    <text x="638" y="203" font-size="22" font-weight="800" fill="#f8fafc">HOW</text>
+    <text x="716" y="203" font-size="16" fill="#7dd3fc">Superpowers</text>
+
+    <rect x="610" y="250" width="210" height="54" rx="14" fill="#1e293b" stroke="#818cf8"/>
+    <text x="638" y="285" font-size="22" font-weight="800" fill="#f8fafc">WHERE</text>
+    <text x="730" y="285" font-size="16" fill="#c4b5fd">AGENTS.md</text>
+
+    <text x="70" y="326" font-size="30" font-weight="800" fill="#f8fafc">别把所有规则塞进一个文件</text>
+    <text x="70" y="354" font-size="17" fill="#94a3b8">约束 Agent 靠的是分层，不是更长的提示词</text>
+  </g>
+</svg>
