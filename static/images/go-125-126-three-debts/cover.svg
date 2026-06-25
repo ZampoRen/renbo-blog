@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383" role="img" aria-labelledby="title desc">
+  <title id="title">Go 1.25/1.26 三类工程债</title>
+  <desc id="desc">深色科技风封面图，展示 Go 1.25/1.26 帮团队处理性能、写法和测试三类工程债。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#07111f"/>
+      <stop offset="55%" stop-color="#0b1d2d"/>
+      <stop offset="100%" stop-color="#102a3a"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#55d7ff"/>
+      <stop offset="100%" stop-color="#00add8"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <g opacity="0.22">
+    <path d="M50 70 C160 10 220 130 330 78 S500 30 610 90 S760 170 850 96" fill="none" stroke="#55d7ff" stroke-width="1.2"/>
+    <path d="M70 315 C190 250 285 335 405 275 S585 220 725 285 S805 332 870 280" fill="none" stroke="#82ffaa" stroke-width="1.2"/>
+    <circle cx="88" cy="72" r="3" fill="#55d7ff"/>
+    <circle cx="333" cy="78" r="3" fill="#55d7ff"/>
+    <circle cx="610" cy="90" r="3" fill="#55d7ff"/>
+    <circle cx="725" cy="285" r="3" fill="#82ffaa"/>
+  </g>
+  <g transform="translate(65 82)">
+    <circle cx="130" cy="112" r="82" fill="#0e2537" stroke="#2b6d85" stroke-width="2"/>
+    <circle cx="130" cy="112" r="48" fill="#102f44" stroke="#55d7ff" stroke-width="2" filter="url(#glow)"/>
+    <text x="130" y="105" fill="#e9fbff" font-size="30" font-family="Arial, 'PingFang SC', sans-serif" text-anchor="middle" font-weight="700">Go</text>
+    <text x="130" y="132" fill="#8feaff" font-size="16" font-family="Arial, 'PingFang SC', sans-serif" text-anchor="middle">1.25 / 1.26</text>
+    <g fill="#091927" stroke="#55d7ff" stroke-width="1.6">
+      <rect x="8" y="17" width="106" height="42" rx="13"/>
+      <rect x="152" y="17" width="106" height="42" rx="13"/>
+      <rect x="77" y="187" width="106" height="42" rx="13"/>
+    </g>
+    <g fill="#dff8ff" font-size="17" font-family="Arial, 'PingFang SC', sans-serif" text-anchor="middle" font-weight="700">
+      <text x="61" y="44">性能债</text>
+      <text x="205" y="44">写法债</text>
+      <text x="130" y="214">测试债</text>
+    </g>
+    <g stroke="#55d7ff" stroke-width="1.4" opacity="0.75">
+      <path d="M88 60 L108 86"/>
+      <path d="M181 60 L154 87"/>
+      <path d="M130 187 L130 160"/>
+    </g>
+  </g>
+  <g transform="translate(380 76)">
+    <text x="0" y="0" fill="#76e4ff" font-size="18" font-family="Arial, 'PingFang SC', sans-serif" letter-spacing="1.5">GO 1.25 / 1.26</text>
+    <text x="0" y="52" fill="#f2fbff" font-size="42" font-family="Arial, 'PingFang SC', sans-serif" font-weight="800">替团队还三类债</text>
+    <text x="0" y="98" fill="#d6edf4" font-size="24" font-family="Arial, 'PingFang SC', sans-serif">性能、写法、测试</text>
+    <g transform="translate(0 132)">
+      <rect x="0" y="0" width="420" height="46" rx="16" fill="#0d2435" stroke="#1f6176"/>
+      <text x="22" y="30" fill="#9eefff" font-size="18" font-family="Arial, 'PingFang SC', sans-serif">Green Tea GC：先别把 GC 成本写成整体提速</text>
+      <rect x="0" y="61" width="420" height="46" rx="16" fill="#0d2435" stroke="#1f6176"/>
+      <text x="22" y="91" fill="#9eefff" font-size="18" font-family="Arial, 'PingFang SC', sans-serif">go fix：代码库现代化不再全靠人肉</text>
+      <rect x="0" y="122" width="420" height="46" rx="16" fill="#0d2435" stroke="#1f6176"/>
+      <text x="22" y="152" fill="#9eefff" font-size="18" font-family="Arial, 'PingFang SC', sans-serif">synctest：并发测试别再赌 Sleep 足够</text>
+    </g>
+  </g>
+</svg>
