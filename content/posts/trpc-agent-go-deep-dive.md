@@ -6,6 +6,7 @@ draft: false
 author: "任博"
 tags: [tRPC-Agent-Go, Go, Agent, GraphAgent, Skills, A2A, MCP, 生产环境]
 categories: ["技术实战"]
+cover: "/images/trpc-agent-go-deep-dive/cover.png"
 toc: true
 ---
 

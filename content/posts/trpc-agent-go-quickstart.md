@@ -6,6 +6,7 @@ draft: false
 author: "任博"
 tags: [Go, tRPC-Agent-Go, Agent, LLM, LangChain, GraphAgent, AI]
 categories: ["技术实战"]
+cover: "/images/trpc-agent-go-quickstart/cover.png"
 toc: true
 ---
 
