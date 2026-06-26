@@ -1,7 +1,7 @@
 ---
 title: "tRPC-Agent-Go 深度实践：生产级 Agent 的工程落地之道"
 description: "GraphAgent 检查点机制、Human-in-the-Loop、Skills 可复用工作流、A2A/MCP 协议集成、可观测性与评测——tRPC-Agent-Go 的生产级特性全面解析。"
-date: 2026-06-27T10:00:00+08:00
+date: 2026-06-26T14:00:00+08:00
 draft: false
 author: "任博"
 tags: [tRPC-Agent-Go, Go, Agent, GraphAgent, Skills, A2A, MCP, 生产环境]
