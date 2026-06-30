@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383" role="img" aria-label="Codex 视频工具三种架构：生成式、剪辑式、编辑器控制式">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#fb7185"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="166" cy="86" r="88" fill="#1e3a8a" opacity="0.28"/>
+  <circle cx="762" cy="312" r="116" fill="#0891b2" opacity="0.15"/>
+
+  <g transform="translate(54 58)">
+    <text x="0" y="0" fill="#94a3b8" font-size="16" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">CODEX VIDEO TOOL MAP</text>
+    <text x="0" y="48" fill="#f8fafc" font-size="40" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">别先装 HyperFrames</text>
+    <text x="0" y="88" fill="#cbd5e1" font-size="22" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">先看素材在哪一层</text>
+  </g>
+
+  <g transform="translate(54 188)">
+    <rect x="0" y="0" width="170" height="96" rx="18" fill="#0b1220" stroke="#2563eb" stroke-width="1.5"/>
+    <text x="24" y="34" fill="#e0f2fe" font-size="20" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">生成式</text>
+    <text x="24" y="64" fill="#94a3b8" font-size="15" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">HTML / React</text>
+    <text x="24" y="84" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">HyperFrames · Remotion</text>
+  </g>
+
+  <g transform="translate(256 188)">
+    <rect x="0" y="0" width="170" height="96" rx="18" fill="#0b1220" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="24" y="34" fill="#fef3c7" font-size="20" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">剪辑式</text>
+    <text x="24" y="64" fill="#94a3b8" font-size="15" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">ASR / EDL</text>
+    <text x="24" y="84" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Short Maker · WowClip</text>
+  </g>
+
+  <g transform="translate(458 188)">
+    <rect x="0" y="0" width="170" height="96" rx="18" fill="#0b1220" stroke="#22c55e" stroke-width="1.5"/>
+    <text x="24" y="34" fill="#dcfce7" font-size="20" font-weight="700" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">编辑器控制</text>
+    <text x="24" y="64" fill="#94a3b8" font-size="15" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">真实 timeline</text>
+    <text x="24" y="84" fill="#64748b" font-size="13" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">Monet</text>
+  </g>
+
+  <g transform="translate(680 96)" filter="url(#glow)">
+    <path d="M72 0 L144 42 L144 126 L72 168 L0 126 L0 42 Z" fill="#0f172a" stroke="url(#cyan)" stroke-width="3"/>
+    <path d="M72 28 L118 55 L118 111 L72 138 L26 111 L26 55 Z" fill="none" stroke="url(#amber)" stroke-width="3" opacity="0.95"/>
+    <circle cx="72" cy="84" r="19" fill="#22d3ee" opacity="0.92"/>
+  </g>
+
+  <text x="54" y="344" fill="#94a3b8" font-size="17" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif">不是哪个工具最强，而是你的视频任务先落在哪个工程对象上。</text>
+</svg>

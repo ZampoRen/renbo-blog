@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="Codex 视频工具四问决策树">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0f172a"/><stop offset="100%" stop-color="#020617"/></linearGradient>
+    <style>
+      .t{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif}.muted{fill:#94a3b8}.main{fill:#f8fafc}.card{fill:#111827;stroke:#334155;stroke-width:2}.q{fill:#0b1220;stroke:#38bdf8;stroke-width:2}.ans{fill:#172033;stroke:#475569;stroke-width:1.5}.line{stroke:#475569;stroke-width:2;fill:none}.blue{fill:#e0f2fe}.green{fill:#dcfce7}.amber{fill:#fef3c7}.pink{fill:#ffe4e6}
+    </style>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="60" y="76" class="t main" font-size="40" font-weight="700">Codex 视频工具四问决策树</text>
+  <text x="60" y="116" class="t muted" font-size="20">先问素材和中间表示，再谈工具名。</text>
+
+  <rect x="60" y="170" width="250" height="120" rx="20" class="q"/>
+  <text x="88" y="214" class="t blue" font-size="24" font-weight="700">1. 有没有素材？</text>
+  <text x="88" y="250" class="t muted" font-size="18">没有：生成式</text>
+  <text x="88" y="276" class="t muted" font-size="18">已有长视频：剪辑式</text>
+
+  <path d="M310 230 C370 230 380 230 430 230" class="line"/>
+  <rect x="430" y="170" width="305" height="120" rx="20" class="ans"/>
+  <text x="460" y="214" class="t main" font-size="23" font-weight="700">文案 / 网页 / 数据</text>
+  <text x="460" y="254" class="t green" font-size="20">HyperFrames · Remotion</text>
+
+  <path d="M310 260 C370 350 380 404 430 404" class="line"/>
+  <rect x="430" y="344" width="305" height="120" rx="20" class="ans"/>
+  <text x="460" y="388" class="t main" font-size="23" font-weight="700">访谈 / 播客 / 长视频</text>
+  <text x="460" y="428" class="t amber" font-size="20">Short Maker · WowClip · Monet</text>
+
+  <rect x="820" y="150" width="300" height="150" rx="22" class="q"/>
+  <text x="850" y="194" class="t blue" font-size="24" font-weight="700">2. 中间表示是什么？</text>
+  <text x="850" y="232" class="t muted" font-size="18">HTML / React：生成工程</text>
+  <text x="850" y="260" class="t muted" font-size="18">EDL JSON：剪辑流水线</text>
+  <text x="850" y="288" class="t muted" font-size="18">timeline：真实编辑器</text>
+
+  <rect x="60" y="520" width="318" height="118" rx="20" class="card"/>
+  <text x="90" y="562" class="t main" font-size="22" font-weight="700">3. 要批量确定输出？</text>
+  <text x="90" y="602" class="t muted" font-size="18">优先代码生成和 CLI render</text>
+
+  <rect x="441" y="520" width="318" height="118" rx="20" class="card"/>
+  <text x="471" y="562" class="t main" font-size="22" font-weight="700">4. 要预览和精调？</text>
+  <text x="471" y="602" class="t muted" font-size="18">优先 timeline / preview / EDL</text>
+
+  <rect x="822" y="520" width="318" height="118" rx="20" class="card"/>
+  <text x="852" y="562" class="t main" font-size="22" font-weight="700">环境能接受什么？</text>
+  <text x="852" y="602" class="t muted" font-size="18">Node 22、React、macOS、许可</text>
+
+  <text x="60" y="704" class="t pink" font-size="22" font-weight="700">一句话：先选架构，再选工具。工具名只是最后一步。</text>
+</svg>
