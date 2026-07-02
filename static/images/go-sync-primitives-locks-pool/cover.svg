@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383">
+  <defs><linearGradient id="bg" x1="0" x2="1"><stop offset="0" stop-color="#07111f"/><stop offset="1" stop-color="#13233f"/></linearGradient></defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="135" cy="192" r="64" fill="#38bdf8" opacity="0.16"/>
+  <circle cx="135" cy="192" r="30" fill="#38bdf8" opacity="0.85"/>
+  <path d="M190 145 C280 80, 350 115, 410 190 S560 290, 700 205" fill="none" stroke="#60a5fa" stroke-width="3" opacity="0.65"/>
+  <path d="M190 238 C290 305, 362 260, 430 195 S575 90, 700 178" fill="none" stroke="#22c55e" stroke-width="3" opacity="0.55"/>
+  <g font-family="Arial, 'PingFang SC', sans-serif">
+    <text x="470" y="130" fill="#f8fafc" font-size="42" font-weight="700">别急着换 RWMutex</text>
+    <text x="472" y="178" fill="#cbd5e1" font-size="24">Mutex / RWMutex / sync.Pool</text>
+    <text x="472" y="220" fill="#93c5fd" font-size="25">先算吞吐、尾延迟和 GC 三笔账</text>
+    <rect x="472" y="255" width="295" height="44" rx="22" fill="#0f172a" stroke="#38bdf8" opacity="0.92"/>
+    <text x="497" y="284" fill="#e0f2fe" font-size="19">同步原语不是性能按钮</text>
+  </g>
+</svg>
