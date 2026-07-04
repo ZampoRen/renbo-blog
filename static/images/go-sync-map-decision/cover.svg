@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383" role="img" aria-label="sync.Map 选型决策封面">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.58" stop-color="#0c1f34"/>
+      <stop offset="1" stop-color="#10253f"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#61dafb"/>
+      <stop offset="1" stop-color="#7dd3fc"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <g opacity="0.16" stroke="#8bd3ff" stroke-width="1">
+    <path d="M0 310 C140 260 220 340 360 285 S600 220 900 280" fill="none"/>
+    <path d="M0 90 C160 130 250 40 420 92 S680 165 900 88" fill="none"/>
+  </g>
+
+  <g transform="translate(72 72)">
+    <rect x="0" y="0" width="330" height="224" rx="28" fill="#0d2138" stroke="#24415f"/>
+    <text x="32" y="48" fill="#d8ecff" font-family="Inter, PingFang SC, Arial, sans-serif" font-size="24" font-weight="700">map + lock</text>
+    <rect x="32" y="72" width="118" height="48" rx="14" fill="#132c49" stroke="#355b7c"/>
+    <text x="91" y="103" text-anchor="middle" fill="#b7d7f5" font-family="Inter, PingFang SC, Arial" font-size="16">边界清楚</text>
+    <rect x="180" y="72" width="118" height="48" rx="14" fill="#132c49" stroke="#355b7c"/>
+    <text x="239" y="103" text-anchor="middle" fill="#b7d7f5" font-family="Inter, PingFang SC, Arial" font-size="16">不变量</text>
+    <path d="M96 153 H230" stroke="#7dd3fc" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="96" cy="153" r="8" fill="#7dd3fc" filter="url(#glow)"/>
+    <circle cx="230" cy="153" r="8" fill="#7dd3fc" filter="url(#glow)"/>
+    <text x="32" y="195" fill="#7c9fbd" font-family="Inter, PingFang SC, Arial" font-size="15">锁不只是保护 map</text>
+  </g>
+
+  <g transform="translate(505 72)">
+    <rect x="0" y="0" width="320" height="224" rx="28" fill="#0b2531" stroke="#2b6170"/>
+    <text x="32" y="48" fill="#d8fff5" font-family="Inter, PingFang SC, Arial, sans-serif" font-size="24" font-weight="700">sync.Map</text>
+    <g transform="translate(32 78)">
+      <rect x="0" y="0" width="116" height="42" rx="13" fill="#0f3a45" stroke="#36a3b3"/>
+      <text x="58" y="27" text-anchor="middle" fill="#bff7ff" font-family="Inter, PingFang SC, Arial" font-size="15">读快路径</text>
+      <rect x="146" y="0" width="116" height="42" rx="13" fill="#132d3c" stroke="#496b7d"/>
+      <text x="204" y="27" text-anchor="middle" fill="#b8d2df" font-family="Inter, PingFang SC, Arial" font-size="15">慢路径锁</text>
+      <rect x="0" y="70" width="116" height="42" rx="13" fill="#132d3c" stroke="#496b7d"/>
+      <text x="58" y="97" text-anchor="middle" fill="#b8d2df" font-family="Inter, PingFang SC, Arial" font-size="15">key 模式</text>
+      <rect x="146" y="70" width="116" height="42" rx="13" fill="#132d3c" stroke="#496b7d"/>
+      <text x="204" y="97" text-anchor="middle" fill="#b8d2df" font-family="Inter, PingFang SC, Arial" font-size="15">快照代价</text>
+    </g>
+    <text x="32" y="195" fill="#7ab4bf" font-family="Inter, PingFang SC, Arial" font-size="15">并发安全，不等于业务正确</text>
+  </g>
+
+  <g transform="translate(356 177)">
+    <circle cx="50" cy="28" r="28" fill="url(#cyan)" opacity="0.9"/>
+    <path d="M32 28 H68 M54 14 L68 28 L54 42" fill="none" stroke="#062033" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <text x="72" y="335" fill="#f2f8ff" font-family="Inter, PingFang SC, Arial, sans-serif" font-size="34" font-weight="800">读多写少就用 sync.Map？</text>
+  <text x="508" y="335" fill="#89d8ff" font-family="Inter, PingFang SC, Arial, sans-serif" font-size="24" font-weight="700">先问这 5 个问题</text>
+</svg>

@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="sync.Map 选型流程图">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#10243a"/>
+    </linearGradient>
+    <style>
+      .title{font:700 34px 'Inter','PingFang SC',Arial,sans-serif;fill:#f4fbff}
+      .sub{font:400 18px 'Inter','PingFang SC',Arial,sans-serif;fill:#91adc6}
+      .q{font:700 21px 'Inter','PingFang SC',Arial,sans-serif;fill:#e8f7ff}
+      .small{font:400 15px 'Inter','PingFang SC',Arial,sans-serif;fill:#9eb8cc}
+      .result{font:700 20px 'Inter','PingFang SC',Arial,sans-serif;fill:#061521}
+      .arrow{stroke:#5d7f9e;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow)}
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#5d7f9e"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text class="title" x="80" y="82">并发 map 选型，不要只问“读多写少”</text>
+  <text class="sub" x="80" y="116">先确认它保护的是 key/value，还是一组业务不变量。</text>
+
+  <g transform="translate(80 170)">
+    <rect x="0" y="0" width="300" height="96" rx="22" fill="#0e2238" stroke="#294862"/>
+    <text class="q" x="28" y="38">1. 只维护 key/value？</text>
+    <text class="small" x="28" y="67">还牵着计数、队列、过期状态？</text>
+  </g>
+  <path class="arrow" d="M380 218 H455"/>
+  <g transform="translate(455 182)">
+    <rect x="0" y="0" width="240" height="72" rx="18" fill="#ffd166"/>
+    <text class="result" x="120" y="44" text-anchor="middle">否：map + Mutex</text>
+  </g>
+  <path class="arrow" d="M230 266 V322"/>
+
+  <g transform="translate(80 322)">
+    <rect x="0" y="0" width="300" height="96" rx="22" fill="#0e2238" stroke="#294862"/>
+    <text class="q" x="28" y="38">2. key 稳定，写一次读多？</text>
+    <text class="small" x="28" y="67">只增长缓存、基本只读表</text>
+  </g>
+  <path class="arrow" d="M380 370 H455"/>
+  <g transform="translate(455 334)">
+    <rect x="0" y="0" width="240" height="72" rx="18" fill="#7dd3fc"/>
+    <text class="result" x="120" y="44" text-anchor="middle">是：sync.Map 值得测</text>
+  </g>
+  <path class="arrow" d="M230 418 V474"/>
+
+  <g transform="translate(80 474)">
+    <rect x="0" y="0" width="300" height="96" rx="22" fill="#0e2238" stroke="#294862"/>
+    <text class="q" x="28" y="38">3. goroutine 操作不重叠 key？</text>
+    <text class="small" x="28" y="67">不是都在写同一批 hot key</text>
+  </g>
+  <path class="arrow" d="M380 522 H455"/>
+  <g transform="translate(455 486)">
+    <rect x="0" y="0" width="240" height="72" rx="18" fill="#7dd3fc"/>
+    <text class="result" x="120" y="44" text-anchor="middle">是：sync.Map 可压测</text>
+  </g>
+  <path class="arrow" d="M230 570 V626 H765 V510"/>
+
+  <g transform="translate(765 170)">
+    <rect x="0" y="0" width="330" height="96" rx="22" fill="#0e2238" stroke="#294862"/>
+    <text class="q" x="28" y="38">4. 需要快照 / 精确 len / 批量一致？</text>
+    <text class="small" x="28" y="67">Range 不是一致快照</text>
+  </g>
+  <path class="arrow" d="M930 266 V322"/>
+  <g transform="translate(810 322)">
+    <rect x="0" y="0" width="240" height="72" rx="18" fill="#ffd166"/>
+    <text class="result" x="120" y="44" text-anchor="middle">是：别交给 sync.Map</text>
+  </g>
+  <path class="arrow" d="M930 394 V450"/>
+
+  <g transform="translate(765 450)">
+    <rect x="0" y="0" width="330" height="96" rx="22" fill="#0e2238" stroke="#294862"/>
+    <text class="q" x="28" y="38">5. 类型安全和边界很重要？</text>
+    <text class="small" x="28" y="67">长期维护比少几行锁更贵</text>
+  </g>
+  <path class="arrow" d="M930 546 V602"/>
+  <g transform="translate(785 602)">
+    <rect x="0" y="0" width="290" height="72" rx="18" fill="#a7f3d0"/>
+    <text class="result" x="145" y="44" text-anchor="middle">封装 map + 锁，通常更清楚</text>
+  </g>
+
+  <text x="80" y="705" fill="#80a5c3" font-family="Inter, PingFang SC, Arial" font-size="17">经验规则：sync.Map 解决的是部分访问模式的锁竞争，不负责表达你的业务临界区。</text>
+</svg>
