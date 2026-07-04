@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383" role="img" aria-labelledby="title desc">
+  <title id="title">Go 数据库连接池封面</title>
+  <desc id="desc">Go 服务、连接池阀门和数据库之间的连接示意图</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#0b1f35"/>
+      <stop offset="1" stop-color="#10243e"/>
+    </linearGradient>
+    <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#41d7ff"/>
+      <stop offset="1" stop-color="#66f2c2"/>
+    </linearGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="170" cy="82" r="110" fill="#153451" opacity="0.38"/>
+  <circle cx="760" cy="326" r="150" fill="#0f6b8f" opacity="0.18"/>
+
+  <g transform="translate(64 88)">
+    <rect x="0" y="0" width="220" height="168" rx="26" fill="#0f2138" stroke="#2d5d82" stroke-width="2"/>
+    <text x="110" y="44" text-anchor="middle" fill="#d9f7ff" font-family="Inter, PingFang SC, Arial" font-size="28" font-weight="700">Go Service</text>
+    <text x="110" y="82" text-anchor="middle" fill="#8fb8cc" font-family="Inter, PingFang SC, Arial" font-size="17">goroutines</text>
+    <g fill="#41d7ff" opacity="0.95">
+      <circle cx="72" cy="120" r="10"/><circle cx="110" cy="120" r="10"/><circle cx="148" cy="120" r="10"/>
+    </g>
+  </g>
+
+  <g transform="translate(340 70)" filter="url(#softGlow)">
+    <rect x="0" y="0" width="220" height="205" rx="30" fill="#081726" stroke="url(#cyan)" stroke-width="3"/>
+    <text x="110" y="50" text-anchor="middle" fill="#ffffff" font-family="Inter, PingFang SC, Arial" font-size="27" font-weight="800">Connection Pool</text>
+    <text x="110" y="82" text-anchor="middle" fill="#8fdcf0" font-family="Inter, PingFang SC, Arial" font-size="16">不是越大越稳</text>
+    <g transform="translate(40 110)">
+      <rect x="0" y="0" width="140" height="18" rx="9" fill="#193550"/>
+      <rect x="0" y="0" width="92" height="18" rx="9" fill="url(#cyan)"/>
+      <text x="70" y="52" text-anchor="middle" fill="#e7fbff" font-family="Inter, PingFang SC, Arial" font-size="20" font-weight="700">max_open 是刹车</text>
+    </g>
+  </g>
+
+  <g transform="translate(635 92)">
+    <rect x="0" y="0" width="200" height="160" rx="26" fill="#10233a" stroke="#315b79" stroke-width="2"/>
+    <ellipse cx="100" cy="42" rx="58" ry="22" fill="#173d5a" stroke="#66f2c2" stroke-width="2"/>
+    <rect x="42" y="42" width="116" height="70" fill="#173d5a"/>
+    <ellipse cx="100" cy="112" rx="58" ry="22" fill="#10233a" stroke="#66f2c2" stroke-width="2"/>
+    <text x="100" y="145" text-anchor="middle" fill="#dffbff" font-family="Inter, PingFang SC, Arial" font-size="25" font-weight="700">Database</text>
+  </g>
+
+  <path d="M288 172 C318 172 318 172 340 172" stroke="#41d7ff" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M560 172 C590 172 605 172 635 172" stroke="#66f2c2" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M622 158 L640 172 L622 186" stroke="#66f2c2" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="450" y="323" text-anchor="middle" fill="#ffffff" font-family="Inter, PingFang SC, Arial" font-size="34" font-weight="800">别先把 max_open 调大</text>
+  <text x="450" y="354" text-anchor="middle" fill="#9fc7d7" font-family="Inter, PingFang SC, Arial" font-size="18">先判断：等连接、没归还、建连频繁，还是连接寿命冲突</text>
+</svg>

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">连接池参数排查流程</title>
+  <desc id="desc">从错误类型到连接池参数和排查动作的流程图</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#10243e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#42d7ff"/>
+      <stop offset="1" stop-color="#66f2c2"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg)"/>
+  <text x="600" y="78" text-anchor="middle" fill="#f3fbff" font-family="Inter, PingFang SC, Arial" font-size="38" font-weight="800">连接池报错，先判断是哪一个阀门</text>
+  <text x="600" y="118" text-anchor="middle" fill="#93b8c9" font-family="Inter, PingFang SC, Arial" font-size="20">不要把所有问题都推给 max_open</text>
+
+  <g font-family="Inter, PingFang SC, Arial">
+    <rect x="70" y="180" width="240" height="128" rx="24" fill="#0f2138" stroke="#315b79" stroke-width="2"/>
+    <text x="190" y="224" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">pool exhausted</text>
+    <text x="190" y="262" text-anchor="middle" fill="#a9cad8" font-size="18">先看 Wait / InUse</text>
+    <text x="190" y="290" text-anchor="middle" fill="#66f2c2" font-size="17">查连接是否归还</text>
+
+    <rect x="360" y="180" width="240" height="128" rx="24" fill="#0f2138" stroke="#315b79" stroke-width="2"/>
+    <text x="480" y="224" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">too many connections</text>
+    <text x="480" y="262" text-anchor="middle" fill="#a9cad8" font-size="18">先看数据库预算</text>
+    <text x="480" y="290" text-anchor="middle" fill="#66f2c2" font-size="17">按实例数分配 max_open</text>
+
+    <rect x="650" y="180" width="240" height="128" rx="24" fill="#0f2138" stroke="#315b79" stroke-width="2"/>
+    <text x="770" y="224" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">频繁建连接</text>
+    <text x="770" y="262" text-anchor="middle" fill="#a9cad8" font-size="18">先看 idle 是否太小</text>
+    <text x="770" y="290" text-anchor="middle" fill="#66f2c2" font-size="17">调 max_idle / idle_time</text>
+
+    <rect x="940" y="180" width="190" height="128" rx="24" fill="#0f2138" stroke="#315b79" stroke-width="2"/>
+    <text x="1035" y="224" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="800">偶发断连</text>
+    <text x="1035" y="262" text-anchor="middle" fill="#a9cad8" font-size="18">EOF / reset</text>
+    <text x="1035" y="290" text-anchor="middle" fill="#66f2c2" font-size="17">查 lifetime</text>
+  </g>
+
+  <path d="M190 330 V405" stroke="#42d7ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M480 330 V405" stroke="#42d7ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M770 330 V405" stroke="#42d7ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M1035 330 V405" stroke="#42d7ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <g font-family="Inter, PingFang SC, Arial">
+    <rect x="95" y="420" width="190" height="82" rx="18" fill="#132d48" stroke="#42d7ff" stroke-width="2"/>
+    <text x="190" y="455" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">WaitCount</text>
+    <text x="190" y="482" text-anchor="middle" fill="#9fc7d7" font-size="16">等待是否持续上涨</text>
+
+    <rect x="385" y="420" width="190" height="82" rx="18" fill="#132d48" stroke="#42d7ff" stroke-width="2"/>
+    <text x="480" y="455" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">max_open</text>
+    <text x="480" y="482" text-anchor="middle" fill="#9fc7d7" font-size="16">数据库连接预算</text>
+
+    <rect x="675" y="420" width="190" height="82" rx="18" fill="#132d48" stroke="#42d7ff" stroke-width="2"/>
+    <text x="770" y="455" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">max_idle</text>
+    <text x="770" y="482" text-anchor="middle" fill="#9fc7d7" font-size="16">避免高频重连</text>
+
+    <rect x="940" y="420" width="190" height="82" rx="18" fill="#132d48" stroke="#42d7ff" stroke-width="2"/>
+    <text x="1035" y="455" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="800">lifetime</text>
+    <text x="1035" y="482" text-anchor="middle" fill="#9fc7d7" font-size="16">早于中间层超时</text>
+  </g>
+
+  <rect x="145" y="590" width="910" height="70" rx="24" fill="#081726" stroke="url(#accent)" stroke-width="3"/>
+  <text x="600" y="635" text-anchor="middle" fill="#f3fbff" font-family="Inter, PingFang SC, Arial" font-size="24" font-weight="800">先定位错误类型，再改对应参数；报警消失不等于配置正确</text>
+</svg>
