@@ -1,0 +1,69 @@
+<svg width="900" height="383" viewBox="0 0 900 383" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#0d1b2f"/>
+      <stop offset="1" stop-color="#13213a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4fd1c5"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="150" cy="92" r="70" fill="#1f9bd1" opacity="0.16" filter="url(#soft)"/>
+  <circle cx="742" cy="306" r="92" fill="#4fd1c5" opacity="0.12" filter="url(#soft)"/>
+
+  <g transform="translate(66 74)">
+    <rect x="0" y="0" width="330" height="238" rx="28" fill="#0b1628" stroke="#243852" stroke-width="2"/>
+    <text x="165" y="46" text-anchor="middle" fill="#d8f3ff" font-family="Inter, PingFang SC, sans-serif" font-size="24" font-weight="700">Go 后端能力</text>
+    <g fill="none" stroke="#2c4968" stroke-width="2">
+      <path d="M165 72 L78 128"/>
+      <path d="M165 72 L165 128"/>
+      <path d="M165 72 L252 128"/>
+      <path d="M78 128 L165 184"/>
+      <path d="M252 128 L165 184"/>
+    </g>
+    <g font-family="Inter, PingFang SC, sans-serif" font-size="16" font-weight="650">
+      <rect x="118" y="58" width="94" height="36" rx="18" fill="#10253d" stroke="#356384"/>
+      <text x="165" y="82" text-anchor="middle" fill="#eaf6ff">工程底座</text>
+      <rect x="24" y="112" width="108" height="42" rx="18" fill="#10253d" stroke="#356384"/>
+      <text x="78" y="139" text-anchor="middle" fill="#d8f3ff">并发/限流</text>
+      <rect x="111" y="112" width="108" height="42" rx="18" fill="#10253d" stroke="#356384"/>
+      <text x="165" y="139" text-anchor="middle" fill="#d8f3ff">API/工具</text>
+      <rect x="198" y="112" width="108" height="42" rx="18" fill="#10253d" stroke="#356384"/>
+      <text x="252" y="139" text-anchor="middle" fill="#d8f3ff">部署/观测</text>
+      <rect x="103" y="170" width="124" height="42" rx="18" fill="#10253d" stroke="#356384"/>
+      <text x="165" y="197" text-anchor="middle" fill="#d8f3ff">权限/审计</text>
+    </g>
+  </g>
+
+  <g transform="translate(392 188)">
+    <path d="M0 0 C52 -36 90 -36 142 0" fill="none" stroke="url(#accent)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M132 -11 L148 0 L132 11" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="74" y="42" text-anchor="middle" fill="#8fb8d8" font-family="Inter, PingFang SC, sans-serif" font-size="17">迁移到</text>
+  </g>
+
+  <g transform="translate(548 64)">
+    <rect x="0" y="0" width="286" height="258" rx="30" fill="#0b1628" stroke="#2e4a6c" stroke-width="2"/>
+    <text x="143" y="50" text-anchor="middle" fill="#ffffff" font-family="Inter, PingFang SC, sans-serif" font-size="30" font-weight="800">AI Agent 工程化</text>
+    <text x="143" y="82" text-anchor="middle" fill="#8fb8d8" font-family="Inter, PingFang SC, sans-serif" font-size="16">不是转算法，是升级系统边界</text>
+
+    <g font-family="Inter, PingFang SC, sans-serif" font-size="16" font-weight="650">
+      <rect x="34" y="112" width="94" height="40" rx="16" fill="#10243a" stroke="#4fd1c5" opacity="0.95"/>
+      <text x="81" y="138" text-anchor="middle" fill="#e6fffb">RAG</text>
+      <rect x="158" y="112" width="94" height="40" rx="16" fill="#10243a" stroke="#4fd1c5" opacity="0.95"/>
+      <text x="205" y="138" text-anchor="middle" fill="#e6fffb">MCP</text>
+      <rect x="34" y="170" width="94" height="40" rx="16" fill="#10243a" stroke="#60a5fa" opacity="0.95"/>
+      <text x="81" y="196" text-anchor="middle" fill="#eaf2ff">Runtime</text>
+      <rect x="158" y="170" width="94" height="40" rx="16" fill="#10243a" stroke="#60a5fa" opacity="0.95"/>
+      <text x="205" y="196" text-anchor="middle" fill="#eaf2ff">Eval/Trace</text>
+    </g>
+    <text x="143" y="238" text-anchor="middle" fill="#cde8ff" font-family="Inter, PingFang SC, sans-serif" font-size="18" font-weight="700">会治理失败，才值钱</text>
+  </g>
+
+  <text x="450" y="354" text-anchor="middle" fill="#6f8faf" font-family="Inter, PingFang SC, sans-serif" font-size="15">LLM 调用层 → RAG → MCP/Tool → Agent Runtime → Eval/Observability</text>
+</svg>
