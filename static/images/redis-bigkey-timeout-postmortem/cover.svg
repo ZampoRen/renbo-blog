@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="383" viewBox="0 0 900 383" role="img" aria-labelledby="title desc">
+  <title id="title">Redis BigKey 事故复盘封面</title>
+  <desc id="desc">一个不断膨胀的 Hash 容器阻塞 Redis 命令队列</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0a1830"/><stop offset="1" stop-color="#102f45"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="900" height="383" fill="url(#bg)"/>
+  <circle cx="750" cy="60" r="170" fill="#13c8b4" opacity=".08"/>
+  <circle cx="690" cy="330" r="170" fill="#ff694f" opacity=".08"/>
+  <g opacity=".25" stroke="#63d7dd" stroke-width="1"><path d="M0 74H900M0 148H900M0 222H900M0 296H900"/><path d="M91 0V383M182 0V383M273 0V383M364 0V383M455 0V383M546 0V383M637 0V383M728 0V383M819 0V383"/></g>
+  <text x="57" y="75" fill="#79e6db" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="17" font-weight="700" letter-spacing="3">REDIS INCIDENT POSTMORTEM</text>
+  <text x="56" y="146" fill="#f4fbff" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="42" font-weight="700">一次 Redis 超时</text>
+  <text x="56" y="201" fill="#f4fbff" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="42" font-weight="700">根因是一个 1200 万 field 的 Hash</text>
+  <text x="57" y="244" fill="#b8d1de" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="18">别先调超时：先把异常钉到实例、命令和数据对象</text>
+  <g transform="translate(620 108)">
+    <rect x="0" y="0" width="210" height="176" rx="16" fill="#0d253c" stroke="#40d8cc" stroke-width="2"/>
+    <text x="24" y="38" fill="#78eadc" font-family="monospace" font-size="18" font-weight="700">stats:daily</text>
+    <g fill="#45cfc5"><rect x="24" y="55" width="45" height="12" rx="3"/><rect x="78" y="55" width="74" height="12" rx="3"/><rect x="24" y="78" width="126" height="12" rx="3"/><rect x="24" y="101" width="165" height="12" rx="3"/><rect x="24" y="124" width="111" height="12" rx="3"/></g>
+    <path d="M22 151H185" stroke="#ff7056" stroke-width="2"/><text x="23" y="169" fill="#ff8a74" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="14">12,102,218 fields</text>
+  </g>
+  <path d="M598 198 C555 198 548 198 516 198" fill="none" stroke="#ff7159" stroke-width="4" stroke-dasharray="8 7" filter="url(#glow)"/>
+  <path d="M514 198 l16 -10 v20 z" fill="#ff7159"/>
+  <text x="429" y="182" fill="#ffad9e" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="15">全量读取</text>
+  <text x="429" y="212" fill="#ffad9e" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="15">命令排队</text>
+  <text x="58" y="340" fill="#75a7ba" font-family="Arial, PingFang SC, Microsoft YaHei, sans-serif" font-size="14">blog.cpdd.fyi</text>
+</svg>
