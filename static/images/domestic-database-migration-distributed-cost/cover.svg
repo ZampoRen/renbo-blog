@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1792" height="1024" viewBox="0 0 1792 1024" role="img" aria-labelledby="title desc">
+  <title id="title">国产数据库迁移：从 MySQL 到分布式 SQL 的成本账单</title>
+  <desc id="desc">单机数据库通向三个分布式节点，中间有 SQL 语义、跨分区事务、数据同步和故障演练四项工程成本。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071827"/><stop offset="1" stop-color="#102c43"/></linearGradient>
+    <linearGradient id="path" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#26d9c6"/><stop offset="1" stop-color="#7cebcf"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="20" flood-color="#020914" flood-opacity=".45"/></filter>
+  </defs>
+  <rect width="1792" height="1024" fill="url(#bg)"/>
+  <circle cx="1470" cy="130" r="330" fill="#1b5b6e" opacity=".18"/><circle cx="222" cy="900" r="280" fill="#0aa690" opacity=".11"/>
+  <text x="128" y="146" fill="#98b5c5" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="30" letter-spacing="4">DATABASE MIGRATION / 2026</text>
+  <text x="128" y="245" fill="#f3fbff" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-weight="700" font-size="66">国产数据库迁移前</text>
+  <text x="128" y="332" fill="#f3fbff" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-weight="700" font-size="66">先算清分布式要你接哪几笔账</text>
+  <text x="128" y="400" fill="#a9c3d0" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="31">兼容 MySQL 只是入口，系统责任才是迁移成本。</text>
+  <g filter="url(#shadow)">
+    <rect x="145" y="548" width="340" height="232" rx="22" fill="#12334a" stroke="#3d708a" stroke-width="2"/>
+    <rect x="185" y="592" width="260" height="54" rx="10" fill="#0d2437"/>
+    <circle cx="213" cy="619" r="9" fill="#26d9c6"/><rect x="238" y="610" width="140" height="16" rx="8" fill="#6c92a6"/>
+    <rect x="185" y="667" width="260" height="54" rx="10" fill="#0d2437"/>
+    <circle cx="213" cy="694" r="9" fill="#26d9c6"/><rect x="238" y="685" width="112" height="16" rx="8" fill="#6c92a6"/>
+    <text x="315" y="842" text-anchor="middle" fill="#d9ebf4" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="32" font-weight="600">单机 MySQL</text>
+  </g>
+  <path d="M520 662 C650 662 670 662 790 662" fill="none" stroke="url(#path)" stroke-width="11" stroke-linecap="round"/>
+  <path d="M790 662 l-30 -20 v40z" fill="#7cebcf"/>
+  <g font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25" font-weight="600">
+    <g><rect x="575" y="504" width="156" height="52" rx="26" fill="#173b50" stroke="#3a7380"/><text x="653" y="538" text-anchor="middle" fill="#c6e7e9">SQL 语义</text></g>
+    <g><rect x="601" y="582" width="206" height="52" rx="26" fill="#4a342f" stroke="#d58557"/><text x="704" y="616" text-anchor="middle" fill="#ffd8c0">跨分区事务</text></g>
+    <g><rect x="582" y="691" width="176" height="52" rx="26" fill="#173b50" stroke="#3a7380"/><text x="670" y="725" text-anchor="middle" fill="#c6e7e9">数据同步</text></g>
+    <g><rect x="637" y="770" width="176" height="52" rx="26" fill="#4a342f" stroke="#d58557"/><text x="725" y="804" text-anchor="middle" fill="#ffd8c0">故障演练</text></g>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M1004 546 L1134 470 L1264 546 L1264 698 L1134 774 L1004 698 Z" fill="#124159" stroke="#47cdbd" stroke-width="3"/>
+    <path d="M1004 546 L1134 622 L1264 546 M1134 622V774" fill="none" stroke="#47cdbd" stroke-width="3"/>
+    <circle cx="1134" cy="563" r="19" fill="#26d9c6"/><text x="1134" y="841" text-anchor="middle" fill="#d9ebf4" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="30" font-weight="600">节点 / 副本 A</text>
+    <path d="M1338 546 L1468 470 L1598 546 L1598 698 L1468 774 L1338 698 Z" fill="#124159" stroke="#47cdbd" stroke-width="3"/>
+    <path d="M1338 546 L1468 622 L1598 546 M1468 622V774" fill="none" stroke="#47cdbd" stroke-width="3"/>
+    <circle cx="1468" cy="563" r="19" fill="#26d9c6"/><text x="1468" y="841" text-anchor="middle" fill="#d9ebf4" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="30" font-weight="600">节点 / 副本 B</text>
+  </g>
+  <path d="M1280 500 C1310 425 1390 402 1430 448" fill="none" stroke="#d88458" stroke-width="4" stroke-dasharray="10 12"/>
+  <text x="1280" y="386" fill="#e9a67d" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="26">一致性 / 故障域</text>
+  <rect x="128" y="923" width="1536" height="1" fill="#376277" opacity=".7"/>
+  <text x="128" y="970" fill="#7599aa" font-family="-apple-system,BlinkMacSystemFont,'PingFang SC',sans-serif" font-size="25">选择架构，等于选择一套新的运行责任。</text>
+</svg>
