@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1419"/>
+      <stop offset="100%" stop-color="#1a2332"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- pipeline -->
+  <rect x="80" y="280" width="1040" height="70" rx="12" fill="#243044" stroke="#3d4f66" stroke-width="2"/>
+  <!-- stages -->
+  <rect x="100" y="250" width="220" height="130" rx="10" fill="#1e3a2f" stroke="#27e0a3" stroke-width="3"/>
+  <text x="210" y="310" text-anchor="middle" fill="#27e0a3" font-family="SF Pro Display, PingFang SC, sans-serif" font-size="28" font-weight="700">入口先关</text>
+  <text x="210" y="350" text-anchor="middle" fill="#a8b8c8" font-family="SF Pro Display, PingFang SC, sans-serif" font-size="18">stop accept</text>
+
+  <rect x="490" y="250" width="220" height="130" rx="10" fill="#2a2418" stroke="#f4c542" stroke-width="3"/>
+  <text x="600" y="310" text-anchor="middle" fill="#f4c542" font-family="SF Pro Display, PingFang SC, sans-serif" font-size="28" font-weight="700">等存量做完</text>
+  <text x="600" y="350" text-anchor="middle" fill="#a8b8c8" font-family="SF Pro Display, PingFang SC, sans-serif" font-size="18">drain in-flight</text>
+
+  <rect x="880" y="250" width="220" height="130" rx="10" fill="#3a1e1e" stroke="#e74c3c" stroke-width="3"/>
+  <text x="990" y="310" text-anchor="middle" fill="#e74c3c" font-family="SF Pro Display, PingFang SC, sans-serif" font-size="28" font-weight="700">出口最后关</text>
+  <text x="990" y="350" text-anchor="middle" fill="#a8b8c8" font-family="SF Pro Display, PingFang SC, sans-serif" font-size="18">DB / MQ / pool</text>
+
+  <!-- arrows -->
+  <path d="M330 315 L475 315" stroke="#27e0a3" stroke-width="4" fill="none" marker-end="url(#a)"/>
+  <path d="M720 315 L865 315" stroke="#f4c542" stroke-width="4" fill="none"/>
+  <polygon points="470,305 490,315 470,325" fill="#27e0a3"/>
+  <polygon points="860,305 880,315 860,325" fill="#f4c542"/>
+
+  <text x="80" y="120" fill="#f6f7f9" font-family="SF Pro Display, PingFang SC, sans-serif" font-size="48" font-weight="700">SHUTDOWN 顺序</text>
+  <text x="80" y="180" fill="#a8b8c8" font-family="SF Pro Display, PingFang SC, sans-serif" font-size="28">入口先关 · 等干完 · 出口最后关</text>
+  <text x="80" y="540" fill="#6b7c8f" font-family="SF Pro Display, PingFang SC, sans-serif" font-size="22">发版 502 尖刺 · 别先怪探针 · 先看关闭顺序</text>
+  <text x="1050" y="580" text-anchor="end" fill="#27e0a3" font-family="SF Pro Display, PingFang SC, sans-serif" font-size="20" font-weight="600">Zampo</text>
+</svg>
