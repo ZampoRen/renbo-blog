@@ -1,7 +1,7 @@
 ---
 title: "发一次版就冒一串 502，别急着怪 K8s 探针，先看你的关闭顺序"
 description: "graceful shutdown 不是加个 signal.Notify 加个 server.Shutdown() 就完事。它是一整套关闭顺序：先停接新请求，再等存量请求做完，最后才关 DB、MQ、连接池。顺序反了，收到信号就关依赖，等于让还在飞的请求集体撞墙。"
-date: 2026-07-21T14:20:00+08:00
+date: 2026-07-21T09:00:00+08:00
 draft: false
 author: "Zampo"
 tags: ["Go", "graceful shutdown", "net/http", "Kubernetes", "后端"]
