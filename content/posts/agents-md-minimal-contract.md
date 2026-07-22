@@ -5,6 +5,7 @@ description: "Agent 进错目录、照着过期命令执行，只留一句“已
 date: 2026-07-22T17:45:50+08:00
 draft: false
 author: "Zampo"
+cover: "/images/agents-md-minimal-contract/cover.png"
 tags: ["AI Agent", "AGENTS.md", "Codex", "Claude Code", "Hermes", "工程实践"]
 categories: ["工程实践"]
 toc: true
